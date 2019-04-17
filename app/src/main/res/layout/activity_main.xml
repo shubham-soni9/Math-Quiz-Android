@@ -108,7 +108,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -179,13 +179,13 @@
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/tvIntermediate"
+        android:id="@+id/tvGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:text="Intermediate Level"
+        android:text="Games - Learn with fun"
         android:textColor="@color/black_80"
         android:textSize="22sp" />
 
@@ -199,8 +199,44 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+            android:layout_height="50dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/app_button_background"
+                android:drawableStart="@drawable/ic_abacus"
+                android:drawableLeft="@drawable/ic_abacus"
+                android:drawablePadding="10dp"
+                android:paddingLeft="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:text="Abacus"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/app_button_background"
+                android:drawableStart="@drawable/ic_2048"
+                android:drawableLeft="@drawable/ic_2048"
+                android:drawablePadding="10dp"
+                android:paddingLeft="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:text="2048"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
 
     </HorizontalScrollView>
 </LinearLayout>
