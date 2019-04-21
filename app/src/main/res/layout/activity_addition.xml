@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
 
     <RelativeLayout
@@ -13,11 +12,13 @@
         android:layout_height="55dp">
 
         <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
-            android:layout_marginStart="15dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:src="@drawable/ic_back" />
 
         <TextView
@@ -34,10 +35,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/background_remaining_qna"
-            android:padding="10dp"
-            android:text="1/10"
             android:layout_marginEnd="20dp"
+            android:background="@drawable/background_remaining_qna"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="1/10"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -54,9 +58,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/vwShadow"
+        android:fillViewport="true"
         android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:fillViewport="true">
+        android:paddingEnd="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -98,7 +102,7 @@
                 android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="@color/colorPrimary"
                 app:cardCornerRadius="5dp"
-                app:cardElevation="10dp">
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -122,19 +126,21 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_remaining_qna"
+                    android:drawableEnd="@drawable/ic_skip"
+                    android:drawablePadding="5dp"
+                    android:padding="10dp"
                     android:text="@string/skip_to_next"
                     android:textColor="@color/white"
-                    android:padding="10dp"
-                    android:drawableEnd="@drawable/ic_skip"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="end"
-                    android:drawablePadding="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_remaining_qna"/>
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -147,7 +153,7 @@
                         android:layout_weight="0.5"
                         app:cardBackgroundColor="@color/colorPrimary"
                         app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp">
+                        app:cardElevation="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -155,7 +161,7 @@
                             android:gravity="center"
                             android:text="25"
                             android:textColor="@color/white"
-                            android:textSize="40sp" />
+                            android:textSize="35sp" />
 
                     </android.support.v7.widget.CardView>
 
@@ -166,7 +172,7 @@
                         android:layout_weight="0.5"
                         app:cardBackgroundColor="@color/colorPrimary"
                         app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp">
+                        app:cardElevation="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -174,7 +180,7 @@
                             android:gravity="center"
                             android:text="30"
                             android:textColor="@color/white"
-                            android:textSize="40sp" />
+                            android:textSize="35sp" />
 
                     </android.support.v7.widget.CardView>
 
@@ -194,7 +200,7 @@
                         android:layout_weight="0.5"
                         app:cardBackgroundColor="@color/colorPrimary"
                         app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp">
+                        app:cardElevation="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -202,7 +208,7 @@
                             android:gravity="center"
                             android:text="14"
                             android:textColor="@color/white"
-                            android:textSize="40sp" />
+                            android:textSize="35sp" />
 
                     </android.support.v7.widget.CardView>
 
@@ -212,7 +218,7 @@
                         android:layout_weight="0.5"
                         app:cardBackgroundColor="@color/colorPrimary"
                         app:cardCornerRadius="5dp"
-                        app:cardElevation="10dp">
+                        app:cardElevation="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -220,7 +226,7 @@
                             android:gravity="center"
                             android:text="15"
                             android:textColor="@color/white"
-                            android:textSize="40sp" />
+                            android:textSize="35sp" />
 
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
