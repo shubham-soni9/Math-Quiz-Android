@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Math Game</string>
+    <string name="sudoku">Sudoku</string>
+    <string name="tic_tac_toe">Tic Tac Toe</string>
+    <string name="two_zero_four_eight">2048 Game</string>
+    <string name="abacus">Abacus</string>
+    <string name="games_learn_with_fun">Games - Learn with fun</string>
+    <string name="beginner_level">Beginner Level</string>
+    <string name="addition">Addition</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="percentage">Percentage</string>
+    <string name="square_root">Square Root</string>
+    <string name="career_mode">Career Mode</string>
+    <string name="custom_mode">Custom Mode</string>
 </resources>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="55dp">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -37,293 +37,160 @@
         android:layout_height="10dp"
         android:background="@drawable/shadow_gradient" />
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
-
-        <Button
-            android:id="@+id/btnSignIn"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/app_button_background"
-            android:drawableStart="@drawable/ic_carrier"
-            android:drawableLeft="@drawable/ic_carrier"
-            android:drawablePadding="10dp"
-            android:paddingLeft="20dp"
-            android:paddingEnd="20dp"
-            android:paddingRight="20dp"
-            android:text="Career Mode"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/btnCustom"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/app_button_background"
-            android:paddingLeft="20dp"
-            android:paddingEnd="20dp"
-            android:paddingRight="20dp"
-            android:drawableStart="@drawable/ic_custom_mode"
-            android:drawablePadding="10dp"
-            android:text="Custom Mode"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:drawableLeft="@drawable/ic_custom_mode" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvBeginnerLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="Beginner Level"
-        android:textColor="@color/black_80"
-        android:textSize="22sp" />
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:scrollbars="none">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnSignIn"
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_carrier"
+                    android:drawableLeft="@drawable/ic_carrier"
+                    android:text="@string/career_mode" />
+
+                <TextView
+                    android:id="@+id/btnCustom"
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_custom_mode"
+                    android:drawableLeft="@drawable/ic_custom_mode"
+                    android:text="@string/custom_mode" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvBeginnerLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_addition"
-                android:padding="20dp"
-                android:src="@drawable/ic_add" />
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/beginner_level"
+                android:textColor="@color/black_80"
+                android:textSize="22sp" />
 
-            <ImageView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_add"
+                    android:drawableLeft="@drawable/ic_add"
+                    android:text="@string/addition" />
+
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_subtract"
+                    android:drawableLeft="@drawable/ic_subtract"
+                    android:text="@string/subtraction" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_multiply"
+                    android:drawableLeft="@drawable/ic_multiply"
+                    android:text="@string/multiplication" />
+
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_divide"
+                    android:drawableLeft="@drawable/ic_divide"
+                    android:text="@string/division" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_modules"
+                    android:drawableLeft="@drawable/ic_modules"
+                    android:text="@string/percentage" />
+
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_square_root"
+                    android:drawableLeft="@drawable/ic_square_root"
+                    android:text="@string/square_root" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvGames"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_addition"
-                android:padding="20dp"
-                android:src="@drawable/ic_subtract" />
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/games_learn_with_fun"
+                android:textColor="@color/black_80"
+                android:textSize="22sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_addition"
-                android:padding="20dp"
-                android:src="@drawable/ic_multiply" />
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_abacus"
+                    android:drawableLeft="@drawable/ic_abacus"
+                    android:text="@string/abacus" />
+
+                <TextView
+                    style="@style/home_btn_style"
+                    android:drawableStart="@drawable/ic_2048"
+                    android:drawableLeft="@drawable/ic_2048"
+                    android:text="@string/two_zero_four_eight" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_addition"
-                android:padding="20dp"
-                android:src="@drawable/ic_divide" />
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_addition"
-                android:padding="20dp"
-                android:src="@drawable/ic_modules" />
+                <TextView
+                    style="@style/home_btn_style"
+                    android:background="@drawable/app_button_background"
+                    android:drawableStart="@drawable/ic_ttt"
+                    android:drawableLeft="@drawable/ic_ttt"
+                    android:text="@string/tic_tac_toe" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_addition"
-                android:padding="20dp"
-                android:src="@drawable/ic_square_root" />
+                <TextView
+                    style="@style/home_btn_style"
+                    android:background="@drawable/app_button_background"
+                    android:drawableStart="@drawable/ic_sudoku"
+                    android:drawableLeft="@drawable/ic_sudoku"
+                    android:text="@string/sudoku" />
 
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_addition"
-                android:padding="20dp"
-                android:src="@drawable/ic_mutli_sign" />
         </LinearLayout>
-
-    </HorizontalScrollView>
-
-    <TextView
-        android:id="@+id/tvGames"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Games - Learn with fun"
-        android:textColor="@color/black_80"
-        android:textSize="22sp" />
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal" >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:background="@drawable/app_button_background"
-                android:drawableStart="@drawable/ic_abacus"
-                android:drawableLeft="@drawable/ic_abacus"
-                android:drawablePadding="10dp"
-                android:paddingLeft="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="Abacus"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:background="@drawable/app_button_background"
-                android:drawableStart="@drawable/ic_2048"
-                android:drawableLeft="@drawable/ic_2048"
-                android:drawablePadding="10dp"
-                android:paddingLeft="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="2048"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:background="@drawable/app_button_background"
-                android:drawableStart="@drawable/ic_sudoku"
-                android:drawableLeft="@drawable/ic_sudoku"
-                android:drawablePadding="10dp"
-                android:paddingLeft="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="Sudoku"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-    </HorizontalScrollView>
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal" >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:background="@drawable/app_button_background"
-                android:drawableStart="@drawable/ic_abacus"
-                android:drawableLeft="@drawable/ic_abacus"
-                android:drawablePadding="10dp"
-                android:paddingLeft="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="Abacus"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:background="@drawable/app_button_background"
-                android:drawableStart="@drawable/ic_2048"
-                android:drawableLeft="@drawable/ic_2048"
-                android:drawablePadding="10dp"
-                android:paddingLeft="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="2048"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:background="@drawable/app_button_background"
-                android:drawableStart="@drawable/ic_sudoku"
-                android:drawableLeft="@drawable/ic_sudoku"
-                android:drawablePadding="10dp"
-                android:paddingLeft="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="Sudoku"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-    </HorizontalScrollView>
-
+    </ScrollView>
 </LinearLayout>
