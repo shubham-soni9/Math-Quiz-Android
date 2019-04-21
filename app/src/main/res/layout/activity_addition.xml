@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingStart="20dp"
-    android:paddingEnd="20dp"
-    android:orientation="vertical">
+    android:paddingEnd="20dp">
+
 
     <RelativeLayout
         android:id="@+id/vTopbar"
@@ -37,8 +38,8 @@
             android:background="@drawable/background_remaining_qna"
             android:padding="10dp"
             android:text="1/10"
-            android:textSize="16dp"
             android:textColor="@color/white"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -49,154 +50,167 @@
         android:layout_below="@+id/vTopbar"
         android:background="@drawable/shadow_gradient" />
 
-    <TextView
-        android:id="@+id/tvTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00:30"
-        android:textSize="20sp"
-        android:textColor="@color/black_100"
-        android:textStyle="bold"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/vwShadow"/>
-    <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
-        android:id="@+id/pbTimer"
-        style="?android:attr/progressBarStyleHorizontal"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTimer"
-        android:indeterminate="false"
-        android:maxHeight="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:minHeight="12dp"
-        android:progress="40"
-        app:backgroundColor="@color/progress_bar_empty_color"
-        app:progressColor="@color/progress_bar_filled_color" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/vwShadow"
+        android:fillViewport="true">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/llAnswerLayout"
-        android:layout_below="@+id/pbTimer"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="10dp">
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="00:30"
+                android:textColor="@color/black_100"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
+                android:id="@+id/pbTimer"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="10 + 20 = ?"
-                android:textColor="@color/white"
-                android:textSize="40sp" />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <LinearLayout
-        android:id="@+id/llAnswerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:layout_below="@+id/tvTimer"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:indeterminate="false"
+                android:maxHeight="12dp"
+                android:minHeight="12dp"
+                android:progress="40"
+                app:backgroundColor="@color/progress_bar_empty_color"
+                app:progressColor="@color/progress_bar_filled_color" />
 
             <android.support.v7.widget.CardView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:layout_marginEnd="10dp"
+                android:layout_above="@+id/llAnswerLayout"
+                android:layout_below="@+id/pbTimer"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 app:cardBackgroundColor="@color/colorPrimary"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="25"
-                    android:textColor="@color/white"
-                    android:textSize="40sp" />
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="10 + 20 = ?"
+                        android:textColor="@color/white"
+                        android:textSize="40sp" />
+                </LinearLayout>
             </android.support.v7.widget.CardView>
 
-
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/llAnswerLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="10dp">
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="30"
-                    android:textColor="@color/white"
-                    android:textSize="40sp" />
+                    android:orientation="horizontal">
 
-            </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.5"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="10dp">
 
-        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="25"
+                            android:textColor="@color/white"
+                            android:textSize="40sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+                    </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="0.5"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="10dp">
 
-                <TextView
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="30"
+                            android:textColor="@color/white"
+                            android:textSize="40sp" />
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="14"
-                    android:textColor="@color/white"
-                    android:textSize="40sp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
 
-            </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.5"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="10dp">
 
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="14"
+                            android:textColor="@color/white"
+                            android:textSize="40sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="15"
-                    android:textColor="@color/white"
-                    android:textSize="40sp" />
+                    </android.support.v7.widget.CardView>
 
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-    </LinearLayout>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="10dp">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="15"
+                            android:textColor="@color/white"
+                            android:textSize="40sp" />
+
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
