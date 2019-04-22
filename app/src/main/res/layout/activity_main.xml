@@ -60,7 +60,7 @@
                     android:text="@string/career_mode" />
 
                 <TextView
-                    android:id="@+id/btnCustom"
+                    android:id="@+id/tvCustomMode"
                     style="@style/home_btn_style"
                     android:drawableStart="@drawable/ic_custom_mode"
                     android:drawableLeft="@drawable/ic_custom_mode"

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlowLayout">
+        <attr name="android:orientation" />
+        <attr name="layoutDirection" format="enum">
+            <enum name="ltr" value="0" />
+            <enum name="rtl" value="1" />
+        </attr>
+        <attr name="debugDraw" format="boolean" />
+        <attr name="maxLines" format="integer" />
+        <attr name="totalView" format="integer" />
+        <attr name="weightDefault" format="float" />
+        <attr name="android:gravity" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_LayoutParams">
+        <attr name="layout_newLine" format="boolean" />
+        <attr name="layout_weight" format="float" />
+        <attr name="android:layout_gravity" />
+    </declare-styleable>
+
+
+    <!--==================Material EditText default style =========================-->
+    <declare-styleable name="MaterialEditText">
+        <attr name="met_baseColor" format="color" />
+        <attr name="met_primaryColor" format="color" />
+        <attr name="met_floatingLabel">
+            <enum name="none" value="0" />
+            <enum name="normal" value="1" />
+            <enum name="highlight" value="2" />
+        </attr>
+        <attr name="met_errorColor" format="color" />
+        <attr name="met_minCharacters" format="integer" />
+        <attr name="met_maxCharacters" format="integer" />
+        <!-- Whether to show the bottom ellipsis in singleLine mode -->
+        <attr name="met_singleLineEllipsis" format="boolean" />
+        <!-- Reserved bottom text lines count, no matter if there is some helper/error text. -->
+        <attr name="met_minBottomTextLines" format="integer" />
+        <!-- Helper text at the bottom -->
+        <attr name="met_helperText" format="string" />
+        <!-- Helper text color -->
+        <attr name="met_helperTextColor" format="color" />
+        <!-- Font of the paint used to draw accent texts -->
+        <attr name="met_accentTypeface" format="string" />
+        <!-- Font used on view -->
+        <attr name="met_typeface" format="string" />
+        <!-- Custom float label text -->
+        <attr name="met_floatingLabelText" format="string" />
+        <!-- spacing between the main text and the floating label -->
+        <attr name="met_floatingLabelPadding" format="dimension" />
+        <!-- Hide underline -->
+        <attr name="met_hideUnderline" format="boolean" />
+        <!-- Underline's color -->
+        <attr name="met_underlineColor" format="color" />
+        <!-- Auto validate -->
+        <attr name="met_autoValidate" format="boolean" />
+        <!-- Left icon -->
+        <attr name="met_iconLeft" format="reference" />
+        <!-- Right icon -->
+        <attr name="met_iconRight" format="reference" />
+        <!-- Padding between icon(s) and the main area. 8dp by default. -->
+        <attr name="met_iconPadding" format="dimension" />
+        <!-- The floating label's text size. 12sp by default. -->
+        <attr name="met_floatingLabelTextSize" format="dimension" />
+        <!-- The floating label's text color. -1 by default. -->
+        <attr name="met_floatingLabelTextColor" format="color" />
+        <!-- The bottom texts' size. 12sp by default. -->
+        <attr name="met_bottomTextSize" format="dimension" />
+        <!-- Always show the floating label, instead of animating it in/out. False by default. -->
+        <attr name="met_floatingLabelAlwaysShown" format="boolean" />
+        <!-- Always show the helper text, no matter if the edit text is focused. False by default. -->
+        <attr name="met_helperTextAlwaysShown" format="boolean" />
+        <!-- Whether use animation to show/hide the floating label. True by default. -->
+        <attr name="met_floatingLabelAnimating" format="boolean" />
+        <!-- Text color -->
+        <attr name="met_textColor" format="color" />
+        <!-- Hint Text Color -->
+        <attr name="met_textColorHint" format="color" />
+        <!-- Auto validate on focus lost. False by default. -->
+        <attr name="met_validateOnFocusLost" format="boolean" />
+        <!-- Whether check the characters count at the beginning it's shown. True by default. -->
+        <attr name="met_checkCharactersCountAtBeginning" format="boolean" />
+    </declare-styleable>
+</resources>

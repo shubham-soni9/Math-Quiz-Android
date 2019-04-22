@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AdditionActivity"/>
+        <activity android:name=".CustomModeActivity" />
     </application>
 
 </manifest>
