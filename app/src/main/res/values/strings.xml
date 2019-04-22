@@ -16,7 +16,7 @@
     <string name="custom_mode">Custom Mode</string>
     <string name="skip_to_next">Skip To Next</string>
     <string name="select_text">Select</string>
-    <string name="number_of_variables">Number Of Variables</string>
+    <string name="number_of_variables">Number Of Variables(a,b,c)</string>
     <string name="choose_operations">Choose Operations</string>
     <string name="number_of_questions">Number of Questions</string>
     <string name="allow_skip_option">Allow Skip Question</string>
@@ -24,8 +24,10 @@
     <string name="title">Title</string>
     <string name="allow_timer">Set Timer Type</string>
     <string name="none">None</string>
-    <string name="timer_per_test">Timer per Test</string>
-    <string name="timer_per_question">Timer per question</string>
+    <string name="per_test">Per Test</string>
+    <string name="per_question">Per Question</string>
+    <string name="timer_per_test">Timer Per Test</string>
+    <string name="timer_per_question">Timer Per Question</string>
     <string name="enter_settings_title">Enter Settings Title</string>
     <string name="challenge_type">Challenge Type</string>
     <string name="yes_no">Yes/No</string>
