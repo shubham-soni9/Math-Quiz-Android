@@ -21,11 +21,22 @@
     <string name="number_of_questions">Number of Questions</string>
     <string name="allow_skip_option">Allow Skip Question</string>
     <string name="number_of_skip">How many question can be skipped ?</string>
-    <string name="title">Mode Name</string>
+    <string name="title">Title</string>
     <string name="allow_timer">Set Timer Type</string>
     <string name="none">None</string>
     <string name="timer_per_test">Timer per Test</string>
     <string name="timer_per_question">Timer per question</string>
     <string name="enter_settings_title">Enter Settings Title</string>
+    <string name="challenge_type">Challenge Type</string>
+    <string name="yes_no">Yes/No</string>
+    <string name="muliple_choice">Multiple Choice</string>
+    <string name="choose_player_type">Choose Player Type</string>
+    <string name="single_player">Single Player</string>
+    <string name="dual_player">Dual Player</string>
+    <string name="player_type">Player Type</string>
+    <string name="questions">Questions</string>
+    <string name="variables">Variables</string>
+    <string name="skip_option">Skip Option</string>
+    <string name="time_type">Timer Type</string>
 </resources>
 

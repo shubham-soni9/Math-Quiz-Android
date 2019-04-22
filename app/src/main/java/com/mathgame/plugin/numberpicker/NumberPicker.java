@@ -137,12 +137,12 @@ public class NumberPicker extends LinearLayout {
     /**
      * The default max height of this widget.
      */
-    private static final int DEFAULT_MAX_HEIGHT = 60;
+    private static final int DEFAULT_MAX_HEIGHT = 45;
 
     /**
      * The default min width of this widget.
      */
-    private static final int DEFAULT_MIN_WIDTH = 64;
+    private static final int DEFAULT_MIN_WIDTH = 50;
 
     /**
      * The default align of text.
@@ -157,7 +157,7 @@ public class NumberPicker extends LinearLayout {
     /**
      * The default size of text.
      */
-    private static final float DEFAULT_TEXT_SIZE = 25f;
+    private static final float DEFAULT_TEXT_SIZE = 18f;
 
     /**
      * The default line spacing multiplier of text.
@@ -226,7 +226,7 @@ public class NumberPicker extends LinearLayout {
 
     private static final TwoDigitFormatter sTwoDigitFormatter = new TwoDigitFormatter();
 
-    public static final Formatter getTwoDigitFormatter() {
+    public static Formatter getTwoDigitFormatter() {
         return sTwoDigitFormatter;
     }
 
@@ -284,6 +284,8 @@ public class NumberPicker extends LinearLayout {
      * The size of the selected text.
      */
     private float mSelectedTextSize = DEFAULT_TEXT_SIZE;
+
+    private float mTextStyle;
 
     /**
      * Flag whether the selected text should strikethroughed.
@@ -818,7 +820,8 @@ public class NumberPicker extends LinearLayout {
         mSelectedText.setEnabled(false);
         mSelectedText.setFocusable(false);
         mSelectedText.setImeOptions(EditorInfo.IME_ACTION_NONE);
-
+        mSelectedText.setTypeface(null,Typeface.BOLD);
+        mSelectedText.setTextAppearance(R.style.CustomTextAppearance_Bold);
         // create the selector wheel paint
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -830,7 +833,7 @@ public class NumberPicker extends LinearLayout {
         setTextSize(mTextSize);
         setSelectedTextSize(mSelectedTextSize);
         setTypeface(mTypeface);
-        setFormatter(mFormatter);
+        setFormatter(getTwoDigitFormatter());
         updateInputTextView();
 
         setValue(mValue);
@@ -2664,8 +2667,9 @@ public class NumberPicker extends LinearLayout {
         mSelectedText.setTextSize(pxToSp(mSelectedTextSize));
     }
 
-    public void setSelectedTextSize(@DimenRes int dimenId) {
-        setSelectedTextSize(getResources().getDimension(dimenId));
+    public void setSelectedTextSize(int textStyle) {
+        mSelectedTextSize = textStyle;
+        mSelectedText.setTextSize(pxToSp(mSelectedTextSize));
     }
 
     public void setSelectedTextStrikeThru(boolean strikeThruText) {

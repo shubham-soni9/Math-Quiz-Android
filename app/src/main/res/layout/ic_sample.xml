@@ -13,4 +13,114 @@
         android:src="@drawable/ic_mutli_sign"
         android:visibility="gone" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black_05" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/black_02"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCustomFieldLabel"
+                style="@style/text_alignment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:letterSpacing="0.12"
+                android:lines="1"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/number_of_variables"
+                android:textAllCaps="true"
+                android:textColor="@color/black_100"
+                android:textSize="@dimen/text_size_tiny" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_05" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlDropDownParent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_grey"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/vCustomFieldsIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/custom_field_dropdown" />
+
+            <LinearLayout
+                android:id="@+id/llDropDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingLeft="16dp"
+                android:paddingTop="@dimen/custom_field_padding"
+                android:paddingRight="16dp"
+                android:paddingBottom="@dimen/custom_field_padding">
+
+                <View
+                    android:id="@+id/vDownArrow"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/arrow_down" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toEndOf="@id/vCustomFieldsIcon">
+
+                <TextView
+                    android:id="@+id/tvDropDownValue"
+                    style="@style/text_alignment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:singleLine="true"
+                    android:text="@string/select_text"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/text_size_normal" />
+
+                <Spinner
+                    android:id="@+id/spnCustomFieldValues"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="-10dp"
+                    android:background="@android:drawable/edit_text"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@color/app_text_color" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
 </LinearLayout>
