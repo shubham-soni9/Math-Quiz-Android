@@ -20,6 +20,9 @@
         <activity
             android:name=".activity.AddCustomModeActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.CustomModeActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>

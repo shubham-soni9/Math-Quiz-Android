@@ -40,5 +40,6 @@
     <string name="variables">Variables</string>
     <string name="skip_option">Skip Option</string>
     <string name="time_type">Timer Type</string>
+    <string name="manual_input">Manual Input</string>
 </resources>
 

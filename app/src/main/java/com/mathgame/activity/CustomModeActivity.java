@@ -1,8 +1,9 @@
-package com.mathgame;
+package com.mathgame.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.mathgame.R;
 import com.mathgame.structure.BaseActivity;
 
 public class CustomModeActivity extends BaseActivity {
