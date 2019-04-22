@@ -7,8 +7,8 @@ import android.widget.ImageView;
 
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.R;
-import com.mathgame.Transition;
-import com.mathgame.Utils;
+import com.mathgame.util.Transition;
+import com.mathgame.util.Utils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
 public class AdditionActivity extends BaseActivity implements View.OnClickListener {

@@ -7,6 +7,9 @@ import android.widget.TextView;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.activity.AddCustomModeActivity;
 import com.mathgame.activity.AdditionActivity;
+import com.mathgame.util.Transition;
+import com.mathgame.util.Utils;
+
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvAddition;

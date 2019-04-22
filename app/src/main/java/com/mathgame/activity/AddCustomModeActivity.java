@@ -9,8 +9,7 @@ import android.widget.Spinner;
 
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.R;
-import com.mathgame.Utils;
-
+import com.mathgame.util.Utils;
 
 public class AddCustomModeActivity extends BaseActivity implements View.OnClickListener {
     private RelativeLayout rlChallengeType;
@@ -19,7 +18,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_mode);
+        setContentView(R.layout.activity_add_custom_mode);
         init();
         setData();
     }
