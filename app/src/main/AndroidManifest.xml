@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdditionActivity" />
+        <activity android:name=".activity.AdditionActivity" />
         <activity
-            android:name=".CustomModeActivity"
+            android:name=".activity.AddCustomModeActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 

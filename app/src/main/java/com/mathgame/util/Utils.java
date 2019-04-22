@@ -1,4 +1,4 @@
-package com.mathgame;
+package com.mathgame.util;
 
 import android.view.View;
 

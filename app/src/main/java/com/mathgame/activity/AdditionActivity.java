@@ -1,10 +1,14 @@
-package com.mathgame;
+package com.mathgame.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.mathgame.structure.BaseActivity;
+import com.mathgame.R;
+import com.mathgame.Transition;
+import com.mathgame.Utils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
 public class AdditionActivity extends BaseActivity implements View.OnClickListener {

@@ -1,8 +1,10 @@
-package com.mathgame;
+package com.mathgame.util;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.mathgame.R;
 
 public class Transition {
 

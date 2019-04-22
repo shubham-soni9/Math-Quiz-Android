@@ -1,4 +1,4 @@
-package com.mathgame;
+package com.mathgame.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,8 +7,12 @@ import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
+import com.mathgame.structure.BaseActivity;
+import com.mathgame.R;
+import com.mathgame.Utils;
 
-public class CustomModeActivity extends BaseActivity implements View.OnClickListener {
+
+public class AddCustomModeActivity extends BaseActivity implements View.OnClickListener {
     private RelativeLayout rlChallengeType;
     private Spinner        spnCustomFieldValues;
 

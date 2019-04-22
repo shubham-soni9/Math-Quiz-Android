@@ -2,8 +2,11 @@ package com.mathgame;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import com.mathgame.structure.BaseActivity;
+import com.mathgame.activity.AddCustomModeActivity;
+import com.mathgame.activity.AdditionActivity;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvAddition;
@@ -15,7 +18,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         tvAddition = findViewById(R.id.tvAddition);
         tvCustomMode=findViewById(R.id.tvCustomMode);
-        Utils.setOnClickListener(this, tvAddition,tvCustomMode);
+        Utils.setOnClickListener(this, tvAddition, tvCustomMode);
     }
 
     @Override
@@ -25,7 +28,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.startActivity(this, AdditionActivity.class);
                 break;
             case R.id.tvCustomMode:
-                Transition.startActivity(this,CustomModeActivity.class);
+                Transition.startActivity(this, AddCustomModeActivity.class);
                 break;
         }
     }

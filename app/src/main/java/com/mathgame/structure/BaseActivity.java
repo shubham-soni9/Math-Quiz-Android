@@ -1,4 +1,4 @@
-package com.mathgame;
+package com.mathgame.structure;
 
 import android.support.v7.app.AppCompatActivity;
 
