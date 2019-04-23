@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="20dp"
+        android:scrollbars="none"
         android:fillViewport="true">
 
         <LinearLayout
@@ -723,7 +724,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_toStartOf="@+id/npNumberOfSkip"
-                        android:text="@string/number_of_skip"
+                        android:text="@string/how_many_question_can_be_skipped"
                         android:textColor="@color/app_text_color"
                         android:textAppearance="@style/CustomTextAppearance.Light"
                         android:textSize="@dimen/text_size_normal" />

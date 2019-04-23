@@ -8,14 +8,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mathgame.R;
+import com.mathgame.model.CustomMode;
 
 import java.util.ArrayList;
 
 public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.ViewHolder> {
-    private ArrayList<Rights> rightsList;
-    private OnItemListener    onItemListener;
+    private ArrayList<CustomMode> rightsList;
+    private OnItemListener        onItemListener;
 
-    public CustomModeAdapter(CustomModeAdapter.OnItemListener onItemListener, ArrayList<Rights> rightsList) {
+    public CustomModeAdapter(CustomModeAdapter.OnItemListener onItemListener, ArrayList<CustomMode> rightsList) {
         this.rightsList = rightsList;
         this.onItemListener = onItemListener;
     }
@@ -23,7 +24,7 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_settings_rights, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_custom_mode, parent, false);
         return new CustomModeAdapter.ViewHolder(view);
     }
 
@@ -44,9 +45,6 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvRight = itemView.findViewById(R.id.tv_right);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
-            vRights = itemView.findViewById(R.id.vRights);
         }
     }
 

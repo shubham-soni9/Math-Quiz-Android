@@ -63,5 +63,4 @@ public class CustomMode  {
         return skipNumbers;
     }
 
-
 }

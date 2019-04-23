@@ -20,7 +20,7 @@
     <string name="choose_operations">Choose Operations</string>
     <string name="number_of_questions">Number of Questions</string>
     <string name="allow_skip_option">Allow Skip Question</string>
-    <string name="number_of_skip">How many question can be skipped ?</string>
+    <string name="how_many_question_can_be_skipped">How many question can be skipped ?</string>
     <string name="title">Title</string>
     <string name="allow_timer">Set Timer Type</string>
     <string name="none">None</string>
@@ -37,9 +37,17 @@
     <string name="dual_player">Dual Player</string>
     <string name="player_type">Player Type</string>
     <string name="questions">Questions</string>
+    <string name="question">Question</string>
     <string name="variables">Variables</string>
+    <string name="variable">Variable</string>
     <string name="skip_option">Skip Option</string>
     <string name="time_type">Timer Type</string>
     <string name="manual_input">Manual Input</string>
+    <string name="number_of_variable_text">Number Of Variables</string>
+    <string name="number_of_skips">Number Of Skips</string>
+    <string name="timer_type">Timer Type</string>
+    <string name="coloun">:</string>
+    <string name="timer">Timer</string>
+    <string name="total_time">Total Time</string>
 </resources>
 
