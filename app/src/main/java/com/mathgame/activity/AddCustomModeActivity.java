@@ -27,7 +27,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         String[] dropDownItems = new String[3];
         dropDownItems[0] = getString(R.string.muliple_choice);
         dropDownItems[1] = getString(R.string.yes_no);
-        dropDownItems[3] =getString(R.string.manual_input);
+        dropDownItems[2] =getString(R.string.manual_input);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, dropDownItems);
         spnCustomFieldValues.setAdapter(adapter);
     }
