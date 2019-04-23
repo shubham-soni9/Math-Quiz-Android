@@ -49,5 +49,6 @@
     <string name="coloun">:</string>
     <string name="timer">Timer</string>
     <string name="total_time">Total Time</string>
+    <string name="game_type">Game Type</string>
 </resources>
 

@@ -13,12 +13,10 @@ import com.mathgame.model.CustomMode;
 import java.util.ArrayList;
 
 public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.ViewHolder> {
-    private ArrayList<CustomMode> rightsList;
-    private OnItemListener        onItemListener;
+    private ArrayList<CustomMode> modeList;
 
-    public CustomModeAdapter(CustomModeAdapter.OnItemListener onItemListener, ArrayList<CustomMode> rightsList) {
-        this.rightsList = rightsList;
-        this.onItemListener = onItemListener;
+    public CustomModeAdapter(ArrayList<CustomMode> rightsList) {
+        this.modeList = rightsList;
     }
 
     @NonNull
@@ -30,25 +28,17 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        position = holder.getAdapterPosition();
     }
 
     @Override
     public int getItemCount() {
-        return rightsList.size();
+        return 10;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvRight;
-        private View     parentLayout;
-        private View     vRights;
-
+    class ViewHolder extends RecyclerView.ViewHolder {
         ViewHolder(View itemView) {
             super(itemView);
         }
     }
 
-    public interface OnItemListener {
-        void onFleetRightSelected(int value);
-    }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="5dp"
@@ -25,10 +24,10 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Custom Mode 1"
                 android:textAppearance="@style/CustomTextAppearance.Regular"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_large"
-                tools:text="Custom Mode 1" />
+                android:textSize="@dimen/text_size_large" />
 
         </LinearLayout>
 
@@ -43,9 +42,9 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -62,12 +61,11 @@
 
                 <TextView
                     style="@style/item_custom_mode_label"
-                    android:text="@string/challenge_type" />
+                    android:text="@string/game_type" />
 
                 <TextView
                     style="@style/item_custom_mode_label"
                     android:text="@string/time_type" />
-
 
                 <TextView
                     style="@style/item_custom_mode_label"
@@ -75,11 +73,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".1"
-                android:gravity="center"
+                android:paddingStart="@dimen/spacing_5"
+                android:paddingEnd="@dimen/spacing_5"
                 android:orientation="vertical">
+
                 <TextView style="@style/item_custom_mode_value" />
                 <TextView style="@style/item_custom_mode_value" />
                 <TextView style="@style/item_custom_mode_value" />
@@ -89,10 +88,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".4"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingStart="@dimen/spacing_5">
 
                 <TextView
                     style="@style/item_custom_mode_value"

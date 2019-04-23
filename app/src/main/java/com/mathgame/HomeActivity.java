@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mathgame.activity.CustomModeActivity;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.activity.AddCustomModeActivity;
 import com.mathgame.activity.AdditionActivity;
@@ -31,7 +32,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.startActivity(this, AdditionActivity.class);
                 break;
             case R.id.tvCustomMode:
-                Transition.startActivity(this, AddCustomModeActivity.class);
+                Transition.startActivity(this, CustomModeActivity.class);
                 break;
         }
     }
