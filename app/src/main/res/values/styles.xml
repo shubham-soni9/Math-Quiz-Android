@@ -123,4 +123,22 @@
         <item name="android:textStyle">normal</item>
         <item name="android:text">:</item>
     </style>
+    <style name="ButtonThemeCapsule" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">
+            200dp
+        </item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">
+            @drawable/capsule_theme_login_selector
+        </item>
+        <item name="android:textColor">
+            @color/white_100
+        </item>
+        <item name="android:textSize">
+            @dimen/text_size_normal
+        </item>
+        <item name="android:textAllCaps">
+            true
+        </item>
+    </style>
 </resources>

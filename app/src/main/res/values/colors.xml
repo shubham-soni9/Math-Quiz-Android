@@ -26,4 +26,8 @@
     <color name="app_text_color">#000000</color>
     <color name="transparent">#0000</color>
 
+    <color name="gradient_normal_end">#2296FF</color>
+    <color name="gradient_normal_start">#0084ff</color>
+    <color name="gradient_pressed_end">#0069cc</color>
+    <color name="gradient_pressed_start">#0069cc</color>
 </resources>

@@ -1,6 +1,7 @@
 package com.mathgame.model;
 
 public class CustomMode  {
+
     private String title;
     private int numberOfQuestions;
     private int playerType;

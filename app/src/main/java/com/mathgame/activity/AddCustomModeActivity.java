@@ -6,6 +6,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
@@ -36,6 +37,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     private CheckBox           cbDivision;
     private CheckBox           cbPercentage;
     private CheckBox           cbSquareRoot;
+    private Button btnSaveSettings;
 
 
     @Override
@@ -73,6 +75,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         rbTimerNone = findViewById(R.id.rbTimerNone);
         rbTimerPerTest = findViewById(R.id.rbTimerPerTest);
         npNumberOfSkip=findViewById(R.id.npNumberOfSkip);
+        btnSaveSettings=findViewById(R.id.btnSaveSettings);
         rbTimerPerQuestion = findViewById(R.id.rbTimerPerQuestion);
         Utils.setOnClickListener(this, rlChallengeType, ivBack);
     }
@@ -86,7 +89,13 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
             case R.id.ivBack:
                 onBackPressed();
                 break;
+            case R.id.btnSaveSettings:
+                saveSettings();
+                break;
         }
+    }
+
+    private void saveSettings() {
     }
 
     @Override

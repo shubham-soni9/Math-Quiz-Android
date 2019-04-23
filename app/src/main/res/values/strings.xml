@@ -50,5 +50,6 @@
     <string name="timer">Timer</string>
     <string name="total_time">Total Time</string>
     <string name="game_type">Game Type</string>
+    <string name="save_settings">Save Settings</string>
 </resources>
 

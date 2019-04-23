@@ -10,9 +10,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fillViewport="true"
         android:paddingBottom="20dp"
-        android:scrollbars="none"
-        android:fillViewport="true">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,6 +49,7 @@
                         android:textSize="@dimen/text_size_tiny" />
 
                 </RelativeLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -64,12 +65,12 @@
                     <com.mathgame.plugin.MaterialEditText
                         android:id="@+id/tvTitle"
                         style="@style/edit_text_style"
-                        android:hint="@string/enter_settings_title"
-                        android:textColor="@color/app_text_color"
-                        app:met_floatingLabel="none"
-                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:layout_height="50dp"
                         android:gravity="center_vertical"
+                        android:hint="@string/enter_settings_title"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
+                        android:textColor="@color/app_text_color"
+                        app:met_floatingLabel="none"
                         app:met_hideUnderline="true" />
 
                 </LinearLayout>
@@ -193,11 +194,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="0.5"
+                        android:checked="true"
                         android:drawablePadding="5dp"
                         android:gravity="center_vertical"
-                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:text="@string/single_player"
-                        android:checked="true"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         app:rbd_strokeColor="@color/colorPrimary" />
 
                     <com.rey.material.widget.RadioButton
@@ -206,10 +207,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="0.5"
-                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:drawablePadding="5dp"
                         android:gravity="center_vertical"
                         android:text="@string/dual_player"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         app:rbd_strokeColor="@color/colorPrimary" />
                 </RadioGroup>
             </LinearLayout>
@@ -311,8 +312,8 @@
                             android:includeFontPadding="false"
                             android:singleLine="true"
                             android:text="@string/select_text"
-                            android:textColor="@color/black_100"
                             android:textAppearance="@style/CustomTextAppearance.Light"
+                            android:textColor="@color/black_100"
                             android:textSize="@dimen/text_size_normal" />
 
                     </RelativeLayout>
@@ -394,8 +395,8 @@
                             android:drawablePadding="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/addition"
-                            android:textSize="@dimen/text_size_normal"
                             android:textAppearance="@style/CustomTextAppearance.Light"
+                            android:textSize="@dimen/text_size_normal"
                             app:cbd_strokeColor="@color/colorPrimary" />
 
                         <com.rey.material.widget.CheckBox
@@ -406,10 +407,10 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
                             android:layout_weight="0.5"
-                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:drawablePadding="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/subtraction"
+                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:textSize="@dimen/text_size_normal"
                             app:cbd_strokeColor="@color/colorPrimary" />
 
@@ -420,10 +421,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:layout_weight="0.5"
-                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:drawablePadding="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/multiplication"
+                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:textSize="@dimen/text_size_normal"
                             app:cbd_strokeColor="@color/colorPrimary" />
 
@@ -458,10 +459,10 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
                             android:layout_weight="0.5"
-                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:drawablePadding="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/percentage"
+                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:textSize="@dimen/text_size_normal"
                             app:cbd_strokeColor="@color/colorPrimary" />
 
@@ -471,12 +472,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:layout_marginEnd="10dp"
                             android:layout_weight="0.5"
                             android:drawablePadding="10dp"
                             android:gravity="center_vertical"
                             android:text="@string/square_root"
+                            android:textAppearance="@style/CustomTextAppearance.Light"
                             android:textSize="@dimen/text_size_normal"
                             app:cbd_strokeColor="@color/colorPrimary" />
                     </LinearLayout>
@@ -526,8 +527,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">
 
@@ -552,8 +553,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
+                android:orientation="vertical"
                 android:paddingBottom="5dp">
 
                 <View
@@ -597,10 +598,10 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <com.rey.material.widget.RadioButton
@@ -608,10 +609,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
-                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:drawablePadding="5dp"
                         android:gravity="center_vertical"
                         android:text="@string/none"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         app:rbd_strokeColor="@color/colorPrimary" />
 
                     <com.rey.material.widget.RadioButton
@@ -621,8 +622,8 @@
                         android:layout_marginEnd="10dp"
                         android:drawablePadding="5dp"
                         android:gravity="center_vertical"
-                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:text="@string/per_test"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         app:rbd_strokeColor="@color/colorPrimary" />
 
                     <com.rey.material.widget.RadioButton
@@ -631,8 +632,8 @@
                         android:layout_height="wrap_content"
                         android:drawablePadding="5dp"
                         android:gravity="center_vertical"
-                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:text="@string/per_question"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         app:rbd_strokeColor="@color/colorPrimary" />
                 </RadioGroup>
 
@@ -646,9 +647,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp"
                     android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin">
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="10dp">
 
 
                     <TextView
@@ -663,8 +664,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_alignParentEnd="true">
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp">
 
                         <com.mathgame.plugin.numberpicker.NumberPicker style="@style/number_picker" />
 
@@ -687,6 +688,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/black_10" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -725,9 +727,9 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">
 
@@ -737,8 +739,8 @@
                         android:layout_centerVertical="true"
                         android:layout_toStartOf="@+id/npNumberOfSkip"
                         android:text="@string/how_many_question_can_be_skipped"
-                        android:textColor="@color/app_text_color"
                         android:textAppearance="@style/CustomTextAppearance.Light"
+                        android:textColor="@color/app_text_color"
                         android:textSize="@dimen/text_size_normal" />
 
                     <com.mathgame.plugin.numberpicker.NumberPicker
@@ -748,6 +750,21 @@
                 </RelativeLayout>
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_10" />
+
+            <Button
+                android:id="@+id/btnSaveSettings"
+                style="@style/ButtonThemeCapsule"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20dp"
+                android:layout_marginBottom="@dimen/_20dp"
+                android:text="@string/save_settings"
+                android:textAllCaps="true" />
+
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
