@@ -32,7 +32,7 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return 10;
+        return modeList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

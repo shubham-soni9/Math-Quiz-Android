@@ -18,6 +18,8 @@ import com.mathgame.model.CustomMode;
 import com.mathgame.plugin.MaterialEditText;
 import com.mathgame.plugin.numberpicker.NumberPicker;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.Codes;
+import com.mathgame.util.Constant;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 import com.rey.material.widget.CheckBox;
@@ -34,6 +36,8 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     private NumberPicker       npNumberOfQuestion;
     private NumberPicker       npNumberOfVariables;
     private NumberPicker       npNumberOfSkip;
+    private NumberPicker       npTimerMinuteValue;
+    private NumberPicker       npTimerSecondValue;
     private RadioButton        rbSinglePlayer;
     private RadioButton        rbDualPlayer;
     private RadioButton        rbTimerNone;
@@ -47,6 +51,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     private CheckBox           cbSquareRoot;
     private Button             btnSaveSettings;
     private TextView           tvSelectedChallenge;
+    private int                gameType;
 
 
     @Override
@@ -63,7 +68,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
 
     private void setData() {
         final String[] dropDownItems = new String[3];
-        dropDownItems[0] = getString(R.string.muliple_choice);
+        dropDownItems[0] = getString(R.string.multiple_choice);
         dropDownItems[1] = getString(R.string.yes_no);
         dropDownItems[2] = getString(R.string.manual_input);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, dropDownItems);
@@ -71,6 +76,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         spnCustomFieldValues.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                gameType = position;
                 tvSelectedChallenge.setText(dropDownItems[position]);
             }
 
@@ -99,6 +105,8 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         cbPercentage = findViewById(R.id.cbPercentage);
         cbSquareRoot = findViewById(R.id.cbSquareRoot);
         npNumberOfVariables = findViewById(R.id.npNumberOfVariables);
+        npTimerMinuteValue = findViewById(R.id.npTimerMinuteValue);
+        npTimerSecondValue = findViewById(R.id.npTimerSecondValue);
         rbTimerNone = findViewById(R.id.rbTimerNone);
         rbTimerPerTest = findViewById(R.id.rbTimerPerTest);
         npNumberOfSkip = findViewById(R.id.npNumberOfSkip);
@@ -139,9 +147,40 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         return true;
     }
 
+    private String getMathOperations() {
+        String mathOperations = Constant.EMPTY;
+        if (cbAddition.isChecked()) mathOperations = mathOperations + "+ ";
+        if (cbSubtraction.isChecked()) mathOperations = mathOperations + "- ";
+        if (cbMultiplication.isChecked()) mathOperations = mathOperations + "* ";
+        if (cbDivision.isChecked()) mathOperations = mathOperations + "/ ";
+        if (cbSquareRoot.isChecked()) mathOperations = mathOperations + "sqt() ";
+        if (cbPercentage.isChecked()) mathOperations = mathOperations + "%";
+        return mathOperations;
+    }
+
     private void saveSettings() {
         CustomMode customMode = new CustomMode();
         customMode.setTitle(Utils.get(metTitle));
+        customMode.setMathOperations(getMathOperations());
+        customMode.setNumberOfQuestions(npNumberOfQuestion.getValue());
+        customMode.setSkipNumbers(npNumberOfSkip.getValue());
+        customMode.setNumberOfVariables(npNumberOfVariables.getValue());
+
+        // Define Player Type
+        customMode.setPlayerType(rbSinglePlayer.isChecked() ? Codes.PlayerType.SINGLE : Codes.PlayerType.DUAL);
+
+        // Define Timer Type
+        if (rbTimerNone.isChecked()) customMode.setTimerType(Codes.TimerType.NONE);
+        if (rbTimerPerTest.isChecked()) customMode.setTimerType(Codes.TimerType.PER_TEST);
+        if (rbTimerPerQuestion.isChecked()) customMode.setTimerType(Codes.TimerType.PER_QUESTION);
+
+        //Define Timer Value
+        customMode.setTimerValue(npTimerMinuteValue.getValue() * 60 + npTimerSecondValue.getValue());
+
+        //Define Game Type
+        customMode.setGameType(gameType);
+
+        // Save Data in objectbox
         Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
         userBox.put(customMode);
     }
@@ -186,10 +225,8 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
 
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-        switch (picker.getId()) {
-            case R.id.npNumberOfQuestion:
-                npNumberOfSkip.setMaxValue(npNumberOfQuestion.getValue());
-                break;
+        if (picker.getId() == R.id.npNumberOfQuestion) {
+            npNumberOfSkip.setMaxValue(npNumberOfQuestion.getValue());
         }
     }
 }

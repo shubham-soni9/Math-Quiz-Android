@@ -107,7 +107,7 @@
 
                 <TextView
                     style="@style/item_custom_mode_value"
-                    android:text="@string/muliple_choice" />
+                    android:text="@string/multiple_choice" />
 
                 <TextView
                     style="@style/item_custom_mode_value"

@@ -20,7 +20,7 @@ public class CustomModeActivity extends BaseActivity implements View.OnClickList
     private AppCompatImageView    ivBack;
     private RecyclerView          rvCustomModeList;
     private CustomModeAdapter     adapter;
-    private ArrayList<CustomMode> customModes;
+    private ArrayList<CustomMode> customModes=new ArrayList<>();
     private AppCompatImageView    ivAddOption;
 
     @Override

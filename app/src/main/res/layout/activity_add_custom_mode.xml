@@ -668,7 +668,8 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="10dp">
 
-                        <com.mathgame.plugin.numberpicker.NumberPicker style="@style/number_picker" />
+                        <com.mathgame.plugin.numberpicker.NumberPicker
+                            android:id="@+id/npTimerMinuteValue" style="@style/number_picker" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -677,7 +678,9 @@
                             android:text=" : "
                             android:textStyle="bold" />
 
-                        <com.mathgame.plugin.numberpicker.NumberPicker style="@style/number_picker" />
+                        <com.mathgame.plugin.numberpicker.NumberPicker
+                            android:id="@+id/npTimerSecondValue"
+                            style="@style/number_picker" />
 
                     </LinearLayout>
 
