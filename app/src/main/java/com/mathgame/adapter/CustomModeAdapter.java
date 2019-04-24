@@ -13,6 +13,7 @@ import com.mathgame.R;
 import com.mathgame.model.CustomMode;
 import com.mathgame.util.Codes;
 import com.mathgame.util.Dependencies;
+import com.mathgame.util.Utils;
 
 import java.util.List;
 
@@ -42,8 +43,9 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
         holder.tvTimerType.setText(Codes.TimerType.get(customMode.getTimerType()).label);
         holder.tvGameType.setText(Codes.TimerType.get(customMode.getGameType()).label);
         int seconds = customMode.getTimerValue() % 60;
-        int minutes = seconds / 60;
-        holder.tvTimerValue.setText(String.format(Dependencies.getLocale(context), "%d:%d", minutes, seconds));
+        int minutes = customMode.getTimerValue() / 60;
+        holder.tvTimerValue.setText(String.format(Dependencies.getLocale(context), "%s:%s", Utils.convertToTwoDigit(minutes)
+                , Utils.convertToTwoDigit(seconds)));
         holder.tvOperations.setText(customMode.getMathOperations());
         if (customMode.getPlayerType() == Codes.PlayerType.SINGLE.value) {
             holder.ivPlayerType.setImageResource(R.drawable.ic_single_player);

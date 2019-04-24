@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.mathgame.R;
 import com.rey.material.widget.CheckBox;
 
+import java.text.DecimalFormat;
+
 public class Utils {
 
     public static void setOnClickListener(View.OnClickListener listener, View... views) {
@@ -98,5 +100,9 @@ public class Utils {
             if(checkbox.isChecked()) return true;
         }
         return false;
+    }
+
+    public static String convertToTwoDigit(int value){
+        return new TwoDigitFormatter().format(value);
     }
 }

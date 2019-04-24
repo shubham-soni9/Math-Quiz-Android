@@ -10,5 +10,5 @@
         android:layout_width="match_parent"
         android:paddingTop="@dimen/spacing_5"
         android:paddingBottom="@dimen/spacing_13"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>
