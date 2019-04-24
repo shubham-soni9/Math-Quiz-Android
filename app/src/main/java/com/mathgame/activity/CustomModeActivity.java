@@ -59,6 +59,7 @@ public class CustomModeActivity extends BaseActivity implements View.OnClickList
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case Codes.RequestCode.OPEN_ADD_CUSTOM_MODE_ACTIVITY:
+                    setList();
                     break;
             }
         }

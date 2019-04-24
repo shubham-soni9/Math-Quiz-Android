@@ -60,7 +60,7 @@ public interface Codes {
         YES_NO(R.string.yes_no, 1),
         MANUAL_INPUT(R.string.manual_input, 2);
 
-        private int label, value;
+        public int label, value;
 
         GameType(int label, int value) {
             this.label = label;

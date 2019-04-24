@@ -41,7 +41,7 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
         holder.tvSkipValue.setText(String.valueOf(customMode.getSkipNumbers()));
         holder.tvVariableValue.setText(String.valueOf(customMode.getNumberOfVariables()));
         holder.tvTimerType.setText(Codes.TimerType.get(customMode.getTimerType()).label);
-        holder.tvGameType.setText(Codes.TimerType.get(customMode.getGameType()).label);
+        holder.tvGameType.setText(Codes.GameType.get(customMode.getGameType()).label);
         int seconds = customMode.getTimerValue() % 60;
         int minutes = customMode.getTimerValue() / 60;
         holder.tvTimerValue.setText(String.format(Dependencies.getLocale(context), "%s:%s", Utils.convertToTwoDigit(minutes)
