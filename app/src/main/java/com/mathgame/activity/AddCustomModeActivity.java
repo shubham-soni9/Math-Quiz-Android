@@ -167,22 +167,23 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         customMode.setNumberOfVariables(npNumberOfVariables.getValue());
 
         // Define Player Type
-        customMode.setPlayerType(rbSinglePlayer.isChecked() ? Codes.PlayerType.SINGLE : Codes.PlayerType.DUAL);
+        customMode.setPlayerType(rbSinglePlayer.isChecked() ? Codes.PlayerType.SINGLE.value : Codes.PlayerType.DUAL.value);
 
         // Define Timer Type
-        if (rbTimerNone.isChecked()) customMode.setTimerType(Codes.TimerType.NONE);
-        if (rbTimerPerTest.isChecked()) customMode.setTimerType(Codes.TimerType.PER_TEST);
-        if (rbTimerPerQuestion.isChecked()) customMode.setTimerType(Codes.TimerType.PER_QUESTION);
+        if (rbTimerNone.isChecked()) customMode.setTimerType(Codes.TimerType.NONE.value);
+        if (rbTimerPerTest.isChecked()) customMode.setTimerType(Codes.TimerType.PER_TEST.value);
+        if (rbTimerPerQuestion.isChecked()) customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);
 
         //Define Timer Value
         customMode.setTimerValue(npTimerMinuteValue.getValue() * 60 + npTimerSecondValue.getValue());
 
         //Define Game Type
         customMode.setGameType(gameType);
-
         // Save Data in objectbox
         Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
         userBox.put(customMode);
+        setResult(RESULT_OK);
+        onBackPressed();
     }
 
     @Override

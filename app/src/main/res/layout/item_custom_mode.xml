@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginStart="5dp"
     android:layout_marginTop="5dp"
     android:layout_marginEnd="5dp"
@@ -70,6 +71,9 @@
                 <TextView
                     style="@style/item_custom_mode_label"
                     android:text="@string/total_time" />
+                <TextView
+                    style="@style/item_custom_mode_label"
+                    android:text="@string/operations" />
             </LinearLayout>
 
             <LinearLayout
@@ -85,6 +89,7 @@
                 <TextView style="@style/item_custom_mode_value" />
                 <TextView style="@style/item_custom_mode_value" />
                 <TextView style="@style/item_custom_mode_value" />
+                <TextView style="@style/item_custom_mode_value" />
             </LinearLayout>
 
             <LinearLayout
@@ -94,28 +99,38 @@
                 android:paddingStart="@dimen/spacing_5">
 
                 <TextView
+                    android:id="@+id/tvQuestionValue"
                     style="@style/item_custom_mode_value"
-                    android:text="10" />
+                    tools:text="10" />
 
                 <TextView
+                    android:id="@+id/tvVariableValue"
                     style="@style/item_custom_mode_value"
-                    android:text="10" />
+                    tools:text="10" />
 
                 <TextView
+                    android:id="@+id/tvSkipValue"
                     style="@style/item_custom_mode_value"
-                    android:text="3" />
+                    tools:text="3" />
 
                 <TextView
+                    android:id="@+id/tvGameType"
                     style="@style/item_custom_mode_value"
-                    android:text="@string/multiple_choice" />
+                    tools:text="@string/multiple_choice" />
 
                 <TextView
+                    android:id="@+id/tvTimerType"
                     style="@style/item_custom_mode_value"
-                    android:text="@string/per_question" />
+                    tools:text="@string/per_question" />
 
                 <TextView
+                    android:id="@+id/tvTimerValue"
                     style="@style/item_custom_mode_value"
-                    android:text="01:40" />
+                    tools:text="01:40" />
+                <TextView
+                    android:id="@+id/tvOperations"
+                    style="@style/item_custom_mode_value"
+                    tools:text="+ - * / sqt()" />
             </LinearLayout>
 
         </LinearLayout>

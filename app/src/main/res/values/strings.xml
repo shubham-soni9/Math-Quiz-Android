@@ -53,5 +53,6 @@
     <string name="save_settings">Save Settings</string>
     <string name="please_enter_title">Please enter title</string>
     <string name="please_at_least_choose_one_operation">Please at least choose one operation.</string>
+    <string name="operations">Operations</string>
 </resources>
 
