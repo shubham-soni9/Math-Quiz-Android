@@ -3,14 +3,19 @@ package com.mathgame.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.mathgame.R;
+import com.mathgame.database.ObjectBox;
+import com.mathgame.model.CustomMode;
+import com.mathgame.plugin.MaterialEditText;
 import com.mathgame.plugin.numberpicker.NumberPicker;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
@@ -18,14 +23,17 @@ import com.mathgame.util.Utils;
 import com.rey.material.widget.CheckBox;
 import com.rey.material.widget.RadioButton;
 
-public class AddCustomModeActivity extends BaseActivity implements View.OnClickListener {
+import io.objectbox.Box;
+
+public class AddCustomModeActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener
+        , NumberPicker.OnValueChangeListener {
     private RelativeLayout     rlChallengeType;
     private Spinner            spnCustomFieldValues;
     private AppCompatImageView ivBack;
-    private AppCompatTextView  tvTitle;
+    private MaterialEditText   metTitle;
     private NumberPicker       npNumberOfQuestion;
     private NumberPicker       npNumberOfVariables;
-    private NumberPicker npNumberOfSkip;
+    private NumberPicker       npNumberOfSkip;
     private RadioButton        rbSinglePlayer;
     private RadioButton        rbDualPlayer;
     private RadioButton        rbTimerNone;
@@ -37,7 +45,8 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     private CheckBox           cbDivision;
     private CheckBox           cbPercentage;
     private CheckBox           cbSquareRoot;
-    private Button btnSaveSettings;
+    private Button             btnSaveSettings;
+    private TextView           tvSelectedChallenge;
 
 
     @Override
@@ -46,21 +55,39 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         setContentView(R.layout.activity_add_custom_mode);
         init();
         setData();
+        setListener();
+    }
+
+    private void setListener() {
     }
 
     private void setData() {
-        String[] dropDownItems = new String[3];
+        final String[] dropDownItems = new String[3];
         dropDownItems[0] = getString(R.string.muliple_choice);
         dropDownItems[1] = getString(R.string.yes_no);
         dropDownItems[2] = getString(R.string.manual_input);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, dropDownItems);
         spnCustomFieldValues.setAdapter(adapter);
+        spnCustomFieldValues.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                tvSelectedChallenge.setText(dropDownItems[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spnCustomFieldValues.setSelection(0);
+        npNumberOfSkip.setMaxValue(1);
+        npNumberOfQuestion.setOnValueChangedListener(this);
     }
 
     private void init() {
         rlChallengeType = findViewById(R.id.rlChallengeType);
         spnCustomFieldValues = findViewById(R.id.spnCustomFieldValues);
-        tvTitle = findViewById(R.id.tvTitle);
+        metTitle = findViewById(R.id.metTitle);
         npNumberOfQuestion = findViewById(R.id.npNumberOfQuestion);
         ivBack = findViewById(R.id.ivBack);
         rbSinglePlayer = findViewById(R.id.rbSinglePlayer);
@@ -74,10 +101,13 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         npNumberOfVariables = findViewById(R.id.npNumberOfVariables);
         rbTimerNone = findViewById(R.id.rbTimerNone);
         rbTimerPerTest = findViewById(R.id.rbTimerPerTest);
-        npNumberOfSkip=findViewById(R.id.npNumberOfSkip);
-        btnSaveSettings=findViewById(R.id.btnSaveSettings);
+        npNumberOfSkip = findViewById(R.id.npNumberOfSkip);
+        btnSaveSettings = findViewById(R.id.btnSaveSettings);
         rbTimerPerQuestion = findViewById(R.id.rbTimerPerQuestion);
-        Utils.setOnClickListener(this, rlChallengeType, ivBack);
+        tvSelectedChallenge = findViewById(R.id.tvSelectedChallenge);
+        Utils.setOnClickListener(this, rlChallengeType, ivBack, btnSaveSettings);
+        Utils.setOnCheckChangedListener(this, rbSinglePlayer, rbDualPlayer, rbTimerNone, rbTimerPerQuestion, rbTimerPerTest
+                , cbSquareRoot);
     }
 
     @Override
@@ -90,16 +120,76 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
                 onBackPressed();
                 break;
             case R.id.btnSaveSettings:
-                saveSettings();
+                if (validate()) {
+                    saveSettings();
+                }
                 break;
         }
     }
 
+    private boolean validate() {
+        if (Utils.isEmpty(metTitle)) {
+            Utils.snackBar(this, R.string.please_enter_title);
+            return false;
+        }
+        if (!Utils.isAnyCheckboxChecked(cbAddition, cbSubtraction, cbMultiplication, cbDivision, cbSquareRoot, cbPercentage)) {
+            Utils.snackBar(this, R.string.please_at_least_choose_one_operation);
+            return false;
+        }
+        return true;
+    }
+
     private void saveSettings() {
+        CustomMode customMode = new CustomMode();
+        customMode.setTitle(Utils.get(metTitle));
+        Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
+        userBox.put(customMode);
     }
 
     @Override
     public void onBackPressed() {
         Transition.exit(this);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switch (buttonView.getId()) {
+            case R.id.rbSinglePlayer:
+                if (isChecked) rbDualPlayer.setChecked(false);
+                break;
+            case R.id.rbDualPlayer:
+                if (isChecked) rbSinglePlayer.setChecked(false);
+                break;
+            case R.id.rbTimerNone:
+                if (isChecked) {
+                    rbTimerPerQuestion.setChecked(false);
+                    rbTimerPerTest.setChecked(false);
+                }
+                break;
+            case R.id.rbTimerPerQuestion:
+                if (isChecked) {
+                    rbTimerNone.setChecked(false);
+                    rbTimerPerTest.setChecked(false);
+                }
+                break;
+            case R.id.rbTimerPerTest:
+                if (isChecked) {
+                    rbTimerPerQuestion.setChecked(false);
+                    rbTimerNone.setChecked(false);
+                }
+                break;
+            case R.id.cbSquareRoot:
+                npNumberOfVariables.setMinValue(isChecked ? 1 : 2);
+                break;
+        }
+    }
+
+    @Override
+    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+        switch (picker.getId()) {
+            case R.id.npNumberOfQuestion:
+                npNumberOfSkip.setMaxValue(npNumberOfQuestion.getValue());
+                break;
+        }
     }
 }

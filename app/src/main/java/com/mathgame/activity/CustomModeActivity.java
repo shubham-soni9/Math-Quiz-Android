@@ -41,8 +41,8 @@ public class CustomModeActivity extends BaseActivity implements View.OnClickList
         ivBack = findViewById(R.id.ivBack);
         ivAddOption = findViewById(R.id.ivAddOption);
         rvCustomModeList.setLayoutManager(new LinearLayoutManager(this));
-        Utils.setOnClickListener(this, ivBack);
-
+        Utils.setOnClickListener(this, ivBack,ivAddOption);
+        ivAddOption.setVisibility(View.VISIBLE);
     }
 
     @Override

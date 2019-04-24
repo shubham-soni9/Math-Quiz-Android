@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:paddingBottom="20dp"
         android:scrollbars="none">
 
         <LinearLayout
@@ -63,7 +62,7 @@
                     android:paddingEnd="@dimen/activity_horizontal_margin">
 
                     <com.mathgame.plugin.MaterialEditText
-                        android:id="@+id/tvTitle"
+                        android:id="@+id/metTitle"
                         style="@style/edit_text_style"
                         android:layout_height="50dp"
                         android:gravity="center_vertical"
@@ -136,6 +135,7 @@
                     <com.mathgame.plugin.numberpicker.NumberPicker
                         android:id="@+id/npNumberOfQuestion"
                         style="@style/number_picker"
+                        app:np_min="1"
                         app:np_max="99" />
 
                 </RelativeLayout>
@@ -305,7 +305,7 @@
                         android:layout_toEndOf="@id/vCustomFieldsIcon">
 
                         <TextView
-                            android:id="@+id/tvDropDownValue"
+                            android:id="@+id/tvSelectedChallenge"
                             style="@style/text_alignment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -545,7 +545,7 @@
                         android:id="@+id/npNumberOfVariables"
                         style="@style/number_picker"
                         app:np_max="5"
-                        app:np_min="1" />
+                        app:np_min="2" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -612,6 +612,7 @@
                         android:drawablePadding="5dp"
                         android:gravity="center_vertical"
                         android:text="@string/none"
+                        android:checked="true"
                         android:textAppearance="@style/CustomTextAppearance.Light"
                         app:rbd_strokeColor="@color/colorPrimary" />
 

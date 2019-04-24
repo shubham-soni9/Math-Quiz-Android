@@ -1,0 +1,66 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5623299529199068778",
+      "lastPropertyId": "10:2445435789093502337",
+      "name": "CustomMode",
+      "properties": [
+        {
+          "id": "1:5209375462851232606",
+          "name": "id"
+        },
+        {
+          "id": "2:4440458356425320719",
+          "name": "title"
+        },
+        {
+          "id": "3:7161251396490680502",
+          "name": "numberOfQuestions"
+        },
+        {
+          "id": "4:1574440488258843850",
+          "name": "playerType"
+        },
+        {
+          "id": "5:6924392134236236252",
+          "name": "gameType"
+        },
+        {
+          "id": "6:8826665486653378459",
+          "name": "mathOperations"
+        },
+        {
+          "id": "7:1890178618018147964",
+          "name": "numberOfVariables"
+        },
+        {
+          "id": "8:8685637156511195365",
+          "name": "TimerType"
+        },
+        {
+          "id": "9:9077244004572076457",
+          "name": "timerValue"
+        },
+        {
+          "id": "10:2445435789093502337",
+          "name": "skipNumbers"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:5623299529199068778",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

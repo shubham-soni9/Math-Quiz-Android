@@ -98,7 +98,7 @@
         <item name="np_textColor">@color/white</item>
         <item name="np_selectedTextSize">@dimen/text_size_normal</item>
         <item name="np_textSize">@dimen/text_size_normal</item>
-        <item name="np_value">1</item>
+        <item name="np_value">0</item>
         <item name="np_wheelItemCount">1</item>
         <item name="np_hideWheelUntilFocused">true</item>
         <item name="android:background">@color/colorPrimary</item>

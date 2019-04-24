@@ -51,5 +51,7 @@
     <string name="total_time">Total Time</string>
     <string name="game_type">Game Type</string>
     <string name="save_settings">Save Settings</string>
+    <string name="please_enter_title">Please enter title</string>
+    <string name="please_at_least_choose_one_operation">Please at least choose one operation.</string>
 </resources>
 
