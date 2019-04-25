@@ -11,7 +11,7 @@ import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
-public class AdditionActivity extends BaseActivity implements View.OnClickListener {
+public class SingleGameActivity extends BaseActivity implements View.OnClickListener {
     private RoundedHorizontalProgressBar pbTimer;
     private ImageView                    ivBack;
 

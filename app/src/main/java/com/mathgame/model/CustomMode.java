@@ -1,10 +1,13 @@
 package com.mathgame.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 
 @Entity
-public class CustomMode {
+public class CustomMode  implements Parcelable {
     @Id
     public long id;
 
@@ -21,6 +24,31 @@ public class CustomMode {
     public CustomMode() {
 
     }
+
+    protected CustomMode(Parcel in) {
+        id = in.readLong();
+        title = in.readString();
+        numberOfQuestions = in.readInt();
+        playerType = in.readInt();
+        gameType = in.readInt();
+        mathOperations = in.readString();
+        numberOfVariables = in.readInt();
+        timerType = in.readInt();
+        timerValue = in.readInt();
+        skipNumbers = in.readInt();
+    }
+
+    public static final Creator<CustomMode> CREATOR = new Creator<CustomMode>() {
+        @Override
+        public CustomMode createFromParcel(Parcel in) {
+            return new CustomMode(in);
+        }
+
+        @Override
+        public CustomMode[] newArray(int size) {
+            return new CustomMode[size];
+        }
+    };
 
     public void setNumberOfQuestions(int numberOfQuestions) {
         this.numberOfQuestions = numberOfQuestions;
@@ -94,4 +122,22 @@ public class CustomMode {
         return skipNumbers;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(title);
+        dest.writeInt(numberOfQuestions);
+        dest.writeInt(playerType);
+        dest.writeInt(gameType);
+        dest.writeString(mathOperations);
+        dest.writeInt(numberOfVariables);
+        dest.writeInt(timerType);
+        dest.writeInt(timerValue);
+        dest.writeInt(skipNumbers);
+    }
 }

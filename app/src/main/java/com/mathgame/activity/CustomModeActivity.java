@@ -13,11 +13,10 @@ import com.mathgame.adapter.CustomModeAdapter;
 import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
-import com.mathgame.util.Codes;
+import com.mathgame.appdata.Codes;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.objectbox.Box;

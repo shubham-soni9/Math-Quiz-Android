@@ -11,9 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mathgame.R;
+import com.mathgame.appdata.Codes;
 import com.rey.material.widget.CheckBox;
-
-import java.text.DecimalFormat;
 
 public class Utils {
 

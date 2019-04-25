@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginStart="5dp"
     android:layout_marginTop="5dp"
+    android:id="@+id/rlParent"
     android:layout_marginEnd="5dp"
     android:layout_marginBottom="@dimen/_5dp"
     app:cardCornerRadius="@dimen/spacing_5"

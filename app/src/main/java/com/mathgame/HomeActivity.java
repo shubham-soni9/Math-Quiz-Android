@@ -6,8 +6,7 @@ import android.widget.TextView;
 
 import com.mathgame.activity.CustomModeActivity;
 import com.mathgame.structure.BaseActivity;
-import com.mathgame.activity.AddCustomModeActivity;
-import com.mathgame.activity.AdditionActivity;
+import com.mathgame.activity.SingleGameActivity;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
@@ -29,7 +28,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tvAddition:
-                Transition.startActivity(this, AdditionActivity.class);
+                Transition.startActivity(this, SingleGameActivity.class);
                 break;
             case R.id.tvCustomMode:
                 Transition.startActivity(this, CustomModeActivity.class);

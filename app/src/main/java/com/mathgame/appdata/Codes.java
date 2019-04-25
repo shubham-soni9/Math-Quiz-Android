@@ -1,4 +1,4 @@
-package com.mathgame.util;
+package com.mathgame.appdata;
 
 import com.mathgame.R;
 

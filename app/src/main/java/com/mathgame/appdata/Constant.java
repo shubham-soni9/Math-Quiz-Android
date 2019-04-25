@@ -1,4 +1,4 @@
-package com.mathgame.util;
+package com.mathgame.appdata;
 
 public interface Constant {
     String EMPTY="";
