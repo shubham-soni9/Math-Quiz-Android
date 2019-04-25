@@ -19,11 +19,15 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition);
-        pbTimer = findViewById(R.id.pbTimer);
-        ivBack = findViewById(R.id.ivBack);
+        init();
         pbTimer.animateProgress(8000, 0, 100);
         Utils.setOnClickListener(this, ivBack);
 
+    }
+
+    private void init() {
+        pbTimer = findViewById(R.id.pbTimer);
+        ivBack = findViewById(R.id.ivBack);
     }
 
     @Override

@@ -13,13 +13,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mathgame.R;
+import com.mathgame.appdata.Codes;
+import com.mathgame.appdata.Constant;
 import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CustomMode;
 import com.mathgame.plugin.MaterialEditText;
 import com.mathgame.plugin.numberpicker.NumberPicker;
 import com.mathgame.structure.BaseActivity;
-import com.mathgame.appdata.Codes;
-import com.mathgame.appdata.Constant;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 import com.rey.material.widget.CheckBox;
@@ -172,7 +172,8 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         // Define Timer Type
         if (rbTimerNone.isChecked()) customMode.setTimerType(Codes.TimerType.NONE.value);
         if (rbTimerPerTest.isChecked()) customMode.setTimerType(Codes.TimerType.PER_TEST.value);
-        if (rbTimerPerQuestion.isChecked()) customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);
+        if (rbTimerPerQuestion.isChecked())
+            customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);
 
         //Define Timer Value
         customMode.setTimerValue(npTimerMinuteValue.getValue() * 60 + npTimerSecondValue.getValue());
