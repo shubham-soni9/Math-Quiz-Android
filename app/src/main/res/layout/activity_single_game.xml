@@ -146,14 +146,17 @@
                     android:textStyle="bold" />
 
                 <include
-                    layout="@layout/layout_game_mutliple_choice"
-                    android:visibility="gone" />
+                    android:id="@+id/vMultipleChoice"
+                    layout="@layout/layout_game_mutliple_choice" />
 
                 <include
+                    android:id="@+id/vGameYesOrNo"
                     layout="@layout/layout_game_yes_no"
                     android:visibility="gone" />
 
-                <include layout="@layout/layout_game_input_answer" />
+                <include
+                    android:id="@+id/vInputAnswer"
+                    android:visibility="gone" layout="@layout/layout_game_input_answer" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

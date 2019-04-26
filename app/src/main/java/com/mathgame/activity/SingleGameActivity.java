@@ -20,6 +20,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private ImageView                    ivBack;
     private CustomMode customMode;
     private TextView tvQuestion;
+    private View vMultipleChoice;
+    private View vGameYesOrNo;
+    private View vInputAnswer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +31,10 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         init();
        // pbTimer.animateProgress(8000, 0, 100);
         Utils.setOnClickListener(this, ivBack);
+        setData();
+    }
+
+    private void setData() {
 
     }
 
@@ -35,6 +42,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         pbTimer = findViewById(R.id.pbTimer);
         ivBack = findViewById(R.id.ivBack);
         tvQuestion=findViewById(R.id.tvQuestion);
+        vMultipleChoice=findViewById(R.id.vMultipleChoice);
+        vGameYesOrNo=findViewById(R.id.vGameYesOrNo);
+        vInputAnswer=findViewById(R.id.vInputAnswer);
     }
 
     @Override
