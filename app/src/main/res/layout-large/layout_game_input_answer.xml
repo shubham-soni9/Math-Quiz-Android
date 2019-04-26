@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:layoutDirection="ltr"
     android:orientation="vertical">
@@ -24,8 +24,8 @@
             android:paddingTop="@dimen/_5dp"
             android:paddingEnd="@dimen/_20dp"
             android:paddingBottom="@dimen/_5dp"
-            android:textSize="@dimen/text_size_title_big"
-            android:text="0" />
+            android:textSize="40sp"
+            tools:text="0" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,8 +37,8 @@
             android:paddingTop="@dimen/_5dp"
             android:paddingEnd="@dimen/_20dp"
             android:paddingBottom="@dimen/_5dp"
-            android:textSize="@dimen/text_size_title_big"
-            android:text="0" />
+            android:textSize="40sp"
+            tools:text="0" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,23 +50,24 @@
             android:paddingTop="@dimen/_5dp"
             android:paddingEnd="@dimen/_20dp"
             android:paddingBottom="@dimen/_5dp"
-            android:textSize="@dimen/text_size_title_big"
-            android:text="0" />
+            android:textSize="40sp"
+            tools:text="0" />
 
     </LinearLayout>
 
-
     <LinearLayout
-        android:layout_marginTop="@dimen/_10dp"
-        android:layout_below="@+id/llAnswer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_below="@+id/llAnswer"
+        android:layout_marginTop="@dimen/_10dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/llDigits"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight=".7"
             android:orientation="vertical">
 
             <LinearLayout
@@ -131,25 +132,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvClear"
-                android:layout_marginTop="@dimen/_10dp"
                 style="@style/keyboard_button_number"
-                android:minWidth="@dimen/_100dp"
-                android:background="@drawable/background_clear"
-                android:backgroundTint="@color/snackbar_bg_color_error"
                 android:layout_width="match_parent"
+                android:background="@drawable/background_clear"
+                android:minWidth="@dimen/_100dp"
                 android:text="@string/clear" />
 
             <TextView
                 style="@style/keyboard_button_number"
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10dp"
                 android:background="@drawable/background_submit"
                 android:minWidth="@dimen/_100dp"
-                android:backgroundTint="@color/snackbar_bg_color_success"
-                android:layout_marginTop="@dimen/_10dp"
                 android:text="@string/submit" />
         </LinearLayout>
 

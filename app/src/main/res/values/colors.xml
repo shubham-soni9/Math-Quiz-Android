@@ -33,4 +33,8 @@
 
     <color name="snackbar_bg_color_success">#e666d02a</color>
     <color name="snackbar_bg_color_error">#e6e2574c</color>
+    <color name="red_35">#e66e65</color>
+    <color name="red_60">#af261d</color>
+    <color name="submit_pressed">#54a923</color>
+    <color name="submit_normal">#96e16b</color>
 </resources>
