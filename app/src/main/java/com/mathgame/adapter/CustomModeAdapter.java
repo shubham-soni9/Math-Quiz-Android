@@ -4,19 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.activity.SingleGameActivity;
-import com.mathgame.model.CustomMode;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Dependencies;
+import com.mathgame.model.CustomMode;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
@@ -60,8 +60,8 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
         holder.rlParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle=new Bundle();
-                bundle.putParcelable(CustomMode.class.getName(),customMode);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(CustomMode.class.getName(), customMode);
                 Transition.transit((Activity) context, SingleGameActivity.class, bundle);
             }
         });
@@ -75,7 +75,7 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle, tvQuestionValue, tvVariableValue, tvSkipValue, tvGameType, tvTimerType, tvTimerValue, tvOperations;
         private ImageView ivPlayerType;
-private RelativeLayout rlParent;
+        private CardView  rlParent;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -88,7 +88,7 @@ private RelativeLayout rlParent;
             tvTimerValue = itemView.findViewById(R.id.tvTimerValue);
             tvOperations = itemView.findViewById(R.id.tvOperations);
             ivPlayerType = itemView.findViewById(R.id.ivPlayerType);
-            rlParent=itemView.findViewById(R.id.rlParent);
+            rlParent = itemView.findViewById(R.id.rlParent);
         }
     }
 
