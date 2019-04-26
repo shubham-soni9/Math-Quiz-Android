@@ -100,7 +100,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="@color/black"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="5dp">
 
@@ -115,6 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:textAppearance="@style/CustomTextAppearance.UltraLight"
                         android:text="10 + 20 = ?"
                         android:textColor="@color/white"
                         android:textSize="40sp" />
@@ -134,9 +135,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_remaining_qna"
+                    android:background="@drawable/background_skip"
                     android:drawableEnd="@drawable/ic_skip"
                     android:drawablePadding="5dp"
+                    android:textAppearance="@style/CustomTextAppearance.Light"
                     android:padding="10dp"
                     android:text="@string/skip_to_next"
                     android:textColor="@color/white"

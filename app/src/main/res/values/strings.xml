@@ -14,7 +14,7 @@
     <string name="square_root">Square Root</string>
     <string name="career_mode">Career Mode</string>
     <string name="custom_mode">Custom Mode</string>
-    <string name="skip_to_next">Skip To Next</string>
+    <string name="skip_to_next">(2)Skip To Next</string>
     <string name="select_text">Select</string>
     <string name="number_of_variables">Number Of Variables(a,b,c)</string>
     <string name="choose_operations">Choose Operations</string>

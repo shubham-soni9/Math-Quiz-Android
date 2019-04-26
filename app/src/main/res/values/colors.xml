@@ -37,4 +37,7 @@
     <color name="red_60">#af261d</color>
     <color name="submit_pressed">#54a923</color>
     <color name="submit_normal">#96e16b</color>
+    <color name="skip_pressed">#37474F</color>
+    <color name="skip_normal">#546E7A</color>
+    <color name="question_normal">#2E7D32</color>
 </resources>
