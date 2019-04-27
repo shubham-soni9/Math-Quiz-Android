@@ -10,11 +10,13 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.rey.material.widget.CheckBox;
 
 public class Utils {
+    private static final String TAG = Utils.class.getName();
 
     public static void setOnClickListener(View.OnClickListener listener, View... views) {
         for (View view : views)
@@ -57,6 +59,7 @@ public class Utils {
             e.printStackTrace();
         }
     }
+
     public static void snackBar(Activity activity, int messageId) {
         try {
             snackBar(activity, activity.getString(messageId), Codes.SnackBarType.ERROR);
@@ -94,14 +97,22 @@ public class Utils {
         });
     }
 
-    public static boolean isAnyCheckboxChecked(com.rey.material.widget.CheckBox... checkBoxes){
-        for (CheckBox checkbox:checkBoxes){
-            if(checkbox.isChecked()) return true;
+    public static boolean isAnyCheckboxChecked(com.rey.material.widget.CheckBox... checkBoxes) {
+        for (CheckBox checkbox : checkBoxes) {
+            if (checkbox.isChecked()) return true;
         }
         return false;
     }
 
-    public static String convertToTwoDigit(int value){
+    public static String convertToTwoDigit(int value) {
         return new TwoDigitFormatter().format(value);
+    }
+
+    public static void logRequestBody(Object object) {
+        try {
+            Log.e(TAG, new Gson().toJson(object));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

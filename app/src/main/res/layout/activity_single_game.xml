@@ -142,7 +142,7 @@
                     android:padding="10dp"
                     android:text="@string/skip_to_next"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_normal"
                     android:textStyle="bold" />
 
                 <include

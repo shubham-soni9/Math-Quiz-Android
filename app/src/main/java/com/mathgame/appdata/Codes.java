@@ -81,5 +81,6 @@ public interface Codes {
 
     interface RequestCode {
         int OPEN_ADD_CUSTOM_MODE_ACTIVITY = 100;
+        int OPEN_SINGLE_GAME_ACTIVITY=101;
     }
 }
