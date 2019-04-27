@@ -61,8 +61,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/vwShadow"
         android:fillViewport="true"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
+        android:paddingStart="@dimen/_10dp"
+        android:paddingEnd="@dimen/_10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
