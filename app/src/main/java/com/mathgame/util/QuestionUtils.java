@@ -14,23 +14,65 @@ public class QuestionUtils {
             int a = RandomUtils.getRandomInteger(9, 1);
             int b = RandomUtils.getRandomInteger(9, 1);
             String chosenOperation = operations[RandomUtils.getRandomInteger(operations.length - 1)];
-            question = a + " " + chosenOperation + " " + b + " = ?";
-            switch (chosenOperation) {
-                case "+":
-                    answer = String.valueOf(a + b);
-                    break;
-                case "-":
-                    answer = String.valueOf(a - b);
-                    break;
-                case "*":
-                    answer = String.valueOf(a * b);
-                    break;
-                case "/":
-                    answer = String.valueOf(a / b);
-                    break;
-                case "%":
-                    answer = String.valueOf(a % b);
-                    break;
+            int questionType = RandomUtils.getRandomInteger(3, 1);
+
+            if (questionType == 1) {
+                question = a + " " + chosenOperation + " " + b + " = ?";
+                switch (chosenOperation) {
+                    case "+":
+                        answer = String.valueOf(a + b);
+                        break;
+                    case "-":
+                        answer = String.valueOf(a - b);
+                        break;
+                    case "*":
+                        answer = String.valueOf(a * b);
+                        break;
+                    case "/":
+                        answer = String.valueOf(a / b);
+                        break;
+                    case "%":
+                        answer = String.valueOf(a % b);
+                        break;
+                }
+            } else if (questionType == 2) {
+                question = a + " " + chosenOperation + " ? " + " = " + b;
+                switch (chosenOperation) {
+                    case "+":
+                        answer = String.valueOf(b - a);
+                        break;
+                    case "-":
+                        answer = String.valueOf(b + a);
+                        break;
+                    case "*":
+                        answer = String.valueOf(b / a);
+                        break;
+                    case "/":
+                        answer = String.valueOf(b * a);
+                        break;
+                    case "%":
+                        answer = String.valueOf(b % a);
+                        break;
+                }
+            } else if (questionType == 3) {
+                question = "? " + chosenOperation + " " + a + " = " + b;
+                switch (chosenOperation) {
+                    case "+":
+                        answer = String.valueOf(b - a);
+                        break;
+                    case "-":
+                        answer = String.valueOf(b + a);
+                        break;
+                    case "*":
+                        answer = String.valueOf(b / a);
+                        break;
+                    case "/":
+                        answer = String.valueOf(b * a);
+                        break;
+                    case "%":
+                        answer = String.valueOf(b % a);
+                        break;
+                }
             }
         }
         return new Pair<>(question, answer);
