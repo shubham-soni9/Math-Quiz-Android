@@ -19,6 +19,8 @@ import com.mathgame.util.Utils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
 
 public class SingleGameActivity extends BaseActivity implements View.OnClickListener {
@@ -106,30 +108,27 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             currentQna = QuestionUtils.getQuestionWithAnswer(customMode);
             tvQuestion.setText(currentQna.first);
             if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
-                int answerPos = RandomUtils.getRandomInteger(3, 0);
                 ArrayList<String> options = new ArrayList<>();
-                for (int i = 0; i < 4; i++) {
-                    if (answerPos == i) {
-                        options.add(currentQna.second);
-                    } else {
-                        String wrongOption = String.valueOf(RandomUtils.getRandomInteger(20,2));
-                        for (int j = 0; j < options.size(); j++) {
-                            String value = options.get(j);
-                            if (wrongOption.equals(value)) {
-                                wrongOption = String.valueOf(RandomUtils.getRandomInteger(20,2));
-                                j = 0;
-                            }
+                options.add(currentQna.second);
+                for (int i = 0; i < 3; i++) {
+                    String wrongOption = String.valueOf(RandomUtils.getRandomInteger(20, 2));
+                    for (int j = 0; j < options.size(); j++) {
+                        String value = options.get(j);
+                        if (wrongOption.equals(value)) {
+                            wrongOption = String.valueOf(RandomUtils.getRandomInteger(20, 2));
+                            j = 0;
                         }
-                        options.add(wrongOption);
                     }
+                    options.add(wrongOption);
                 }
+                Collections.shuffle(options);
                 tvOption1.setText(options.get(0));
                 tvOption2.setText(options.get(1));
                 tvOption3.setText(options.get(2));
                 tvOption4.setText(options.get(3));
             }
         } else {
-           onBackPressed();
+            onBackPressed();
         }
     }
 
@@ -163,7 +162,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 public void run() {
                     startGame();
                 }
-            },500);
+            }, 500);
         } else {
             Utils.vibrate(this);
             tvOption.setBackgroundResource(R.drawable.background_incorrect_anwer);

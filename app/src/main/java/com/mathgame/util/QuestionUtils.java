@@ -11,10 +11,10 @@ public class QuestionUtils {
         String question = Constant.EMPTY;
         String answer = Constant.EMPTY;
         if (customMode.getNumberOfVariables() == 2) {
-            int a = RandomUtils.getRandomInteger(9,1);
-            int b = RandomUtils.getRandomInteger(9,1);
+            int a = RandomUtils.getRandomInteger(9, 1);
+            int b = RandomUtils.getRandomInteger(9, 1);
             String chosenOperation = operations[RandomUtils.getRandomInteger(operations.length - 1)];
-            question = a + " " + chosenOperation + " " + b;
+            question = a + " " + chosenOperation + " " + b + " = ?";
             switch (chosenOperation) {
                 case "+":
                     answer = String.valueOf(a + b);

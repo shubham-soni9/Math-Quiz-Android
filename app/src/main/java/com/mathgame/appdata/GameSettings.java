@@ -21,7 +21,7 @@ public class GameSettings {
     public static CustomMode getSubtraction() {
         CustomMode customMode = new CustomMode();
         customMode.setTitle("Addition");
-        customMode.setGameType(Codes.GameType.MANUAL_INPUT.value);
+        customMode.setGameType(Codes.GameType.MULTIPLE_CHOICE.value);
         customMode.setTimerType(Codes.TimerType.NONE.value);
         customMode.setPlayerType(Codes.PlayerType.SINGLE.value);
         customMode.setNumberOfVariables(2);
@@ -35,7 +35,7 @@ public class GameSettings {
     public static CustomMode getMutltiplication() {
         CustomMode customMode = new CustomMode();
         customMode.setTitle("Addition");
-        customMode.setGameType(Codes.GameType.YES_NO.value);
+        customMode.setGameType(Codes.GameType.MULTIPLE_CHOICE.value);
         customMode.setTimerType(Codes.TimerType.NONE.value);
         customMode.setPlayerType(Codes.PlayerType.SINGLE.value);
         customMode.setNumberOfVariables(2);
