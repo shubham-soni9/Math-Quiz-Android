@@ -13,9 +13,11 @@ public class QuestionUtils {
         if (customMode.getNumberOfVariables() == 2) {
             int a = RandomUtils.getRandomInteger(9, 1);
             int b = RandomUtils.getRandomInteger(9, 1);
+            while (a == b) {
+                b = RandomUtils.getRandomInteger(9, 1);
+            }
             String chosenOperation = operations[RandomUtils.getRandomInteger(operations.length - 1)];
             int questionType = RandomUtils.getRandomInteger(3, 1);
-
             if (questionType == 1) {
                 question = a + " " + chosenOperation + " " + b + " = ?";
                 switch (chosenOperation) {
@@ -42,7 +44,7 @@ public class QuestionUtils {
                         answer = String.valueOf(b - a);
                         break;
                     case "-":
-                        answer = String.valueOf(b + a);
+                        answer = String.valueOf(a - b);
                         break;
                     case "*":
                         answer = String.valueOf(b / a);

@@ -1,5 +1,6 @@
 package com.mathgame.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -144,7 +145,11 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                            // Log.e(TAG, "Millisecond :: " + millis);
                             int progress = (int) ((millis * 100) / (customMode.getTimerValue() * 1000));
                           //  Log.e(TAG, "Progress :: " + progress);
-                            pbTimer.setProgress(progress, true);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                pbTimer.setProgress(progress, true);
+                            } else {
+                                pbTimer.setProgress(progress);
+                            }
                         }
 
                         @Override
@@ -200,7 +205,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
+        if(countDownTimer!=null){
         countDownTimer.cancel();
+        }
         Transition.exit(this);
     }
 }
