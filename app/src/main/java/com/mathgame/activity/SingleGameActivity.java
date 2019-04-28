@@ -1,6 +1,7 @@
 package com.mathgame.activity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Pair;
@@ -12,6 +13,7 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.Log;
 import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.RandomUtils;
 import com.mathgame.util.Transition;
@@ -19,9 +21,9 @@ import com.mathgame.util.Utils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class SingleGameActivity extends BaseActivity implements View.OnClickListener {
     private RoundedHorizontalProgressBar pbTimer;
@@ -36,8 +38,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private TextView                     tvQuestion;
     private int                          remainingQuestion = 1;
     private TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
-    private Pair<String, String> currentQna;
-
+    private              Pair<String, String> currentQna;
+    private              CountDownTimer       countDownTimer;
+    private static final String               TAG = SingleGameActivity.class.getName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -127,6 +130,32 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 tvOption3.setText(options.get(2));
                 tvOption4.setText(options.get(3));
             }
+            if (customMode.getTimerValue() > 0) {
+                if (customMode.getTimerType() == Codes.TimerType.PER_QUESTION.value) {
+                    if (countDownTimer != null) {
+                        countDownTimer.cancel();
+                    }
+                    countDownTimer = new CountDownTimer(customMode.getTimerValue() * 1000, 100) {
+                        @Override
+                        public void onTick(long millis) {
+                            String hms = String.format(locale(), "%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit
+                                    .MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                            tvTimerValue.setText(String.format(locale(), "%s : %s", getString(R.string.timer), hms));
+                           // Log.e(TAG, "Millisecond :: " + millis);
+                            int progress = (int) ((millis * 100) / (customMode.getTimerValue() * 1000));
+                          //  Log.e(TAG, "Progress :: " + progress);
+                            pbTimer.setProgress(progress, true);
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            remainingQuestion++;
+                            startGame();
+                        }
+                    };
+                    countDownTimer.start();
+                }
+            }
         } else {
             onBackPressed();
         }
@@ -171,6 +200,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
+        countDownTimer.cancel();
         Transition.exit(this);
     }
 }

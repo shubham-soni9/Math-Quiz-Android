@@ -8,13 +8,13 @@ public class GameSettings {
         CustomMode customMode = new CustomMode();
         customMode.setTitle("Addition");
         customMode.setGameType(Codes.GameType.MULTIPLE_CHOICE.value);
-        customMode.setTimerType(Codes.TimerType.NONE.value);
+        customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);
         customMode.setPlayerType(Codes.PlayerType.SINGLE.value);
         customMode.setNumberOfVariables(2);
         customMode.setNumberOfQuestions(10);
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("+");
-        customMode.setTimerValue(0);
+        customMode.setTimerValue(10);
         return customMode;
     }
 

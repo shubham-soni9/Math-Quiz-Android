@@ -94,7 +94,7 @@
                 android:indeterminate="false"
                 android:maxHeight="12dp"
                 android:minHeight="12dp"
-                android:progress="40"
+                android:progress="100"
                 app:backgroundColor="@color/progress_bar_empty_color"
                 app:progressColor="@color/progress_bar_filled_color" />
             </LinearLayout>
