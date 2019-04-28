@@ -1,7 +1,10 @@
 package com.mathgame.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
@@ -29,6 +32,10 @@ public class Utils {
     }
 
     public static String get(EditText editText) {
+        return editText.getText().toString().trim();
+    }
+
+    public static String get(TextView editText) {
         return editText.getText().toString().trim();
     }
 
@@ -113,6 +120,17 @@ public class Utils {
             Log.e(TAG, new Gson().toJson(object));
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void vibrate(Context context) {
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (v != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+            } else {
+                v.vibrate(500);
+            }
         }
     }
 }

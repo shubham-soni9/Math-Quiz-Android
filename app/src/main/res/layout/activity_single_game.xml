@@ -155,6 +155,7 @@
                 <include
                     android:id="@+id/vMultipleChoice"
                     android:visibility="gone"
+                    tools:visibility="visible"
                     layout="@layout/layout_game_mutliple_choice" />
 
                 <include
@@ -164,7 +165,7 @@
 
                 <include
                     android:id="@+id/vInputAnswer"
-                    tools:visibility="visible"
+                    tools:visibility="gone"
                     android:visibility="gone" layout="@layout/layout_game_input_answer" />
             </LinearLayout>
         </RelativeLayout>
