@@ -18,6 +18,8 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.rey.material.widget.CheckBox;
 
+import java.util.Locale;
+
 public class Utils {
     private static final String TAG = Utils.class.getName();
 
@@ -133,4 +135,28 @@ public class Utils {
             }
         }
     }
+
+    public static String toDecimal(final double decimalInput) {
+        return toDecimal(decimalInput, Locale.US, 2);
+    }
+
+    private static String toDecimal(final double decimalInput, final Locale locale,
+                                             final int decimalPlace) {
+        String mString = "%." + decimalPlace + "f";
+        return String.format(locale, mString, decimalInput);
+    }
+    public static double toDouble(String convertible) {
+
+        double converted;
+
+        try {
+            converted = Double.parseDouble(convertible);
+        } catch (Exception ex) {
+            converted = 0.0;
+            ex.printStackTrace();
+        }
+
+        return converted;
+    }
+
 }

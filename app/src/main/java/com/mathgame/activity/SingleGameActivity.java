@@ -14,7 +14,6 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
-import com.mathgame.util.Log;
 import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.RandomUtils;
 import com.mathgame.util.Transition;
@@ -115,11 +114,11 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 ArrayList<String> options = new ArrayList<>();
                 options.add(currentQna.second);
                 for (int i = 0; i < 3; i++) {
-                    String wrongOption = String.valueOf(RandomUtils.getRandomInteger(20, 2));
+                    String wrongOption = String.valueOf(RandomUtils.getRandomInt(20, 2));
                     for (int j = 0; j < options.size(); j++) {
                         String value = options.get(j);
                         if (wrongOption.equals(value)) {
-                            wrongOption = String.valueOf(RandomUtils.getRandomInteger(20, 2));
+                            wrongOption = String.valueOf(RandomUtils.getRandomInt(20, 2));
                             j = 0;
                         }
                     }
@@ -142,9 +141,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                             String hms = String.format(locale(), "%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit
                                     .MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
                             tvTimerValue.setText(String.format(locale(), "%s : %s", getString(R.string.timer), hms));
-                           // Log.e(TAG, "Millisecond :: " + millis);
+                            // Log.e(TAG, "Millisecond :: " + millis);
                             int progress = (int) ((millis * 100) / (customMode.getTimerValue() * 1000));
-                          //  Log.e(TAG, "Progress :: " + progress);
+                            //  Log.e(TAG, "Progress :: " + progress);
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                 pbTimer.setProgress(progress, true);
                             } else {
@@ -205,8 +204,8 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        if(countDownTimer!=null){
-        countDownTimer.cancel();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
         }
         Transition.exit(this);
     }

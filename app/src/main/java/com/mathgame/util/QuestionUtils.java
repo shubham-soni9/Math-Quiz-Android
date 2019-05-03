@@ -6,39 +6,46 @@ import com.mathgame.appdata.Constant;
 import com.mathgame.model.CustomMode;
 
 public class QuestionUtils {
+    private static final int MAXIMUM=20;
+    private static final int MINIMUM=2;
     public static Pair<String, String> getQuestionWithAnswer(CustomMode customMode) {
         String[] operations = customMode.getMathOperations().split(" ");
         String question = Constant.EMPTY;
         String answer = Constant.EMPTY;
         if (customMode.getNumberOfVariables() == 2) {
-            int a = RandomUtils.getRandomInteger(9, 1);
-            int b = RandomUtils.getRandomInteger(9, 1);
+            int a = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
+            int b = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
+
+            String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
+
             while (a == b) {
-                b = RandomUtils.getRandomInteger(9, 1);
+                a = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
+                b = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
             }
-            String chosenOperation = operations[RandomUtils.getRandomInteger(operations.length - 1)];
-            int questionType = RandomUtils.getRandomInteger(3, 1);
+
+            int questionType = RandomUtils.getRandomInt(3, 1);
             if (questionType == 1) {
                 question = a + " " + chosenOperation + " " + b + " = ?";
                 switch (chosenOperation) {
-                    case "+":
+                    case Constant.MathSign.ADDITION:
                         answer = String.valueOf(a + b);
                         break;
-                    case "-":
+                    case Constant.MathSign.SUBTRACTION:
                         answer = String.valueOf(a - b);
                         break;
-                    case "*":
+                    case Constant.MathSign.MULTIPLICATION:
                         answer = String.valueOf(a * b);
                         break;
-                    case "/":
+                    case Constant.MathSign.DIVISION:
                         answer = String.valueOf(a / b);
                         break;
-                    case "%":
+                    case Constant.MathSign.PERCENTAGE:
                         answer = String.valueOf(a % b);
                         break;
                 }
             } else if (questionType == 2) {
                 question = a + " " + chosenOperation + " ? " + " = " + b;
+
                 switch (chosenOperation) {
                     case "+":
                         answer = String.valueOf(b - a);
