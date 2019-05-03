@@ -18,6 +18,8 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.rey.material.widget.CheckBox;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Locale;
 
 public class Utils {
@@ -113,8 +115,20 @@ public class Utils {
         return false;
     }
 
+    private static double round(double value) {
+        if (2 < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
     public static String convertToTwoDigit(int value) {
         return new TwoDigitFormatter().format(value);
+    }
+
+    public static double twoDecimal(final double decimalInput) {
+        return round(decimalInput);
     }
 
     public static void logRequestBody(Object object) {
@@ -141,10 +155,11 @@ public class Utils {
     }
 
     private static String toDecimal(final double decimalInput, final Locale locale,
-                                             final int decimalPlace) {
+                                    final int decimalPlace) {
         String mString = "%." + decimalPlace + "f";
         return String.format(locale, mString, decimalInput);
     }
+
     public static double toDouble(String convertible) {
 
         double converted;

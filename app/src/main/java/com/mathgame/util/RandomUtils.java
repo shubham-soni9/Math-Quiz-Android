@@ -7,7 +7,7 @@ public class RandomUtils {
     }
 
     public static double getRandomDouble(int maximum, int minimum) {
-        return Math.random() * (maximum - minimum) + minimum;
+        return Utils.twoDecimal(Math.random() * (maximum - minimum) + minimum);
     }
 
     public static int getRandomInt(int max) {
@@ -17,5 +17,4 @@ public class RandomUtils {
     public static int getRandomInt(int maximum, int minimum) {
         return (int) (Math.random() * (maximum - minimum) + minimum);
     }
-
 }
