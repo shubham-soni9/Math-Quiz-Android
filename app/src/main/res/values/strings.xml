@@ -56,5 +56,12 @@
     <string name="operations">Operations</string>
     <string name="clear">Clear</string>
     <string name="submit">Submit</string>
+    <string name="learn">Learn</string>
+    <string name="practice">Practice</string>
+    <string name="test">Test</string>
+    <string name="time_attack">Time Attack</string>
+    <string name="dual">Dual</string>
+    <string name="mutltiple">Multiple</string>
+    <string name="coming_soon">Coming Soon</string>
 </resources>
 

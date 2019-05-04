@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mathgame.activity.GameTypeActivity;
 import com.mathgame.activity.SingleGameActivity;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.GameSettings;
@@ -44,27 +45,27 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.tvAddition:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getAdditionGame());
-                Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_SINGLE_GAME_ACTIVITY, bundle);
+                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvSubtraction:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSubtraction());
-                Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_SINGLE_GAME_ACTIVITY, bundle);
+                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvMultiplication:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getMutltiplication());
-                Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_SINGLE_GAME_ACTIVITY, bundle);
+                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvDivision:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getDivision());
-                Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_SINGLE_GAME_ACTIVITY, bundle);
+                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvSquareRoot:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSquareRoot());
-                Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_SINGLE_GAME_ACTIVITY, bundle);
+                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvPercentage:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getPercentage());
-                Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_SINGLE_GAME_ACTIVITY, bundle);
+                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
         }
     }
