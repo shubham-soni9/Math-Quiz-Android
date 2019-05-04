@@ -58,6 +58,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
         android:background="@color/transparent">
 
         <LinearLayout
@@ -75,6 +76,7 @@
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/cvLearn"
                     style="@style/home_btn_card_style"
                     android:layout_marginEnd="@dimen/_10dp">
 
@@ -84,7 +86,9 @@
                         android:text="@string/learn" />
                 </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cvPractice"
+                    style="@style/home_btn_card_style">
 
                     <TextView
                         android:id="@+id/tvDivision"
@@ -102,6 +106,7 @@
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/cvTest"
                     style="@style/home_btn_card_style"
                     android:layout_marginEnd="@dimen/_10dp">
 
@@ -111,7 +116,9 @@
                         android:text="@string/test" />
                 </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cvDual"
+                    style="@style/home_btn_card_style">
 
                     <TextView
                         style="@style/home_btn_style"
@@ -128,6 +135,7 @@
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/cvMultiple"
                     style="@style/home_btn_card_style"
                     android:layout_marginEnd="@dimen/_10dp">
 
@@ -138,7 +146,9 @@
                         android:text="@string/mutltiple" />
                 </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cvYesNo"
+                    style="@style/home_btn_card_style">
 
                     <TextView
                         style="@style/home_btn_style"

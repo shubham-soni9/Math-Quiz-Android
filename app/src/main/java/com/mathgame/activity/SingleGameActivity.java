@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,21 +28,22 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class SingleGameActivity extends BaseActivity implements View.OnClickListener {
-    private static final String         TAG = SingleGameActivity.class.getName();
-    private RoundedHorizontalProgressBar pbTimer;
-    private ImageView                    ivBack;
-    private CustomMode                   customMode;
-    private View                         vMultipleChoice;
-    private View                         vGameYesOrNo;
-    private View                         vInputAnswer;
-    private TextView                     tvSkipToNext;
-    private TextView                     tvTimerValue;
-    private TextView                     tvNumberOfQuestion;
-    private TextView                     tvQuestion;
-    private int                          remainingQuestion = 1;
-    private TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
-    private              Question       currentQuestion;
-    private              CountDownTimer countDownTimer;
+    private static final String                       TAG               = SingleGameActivity.class.getName();
+    private              RoundedHorizontalProgressBar pbTimer;
+    private              ImageView                    ivBack;
+    private              CustomMode                   customMode;
+    private              View                         vMultipleChoice;
+    private              View                         vGameYesOrNo;
+    private              View                         vInputAnswer;
+    private              TextView                     tvSkipToNext;
+    private              TextView                     tvTimerValue;
+    private              TextView                     tvNumberOfQuestion;
+    private              TextView                     tvQuestion;
+    private              int                          remainingQuestion = 1;
+    private              TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
+    private Question       currentQuestion;
+    private CountDownTimer countDownTimer;
+    private CardView       cvCorrect, cvIncorrect;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,7 +69,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         tvOption3 = findViewById(R.id.tvOption3);
         tvOption4 = findViewById(R.id.tvOption4);
         tvNumberOfQuestion = findViewById(R.id.tvNumberOfQuestion);
-        Utils.setOnClickListener(this, ivBack, tvOption1, tvOption2, tvOption3, tvOption4);
+        cvCorrect = findViewById(R.id.cvCorrect);
+        cvIncorrect = findViewById(R.id.cvIncorrect);
+        Utils.setOnClickListener(this, ivBack, tvOption1, tvOption2, tvOption3, tvOption4, cvCorrect, cvIncorrect);
     }
 
     private void setData() {
@@ -89,7 +93,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             tvSkipToNext.setText(String.format(locale(), "(%d) %s", customMode.getSkipNumbers(), getString(R.string.skip_to_next)));
         }
 
-        if (customMode.getTimerValue() == 0) {
+        if (customMode.getTimerType() == Codes.TimerType.NONE.value) {
             tvTimerValue.setVisibility(View.GONE);
             pbTimer.setVisibility(View.GONE);
         } else {
@@ -205,7 +209,19 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             case R.id.tvOption4:
                 onOptionClicked(Utils.get(tvOption4), tvOption4);
                 break;
+            case R.id.cvCorrect:
+                onCorrectClicked();
+                break;
+            case R.id.cvIncorrect:
+                onIncorrectClicked();
+                break;
         }
+    }
+
+    private void onCorrectClicked() {
+    }
+
+    private void onIncorrectClicked() {
     }
 
     private void onOptionClicked(String answer, TextView tvOption) {
