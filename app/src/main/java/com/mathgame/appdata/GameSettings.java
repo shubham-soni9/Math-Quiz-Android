@@ -15,6 +15,8 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("+");
         customMode.setTimerValue(10);
+        customMode.setMinimum(10);
+        customMode.setMaximum(99);
         return customMode;
     }
 
@@ -29,6 +31,8 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("-");
         customMode.setTimerValue(0);
+        customMode.setMinimum(10);
+        customMode.setMaximum(99);
         return customMode;
     }
 
@@ -43,6 +47,8 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("*");
         customMode.setTimerValue(0);
+        customMode.setMinimum(10);
+        customMode.setMaximum(99);
         return customMode;
     }
 
@@ -57,6 +63,8 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("/");
         customMode.setTimerValue(0);
+        customMode.setMinimum(10);
+        customMode.setMaximum(99);
         return customMode;
     }
 
@@ -71,6 +79,8 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("sqt()");
         customMode.setTimerValue(0);
+        customMode.setMinimum(10);
+        customMode.setMaximum(99);
         return customMode;
     }
 
@@ -85,6 +95,8 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("%");
         customMode.setTimerValue(0);
+        customMode.setMinimum(10);
+        customMode.setMaximum(99);
         return customMode;
     }
 }

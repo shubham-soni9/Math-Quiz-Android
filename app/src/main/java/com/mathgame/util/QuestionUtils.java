@@ -1,27 +1,27 @@
 package com.mathgame.util;
 
-import android.util.Pair;
-
 import com.mathgame.appdata.Constant;
 import com.mathgame.model.CustomMode;
+import com.mathgame.model.Question;
 
 import java.text.DecimalFormat;
 
 public class QuestionUtils {
-    private static final int MAXIMUM = 20;
-    private static final int MINIMUM = 2;
 
-    public static Pair<String, String> getQuestionWithAnswer(CustomMode customMode) {
+    public static Question getQuestionWithAnswer(CustomMode customMode) {
         DecimalFormat dFormat = new DecimalFormat("###.#");
         String[] operations = customMode.getMathOperations().split(" ");
         String question = Constant.EMPTY;
         String answer = Constant.EMPTY;
+        int MAXIMUM = customMode.getMaximum();
+        int MINIMUM = customMode.getMinimum();
+        Question mQuestion = new Question();
         if (customMode.getNumberOfVariables() == 2) {
             double a = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
             double b = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
 
             String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
-
+            String mathOperation = chosenOperation;
             while (a == b) {
                 b = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
             }
@@ -50,43 +50,56 @@ public class QuestionUtils {
                 question = dFormat.format(a) + " " + chosenOperation + " ? " + " = " + dFormat.format(b);
 
                 switch (chosenOperation) {
-                    case "+":
+                    case Constant.MathSign.ADDITION:
+                        mathOperation = Constant.MathSign.SUBTRACTION;
                         answer = dFormat.format(b - a);
                         break;
-                    case "-":
+                    case Constant.MathSign.SUBTRACTION:
+                        mathOperation = Constant.MathSign.SUBTRACTION;
                         answer = dFormat.format(a - b);
                         break;
-                    case "*":
+                    case Constant.MathSign.MULTIPLICATION:
+                        mathOperation = Constant.MathSign.DIVISION;
                         answer = dFormat.format(b / a);
                         break;
-                    case "/":
+                    case Constant.MathSign.DIVISION:
+                        mathOperation = Constant.MathSign.MULTIPLICATION;
                         answer = dFormat.format(b * a);
                         break;
-                    case "%":
+                    case Constant.MathSign.PERCENTAGE:
+                        mathOperation = Constant.MathSign.PERCENTAGE;
                         answer = dFormat.format(b % a);
                         break;
                 }
             } else if (questionType == 3) {
                 question = "? " + chosenOperation + " " + dFormat.format(a) + " = " + dFormat.format(b);
                 switch (chosenOperation) {
-                    case "+":
+                    case Constant.MathSign.ADDITION:
+                        mathOperation = Constant.MathSign.SUBTRACTION;
                         answer = dFormat.format(b - a);
                         break;
-                    case "-":
+                    case Constant.MathSign.SUBTRACTION:
+                        mathOperation = Constant.MathSign.ADDITION;
                         answer = dFormat.format(b + a);
                         break;
-                    case "*":
+                    case Constant.MathSign.MULTIPLICATION:
+                        mathOperation = Constant.MathSign.DIVISION;
                         answer = dFormat.format(b / a);
                         break;
-                    case "/":
+                    case Constant.MathSign.DIVISION:
+                        mathOperation = Constant.MathSign.MULTIPLICATION;
                         answer = dFormat.format(b * a);
                         break;
-                    case "%":
+                    case Constant.MathSign.PERCENTAGE:
+                        mathOperation = Constant.MathSign.PERCENTAGE;
                         answer = dFormat.format(b % a);
                         break;
                 }
             }
+            mQuestion.setOperation(mathOperation);
+            mQuestion.setQuestion(question);
+            mQuestion.setAnswer(answer);
         }
-        return new Pair<>(question,answer);
+        return mQuestion;
     }
 }

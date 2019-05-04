@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
+import com.mathgame.appdata.Constant;
 import com.mathgame.model.CustomMode;
+import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.RandomUtils;
@@ -38,9 +39,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private TextView                     tvQuestion;
     private int                          remainingQuestion = 1;
     private TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
-    private              Pair<String, String> currentQna;
-    private              CountDownTimer       countDownTimer;
-    private static final String               TAG = SingleGameActivity.class.getName();
+    private              Question       currentQuestion;
+    private              CountDownTimer countDownTimer;
+    private static final String         TAG = SingleGameActivity.class.getName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -108,17 +109,30 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
         tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
         if (remainingQuestion <= customMode.getNumberOfQuestions()) {
-            currentQna = QuestionUtils.getQuestionWithAnswer(customMode);
-            tvQuestion.setText(currentQna.first);
+            currentQuestion = QuestionUtils.getQuestionWithAnswer(customMode);
+            tvQuestion.setText(currentQuestion.getQuestion());
             if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
                 ArrayList<String> options = new ArrayList<>();
-                options.add(currentQna.second);
+                options.add(currentQuestion.getAnswer());
+                int maximum = customMode.getMaximum();
+                int minimum = customMode.getMinimum();
+
+                if (currentQuestion.getOperation().contains(Constant.MathSign.ADDITION)) {
+                    minimum = maximum - minimum;
+                    maximum = maximum + minimum;
+                } else if (currentQuestion.getOperation().contains(Constant.MathSign.SUBTRACTION)) {
+                    minimum = maximum - minimum;
+                } else if (currentQuestion.getOperation().contains(Constant.MathSign.MULTIPLICATION)) {
+                    minimum = maximum + minimum;
+                    maximum = maximum * minimum;
+                }
+
                 for (int i = 0; i < 3; i++) {
-                    String wrongOption = String.valueOf(RandomUtils.getRandomInt(20, 2));
+                    String wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
                     for (int j = 0; j < options.size(); j++) {
                         String value = options.get(j);
                         if (wrongOption.equals(value)) {
-                            wrongOption = String.valueOf(RandomUtils.getRandomInt(20, 2));
+                            wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
                             j = 0;
                         }
                     }
@@ -187,7 +201,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     }
 
     private void onOptionClicked(String answer, TextView tvOption) {
-        if (currentQna.second.equals(answer)) {
+        if (currentQuestion.getAnswer().equals(answer)) {
             tvOption.setBackgroundResource(R.drawable.background_correct_answer);
             remainingQuestion++;
             new Handler().postDelayed(new Runnable() {

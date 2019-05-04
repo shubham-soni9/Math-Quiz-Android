@@ -7,7 +7,7 @@ import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 
 @Entity
-public class CustomMode  implements Parcelable {
+public class CustomMode implements Parcelable {
     @Id
     public long id;
 
@@ -20,6 +20,8 @@ public class CustomMode  implements Parcelable {
     private int    timerType;
     private int    timerValue;
     private int    skipNumbers;
+    private int    maximum;
+    private int minimum;
 
     public CustomMode() {
 
@@ -36,6 +38,29 @@ public class CustomMode  implements Parcelable {
         timerType = in.readInt();
         timerValue = in.readInt();
         skipNumbers = in.readInt();
+        minimum = in.readInt();
+        maximum = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(title);
+        dest.writeInt(numberOfQuestions);
+        dest.writeInt(playerType);
+        dest.writeInt(gameType);
+        dest.writeString(mathOperations);
+        dest.writeInt(numberOfVariables);
+        dest.writeInt(timerType);
+        dest.writeInt(timerValue);
+        dest.writeInt(skipNumbers);
+        dest.writeInt(minimum);
+        dest.writeInt(maximum);
     }
 
     public static final Creator<CustomMode> CREATOR = new Creator<CustomMode>() {
@@ -122,22 +147,21 @@ public class CustomMode  implements Parcelable {
         return skipNumbers;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getMaximum() {
+        return maximum;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(id);
-        dest.writeString(title);
-        dest.writeInt(numberOfQuestions);
-        dest.writeInt(playerType);
-        dest.writeInt(gameType);
-        dest.writeString(mathOperations);
-        dest.writeInt(numberOfVariables);
-        dest.writeInt(timerType);
-        dest.writeInt(timerValue);
-        dest.writeInt(skipNumbers);
+    public void setMaximum(int maximum) {
+        this.maximum = maximum;
     }
+
+    public int getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
+    }
+
+
 }
