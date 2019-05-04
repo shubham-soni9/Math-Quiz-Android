@@ -9,6 +9,7 @@ public interface Constant {
         String MULTIPLICATION = "*";
         String DIVISION       = "/";
         String PERCENTAGE     = "%";
+        String SQUARE_ROOT="sqt()";
     }
 
     interface DifficultyLevel {
