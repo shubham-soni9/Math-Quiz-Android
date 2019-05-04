@@ -4,8 +4,8 @@ public class Question {
     private String operation;
     private String question;
     private String answer;
-    private int a;
-    private int b;
+    private int    a;
+    private int    b;
 
     public String getOperation() {
         return operation;

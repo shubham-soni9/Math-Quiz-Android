@@ -11,9 +11,9 @@ public interface Constant {
         String PERCENTAGE     = "%";
     }
 
-    interface DifficultyLevel{
-        int SMALL=0;
-        int MEDIUM=1;
-        int LARGE=2;
+    interface DifficultyLevel {
+        int SMALL  = 0;
+        int MEDIUM = 1;
+        int LARGE  = 2;
     }
 }

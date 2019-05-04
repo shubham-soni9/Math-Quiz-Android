@@ -92,12 +92,12 @@ public class ConfigDefinition {
         return this.orientation == CommonLogic.HORIZONTAL ? this.maxHeight : this.maxWidth;
     }
 
-    public void setCheckCanFit(boolean checkCanFit) {
-        this.checkCanFit = checkCanFit;
-    }
-
     public boolean isCheckCanFit() {
         return checkCanFit;
+    }
+
+    public void setCheckCanFit(boolean checkCanFit) {
+        this.checkCanFit = checkCanFit;
     }
 
     public void setWidthMode(int widthMode) {

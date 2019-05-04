@@ -3,12 +3,6 @@ package com.mathgame.appdata;
 import com.mathgame.R;
 
 public interface Codes {
-    interface SnackBarType {
-        int ERROR   = 0;
-        int SUCCESS = 1;
-        int MESSAGE = 2;
-    }
-
     enum PlayerType {
         SINGLE(R.string.single_player, 1),
         DUAL(R.string.dual_player, 2);
@@ -79,9 +73,15 @@ public interface Codes {
         }
     }
 
+    interface SnackBarType {
+        int ERROR   = 0;
+        int SUCCESS = 1;
+        int MESSAGE = 2;
+    }
+
     interface RequestCode {
         int OPEN_ADD_CUSTOM_MODE_ACTIVITY = 100;
-        int OPEN_SINGLE_GAME_ACTIVITY=101;
+        int OPEN_SINGLE_GAME_ACTIVITY     = 101;
     }
 
 }

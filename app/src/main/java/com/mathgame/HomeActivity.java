@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.mathgame.activity.CustomModeActivity;
 import com.mathgame.activity.SingleGameActivity;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.GameSettings;
@@ -31,12 +30,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private void init() {
         tvAddition = findViewById(R.id.tvAddition);
-        tvSubtraction=findViewById(R.id.tvSubtraction);
-        tvMultiplication=findViewById(R.id.tvMultiplication);
-        tvDivision=findViewById(R.id.tvDivision);
-        tvPercentage=findViewById(R.id.tvPercentage);
-        tvSquareRoot=findViewById(R.id.tvSquareRoot);
-        Utils.setOnClickListener(this, tvAddition,tvSubtraction,tvMultiplication,tvDivision,tvPercentage,tvSquareRoot);
+        tvSubtraction = findViewById(R.id.tvSubtraction);
+        tvMultiplication = findViewById(R.id.tvMultiplication);
+        tvDivision = findViewById(R.id.tvDivision);
+        tvPercentage = findViewById(R.id.tvPercentage);
+        tvSquareRoot = findViewById(R.id.tvSquareRoot);
+        Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot);
     }
 
     @Override

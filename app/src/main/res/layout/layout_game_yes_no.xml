@@ -1,48 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="0.5"
+        app:cardBackgroundColor="@color/snackbar_bg_color_success"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="0.5"
-            app:cardBackgroundColor="@color/snackbar_bg_color_success"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp">
+            android:gravity="center"
+            android:paddingTop="@dimen/_20dp"
+            android:paddingBottom="@dimen/_20dp"
+            android:src="@drawable/ic_game_correct" />
 
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingTop="@dimen/_20dp"
-                android:paddingBottom="@dimen/_20dp"
-                android:src="@drawable/ic_game_correct"
-               />
+    </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        app:cardBackgroundColor="@color/snackbar_bg_color_error"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            app:cardBackgroundColor="@color/snackbar_bg_color_error"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp">
-
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingTop="@dimen/_20dp"
-                android:paddingBottom="@dimen/_20dp"
-                android:src="@drawable/ic_game_incorrect"
-                />
+            android:gravity="center"
+            android:paddingTop="@dimen/_20dp"
+            android:paddingBottom="@dimen/_20dp"
+            android:src="@drawable/ic_game_incorrect" />
 
 
-        </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

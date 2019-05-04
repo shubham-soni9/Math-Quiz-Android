@@ -10,10 +10,10 @@ import android.view.View;
 
 import com.mathgame.R;
 import com.mathgame.adapter.CustomModeAdapter;
+import com.mathgame.appdata.Codes;
 import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
-import com.mathgame.appdata.Codes;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
@@ -38,7 +38,7 @@ public class CustomModeActivity extends BaseActivity implements View.OnClickList
 
     private void setList() {
         Box<CustomMode> customModeBox = ObjectBox.get().boxFor(CustomMode.class);
-        customModes=customModeBox.getAll();
+        customModes = customModeBox.getAll();
         adapter = new CustomModeAdapter(customModes);
         rvCustomModeList.setAdapter(adapter);
     }

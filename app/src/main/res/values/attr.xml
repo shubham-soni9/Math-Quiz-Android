@@ -81,7 +81,7 @@
         <attr name="met_checkCharactersCountAtBeginning" format="boolean" />
     </declare-styleable>
 
-      <attr name="numberPickerStyle" format="reference" />
+    <attr name="numberPickerStyle" format="reference" />
 
     <declare-styleable name="NumberPicker">
         <attr name="np_width" format="dimension" />

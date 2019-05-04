@@ -135,8 +135,8 @@
                     <com.mathgame.plugin.numberpicker.NumberPicker
                         android:id="@+id/npNumberOfQuestion"
                         style="@style/number_picker"
-                        app:np_min="1"
-                        app:np_max="99" />
+                        app:np_max="99"
+                        app:np_min="1" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -609,10 +609,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
+                        android:checked="true"
                         android:drawablePadding="5dp"
                         android:gravity="center_vertical"
                         android:text="@string/none"
-                        android:checked="true"
                         android:textAppearance="@style/CustomTextAppearance.Light"
                         app:rbd_strokeColor="@color/colorPrimary" />
 
@@ -669,7 +669,8 @@
                         android:layout_marginTop="10dp">
 
                         <com.mathgame.plugin.numberpicker.NumberPicker
-                            android:id="@+id/npTimerMinuteValue" style="@style/number_picker" />
+                            android:id="@+id/npTimerMinuteValue"
+                            style="@style/number_picker" />
 
                         <TextView
                             android:layout_width="wrap_content"

@@ -49,9 +49,9 @@ public class QuestionUtils {
                 }
             } else {
                 while (a == b) {
-                    Log.e(TAG,"Value of a::"+a+" b::"+b);
+                    Log.e(TAG, "Value of a::" + a + " b::" + b);
                     b = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
-                    a= RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
+                    a = RandomUtils.getRandomInt(MAXIMUM, MINIMUM);
                 }
             }
             question = dFormat.format(a) + " " + chosenOperation + " " + dFormat.format(b) + " = ?";

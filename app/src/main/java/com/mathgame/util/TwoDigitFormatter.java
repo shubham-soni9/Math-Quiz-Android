@@ -7,17 +7,19 @@ import java.util.Locale;
 
 public class TwoDigitFormatter implements NumberPicker.Formatter {
     final StringBuilder mBuilder = new StringBuilder();
-
-    char mZeroDigit;
-    java.util.Formatter mFmt;
-
     final Object[] mArgs = new Object[1];
-
+    char                mZeroDigit;
+    java.util.Formatter mFmt;
     Locale mLocale;
 
     TwoDigitFormatter() {
         mLocale = Locale.getDefault();
         init(mLocale);
+    }
+
+    private static char getZeroDigit(Locale locale) {
+        // return LocaleData.get(locale).zeroDigit;
+        return new DecimalFormatSymbols(locale).getZeroDigit();
     }
 
     private void init(Locale locale) {
@@ -38,11 +40,6 @@ public class TwoDigitFormatter implements NumberPicker.Formatter {
         mBuilder.delete(0, mBuilder.length());
         mFmt.format("%02d", mArgs);
         return mFmt.toString();
-    }
-
-    private static char getZeroDigit(Locale locale) {
-        // return LocaleData.get(locale).zeroDigit;
-        return new DecimalFormatSymbols(locale).getZeroDigit();
     }
 
     // to force the locale value set by using setter method

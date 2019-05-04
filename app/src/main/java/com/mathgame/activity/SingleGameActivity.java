@@ -27,6 +27,7 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class SingleGameActivity extends BaseActivity implements View.OnClickListener {
+    private static final String         TAG = SingleGameActivity.class.getName();
     private RoundedHorizontalProgressBar pbTimer;
     private ImageView                    ivBack;
     private CustomMode                   customMode;
@@ -41,7 +42,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
     private              Question       currentQuestion;
     private              CountDownTimer countDownTimer;
-    private static final String         TAG = SingleGameActivity.class.getName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
