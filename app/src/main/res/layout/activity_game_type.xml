@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white_100"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -61,59 +62,92 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="170dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/game_type_style"
-                    android:drawableTop="@drawable/ic_practice"
-                    android:text="@string/learn" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
 
-                <TextView
-                    style="@style/game_type_style"
-                    android:drawableTop="@drawable/ic_multiple"
-                    android:text="@string/practice" />
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_practice"
+                        android:text="@string/learn" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        android:id="@+id/tvDivision"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_multiple"
+                        android:text="@string/practice" />
+                </android.support.v7.widget.CardView>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_25dp"
+                android:layout_height="170dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/game_type_style"
-                    android:drawableTop="@drawable/ic_test"
-                    android:text="@string/test" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
 
-                <TextView
-                    style="@style/game_type_style"
-                    android:drawableTop="@drawable/ic_dual"
-                    android:text="@string/dual" />
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_test"
+                        android:text="@string/test" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_dual"
+                        android:text="@string/dual" />
+                </android.support.v7.widget.CardView>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_25dp"
-                android:layout_marginBottom="@dimen/_15dp"
+                android:layout_height="170dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/game_type_style"
-                    android:drawableTop="@drawable/ic_multiple"
-                    android:text="@string/mutltiple" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
 
-                <TextView
-                    style="@style/game_type_style"
-                    android:drawableTop="@drawable/ic_yes_no"
-                    android:text="@string/yes_no" />
+                    <TextView
+                        android:id="@+id/tvMultiplication"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_multiple"
+                        android:text="@string/mutltiple" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_yes_no"
+                        android:text="@string/yes_no" />
+                </android.support.v7.widget.CardView>
+
             </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 

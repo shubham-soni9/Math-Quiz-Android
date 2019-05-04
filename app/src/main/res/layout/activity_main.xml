@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="55dp"
+        android:background="@color/white_100">
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
@@ -44,64 +44,90 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tvAddition"
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_add"
-                    android:text="@string/addition" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
 
-                <TextView
-                    android:id="@+id/tvSubtraction"
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_subtract"
-                    android:text="@string/subtraction" />
+                    <TextView
+                        android:id="@+id/tvAddition"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_add"
+                        android:text="@string/addition" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        android:id="@+id/tvSubtraction"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_subtract"
+                        android:text="@string/subtraction" />
+                </android.support.v7.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tvMultiplication"
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_multiply"
-                    android:text="@string/multiplication" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
 
-                <TextView
-                    android:id="@+id/tvDivision"
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_divide"
-                    android:text="@string/division" />
+                    <TextView
+                        android:id="@+id/tvMultiplication"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_multiply"
+                        android:text="@string/multiplication" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        android:id="@+id/tvDivision"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_divide"
+                        android:text="@string/division" />
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tvPercentage"
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_modules"
-                    android:text="@string/percentage" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
 
-                <TextView
-                    android:id="@+id/tvSquareRoot"
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_square_root"
-                    android:text="@string/square_root" />
+                    <TextView
+                        android:id="@+id/tvPercentage"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_modules"
+                        android:text="@string/percentage" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        android:id="@+id/tvSquareRoot"
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_square_root"
+                        android:text="@string/square_root" />
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
@@ -109,8 +135,8 @@
                 android:id="@+id/tvGames"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:text="@string/games_learn_with_fun"
                 android:textColor="@color/colorPrimary"
                 android:textSize="22sp" />
@@ -118,40 +144,56 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_abacus"
-                    android:text="@string/abacus" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
 
-                <TextView
-                    style="@style/home_btn_style"
-                    android:drawableTop="@drawable/ic_2048"
-                    android:text="@string/two_zero_four_eight" />
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_abacus"
+                        android:text="@string/abacus" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:drawableTop="@drawable/ic_2048"
+                        android:text="@string/two_zero_four_eight" />
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_15dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/home_btn_style"
-                    android:background="@drawable/app_button_background"
-                    android:drawableTop="@drawable/ic_ttt"
-                    android:text="@string/tic_tac_toe" />
 
-                <TextView
-                    style="@style/home_btn_style"
-                    android:background="@drawable/app_button_background"
-                    android:drawableTop="@drawable/ic_sudoku"
-                    android:drawableTint="@color/colorPrimary"
-                    android:text="@string/sudoku" />
+                <android.support.v7.widget.CardView
+                    style="@style/home_btn_card_style"
+                    android:layout_marginEnd="@dimen/_10dp">
+
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:background="@drawable/app_button_background"
+                        android:drawableTop="@drawable/ic_ttt"
+                        android:text="@string/tic_tac_toe" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/home_btn_card_style">
+
+                    <TextView
+                        style="@style/home_btn_style"
+                        android:background="@drawable/app_button_background"
+                        android:drawableTop="@drawable/ic_sudoku"
+                        android:text="@string/sudoku" />
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
