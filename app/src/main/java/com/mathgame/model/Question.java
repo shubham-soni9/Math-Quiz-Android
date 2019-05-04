@@ -6,6 +6,7 @@ public class Question {
     private String answer;
     private int    a;
     private int    b;
+    private boolean isCorrect;
 
     public String getOperation() {
         return operation;
@@ -47,4 +48,11 @@ public class Question {
         this.b = b;
     }
 
+    public boolean isCorrect() {
+        return isCorrect;
+    }
+
+    public void setCorrect(boolean isCorrect) {
+        this.isCorrect = isCorrect;
+    }
 }

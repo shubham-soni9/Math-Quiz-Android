@@ -15,7 +15,7 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("+");
         customMode.setTimerValue(10);
-        customMode.setDifficulty(Constant.DifficultyLevel.MEDIUM);
+        customMode.setDifficulty(Constant.DifficultyLevel.SMALL);
         return customMode;
     }
 

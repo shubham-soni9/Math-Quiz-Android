@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_weight="0.5"
-        app:cardBackgroundColor="@color/snackbar_bg_color_success"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
 
@@ -31,7 +31,7 @@
         android:id="@+id/cvIncorrect"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        app:cardBackgroundColor="@color/snackbar_bg_color_error"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
 

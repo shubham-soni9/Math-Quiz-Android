@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
@@ -50,7 +51,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_game);
         init();
-        // pbTimer.animateProgress(8000, 0, 100);
         setData();
         startGame();
     }
@@ -110,6 +110,8 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         tvOption2.setBackgroundResource(R.drawable.background_multiple_choice);
         tvOption3.setBackgroundResource(R.drawable.background_multiple_choice);
         tvOption4.setBackgroundResource(R.drawable.background_multiple_choice);
+        cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
         tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
         if (remainingQuestion <= customMode.getNumberOfQuestions()) {
@@ -219,9 +221,35 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     }
 
     private void onCorrectClicked() {
+        if (currentQuestion.isCorrect()) {
+            cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
+            remainingQuestion++;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startGame();
+                }
+            }, 500);
+        } else {
+            cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_error));
+        }
     }
 
     private void onIncorrectClicked() {
+        if (!currentQuestion.isCorrect()) {
+            cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
+            remainingQuestion++;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startGame();
+                }
+            }, 500);
+        } else {
+            cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_error));
+        }
     }
 
     private void onOptionClicked(String answer, TextView tvOption) {

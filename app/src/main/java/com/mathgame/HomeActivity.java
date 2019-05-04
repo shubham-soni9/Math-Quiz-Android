@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mathgame.activity.GameTypeActivity;
-import com.mathgame.activity.SingleGameActivity;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.GameSettings;
 import com.mathgame.model.CustomMode;
@@ -25,7 +24,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         init();
     }
 
