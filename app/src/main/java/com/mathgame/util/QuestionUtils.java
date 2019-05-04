@@ -67,6 +67,7 @@ public class QuestionUtils {
                         answer = dFormat.format(b * a);
                         break;
                     case Constant.MathSign.PERCENTAGE:
+
                         mathOperation = Constant.MathSign.PERCENTAGE;
                         answer = dFormat.format(b % a);
                         break;
