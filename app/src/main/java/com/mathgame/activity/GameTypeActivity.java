@@ -2,13 +2,16 @@ package com.mathgame.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
+import com.mathgame.dialog.SettingsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
@@ -18,6 +21,8 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     private CustomMode customMode;
     private TextView   tvHeader;
     private CardView   cvLearn, cvPractice, cvTest, cvDual, cvMultiple, cvYesNo;
+    private AppCompatImageView ivSettings;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +39,9 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
         cvMultiple = findViewById(R.id.cvMultiple);
         cvTest = findViewById(R.id.cvTest);
         cvYesNo = findViewById(R.id.cvYesNo);
-        Utils.setOnClickListener(this, findViewById(R.id.ivBack), cvLearn, cvDual, cvMultiple, cvPractice, cvTest, cvYesNo);
+        ivSettings=findViewById(R.id.ivSettings);
+        Utils.setOnClickListener(this, findViewById(R.id.ivBack), cvLearn, cvDual, cvMultiple, cvPractice, cvTest, cvYesNo
+                ,ivSettings);
     }
 
     private void setData() {
@@ -93,8 +100,26 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
             case R.id.cvYesNo:
                 startYesNo();
                 break;
+            case R.id.ivSettings:
+                openSettingsDialog();
+                break;
         }
     }
+
+    private void openSettingsDialog() {
+        new SettingsDialog.Builder(this).listener(new SettingsDialog.Listener() {
+            @Override
+            public void performPositiveAction(int purpose, Bundle backpack) {
+
+            }
+
+            @Override
+            public void performNegativeAction(int purpose, Bundle backpack) {
+
+            }
+        }).build().show();
+    }
+
 
     private void startYesNo() {
         customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);

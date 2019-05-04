@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:id="@+id/rlTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:paddingStart="25dp"
+            android:paddingLeft="25dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="25dp"
+            android:paddingRight="25dp"
+            android:paddingBottom="10dp"
+            android:textAppearance="@style/CustomTextAppearance.Regular"
+            android:textSize="@dimen/text_size_large" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_below="@id/tvTitle" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cornered_border_top"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_10dp"
+        android:paddingBottom="@dimen/_20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_05" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@color/black_02"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_alignment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:letterSpacing="0.12"
+                    android:lines="1"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:text="@string/difficulty_level"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/text_size_tiny" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/black_05" />
+
+        </LinearLayout>
+
+        <com.mathgame.plugin.switchBtn.ToggleSwitch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:textSize="@dimen/text_size_normal"
+            custom:activeBgColor="@color/colorPrimaryDark"
+            custom:activeTextColor="@color/white_100"
+            custom:inactiveBgColor="@color/colorPrimary"
+            custom:inactiveTextColor="@color/white_100"
+            custom:textToggleCenter="@string/medium"
+            custom:textToggleLeft="@string/easy"
+            custom:textToggleRight="@string/hard"
+            custom:toggleWidth="0dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_05" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@color/black_02"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_alignment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:letterSpacing="0.12"
+                    android:lines="1"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:text="@string/questions"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_100"
+                    android:textSize="@dimen/text_size_tiny" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/black_05" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/number_of_questions"
+                    android:textAppearance="@style/CustomTextAppearance.Light"
+                    android:textColor="@color/app_text_color"
+                    android:textSize="@dimen/text_size_normal" />
+
+                <com.mathgame.plugin.numberpicker.NumberPicker
+                    android:id="@+id/npNumberOfQuestion"
+                    style="@style/number_picker"
+                    app:np_max="99"
+                    app:np_min="1" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/black_05" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/cbSubtraction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/_10dp"
+            android:button="@drawable/custom_checkbox"
+            android:text="@string/save_for_future"
+            android:textColor="@color/black_60"
+            android:textAppearance="@style/CustomTextAppearance.Light"
+            android:textSize="@dimen/text_size_normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/llSettings">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_dialog_left"
+            android:text="@string/cancel_text"
+            android:textAllCaps="true"
+            android:textAppearance="@style/CustomTextAppearance.Regular"
+            android:textColor="@drawable/dialog_text_color"
+            android:textSize="@dimen/text_size_normal" />
+
+
+        <View
+            android:layout_width="0.3dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_dialog_right"
+            android:text="@string/apply"
+            android:textAllCaps="true"
+            android:textAppearance="@style/CustomTextAppearance.Regular"
+            android:textColor="@drawable/dialog_text_color"
+            android:textSize="@dimen/text_size_normal" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_below="@id/llSettings"
+        android:background="@android:color/darker_gray" />
+</RelativeLayout>

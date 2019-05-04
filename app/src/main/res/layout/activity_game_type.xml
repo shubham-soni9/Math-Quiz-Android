@@ -24,7 +24,7 @@
                 android:paddingEnd="15dp"
                 android:src="@drawable/ic_back" />
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tvHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,16 +35,17 @@
                 android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/ivAddOption"
+                android:id="@+id/ivSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:src="@drawable/ic_add"
-                android:tint="@color/colorPrimary"
-                android:visibility="gone" />
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_settings"
+                android:tint="@color/colorPrimary" />
         </RelativeLayout>
 
         <View

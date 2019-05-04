@@ -7,6 +7,8 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
+import com.mathgame.appdata.Constant;
 import com.rey.material.widget.CheckBox;
 
 import java.math.BigDecimal;
@@ -57,6 +60,17 @@ public class Utils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public static String assign(String assignable, String alternative) {
+
+        return assignable == null || assignable.isEmpty() ?
+                (alternative == null ? Constant.EMPTY : alternative) :
+                (assignable.equals("null") ? assign(alternative) : assignable);
+    }
+    public static String assign(String assignable) {
+
+        return assignable == null || assignable.equalsIgnoreCase("[]") || assignable.equals("null") ?
+                Constant.EMPTY : assignable;
     }
 
     public static void snackBar(Activity activity, int messageId, int type) {
@@ -172,6 +186,16 @@ public class Utils {
         }
 
         return converted;
+    }
+
+    public static Spanned fromHtml(String html) {
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
     }
 
 }

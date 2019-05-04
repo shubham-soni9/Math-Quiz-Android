@@ -625,7 +625,10 @@ public class NumberPicker extends LinearLayout {
         mSelectedText.setFocusable(false);
         mSelectedText.setImeOptions(EditorInfo.IME_ACTION_NONE);
         mSelectedText.setTypeface(null, Typeface.BOLD);
-        mSelectedText.setTextAppearance(R.style.CustomTextAppearance_Bold);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mSelectedText.setTextAppearance(R.style.CustomTextAppearance_Bold);
+        }
         // create the selector wheel paint
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -1579,7 +1582,7 @@ public class NumberPicker extends LinearLayout {
         // save canvas
         canvas.save();
 
-        final boolean showSelectorWheel = mHideWheelUntilFocused ? hasFocus() : true;
+        final boolean showSelectorWheel = !mHideWheelUntilFocused || hasFocus();
         float x, y;
         if (isHorizontalMode()) {
             x = mCurrentScrollOffset;
@@ -2544,15 +2547,15 @@ public class NumberPicker extends LinearLayout {
         /**
          * The view is not scrolling.
          */
-        public static int SCROLL_STATE_IDLE = 0;
+        int SCROLL_STATE_IDLE = 0;
         /**
          * The user is scrolling using touch, and his finger is still on the screen.
          */
-        public static int SCROLL_STATE_TOUCH_SCROLL = 1;
+        int SCROLL_STATE_TOUCH_SCROLL = 1;
         /**
          * The user had previously been scrolling using touch and performed a fling.
          */
-        public static int SCROLL_STATE_FLING = 2;
+        int SCROLL_STATE_FLING = 2;
 
         /**
          * Callback invoked while the number picker scroll state has changed.
@@ -2563,11 +2566,11 @@ public class NumberPicker extends LinearLayout {
          *                    {@link #SCROLL_STATE_TOUCH_SCROLL} or
          *                    {@link #SCROLL_STATE_IDLE}.
          */
-        public void onScrollStateChange(NumberPicker view, @ScrollState int scrollState);
+        void onScrollStateChange(NumberPicker view, @ScrollState int scrollState);
 
         @IntDef({SCROLL_STATE_IDLE, SCROLL_STATE_TOUCH_SCROLL, SCROLL_STATE_FLING})
         @Retention(RetentionPolicy.SOURCE)
-        public @interface ScrollState {
+        @interface ScrollState {
         }
     }
 
@@ -2582,7 +2585,7 @@ public class NumberPicker extends LinearLayout {
          * @param value The currently selected value.
          * @return A formatted string representation.
          */
-        public String format(int value);
+        String format(int value);
     }
 
     /**
@@ -2741,7 +2744,7 @@ public class NumberPicker extends LinearLayout {
                 }
                 String result = String.valueOf(dest.subSequence(0, dstart)) + filtered
                         + dest.subSequence(dend, dest.length());
-                String str = String.valueOf(result).toLowerCase();
+                String str = result.toLowerCase();
                 for (String val : mDisplayedValues) {
                     String valLowerCase = val.toLowerCase();
                     if (valLowerCase.startsWith(str)) {

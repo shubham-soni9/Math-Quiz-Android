@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
+import com.mathgame.dialog.SettingsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;

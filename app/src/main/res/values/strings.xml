@@ -36,7 +36,7 @@
     <string name="single_player">Single Player</string>
     <string name="dual_player">Dual Player</string>
     <string name="player_type">Player Type</string>
-    <string name="questions">Questions</string>
+    <string name="questions">Questions :</string>
     <string name="question">Question</string>
     <string name="variables">Variables</string>
     <string name="variable">Variable</string>
@@ -63,5 +63,17 @@
     <string name="dual">Dual</string>
     <string name="mutltiple">Multiple</string>
     <string name="coming_soon">Coming Soon</string>
+    <string name="empty" />
+    <string name="settings">Settings</string>
+    <string name="yes_text">Yes</string>
+    <string name="no_text">No</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="ok_text">OK</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="apply">Apply</string>
+    <string name="difficulty_level">Difficulty Level :</string>
+    <string name="save_for_future">Save this settings for future.</string>
 </resources>
 
