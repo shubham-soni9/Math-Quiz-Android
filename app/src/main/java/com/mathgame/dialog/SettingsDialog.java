@@ -297,8 +297,8 @@ public class SettingsDialog {
         public SettingsDialog build() {
             settingsDialog.title = Utils.assign(settingsDialog.title, settingsDialog.activity.getString(R.string.empty));
             settingsDialog.message = Utils.assign(settingsDialog.message, settingsDialog.activity.getString(R.string.settings));
-            settingsDialog.positiveButton = Utils.assign(settingsDialog.positiveButton, settingsDialog.activity.getString(R.string.yes_text));
-            settingsDialog.negativeButton = Utils.assign(settingsDialog.negativeButton, settingsDialog.activity.getString(R.string.no_text));
+            settingsDialog.positiveButton = Utils.assign(settingsDialog.positiveButton, settingsDialog.activity.getString(R.string.apply));
+            settingsDialog.negativeButton = Utils.assign(settingsDialog.negativeButton, settingsDialog.activity.getString(R.string.cancel_text));
             return settingsDialog.init();
         }
     }
