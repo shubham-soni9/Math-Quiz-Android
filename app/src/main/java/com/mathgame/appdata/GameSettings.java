@@ -15,8 +15,7 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("+");
         customMode.setTimerValue(10);
-        customMode.setMinimum(10);
-        customMode.setMaximum(99);
+customMode.setDifficulty(Constant.DifficultyLevel.MEDIUM);
         return customMode;
     }
 
@@ -31,8 +30,7 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("-");
         customMode.setTimerValue(0);
-        customMode.setMinimum(10);
-        customMode.setMaximum(99);
+        customMode.setDifficulty(Constant.DifficultyLevel.SMALL);
         return customMode;
     }
 
@@ -47,8 +45,7 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("*");
         customMode.setTimerValue(0);
-        customMode.setMinimum(10);
-        customMode.setMaximum(99);
+        customMode.setDifficulty(Constant.DifficultyLevel.SMALL);
         return customMode;
     }
 
@@ -63,8 +60,7 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("/");
         customMode.setTimerValue(0);
-        customMode.setMinimum(10);
-        customMode.setMaximum(99);
+        customMode.setDifficulty(Constant.DifficultyLevel.SMALL);
         return customMode;
     }
 
@@ -79,8 +75,7 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("sqt()");
         customMode.setTimerValue(0);
-        customMode.setMinimum(10);
-        customMode.setMaximum(99);
+        customMode.setDifficulty(Constant.DifficultyLevel.SMALL);
         return customMode;
     }
 
@@ -95,8 +90,7 @@ public class GameSettings {
         customMode.setSkipNumbers(0);
         customMode.setMathOperations("%");
         customMode.setTimerValue(0);
-        customMode.setMinimum(10);
-        customMode.setMaximum(99);
+        customMode.setDifficulty(Constant.DifficultyLevel.SMALL);
         return customMode;
     }
 }

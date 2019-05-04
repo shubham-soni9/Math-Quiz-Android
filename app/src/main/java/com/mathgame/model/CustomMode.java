@@ -20,8 +20,7 @@ public class CustomMode implements Parcelable {
     private int    timerType;
     private int    timerValue;
     private int    skipNumbers;
-    private int    maximum;
-    private int minimum;
+    private int difficulty;
 
     public CustomMode() {
 
@@ -38,8 +37,7 @@ public class CustomMode implements Parcelable {
         timerType = in.readInt();
         timerValue = in.readInt();
         skipNumbers = in.readInt();
-        minimum = in.readInt();
-        maximum = in.readInt();
+        difficulty = in.readInt();
     }
 
     @Override
@@ -59,8 +57,7 @@ public class CustomMode implements Parcelable {
         dest.writeInt(timerType);
         dest.writeInt(timerValue);
         dest.writeInt(skipNumbers);
-        dest.writeInt(minimum);
-        dest.writeInt(maximum);
+        dest.writeInt(difficulty);
     }
 
     public static final Creator<CustomMode> CREATOR = new Creator<CustomMode>() {
@@ -147,20 +144,12 @@ public class CustomMode implements Parcelable {
         return skipNumbers;
     }
 
-    public int getMaximum() {
-        return maximum;
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 
-    public void setMaximum(int maximum) {
-        this.maximum = maximum;
-    }
-
-    public int getMinimum() {
-        return minimum;
-    }
-
-    public void setMinimum(int minimum) {
-        this.minimum = minimum;
+    public int getDifficulty() {
+        return difficulty;
     }
 
 

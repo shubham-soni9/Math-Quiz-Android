@@ -16,7 +16,6 @@ import com.mathgame.util.Utils;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvAddition;
-    private TextView tvCustomMode;
     private TextView tvSubtraction;
     private TextView tvMultiplication;
     private TextView tvDivision;
@@ -37,8 +36,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         tvDivision=findViewById(R.id.tvDivision);
         tvPercentage=findViewById(R.id.tvPercentage);
         tvSquareRoot=findViewById(R.id.tvSquareRoot);
-        tvCustomMode = findViewById(R.id.tvCustomMode);
-        Utils.setOnClickListener(this,tvCustomMode, tvAddition,tvSubtraction,tvMultiplication,tvDivision,tvPercentage,tvSquareRoot);
+        Utils.setOnClickListener(this, tvAddition,tvSubtraction,tvMultiplication,tvDivision,tvPercentage,tvSquareRoot);
     }
 
     @Override
@@ -68,9 +66,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.tvPercentage:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getPercentage());
                 Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_SINGLE_GAME_ACTIVITY, bundle);
-                break;
-            case R.id.tvCustomMode:
-                Transition.startActivity(this, CustomModeActivity.class);
                 break;
         }
     }

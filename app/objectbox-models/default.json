@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:5623299529199068778",
-      "lastPropertyId": "12:271739161231189732",
+      "lastPropertyId": "13:3592388909248977073",
       "name": "CustomMode",
       "properties": [
         {
@@ -49,12 +49,8 @@
           "name": "skipNumbers"
         },
         {
-          "id": "11:7000096032784363106",
-          "name": "maximum"
-        },
-        {
-          "id": "12:271739161231189732",
-          "name": "minimum"
+          "id": "13:3592388909248977073",
+          "name": "difficulty"
         }
       ],
       "relations": []
@@ -68,7 +64,10 @@
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    7000096032784363106,
+    271739161231189732
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

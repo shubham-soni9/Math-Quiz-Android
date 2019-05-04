@@ -50,52 +50,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/btnSignIn"
-                    style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_carrier"
-                    android:drawableLeft="@drawable/ic_carrier"
-                    android:text="@string/career_mode" />
-
-                <TextView
-                    android:id="@+id/tvCustomMode"
-                    style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_custom_mode"
-                    android:drawableLeft="@drawable/ic_custom_mode"
-                    android:text="@string/custom_mode" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvBeginnerLevel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="@string/beginner_level"
-                android:textColor="@color/black_80"
-                android:textSize="22sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tvAddition"
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_add"
-                    android:drawableLeft="@drawable/ic_add"
+                    android:drawableTop="@drawable/ic_add"
                     android:text="@string/addition" />
 
                 <TextView
                     android:id="@+id/tvSubtraction"
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_subtract"
-                    android:drawableLeft="@drawable/ic_subtract"
+                    android:drawableTop="@drawable/ic_subtract"
                     android:text="@string/subtraction" />
 
             </LinearLayout>
@@ -109,15 +76,13 @@
                 <TextView
                     android:id="@+id/tvMultiplication"
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_multiply"
-                    android:drawableLeft="@drawable/ic_multiply"
+                    android:drawableTop="@drawable/ic_multiply"
                     android:text="@string/multiplication" />
 
                 <TextView
                     android:id="@+id/tvDivision"
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_divide"
-                    android:drawableLeft="@drawable/ic_divide"
+                    android:drawableTop="@drawable/ic_divide"
                     android:text="@string/division" />
 
             </LinearLayout>
@@ -131,15 +96,13 @@
                 <TextView
                     android:id="@+id/tvPercentage"
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_modules"
-                    android:drawableLeft="@drawable/ic_modules"
+                    android:drawableTop="@drawable/ic_modules"
                     android:text="@string/percentage" />
 
                 <TextView
                     android:id="@+id/tvSquareRoot"
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_square_root"
-                    android:drawableLeft="@drawable/ic_square_root"
+                    android:drawableTop="@drawable/ic_square_root"
                     android:text="@string/square_root" />
 
             </LinearLayout>
@@ -150,9 +113,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:text="@string/games_learn_with_fun"
-                android:textColor="@color/black_80"
+                android:textColor="@color/colorPrimary"
                 android:textSize="22sp" />
 
             <LinearLayout
@@ -163,14 +125,12 @@
 
                 <TextView
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_abacus"
-                    android:drawableLeft="@drawable/ic_abacus"
+                    android:drawableTop="@drawable/ic_abacus"
                     android:text="@string/abacus" />
 
                 <TextView
                     style="@style/home_btn_style"
-                    android:drawableStart="@drawable/ic_2048"
-                    android:drawableLeft="@drawable/ic_2048"
+                    android:drawableTop="@drawable/ic_2048"
                     android:text="@string/two_zero_four_eight" />
 
             </LinearLayout>
@@ -184,15 +144,14 @@
                 <TextView
                     style="@style/home_btn_style"
                     android:background="@drawable/app_button_background"
-                    android:drawableStart="@drawable/ic_ttt"
-                    android:drawableLeft="@drawable/ic_ttt"
+                    android:drawableTop="@drawable/ic_ttt"
                     android:text="@string/tic_tac_toe" />
 
                 <TextView
                     style="@style/home_btn_style"
                     android:background="@drawable/app_button_background"
-                    android:drawableStart="@drawable/ic_sudoku"
-                    android:drawableLeft="@drawable/ic_sudoku"
+                    android:drawableTop="@drawable/ic_sudoku"
+                    android:drawableTint="@color/colorPrimary"
                     android:text="@string/sudoku" />
 
             </LinearLayout>

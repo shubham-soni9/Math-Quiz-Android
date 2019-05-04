@@ -2,6 +2,10 @@ package com.mathgame.model;
 
 public class Question {
     private String operation;
+    private String question;
+    private String answer;
+    private int a;
+    private int b;
 
     public String getOperation() {
         return operation;
@@ -27,6 +31,20 @@ public class Question {
         this.answer = answer;
     }
 
-    private String question;
-    private String answer;
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
 }

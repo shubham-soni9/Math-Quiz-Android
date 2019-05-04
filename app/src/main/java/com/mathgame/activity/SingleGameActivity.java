@@ -114,17 +114,25 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
                 ArrayList<String> options = new ArrayList<>();
                 options.add(currentQuestion.getAnswer());
-                int maximum = customMode.getMaximum();
-                int minimum = customMode.getMinimum();
-
-                if (currentQuestion.getOperation().contains(Constant.MathSign.ADDITION)) {
-                    minimum = maximum - minimum;
-                    maximum = maximum + minimum;
-                } else if (currentQuestion.getOperation().contains(Constant.MathSign.SUBTRACTION)) {
-                    minimum = maximum - minimum;
-                } else if (currentQuestion.getOperation().contains(Constant.MathSign.MULTIPLICATION)) {
-                    minimum = maximum + minimum;
-                    maximum = maximum * minimum;
+                int maximum = 99;
+                int minimum = 2;
+                switch (currentQuestion.getOperation()) {
+                    case Constant.MathSign.ADDITION:
+                        maximum = currentQuestion.getA() + currentQuestion.getB();
+                        minimum = currentQuestion.getB();
+                        break;
+                    case Constant.MathSign.SUBTRACTION:
+                        maximum = currentQuestion.getA() - currentQuestion.getB();
+                        minimum = currentQuestion.getB();
+                        break;
+                    case Constant.MathSign.MULTIPLICATION:
+                        maximum = currentQuestion.getA() * currentQuestion.getB();
+                        minimum = currentQuestion.getA();
+                        break;
+                    case Constant.MathSign.DIVISION:
+                        maximum = currentQuestion.getA();
+                        minimum = currentQuestion.getB();
+                        break;
                 }
 
                 for (int i = 0; i < 3; i++) {
