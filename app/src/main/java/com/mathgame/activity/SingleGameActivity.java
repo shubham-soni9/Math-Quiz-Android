@@ -94,7 +94,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             tvSkipToNext.setText(String.format(locale(), "(%d) %s", customMode.getSkipNumbers(), getString(R.string.skip_to_next)));
         }
 
-        if (customMode.getTimerType() == Codes.TimerType.NONE.value) {
+        if (customMode.getTimerValue() == 0) {
             tvTimerValue.setVisibility(View.GONE);
             pbTimer.setVisibility(View.GONE);
         } else {
@@ -160,7 +160,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 tvOption4.setText(options.get(3));
             }
             if (customMode.getTimerValue() > 0) {
-                if (customMode.getTimerType() == Codes.TimerType.PER_QUESTION.value) {
                     if (countDownTimer != null) {
                         countDownTimer.cancel();
                     }
@@ -187,7 +186,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                         }
                     };
                     countDownTimer.start();
-                }
             }
         } else {
             onBackPressed();

@@ -122,7 +122,6 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
 
 
     private void startYesNo() {
-        customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);
         customMode.setGameType(Codes.GameType.YES_NO.value);
         Bundle bundle = new Bundle();
         bundle.putParcelable(CustomMode.class.getName(), customMode);
@@ -130,14 +129,12 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void startTest() {
-        customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);
         Bundle bundle = new Bundle();
         bundle.putParcelable(CustomMode.class.getName(), customMode);
         Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
     }
 
     private void startPractice() {
-        customMode.setTimerType(Codes.TimerType.NONE.value);
         Bundle bundle = new Bundle();
         bundle.putParcelable(CustomMode.class.getName(), customMode);
         Transition.transitForResult(this, SingleGameActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);

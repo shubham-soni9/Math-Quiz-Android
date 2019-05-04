@@ -51,7 +51,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvMultiplication:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getMutltiplication());
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getMultiplication());
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvDivision:

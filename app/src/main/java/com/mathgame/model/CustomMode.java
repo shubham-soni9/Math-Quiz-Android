@@ -20,17 +20,16 @@ public class CustomMode implements Parcelable {
         }
     };
     @Id
-    public long id;
-    private String title;
-    private int    numberOfQuestions;
-    private int    playerType;
-    private int    gameType;
-    private String mathOperations;
-    private int    numberOfVariables;
-    private int    timerType;
-    private int    timerValue;
-    private int    skipNumbers;
-    private int    difficulty;
+    public              long                id;
+    private             String              title;
+    private             int                 numberOfQuestions;
+    private             int                 playerType;
+    private             int                 gameType;
+    private             String              mathOperations;
+    private             int                 numberOfVariables;
+    private             int                 timerValue;
+    private             int                 skipNumbers;
+    private             int                 difficulty;
 
     public CustomMode() {
 
@@ -44,7 +43,6 @@ public class CustomMode implements Parcelable {
         gameType = in.readInt();
         mathOperations = in.readString();
         numberOfVariables = in.readInt();
-        timerType = in.readInt();
         timerValue = in.readInt();
         skipNumbers = in.readInt();
         difficulty = in.readInt();
@@ -64,7 +62,6 @@ public class CustomMode implements Parcelable {
         dest.writeInt(gameType);
         dest.writeString(mathOperations);
         dest.writeInt(numberOfVariables);
-        dest.writeInt(timerType);
         dest.writeInt(timerValue);
         dest.writeInt(skipNumbers);
         dest.writeInt(difficulty);
@@ -79,7 +76,7 @@ public class CustomMode implements Parcelable {
     }
 
     public int getNumberOfQuestions() {
-        return numberOfQuestions;
+        return numberOfQuestions == 0 ? 10 : numberOfQuestions;
     }
 
     public void setNumberOfQuestions(int numberOfQuestions) {
@@ -116,14 +113,6 @@ public class CustomMode implements Parcelable {
 
     public void setNumberOfVariables(int numberOfVariables) {
         this.numberOfVariables = numberOfVariables;
-    }
-
-    public int getTimerType() {
-        return timerType;
-    }
-
-    public void setTimerType(int timerType) {
-        this.timerType = timerType;
     }
 
     public int getTimerValue() {

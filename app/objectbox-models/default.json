@@ -37,10 +37,6 @@
           "name": "numberOfVariables"
         },
         {
-          "id": "8:8685637156511195365",
-          "name": "timerType"
-        },
-        {
           "id": "9:9077244004572076457",
           "name": "timerValue"
         },
@@ -66,7 +62,8 @@
   "retiredIndexUids": [],
   "retiredPropertyUids": [
     7000096032784363106,
-    271739161231189732
+    271739161231189732,
+    8685637156511195365
   ],
   "retiredRelationUids": [],
   "version": 1

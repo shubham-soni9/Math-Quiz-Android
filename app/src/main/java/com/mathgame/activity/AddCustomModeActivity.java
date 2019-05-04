@@ -169,12 +169,6 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         // Define Player Type
         customMode.setPlayerType(rbSinglePlayer.isChecked() ? Codes.PlayerType.SINGLE.value : Codes.PlayerType.DUAL.value);
 
-        // Define Timer Type
-        if (rbTimerNone.isChecked()) customMode.setTimerType(Codes.TimerType.NONE.value);
-        if (rbTimerPerTest.isChecked()) customMode.setTimerType(Codes.TimerType.PER_TEST.value);
-        if (rbTimerPerQuestion.isChecked())
-            customMode.setTimerType(Codes.TimerType.PER_QUESTION.value);
-
         //Define Timer Value
         customMode.setTimerValue(npTimerMinuteValue.getValue() * 60 + npTimerSecondValue.getValue());
 
