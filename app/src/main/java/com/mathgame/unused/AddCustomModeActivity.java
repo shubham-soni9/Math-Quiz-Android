@@ -1,4 +1,4 @@
-package com.mathgame.activity;
+package com.mathgame.unused;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,9 +29,7 @@ import io.objectbox.Box;
 
 public class AddCustomModeActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener
         , NumberPicker.OnValueChangeListener {
-    private RelativeLayout     rlChallengeType;
     private Spinner            spnCustomFieldValues;
-    private AppCompatImageView ivBack;
     private MaterialEditText   metTitle;
     private NumberPicker       npNumberOfQuestion;
     private NumberPicker       npNumberOfVariables;
@@ -49,7 +47,6 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     private CheckBox           cbDivision;
     private CheckBox           cbPercentage;
     private CheckBox           cbSquareRoot;
-    private Button             btnSaveSettings;
     private TextView           tvSelectedChallenge;
     private int                gameType;
 
@@ -91,11 +88,11 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     }
 
     private void init() {
-        rlChallengeType = findViewById(R.id.rlChallengeType);
+        RelativeLayout rlChallengeType = findViewById(R.id.rlChallengeType);
         spnCustomFieldValues = findViewById(R.id.spnCustomFieldValues);
         metTitle = findViewById(R.id.metTitle);
         npNumberOfQuestion = findViewById(R.id.npNumberOfQuestion);
-        ivBack = findViewById(R.id.ivBack);
+        AppCompatImageView ivBack = findViewById(R.id.ivBack);
         rbSinglePlayer = findViewById(R.id.rbSinglePlayer);
         rbDualPlayer = findViewById(R.id.rbDualPlayer);
         cbAddition = findViewById(R.id.cbAddition);
@@ -110,7 +107,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         rbTimerNone = findViewById(R.id.rbTimerNone);
         rbTimerPerTest = findViewById(R.id.rbTimerPerTest);
         npNumberOfSkip = findViewById(R.id.npNumberOfSkip);
-        btnSaveSettings = findViewById(R.id.btnSaveSettings);
+        Button btnSaveSettings = findViewById(R.id.btnSaveSettings);
         rbTimerPerQuestion = findViewById(R.id.rbTimerPerQuestion);
         tvSelectedChallenge = findViewById(R.id.tvSelectedChallenge);
         Utils.setOnClickListener(this, rlChallengeType, ivBack, btnSaveSettings);

@@ -37,22 +37,15 @@ public class QuestionUtils {
                 minimum = 2;
         }
         Question mQuestion = new Question();
-        if (customMode.getNumberOfVariables() == 2) {
             int a = RandomUtils.getRandomInt(maximum, minimum);
             int b = RandomUtils.getRandomInt(maximum, minimum);
 
             String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
 
             if (chosenOperation.equals(Constant.MathSign.DIVISION)) {
-                while (a <= b || (a % b != 0)) {
+                while (a < b || (a % b != 0)) {
                     a = RandomUtils.getRandomInt(maximum, minimum);
                     b = RandomUtils.getRandomInt(maximum, minimum);
-                }
-            } else {
-                while (a == b) {
-                    Log.e(TAG, "Value of a::" + a + " b::" + b);
-                    b = RandomUtils.getRandomInt(maximum, minimum);
-                    a = RandomUtils.getRandomInt(maximum, minimum);
                 }
             }
             question = dFormat.format(a) + " " + chosenOperation + " " + dFormat.format(b) + " = ?";
@@ -109,7 +102,6 @@ public class QuestionUtils {
                 mQuestion.setQuestion(question);
                 mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
             }
-        }
         return mQuestion;
     }
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
 
@@ -13,25 +14,25 @@
         <TextView
             android:id="@+id/tvOption1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginEnd="@dimen/_10dp"
             android:layout_weight="0.5"
             android:background="@drawable/background_multiple_choice"
             android:gravity="center"
-            android:text="25"
+            tools:text="25"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_title_big" />
+            android:textSize="@dimen/text_size_extra_large_xxx" />
 
         <TextView
             android:id="@+id/tvOption2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="0.5"
             android:background="@drawable/background_multiple_choice"
             android:gravity="center"
-            android:text="30"
+            tools:text="30"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_title_big" />
+            android:textSize="@dimen/text_size_extra_large_xxx" />
 
     </LinearLayout>
 
@@ -46,24 +47,24 @@
         <TextView
             android:id="@+id/tvOption3"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginEnd="@dimen/_10dp"
             android:layout_weight="0.5"
             android:background="@drawable/background_multiple_choice"
             android:gravity="center"
-            android:text="30"
+            tools:text="30"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_title_big" />
+            android:textSize="@dimen/text_size_extra_large_xxx" />
 
         <TextView
             android:id="@+id/tvOption4"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="0.5"
             android:background="@drawable/background_multiple_choice"
             android:gravity="center"
-            android:text="30"
+            tools:text="30"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_title_big" />
+            android:textSize="@dimen/text_size_extra_large_xxx" />
     </LinearLayout>
 </LinearLayout>

@@ -26,12 +26,12 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".activity.AddCustomModeActivity"
+            android:name=".unused.AddCustomModeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
-            android:name=".activity.CustomModeActivity"
+            android:name=".unused.CustomModeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 

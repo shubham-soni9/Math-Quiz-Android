@@ -1,4 +1,4 @@
-package com.mathgame.activity;
+package com.mathgame.unused;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mathgame.R;
-import com.mathgame.adapter.CustomModeAdapter;
 import com.mathgame.appdata.Codes;
 import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CustomMode;

@@ -1,4 +1,4 @@
-package com.mathgame.adapter;
+package com.mathgame.unused;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +26,7 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
     private List<CustomMode> customModeList;
     private Context          context;
 
-    public CustomModeAdapter(List<CustomMode> customModeList) {
+    CustomModeAdapter(List<CustomMode> customModeList) {
         this.customModeList = customModeList;
     }
 
