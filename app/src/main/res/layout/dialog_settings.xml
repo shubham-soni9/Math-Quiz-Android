@@ -94,6 +94,7 @@
             </LinearLayout>
 
             <com.mathgame.plugin.switchBtn.ToggleSwitch
+                android:id="@+id/twDifficultyLevel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -188,7 +189,7 @@
                     android:background="@color/black_10" />
 
                 <RelativeLayout
-                    android:id="@+id/rlCheckbox"
+                    android:id="@+id/rlEnableTimer"
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
                     android:background="@color/black_02"
@@ -213,6 +214,7 @@
                         android:textSize="@dimen/text_size_tiny" />
 
                     <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cbEnableTimer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -233,12 +235,14 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rlTimerValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:visibility="gone"
                     android:paddingBottom="10dp">
 
                     <TextView
@@ -333,7 +337,7 @@
                 android:background="@color/black_05" />
 
             <android.support.v7.widget.AppCompatCheckBox
-                android:id="@+id/cbSubtraction"
+                android:id="@+id/cbSaveSettings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"

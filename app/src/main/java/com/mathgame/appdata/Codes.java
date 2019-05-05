@@ -82,7 +82,15 @@ public interface Codes {
     interface RequestCode {
         int OPEN_ADD_CUSTOM_MODE_ACTIVITY = 100;
         int OPEN_SINGLE_GAME_ACTIVITY     = 101;
-        int OPEN_GAME_TYPE_ACTIVITY=102;
+        int OPEN_GAME_TYPE_ACTIVITY       = 102;
     }
 
+    interface SettingsIds {
+        int ADDITION      = 501;
+        int SUBTRACTION   = 502;
+        int MULTIPLICATON = 503;
+        int DIVISION      = 504;
+        int SQUARE_ROOT   = 505;
+        int PERCENTAGE    = 506;
+    }
 }

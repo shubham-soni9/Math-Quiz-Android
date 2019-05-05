@@ -11,5 +11,6 @@ public class MyApplication extends MultiDexApplication {
         super.onCreate();
         MultiDex.install(this);
         ObjectBox.init(this);
+
     }
 }

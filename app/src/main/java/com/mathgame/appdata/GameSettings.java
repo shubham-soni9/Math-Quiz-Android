@@ -1,41 +1,50 @@
 package com.mathgame.appdata;
 
+import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CustomMode;
+import com.mathgame.model.CustomMode_;
+
+import io.objectbox.Box;
 
 public class GameSettings {
     public static CustomMode getAdditionGame() {
-        CustomMode customMode = new CustomMode();
-        customMode.setMathOperations("+");
-        return customMode;
+        return getCustomMode(Codes.SettingsIds.ADDITION, Constant.MathSign.ADDITION);
     }
 
     public static CustomMode getSubtraction() {
-        CustomMode customMode = new CustomMode();
-        customMode.setMathOperations("-");
-        return customMode;
+        return getCustomMode(Codes.SettingsIds.SUBTRACTION, Constant.MathSign.SUBTRACTION);
     }
 
     public static CustomMode getMultiplication() {
-        CustomMode customMode = new CustomMode();
-        customMode.setMathOperations("*");
-        return customMode;
+        return getCustomMode(Codes.SettingsIds.MULTIPLICATON, Constant.MathSign.MULTIPLICATION);
     }
 
     public static CustomMode getDivision() {
-        CustomMode customMode = new CustomMode();
-        customMode.setMathOperations("/");
-        return customMode;
+        return getCustomMode(Codes.SettingsIds.DIVISION, Constant.MathSign.DIVISION);
     }
 
     public static CustomMode getSquareRoot() {
-        CustomMode customMode = new CustomMode();
-        customMode.setMathOperations("sqt()");
-        return customMode;
+        return getCustomMode(Codes.SettingsIds.SQUARE_ROOT, Constant.MathSign.SQUARE_ROOT);
     }
 
     public static CustomMode getPercentage() {
-        CustomMode customMode = new CustomMode();
-        customMode.setMathOperations("%");
+        return getCustomMode(Codes.SettingsIds.PERCENTAGE, Constant.MathSign.PERCENTAGE);
+    }
+
+    private static CustomMode getCustomMode(int key, String mathSign) {
+        Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
+        CustomMode customMode = userBox.query().equal(CustomMode_.uniqueId, key).build().findUnique();
+        if (customMode == null) {
+            customMode = new CustomMode();
+            customMode.setUniqueId(key);
+            customMode.setMathOperations(mathSign);
+            userBox.put(customMode);
+        }
         return customMode;
+    }
+
+    public static void saveCustomMode(CustomMode customMode) {
+        Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
+        userBox.put(customMode);
     }
 }

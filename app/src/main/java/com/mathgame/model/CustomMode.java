@@ -19,6 +19,7 @@ public class CustomMode implements Parcelable {
             return new CustomMode[size];
         }
     };
+
     @Id
     public              long                id;
     private             String              title;
@@ -30,12 +31,14 @@ public class CustomMode implements Parcelable {
     private             int                 timerValue;
     private             int                 skipNumbers;
     private             int                 difficulty;
+    private int uniqueId;
 
     public CustomMode() {
 
     }
 
     protected CustomMode(Parcel in) {
+        uniqueId=in.readInt();
         id = in.readLong();
         title = in.readString();
         numberOfQuestions = in.readInt();
@@ -55,6 +58,7 @@ public class CustomMode implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(uniqueId);
         dest.writeLong(id);
         dest.writeString(title);
         dest.writeInt(numberOfQuestions);
@@ -65,6 +69,14 @@ public class CustomMode implements Parcelable {
         dest.writeInt(timerValue);
         dest.writeInt(skipNumbers);
         dest.writeInt(difficulty);
+    }
+
+    public int getUniqueId() {
+        return uniqueId;
+    }
+
+    public void setUniqueId(int uniqueId) {
+        this.uniqueId = uniqueId;
     }
 
     public String getTitle() {
@@ -139,5 +151,11 @@ public class CustomMode implements Parcelable {
         this.difficulty = difficulty;
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 }

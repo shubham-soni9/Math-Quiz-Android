@@ -107,9 +107,11 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void openSettingsDialog() {
-        new SettingsDialog.Builder(this).listener(new SettingsDialog.Listener() {
+        new SettingsDialog.Builder(this)
+                .customMode(customMode)
+                .listener(new SettingsDialog.Listener() {
             @Override
-            public void performPositiveAction(int purpose, Bundle backpack) {
+            public void performPositiveAction(int purpose, CustomMode backpack) {
 
             }
 
