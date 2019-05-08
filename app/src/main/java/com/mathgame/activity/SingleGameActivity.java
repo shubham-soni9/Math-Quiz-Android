@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
-import com.mathgame.dialog.SettingsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
@@ -46,6 +45,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private Question       currentQuestion;
     private CountDownTimer countDownTimer;
     private CardView       cvCorrect, cvIncorrect;
+    private int skipNumbers;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         tvNumberOfQuestion = findViewById(R.id.tvNumberOfQuestion);
         cvCorrect = findViewById(R.id.cvCorrect);
         cvIncorrect = findViewById(R.id.cvIncorrect);
-        Utils.setOnClickListener(this, ivBack, tvOption1, tvOption2, tvOption3, tvOption4, cvCorrect, cvIncorrect);
+        Utils.setOnClickListener(this, ivBack, tvOption1, tvOption2, tvOption3, tvOption4, cvCorrect, cvIncorrect, tvSkipToNext);
     }
 
     private void setData() {
@@ -86,14 +86,13 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         } else {
             vMultipleChoice.setVisibility(View.VISIBLE);
         }
-
-        if (customMode.getSkipNumbers() == 0) {
+        skipNumbers=customMode.getSkipNumbers();
+        if (skipNumbers == 0) {
             tvSkipToNext.setVisibility(View.GONE);
         } else {
             tvSkipToNext.setVisibility(View.VISIBLE);
-            tvSkipToNext.setText(String.format(locale(), "(%d) %s", customMode.getSkipNumbers(), getString(R.string.skip_to_next)));
+            tvSkipToNext.setText(String.format( "(%d) %s", skipNumbers, getString(R.string.skip_to_next)));
         }
-
         if (customMode.getTimerValue() == 0) {
             tvTimerValue.setVisibility(View.GONE);
             pbTimer.setVisibility(View.GONE);
@@ -114,7 +113,13 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
         cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
-        tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
+        if (skipNumbers == 0) {
+            tvSkipToNext.setVisibility(View.GONE);
+        } else {
+            tvSkipToNext.setVisibility(View.VISIBLE);
+            tvSkipToNext.setText(String.format( "(%d) %s", skipNumbers, getString(R.string.skip_to_next)));
+        }
+
         if (remainingQuestion <= customMode.getNumberOfQuestions()) {
             currentQuestion = QuestionUtils.getQuestionWithAnswer(customMode);
             tvQuestion.setText(currentQuestion.getQuestion());
@@ -160,32 +165,32 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 tvOption4.setText(options.get(3));
             }
             if (customMode.getTimerValue() > 0) {
-                    if (countDownTimer != null) {
-                        countDownTimer.cancel();
+                if (countDownTimer != null) {
+                    countDownTimer.cancel();
+                }
+                countDownTimer = new CountDownTimer(customMode.getTimerValue() * 1000, 100) {
+                    @Override
+                    public void onTick(long millis) {
+                        String hms = String.format(locale(), "%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit
+                                .MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                        tvTimerValue.setText(String.format(locale(), "%s : %s", getString(R.string.timer), hms));
+                        // Log.e(TAG, "Millisecond :: " + millis);
+                        int progress = (int) ((millis * 100) / (customMode.getTimerValue() * 1000));
+                        //  Log.e(TAG, "Progress :: " + progress);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            pbTimer.setProgress(progress, true);
+                        } else {
+                            pbTimer.setProgress(progress);
+                        }
                     }
-                    countDownTimer = new CountDownTimer(customMode.getTimerValue() * 1000, 100) {
-                        @Override
-                        public void onTick(long millis) {
-                            String hms = String.format(locale(), "%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit
-                                    .MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-                            tvTimerValue.setText(String.format(locale(), "%s : %s", getString(R.string.timer), hms));
-                            // Log.e(TAG, "Millisecond :: " + millis);
-                            int progress = (int) ((millis * 100) / (customMode.getTimerValue() * 1000));
-                            //  Log.e(TAG, "Progress :: " + progress);
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                pbTimer.setProgress(progress, true);
-                            } else {
-                                pbTimer.setProgress(progress);
-                            }
-                        }
 
-                        @Override
-                        public void onFinish() {
-                            remainingQuestion++;
-                            startGame();
-                        }
-                    };
-                    countDownTimer.start();
+                    @Override
+                    public void onFinish() {
+                        remainingQuestion++;
+                        startGame();
+                    }
+                };
+                countDownTimer.start();
             }
         } else {
             onBackPressed();
@@ -215,6 +220,10 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.cvIncorrect:
                 onIncorrectClicked();
+                break;
+            case R.id.tvSkipToNext:
+                skipNumbers--;
+                startGame();
                 break;
         }
     }
@@ -273,5 +282,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             countDownTimer.cancel();
         }
         Transition.exit(this);
+    }
+
+    private void saveForAnalytics() {
+
     }
 }

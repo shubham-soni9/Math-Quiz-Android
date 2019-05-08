@@ -26,10 +26,10 @@ public class QuestionUtils {
                 break;
             case Constant.DifficultyLevel.MEDIUM:
                 maximum = 99;
-                minimum = 10;
+                minimum = 2;
                 break;
             case Constant.DifficultyLevel.LARGE:
-                maximum = 100;
+                maximum = 10;
                 minimum = 999;
                 break;
             default:
@@ -44,6 +44,7 @@ public class QuestionUtils {
 
             if (chosenOperation.equals(Constant.MathSign.DIVISION)) {
                 while (a < b || (a % b != 0)) {
+                    Log.e(TAG,"a = "+a+" b = "+b);
                     a = RandomUtils.getRandomInt(maximum, minimum);
                     b = RandomUtils.getRandomInt(maximum, minimum);
                 }
@@ -71,6 +72,7 @@ public class QuestionUtils {
             mQuestion.setOperation(chosenOperation);
             mQuestion.setQuestion(question);
             mQuestion.setAnswer(answer);
+
             if (customMode.getGameType() == Codes.GameType.YES_NO.value) {
                 int randomCheck = RandomUtils.getRandomInt(3, 1);
                 String answerPrediction;
