@@ -1,24 +1,29 @@
 package org.secuso.controller;
 
 import android.app.IntentService;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.Pair;
 
-import org.secuso.game.GameDifficulty;
-import org.secuso.game.GameType;
+import org.secuso.appdata.Constants;
 import org.secuso.controller.database.DatabaseHelper;
 import org.secuso.controller.database.model.Level;
 import org.secuso.controller.qqwing.Action;
 import org.secuso.controller.qqwing.PrintStyle;
 import org.secuso.controller.qqwing.QQWing;
 import org.secuso.controller.qqwing.Symmetry;
-import org.secuso.ui.MainActivity;
+import org.secuso.game.GameDifficulty;
+import org.secuso.game.GameType;
 import org.secuso.privacyfriendlysudoku.ui.view.R;
+import org.secuso.ui.MainActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -41,19 +46,16 @@ public class GeneratorService extends IntentService {
 
     private final QQWingOptions opts = new QQWingOptions();
 
-    private final List<Pair<GameType, GameDifficulty>> generationList = new LinkedList<>();
-    private final DatabaseHelper                       dbHelper       = new DatabaseHelper(this);
+    private final  List<Pair<GameType, GameDifficulty>> generationList = new LinkedList<>();
+    private final  DatabaseHelper                       dbHelper       = new DatabaseHelper(this);
     //private Handler mHandler = new Handler();
-    private int[]                                      level;
-    private LinkedList<int[]>                          generated      = new LinkedList<>();
+    private        int[]                                level;
+    private        LinkedList<int[]>                    generated      = new LinkedList<>();
+    private static NotificationChannel                  notificationChannel;
 
 
     public GeneratorService() {
         super("Generator Service");
-    }
-
-    public GeneratorService(String name) {
-        super(name);
     }
 
     private void buildGenerationList() {
@@ -249,7 +251,17 @@ public class GeneratorService extends IntentService {
     }
 
     private void showNotification(GameType gameType, GameDifficulty gameDifficulty) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (notificationChannel == null) {
+                notificationChannel = new NotificationChannel(Constants.GENERATOR_NOTIFICATION, getString(R.string.generator_notification), NotificationManager.IMPORTANCE_LOW);
+            }
+            NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, Constants.GENERATOR_NOTIFICATION);
         builder.setContentTitle(getString(R.string.app_name));
         builder.setContentText(getString(R.string.generating));
         builder.setSubText(getString(gameType.getStringResID()) + ", " + getString(gameDifficulty.getStringResID()));
@@ -258,6 +270,7 @@ public class GeneratorService extends IntentService {
         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
         builder.setWhen(0);
         builder.setSmallIcon(R.drawable.splash_icon);
+        builder.setChannelId(Constants.GENERATOR_NOTIFICATION);
         startForeground(50, builder.build());
     }
 

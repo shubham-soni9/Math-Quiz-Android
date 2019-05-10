@@ -50,7 +50,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_game);
+        setContentView(R.layout.activity_dual_game);
         init();
         setData();
         startGame();

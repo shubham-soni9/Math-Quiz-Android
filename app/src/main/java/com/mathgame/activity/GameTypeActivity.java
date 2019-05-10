@@ -145,6 +145,9 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void startDual() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(CustomMode.class.getName(), customMode);
+        Transition.transitForResult(this, DualGameActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
     }
 
     private void startMutltiple() {

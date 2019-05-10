@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 
 import org.secuso.game.GameDifficulty;
@@ -58,7 +59,6 @@ public class NewLevelManager {
         for (File file : DIR.listFiles()) {
             if (file.isFile()) {
                 String name = file.getName().substring(0, file.getName().lastIndexOf("_"));
-
                 StringBuilder sb = new StringBuilder();
                 sb.append(LEVEL_PREFIX);
                 sb.append(type.name());
@@ -181,8 +181,11 @@ public class NewLevelManager {
         // Start Generation Service
         Intent i = new Intent(context, GeneratorService.class);
         i.setAction(GeneratorService.ACTION_GENERATE);
-        //i.putExtra(ProtocolService.EXTRA_PROTOCOL, current.componentName().flattenToString());
-        context.startService(i);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.startForegroundService(i);
+        } else {
+            context.startService(i);
+        }
 
         //new AsyncGenerationTask().execute();
     }
