@@ -2,10 +2,10 @@ package org.secuso.privacyfriendlysudoku.game.solver;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.secuso.privacyfriendlysudoku.controller.GameController;
-import org.secuso.privacyfriendlysudoku.controller.helper.GameInfoContainer;
-import org.secuso.privacyfriendlysudoku.game.GameDifficulty;
-import org.secuso.privacyfriendlysudoku.game.GameType;
+import org.secuso.controller.GameController;
+import org.secuso.controller.helper.GameInfoContainer;
+import org.secuso.game.GameDifficulty;
+import org.secuso.game.GameType;
 
 /**
  * Created by Chris on 12.11.2015.

@@ -2,9 +2,10 @@ package org.secuso.privacyfriendlysudoku.controller;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.secuso.privacyfriendlysudoku.controller.helper.GameInfoContainer;
-import org.secuso.privacyfriendlysudoku.game.GameDifficulty;
-import org.secuso.privacyfriendlysudoku.game.GameType;
+import org.secuso.controller.GameController;
+import org.secuso.controller.helper.GameInfoContainer;
+import org.secuso.game.GameDifficulty;
+import org.secuso.game.GameType;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

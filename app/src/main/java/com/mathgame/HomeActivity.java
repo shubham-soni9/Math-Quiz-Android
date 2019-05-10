@@ -14,7 +14,7 @@ import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
-import org.secuso.privacyfriendlysudoku.ui.SplashActivity;
+import org.secuso.ui.SplashActivity;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
