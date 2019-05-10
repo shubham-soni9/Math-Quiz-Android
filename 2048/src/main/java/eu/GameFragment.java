@@ -42,12 +42,12 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
     private TextView mOverlay;
     private ScoreKeeper mScoreKeeper;
     private ImageButton mResetButton, mUndoButton, mInfoButton;
-    private TextView mTitleText;
-    private MainActivity mMainActivity;
+    private TextView         mTitleText;
+    private SlideAddActivity mSlideAddActivity;
 
     @Override
     public void onAttach(Activity activity) {
-        mMainActivity = (MainActivity) activity;
+        mSlideAddActivity = (SlideAddActivity) activity;
         super.onAttach(activity);
     }
 
@@ -103,7 +103,7 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
         mResetButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(getActivity(), mMainActivity.getString(R.string.start_new_game), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), mSlideAddActivity.getString(R.string.start_new_game), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -121,7 +121,7 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
         mUndoButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(getActivity(), mMainActivity.getString(R.string.undo_last_move), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), mSlideAddActivity.getString(R.string.undo_last_move), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -141,7 +141,7 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
         mInfoButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(getActivity(), mMainActivity.getString(R.string.about_this_app), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), mSlideAddActivity.getString(R.string.about_this_app), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

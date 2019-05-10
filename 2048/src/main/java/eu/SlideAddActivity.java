@@ -11,7 +11,7 @@ import eu.thedarken.myo.R;
 import eu.tools.KeyListener;
 
 
-public class MainActivity extends Activity {
+public class SlideAddActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

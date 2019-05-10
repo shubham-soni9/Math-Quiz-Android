@@ -16,6 +16,8 @@ import com.mathgame.util.Utils;
 
 import org.secuso.ui.SplashActivity;
 
+import eu.SlideAddActivity;
+
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvAddition;
@@ -26,6 +28,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvPercentage;
     private CardView cvTicTacToe;
     private CardView cvSudoku;
+    private CardView cvSlideAddition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +46,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         tvSquareRoot = findViewById(R.id.tvSquareRoot);
         cvTicTacToe = findViewById(R.id.cvTicTacToe);
         cvSudoku = findViewById(R.id.cvSudoku);
+        cvSlideAddition = findViewById(R.id.cvSlideAddition);
         Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
-                , cvTicTacToe, cvSudoku);
+                , cvTicTacToe, cvSudoku, cvSlideAddition);
     }
 
     @Override
@@ -80,6 +84,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.cvSudoku:
                 Transition.startActivity(this, SplashActivity.class);
+                break;
+            case R.id.cvSlideAddition:
+                Transition.startActivity(this, SlideAddActivity.class);
                 break;
         }
     }

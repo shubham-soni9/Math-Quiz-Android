@@ -15,8 +15,8 @@ import eu.thedarken.myo.R;
 
 
 public class InfoFragment extends PreferenceFragment  {
-    private String mAppVersion = "unknown";
-    private MainActivity mMainActivity;
+    private String           mAppVersion = "unknown";
+    private SlideAddActivity mSlideAddActivity;
 
     public static Fragment newInstance() {
         return new InfoFragment();
@@ -24,7 +24,7 @@ public class InfoFragment extends PreferenceFragment  {
 
     @Override
     public void onAttach(Activity activity) {
-        mMainActivity = (MainActivity) activity;
+        mSlideAddActivity = (SlideAddActivity) activity;
         super.onAttach(activity);
     }
 
