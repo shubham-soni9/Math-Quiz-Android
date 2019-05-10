@@ -31,12 +31,12 @@ import java.util.List;
 
 /**
  * This is a custom view for tic tac toe board.
- *
+ * <p>
  * board all with animations.
  */
 
 public class BoardView extends View implements GestureDetector.OnGestureListener, ValueAnimator.AnimatorUpdateListener, Animator.AnimatorListener {
-    private static final int STROKE_WIDTH = 10;
+    private static final int STROKE_WIDTH  = 10;
     private static final int SWEEPER_WIDTH = 20;
 
     private float[] gridLinePoints;
@@ -47,8 +47,9 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
 
     private List<SignData> signDataList;
 
-    private @TTTConstants.WinLinePosition int   winLinePosition;
-    private                               Paint winLinePaint;
+    private @TTTConstants.WinLinePosition
+            int   winLinePosition;
+    private Paint winLinePaint;
 
     private GestureDetector            clickDetector;
     private OnBoardInteractionListener onBoardInteractionListener;
@@ -191,7 +192,7 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
      * Checks whether {@link #signDataList} has any item with animation flag set.
      *
      * @return true if there is any item with animation flag set (if any animation is running),
-     *         else false.
+     * else false.
      */
 
     private boolean isAnimationFlagSet() {
@@ -425,9 +426,8 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
      *
      * @param row    Row index of the box we want to check.
      * @param column Column index of the box we want to check.
-     *
      * @return true if there is an entry added for the given row and column index in
-     *         {@link #signDataList}, else false.
+     * {@link #signDataList}, else false.
      */
 
     boolean isAlreadyAdded(int row, int column) {
@@ -446,7 +446,6 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
      * Converts a value given in dp to it's corresponding value in pixels.
      *
      * @param dp The value to be converted, in dp, to pixels.
-     *
      * @return The corresponding value of the given dp in pixels.
      */
 
@@ -498,9 +497,8 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
      * Determines the index of the box according to where it has been clicked.
      *
      * @param value Either x-coordinate or y-coordinate of clicked position.
-     *
      * @return Either index of row if passed value is y-coordinate of clicked position or index of
-     *         column if passed value is x-coordinate of clicked position.
+     * column if passed value is x-coordinate of clicked position.
      */
 
     private int detectIndexOfPartition(float value) {
@@ -571,12 +569,14 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
      */
 
     private class SignData {
-        private @TTTConstants.Sign int     sign;
-        private                    int     row;
-        private                    int     column;
-        private                    boolean animationFlag;
+        private @TTTConstants.Sign
+                int     sign;
+        private int     row;
+        private int     column;
+        private boolean animationFlag;
 
-        @TTTConstants.Sign int getSign() {
+        @TTTConstants.Sign
+        int getSign() {
             return sign;
         }
 

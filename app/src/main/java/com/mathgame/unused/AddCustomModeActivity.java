@@ -29,26 +29,26 @@ import io.objectbox.Box;
 
 public class AddCustomModeActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener
         , NumberPicker.OnValueChangeListener {
-    private Spinner            spnCustomFieldValues;
-    private MaterialEditText   metTitle;
-    private NumberPicker       npNumberOfQuestion;
-    private NumberPicker       npNumberOfVariables;
-    private NumberPicker       npNumberOfSkip;
-    private NumberPicker       npTimerMinuteValue;
-    private NumberPicker       npTimerSecondValue;
-    private RadioButton        rbSinglePlayer;
-    private RadioButton        rbDualPlayer;
-    private RadioButton        rbTimerNone;
-    private RadioButton        rbTimerPerTest;
-    private RadioButton        rbTimerPerQuestion;
-    private CheckBox           cbAddition;
-    private CheckBox           cbSubtraction;
-    private CheckBox           cbMultiplication;
-    private CheckBox           cbDivision;
-    private CheckBox           cbPercentage;
-    private CheckBox           cbSquareRoot;
-    private TextView           tvSelectedChallenge;
-    private int                gameType;
+    private Spinner          spnCustomFieldValues;
+    private MaterialEditText metTitle;
+    private NumberPicker     npNumberOfQuestion;
+    private NumberPicker     npNumberOfVariables;
+    private NumberPicker     npNumberOfSkip;
+    private NumberPicker     npTimerMinuteValue;
+    private NumberPicker     npTimerSecondValue;
+    private RadioButton      rbSinglePlayer;
+    private RadioButton      rbDualPlayer;
+    private RadioButton      rbTimerNone;
+    private RadioButton      rbTimerPerTest;
+    private RadioButton      rbTimerPerQuestion;
+    private CheckBox         cbAddition;
+    private CheckBox         cbSubtraction;
+    private CheckBox         cbMultiplication;
+    private CheckBox         cbDivision;
+    private CheckBox         cbPercentage;
+    private CheckBox         cbSquareRoot;
+    private TextView         tvSelectedChallenge;
+    private int              gameType;
 
 
     @Override

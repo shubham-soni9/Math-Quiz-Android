@@ -60,18 +60,18 @@ import android.view.animation.Interpolator;
  * }</pre>
  */
 public class Scroller {
-    private static final int DEFAULT_DURATION = 250;
-    private static final int SCROLL_MODE      = 0;
-    private static final int FLING_MODE       = 1;
-    private static final float INFLEXION         = 0.35f; // Tension lines cross at (INFLEXION, 1)
-    private static final float START_TENSION     = 0.5f;
-    private static final float END_TENSION       = 1.0f;
-    private static final float P1                = START_TENSION * INFLEXION;
-    private static final float P2                = 1.0f - END_TENSION * (1.0f - INFLEXION);
-    private static final int     NB_SAMPLES      = 100;
-    private static final float[] SPLINE_POSITION = new float[NB_SAMPLES + 1];
-    private static final float[] SPLINE_TIME     = new float[NB_SAMPLES + 1];
-    private static       float DECELERATION_RATE = (float) (Math.log(0.78) / Math.log(0.9));
+    private static final int     DEFAULT_DURATION  = 250;
+    private static final int     SCROLL_MODE       = 0;
+    private static final int     FLING_MODE        = 1;
+    private static final float   INFLEXION         = 0.35f; // Tension lines cross at (INFLEXION, 1)
+    private static final float   START_TENSION     = 0.5f;
+    private static final float   END_TENSION       = 1.0f;
+    private static final float   P1                = START_TENSION * INFLEXION;
+    private static final float   P2                = 1.0f - END_TENSION * (1.0f - INFLEXION);
+    private static final int     NB_SAMPLES        = 100;
+    private static final float[] SPLINE_POSITION   = new float[NB_SAMPLES + 1];
+    private static final float[] SPLINE_TIME       = new float[NB_SAMPLES + 1];
+    private static       float   DECELERATION_RATE = (float) (Math.log(0.78) / Math.log(0.9));
 
     static {
         float x_min = 0.0f;
@@ -107,32 +107,32 @@ public class Scroller {
     }
 
     private final Interpolator mInterpolator;
-    private final float mPpi;
-    private int mMode;
-    private int mStartX;
-    private int mStartY;
-    private int mFinalX;
-    private int mFinalY;
-    private int mMinX;
-    private int mMaxX;
-    private int mMinY;
-    private int mMaxY;
-    private int     mCurrX;
-    private int     mCurrY;
-    private long    mStartTime;
-    private int     mDuration;
-    private float   mDurationReciprocal;
-    private float   mDeltaX;
-    private float   mDeltaY;
-    private boolean mFinished;
-    private boolean mFlywheel;
-    private float mVelocity;
-    private float mCurrVelocity;
-    private int   mDistance;
-    private float mFlingFriction = ViewConfiguration.getScrollFriction();
-    private       float mDeceleration;
+    private final float        mPpi;
+    private       int          mMode;
+    private       int          mStartX;
+    private       int          mStartY;
+    private       int          mFinalX;
+    private       int          mFinalY;
+    private       int          mMinX;
+    private       int          mMaxX;
+    private       int          mMinY;
+    private       int          mMaxY;
+    private       int          mCurrX;
+    private       int          mCurrY;
+    private       long         mStartTime;
+    private       int          mDuration;
+    private       float        mDurationReciprocal;
+    private       float        mDeltaX;
+    private       float        mDeltaY;
+    private       boolean      mFinished;
+    private       boolean      mFlywheel;
+    private       float        mVelocity;
+    private       float        mCurrVelocity;
+    private       int          mDistance;
+    private       float        mFlingFriction = ViewConfiguration.getScrollFriction();
+    private       float        mDeceleration;
     // A context-specific coefficient adjusted to physical values.
-    private float mPhysicalCoeff;
+    private       float        mPhysicalCoeff;
 
     /**
      * Create a Scroller with the default duration and interpolator.

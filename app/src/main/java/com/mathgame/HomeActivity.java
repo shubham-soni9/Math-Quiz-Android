@@ -14,6 +14,8 @@ import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
+import org.secuso.privacyfriendlysudoku.ui.SplashActivity;
+
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvAddition;
@@ -23,6 +25,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvSquareRoot;
     private TextView tvPercentage;
     private CardView cvTicTacToe;
+    private CardView cvSudoku;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +41,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         tvDivision = findViewById(R.id.tvDivision);
         tvPercentage = findViewById(R.id.tvPercentage);
         tvSquareRoot = findViewById(R.id.tvSquareRoot);
-        cvTicTacToe=findViewById(R.id.cvTicTacToe);
+        cvTicTacToe = findViewById(R.id.cvTicTacToe);
+        cvSudoku = findViewById(R.id.cvSudoku);
         Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
-                ,cvTicTacToe);
+                , cvTicTacToe, cvSudoku);
     }
 
     @Override
@@ -73,6 +77,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.cvTicTacToe:
                 Transition.startActivity(this, SelectionActivity.class);
+                break;
+            case R.id.cvSudoku:
+                Transition.startActivity(this, SplashActivity.class);
                 break;
         }
     }

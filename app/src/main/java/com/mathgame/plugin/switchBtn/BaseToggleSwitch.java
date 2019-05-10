@@ -24,42 +24,22 @@ import java.util.ArrayList;
  */
 public abstract class BaseToggleSwitch extends LinearLayout implements View.OnClickListener {
 
-    public interface OnToggleSwitchChangeListener {
-        void onToggleSwitchChangeListener(int position, boolean isChecked);
-    }
-
-    protected static class Default {
-
-        static final int ACTIVE_BG_COLOR = R.color.blue;
-        static final int ACTIVE_TEXT_COLOR = android.R.color.white;
-        static final int INACTIVE_BG_COLOR = R.color.gray_light;
-        static final int INACTIVE_TEXT_COLOR = R.color.gray;
-        static final int SEPARATOR_COLOR = R.color.gray_very_light;
-        static final int CORNER_RADIUS_DP = 4;
-        static final float TEXT_SIZE = 12;
-        static final float TOGGLE_WIDTH = 64;
-    }
-
     private OnToggleSwitchChangeListener mOnToggleSwitchChangeListener = null;
-
-    private int activeBgColor;
-    private int activeTextColor;
-    private int inactiveBgColor;
-    private int inactiveTextColor;
-    private int separatorColor;
-    private int textSize;
+    private int   activeBgColor;
+    private int   activeTextColor;
+    private int   inactiveBgColor;
+    private int   inactiveTextColor;
+    private int   separatorColor;
+    private int   textSize;
     private float cornerRadius;
     private float toggleWidth;
-
-    private LayoutInflater mInflater;
-    private LinearLayout toggleSwitchesContainer;
+    private LayoutInflater    mInflater;
+    private LinearLayout      toggleSwitchesContainer;
     private ArrayList<String> mLabels;
-    private Context mContext;
-
+    private Context           mContext;
     public BaseToggleSwitch(Context context) {
         this(context, null);
     }
-
     public BaseToggleSwitch(Context context, AttributeSet attrs) {
         super(context, attrs);
         if (attrs != null) {
@@ -101,8 +81,6 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         }
     }
 
-    // *************** GETTERS AND SETTERS ****************
-
     public int getActiveBgColor() {
         return activeBgColor;
     }
@@ -110,6 +88,8 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
     public void setActiveBgColor(int activeBgColor) {
         this.activeBgColor = activeBgColor;
     }
+
+    // *************** GETTERS AND SETTERS ****************
 
     public int getActiveTextColor() {
         return activeTextColor;
@@ -167,8 +147,6 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         this.toggleWidth = toggleWidth;
     }
 
-    // *********** PRIVATE INSTANCE METHODS ************
-
     protected void activate(int position) {
         setColors(getToggleSwitchButton(position), activeBgColor, activeTextColor);
     }
@@ -195,6 +173,8 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         // Disable last added button
         disable(toggleSwitchesContainer.getChildCount() - 1);
     }
+
+    // *********** PRIVATE INSTANCE METHODS ************
 
     private RoundRectShape buildRect(ToggleSwitchButton toggleSwitchButton) {
         if (isFirst(toggleSwitchButton))
@@ -290,8 +270,6 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         }
     }
 
-    // **************** UTILS *****************
-
     private float dp2px(Context context, float dp) {
         Resources resources = context.getResources();
         DisplayMetrics metrics = resources.getDisplayMetrics();
@@ -302,8 +280,26 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         return toggleSwitchesContainer.indexOfChild(toggleSwitchButton.getView()) == 0;
     }
 
+    // **************** UTILS *****************
+
     private boolean isLast(ToggleSwitchButton toggleSwitchButton) {
         int lastPosition = toggleSwitchesContainer.getChildCount() - 1;
         return toggleSwitchesContainer.indexOfChild(toggleSwitchButton.getView()) == lastPosition;
+    }
+
+    public interface OnToggleSwitchChangeListener {
+        void onToggleSwitchChangeListener(int position, boolean isChecked);
+    }
+
+    protected static class Default {
+
+        static final int   ACTIVE_BG_COLOR     = R.color.blue;
+        static final int   ACTIVE_TEXT_COLOR   = android.R.color.white;
+        static final int   INACTIVE_BG_COLOR   = R.color.gray_light;
+        static final int   INACTIVE_TEXT_COLOR = R.color.gray;
+        static final int   SEPARATOR_COLOR     = R.color.gray_very_light;
+        static final int   CORNER_RADIUS_DP    = 4;
+        static final float TEXT_SIZE           = 12;
+        static final float TOGGLE_WIDTH        = 64;
     }
 }

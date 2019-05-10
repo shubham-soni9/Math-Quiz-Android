@@ -40,10 +40,10 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
                 android:clickable="true"
                 android:focusable="true"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:src="@drawable/ic_settings"
                 android:tint="@color/colorPrimary" />
         </RelativeLayout>
@@ -59,8 +59,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:background="@color/transparent">
+        android:background="@color/transparent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"

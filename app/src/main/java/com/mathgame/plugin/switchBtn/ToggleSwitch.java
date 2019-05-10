@@ -22,13 +22,13 @@ public class ToggleSwitch extends BaseToggleSwitch {
         return mCheckedTogglePosition;
     }
 
+    public void setCheckedTogglePosition(int position) {
+        setCheckedTogglePosition(position, true);
+    }
+
     @Override
     protected void onClickOnToggleSwitch(int position) {
         setCheckedTogglePosition(position);
-    }
-
-    public void setCheckedTogglePosition(int position) {
-        setCheckedTogglePosition(position, true);
     }
 
     public void setCheckedTogglePosition(int position, boolean notifyListener) {

@@ -54,10 +54,11 @@
 
         <activity
             android:name=".plugin.tictactoe.game.TTTGameActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".plugin.tictactoe.selection.SelectionActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".plugin.tictactoe.selection.SelectionActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

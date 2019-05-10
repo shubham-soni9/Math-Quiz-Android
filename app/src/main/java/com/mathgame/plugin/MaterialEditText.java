@@ -43,197 +43,198 @@ import java.util.regex.Pattern;
 
 public class MaterialEditText extends AppCompatEditText {
 
-    private static final int FLOATING_LABEL_NONE      = 0;
-    private static final int FLOATING_LABEL_NORMAL    = 1;
-    private static final int FLOATING_LABEL_HIGHLIGHT = 2;
+    private static final int                   FLOATING_LABEL_NONE      = 0;
+    private static final int                   FLOATING_LABEL_NORMAL    = 1;
+    private static final int                   FLOATING_LABEL_HIGHLIGHT = 2;
     /**
      * the spacing between the main text and the inner top padding.
      */
-    private int extraPaddingTop;
+    private              int                   extraPaddingTop;
     /**
      * the spacing between the main text and the inner bottom padding.
      */
-    private int extraPaddingBottom;
+    private              int                   extraPaddingBottom;
     /**
      * the extra spacing between the main text and the left, actually for the left icon.
      */
-    private int extraPaddingLeft;
+    private              int                   extraPaddingLeft;
     /**
      * the extra spacing between the main text and the right, actually for the right icon.
      */
-    private int extraPaddingRight;
+    private              int                   extraPaddingRight;
     /**
      * the floating label's text size.
      */
-    private int floatingLabelTextSize;
+    private              int                   floatingLabelTextSize;
     /**
      * the floating label's text color.
      */
-    private int floatingLabelTextColor;
+    private              int                   floatingLabelTextColor;
     /**
      * the bottom texts' size.
      */
-    private int bottomTextSize;
+    private              int                   bottomTextSize;
     /**
      * the spacing between the main text and the floating label.
      */
-    private int floatingLabelPadding;
+    private              int                   floatingLabelPadding;
     /**
      * the spacing between the main text and the bottom components (bottom ellipsis, helper/error text, characters counter).
      */
-    private int bottomSpacing;
+    private              int                   bottomSpacing;
     /**
      * whether the floating label should be shown. default is false.
      */
-    private boolean floatingLabelEnabled;
+    private              boolean               floatingLabelEnabled;
     /**
      * whether to highlight the floating label's text color when focused (with the main color). default is true.
      */
-    private boolean highlightFloatingLabel;
+    private              boolean               highlightFloatingLabel;
     /**
      * the base color of the line and the texts. default is black.
      */
-    private int baseColor;
+    private              int                   baseColor;
     /**
      * inner top padding
      */
-    private int innerPaddingTop;
+    private              int                   innerPaddingTop;
     /**
      * inner bottom padding
      */
-    private int innerPaddingBottom;
+    private              int                   innerPaddingBottom;
     /**
      * inner left padding
      */
-    private int innerPaddingLeft;
+    private              int                   innerPaddingLeft;
     /**
      * inner right padding
      */
-    private int innerPaddingRight;
+    private              int                   innerPaddingRight;
     /**
      * the underline's highlight color, and the highlight color of the floating label if app:highlightFloatingLabel is set true in the xml. default is black(when app:darkTheme is false) or white(when app:darkTheme is true)
      */
-    private int primaryColor;
+    private              int                   primaryColor;
     /**
      * the color for when something is wrong.(e.g. exceeding max characters)
      */
-    private int errorColor;
+    private              int                   errorColor;
     /**
      * min characters count limit. 0 means no limit. default is 0. NOTE: the character counter will increase the View's height.
      */
-    private int minCharacters;
+    private              int                   minCharacters;
     /**
      * max characters count limit. 0 means no limit. default is 0. NOTE: the character counter will increase the View's height.
      */
-    private int maxCharacters;
+    private              int                   maxCharacters;
     /**
      * whether to show the bottom ellipsis in singleLine mode. default is false. NOTE: the bottom ellipsis will increase the View's height.
      */
-    private boolean singleLineEllipsis;
+    private              boolean               singleLineEllipsis;
     /**
      * Always show the floating label, instead of animating it in/out. False by default.
      */
-    private boolean floatingLabelAlwaysShown;
+    private              boolean               floatingLabelAlwaysShown;
     /**
      * Always show the helper text, no matter if the edit text is focused. False by default.
      */
-    private boolean helperTextAlwaysShown;
+    private              boolean               helperTextAlwaysShown;
     /**
      * bottom ellipsis's height
      */
-    private int bottomEllipsisSize;
+    private              int                   bottomEllipsisSize;
     /**
      * min bottom lines count.
      */
-    private int minBottomLines;
+    private              int                   minBottomLines;
     /**
      * reserved bottom text lines count, no matter if there is some helper/error text.
      */
-    private int minBottomTextLines;
+    private              int                   minBottomTextLines;
     /**
      * real-time bottom lines count. used for bottom extending/collapsing animation.
      */
-    private float currentBottomLines;
+    private              float                 currentBottomLines;
     /**
      * bottom lines count.
      */
-    private float bottomLines;
+    private              float                 bottomLines;
     /**
      * Helper text at the bottom
      */
-    private String helperText;
+    private              String                helperText;
     /**
      * Helper text color
      */
-    private int helperTextColor = -1;
+    private              int                   helperTextColor          = -1;
     /**
      *
      */
-    private String tempErrorText;
+    private              String                tempErrorText;
     /**
      * animation fraction of the floating label (0 as totally hidden).
      */
-    private float floatingLabelFraction;
+    private              float                 floatingLabelFraction;
     /**
      * whether the floating label is being shown.
      */
-    private boolean floatingLabelShown;
+    private              boolean               floatingLabelShown;
     /**
      * the floating label's focusFraction
      */
-    private float focusFraction;
+    private              float                 focusFraction;
     /**
      * The font used for the accent texts (floating label, error/helper text, character counter, etc.)
      */
-    private Typeface accentTypeface;
+    private              Typeface              accentTypeface;
     /**
      * Text for the floatLabel if different from the hint
      */
-    private CharSequence floatingLabelText;
+    private              CharSequence          floatingLabelText;
     /**
      * Whether or not to show the underline. Shown by default
      */
-    private boolean hideUnderline;
+    private              boolean               hideUnderline;
     /**
      * Underline's color
      */
-    private int underlineColor;
+    private              int                   underlineColor;
     /**
      * Whether to validate as soon as the text has changed. False by default
      */
-    private boolean autoValidate;
+    private              boolean               autoValidate;
     /**
      * Whether the characters count is valid
      */
-    private boolean charactersCountValid;
+    private              boolean               charactersCountValid;
     /**
      * Whether use animation to show/hide the floating label.
      */
-    private boolean floatingLabelAnimating;
+    private              boolean               floatingLabelAnimating;
     /**
      * Left Icon
      */
-    private Bitmap[] iconLeftBitmaps;
+    private              Bitmap[]              iconLeftBitmaps;
     /**
      * Right Icon
      */
-    private Bitmap[] iconRightBitmaps;
-    private int                   iconSize;
-    private int                   iconOuterWidth;
-    private int                   iconOuterHeight;
-    private int                   iconPadding;
-    private ColorStateList        textColorStateList;
-    private ColorStateList        textColorHintStateList;
-    private ArgbEvaluator         focusEvaluator = new ArgbEvaluator();
-    private Paint                 paint          = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private TextPaint             textPaint      = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-    private StaticLayout          textLayout;
-    private ObjectAnimator        labelAnimator;
-    private ObjectAnimator        labelFocusAnimator;
-    private ObjectAnimator        bottomLinesAnimator;
-    private OnFocusChangeListener innerFocusChangeListener;
-    private OnFocusChangeListener outerFocusChangeListener;
-    private List<METValidator>    validators;
+    private              Bitmap[]              iconRightBitmaps;
+    private              int                   iconSize;
+    private              int                   iconOuterWidth;
+    private              int                   iconOuterHeight;
+    private              int                   iconPadding;
+    private              ColorStateList        textColorStateList;
+    private              ColorStateList        textColorHintStateList;
+    private              ArgbEvaluator         focusEvaluator           = new ArgbEvaluator();
+    private              Paint                 paint                    = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private              TextPaint             textPaint                = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+    private              StaticLayout          textLayout;
+    private              ObjectAnimator        labelAnimator;
+    private              ObjectAnimator        labelFocusAnimator;
+    private              ObjectAnimator        bottomLinesAnimator;
+    private              OnFocusChangeListener innerFocusChangeListener;
+    private              OnFocusChangeListener outerFocusChangeListener;
+    private              List<METValidator>    validators;
+
     public MaterialEditText(Context context) {
         super(context);
         init(context, null);

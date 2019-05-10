@@ -61,12 +61,14 @@ public class Utils {
             e.printStackTrace();
         }
     }
+
     public static String assign(String assignable, String alternative) {
 
         return assignable == null || assignable.isEmpty() ?
                 (alternative == null ? Constant.EMPTY : alternative) :
                 (assignable.equals("null") ? assign(alternative) : assignable);
     }
+
     public static String assign(String assignable) {
 
         return assignable == null || assignable.equalsIgnoreCase("[]") || assignable.equals("null") ?

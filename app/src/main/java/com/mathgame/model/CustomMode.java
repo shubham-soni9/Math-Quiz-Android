@@ -21,24 +21,24 @@ public class CustomMode implements Parcelable {
     };
 
     @Id
-    public              long                id;
-    private             String              title;
-    private             int                 numberOfQuestions;
-    private             int                 playerType;
-    private             int                 gameType;
-    private             String              mathOperations;
-    private             int                 numberOfVariables;
-    private             int                 timerValue;
-    private             int                 skipNumbers;
-    private             int                 difficulty;
-    private int uniqueId;
+    public  long   id;
+    private String title;
+    private int    numberOfQuestions;
+    private int    playerType;
+    private int    gameType;
+    private String mathOperations;
+    private int    numberOfVariables;
+    private int    timerValue;
+    private int    skipNumbers;
+    private int    difficulty;
+    private int    uniqueId;
 
     public CustomMode() {
 
     }
 
     protected CustomMode(Parcel in) {
-        uniqueId=in.readInt();
+        uniqueId = in.readInt();
         id = in.readLong();
         title = in.readString();
         numberOfQuestions = in.readInt();

@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mathgame.R;
@@ -39,9 +38,9 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
         cvMultiple = findViewById(R.id.cvMultiple);
         cvTest = findViewById(R.id.cvTest);
         cvYesNo = findViewById(R.id.cvYesNo);
-        ivSettings=findViewById(R.id.ivSettings);
+        ivSettings = findViewById(R.id.ivSettings);
         Utils.setOnClickListener(this, findViewById(R.id.ivBack), cvLearn, cvDual, cvMultiple, cvPractice, cvTest, cvYesNo
-                ,ivSettings);
+                , ivSettings);
     }
 
     private void setData() {
@@ -110,16 +109,16 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
         new SettingsDialog.Builder(this)
                 .customMode(customMode)
                 .listener(new SettingsDialog.Listener() {
-            @Override
-            public void performPositiveAction(int purpose, CustomMode backpack) {
+                    @Override
+                    public void performPositiveAction(int purpose, CustomMode backpack) {
 
-            }
+                    }
 
-            @Override
-            public void performNegativeAction(int purpose, Bundle backpack) {
+                    @Override
+                    public void performNegativeAction(int purpose, Bundle backpack) {
 
-            }
-        }).build().show();
+                    }
+                }).build().show();
     }
 
 

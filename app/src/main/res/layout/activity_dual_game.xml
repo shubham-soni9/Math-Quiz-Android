@@ -97,9 +97,9 @@
 
             <LinearLayout
                 android:id="@+id/llTimerValue"
-                android:layout_below="@+id/llAnswerTwoLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/llAnswerTwoLayout"
                 android:layout_marginTop="@dimen/_5dp"
                 android:orientation="vertical">
 
@@ -153,17 +153,18 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="10 + 20 = ?"
                         android:rotation="180"
+                        android:text="10 + 20 = ?"
                         android:textAppearance="@style/CustomTextAppearance.UltraLight"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_35dp" />
+
                     <TextView
-                        android:layout_marginTop="@dimen/_10dp"
                         android:id="@+id/tvQuestionOne"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10dp"
                         android:gravity="center"
                         android:text="10 + 20 = ?"
                         android:textAppearance="@style/CustomTextAppearance.UltraLight"
@@ -176,10 +177,10 @@
                 android:id="@+id/llOneTimerValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rotation="180"
-                android:layout_marginBottom="@dimen/_5dp"
                 android:layout_above="@+id/llAnswerLayout"
-                android:orientation="vertical">
+                android:layout_marginBottom="@dimen/_5dp"
+                android:orientation="vertical"
+                android:rotation="180">
 
                 <TextView
                     android:id="@+id/tvOneTimerValue"
@@ -211,8 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <include
                     android:id="@+id/vMultipleChoice"

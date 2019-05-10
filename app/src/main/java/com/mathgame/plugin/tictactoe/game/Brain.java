@@ -15,36 +15,26 @@ import java.util.Random;
  */
 
 class Brain {
+    private static final int HORIZONTAL = 0;
+    private static final int VERTICAL   = 1;
+    private static final int DIAGONAL   = 2;
     private static Brain INSTANCE;
-
-    private @TTTConstants.Sign int[][] board = new int[3][3];
-
+    private @TTTConstants.Sign
+    int[][] board = new int[3][3];
     private int rowOfResult;
     private int columnOfResult;
-
     private int depth;
-
-    private @TTTConstants.Sign int computerSign;
-    private @TTTConstants.Sign int playerSign;
-
+    private @TTTConstants.Sign
+    int computerSign;
+    private @TTTConstants.Sign
+    int playerSign;
     private OnProcessCompleteListener onProcessCompleteListener;
-
-    private static final int HORIZONTAL = 0;
-    private static final int VERTICAL = 1;
-    private static final int DIAGONAL = 2;
-
-    @IntDef({HORIZONTAL, VERTICAL, DIAGONAL})
-    @interface DirectionOfWinLine {
-
-    }
-
     // References used by isWin function.
     private int[] winSequence = new int[3];
-    private int[] row = new int[3];
-    private int[] column = new int[3];
-    private int[] diagonal1 = new int[3];
-    private int[] diagonal2 = new int[3];
-
+    private int[] row         = new int[3];
+    private int[] column      = new int[3];
+    private int[] diagonal1   = new int[3];
+    private int[] diagonal2   = new int[3];
     private Brain() {
 
     }
@@ -80,9 +70,8 @@ class Brain {
     /**
      * This method recursively calculates the next move of the computer.
      *
-     * @param sign   of computer.
+     * @param sign  of computer.
      * @param depth Total number of moves made by both players till now.
-     *
      * @return Score for a given move. Used internally by the method to calculate the best move.
      */
 
@@ -139,7 +128,6 @@ class Brain {
      * @param scores        List of scores.
      * @param rowIndices    List of indices of rows corresponding to scores list.
      * @param columnIndices List of indices of columns corresponding to scores list.
-     *
      * @return Randomized score from scores matching the given score.
      */
 
@@ -167,7 +155,6 @@ class Brain {
      * @param sign             The sign to be checked for the win.
      * @param notifyWinEnabled Flag to enable notification of the win through
      *                         {@link #notifyWin(int, int, int)}.
-     *
      * @return true if the given sign won, else false.
      */
 
@@ -223,7 +210,6 @@ class Brain {
      *
      * @param x int array.
      * @param y int array.
-     *
      * @return true if equal, else false.
      */
 
@@ -339,12 +325,28 @@ class Brain {
         depth++;
     }
 
-    private @TTTConstants.Sign int getOppositeSign(@TTTConstants.Sign int sign) {
+    private @TTTConstants.Sign
+    int getOppositeSign(@TTTConstants.Sign int sign) {
         return sign == TTTConstants.CIRCLE ? TTTConstants.CROSS : TTTConstants.CIRCLE;
     }
 
     void setOnProcessCompleteListener(OnProcessCompleteListener onProcessCompleteListener) {
         this.onProcessCompleteListener = onProcessCompleteListener;
+    }
+
+    /**
+     * Destroys the singleton instance of this class.
+     * <p>
+     * To be called when the scope of this instance is intended to end.
+     */
+
+    void destroy() {
+        INSTANCE = null;
+    }
+
+    @IntDef({HORIZONTAL, VERTICAL, DIAGONAL})
+    @interface DirectionOfWinLine {
+
     }
 
     interface OnProcessCompleteListener {
@@ -354,15 +356,5 @@ class Brain {
         void onGameWin(@TTTConstants.Sign int sign, @TTTConstants.WinLinePosition int winLinePosition);
 
         void onGameDraw();
-    }
-
-    /**
-     * Destroys the singleton instance of this class.
-     *
-     * To be called when the scope of this instance is intended to end.
-     */
-
-    void destroy() {
-        INSTANCE = null;
     }
 }

@@ -33,10 +33,13 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
     private TextView             turnTextBox;
 
     private @TTTConstants.Sign
-            int                   player1Sign;
-    private @TTTConstants.Sign int                   player2Sign;
-    private @TTTConstants.Player  int turn;
-    private @TTTConstants.GameMode int gameMode;
+    int player1Sign;
+    private @TTTConstants.Sign
+    int player2Sign;
+    private @TTTConstants.Player
+    int turn;
+    private @TTTConstants.GameMode
+    int gameMode;
 
 
     @Override

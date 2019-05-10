@@ -1,11 +1,11 @@
 package com.mathgame.model;
 
 public class Question {
-    private String operation;
-    private String question;
-    private String answer;
-    private int    a;
-    private int    b;
+    private String  operation;
+    private String  question;
+    private String  answer;
+    private int     a;
+    private int     b;
     private boolean isCorrect;
 
     public String getOperation() {

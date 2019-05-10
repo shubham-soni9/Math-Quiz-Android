@@ -11,10 +11,10 @@ import com.mathgame.R;
 /**
  * Created by lorenzorigato on 4/1/16.
  */
-public class ToggleSwitchButton{
-    private View view;
+public class ToggleSwitchButton {
+    private View     view;
     private TextView textView;
-    private View separator;
+    private View     separator;
 
     public ToggleSwitchButton(Context context) {
         this(LayoutInflater.from(context).inflate(R.layout.item_widget_toggle_switch, null));
@@ -38,11 +38,11 @@ public class ToggleSwitchButton{
         return separator;
     }
 
-    public void showSeparator(){
+    public void showSeparator() {
         getSeparator().setVisibility(View.VISIBLE);
     }
 
-    public void hideSeparator(){
+    public void hideSeparator() {
         getSeparator().setVisibility(View.INVISIBLE);
     }
 }

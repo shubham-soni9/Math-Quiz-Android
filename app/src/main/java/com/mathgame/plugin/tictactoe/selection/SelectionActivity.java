@@ -12,7 +12,7 @@ import com.mathgame.plugin.tictactoe.game.TTTGameActivity;
 
 /**
  * This activity takes the user through the selection flow.
- *
+ * <p>
  * are prompted for selection.
  */
 public class SelectionActivity extends AppCompatActivity implements SelectionFragment.OnValueSelectedListener {
@@ -20,10 +20,14 @@ public class SelectionActivity extends AppCompatActivity implements SelectionFra
     private SelectionFragment signSelectionFragment;
     private SelectionFragment turnSelectionFragment;
 
-    private @TTTConstants.Sign int player1Sign;
-    private @TTTConstants.Sign    int player2Sign;
-    private @TTTConstants.Player  int firstTurn;
-    private @TTTConstants.GameMode int gameMode;
+    private @TTTConstants.Sign
+    int player1Sign;
+    private @TTTConstants.Sign
+    int player2Sign;
+    private @TTTConstants.Player
+    int firstTurn;
+    private @TTTConstants.GameMode
+    int gameMode;
 
     private boolean backFromGameActivity;
 

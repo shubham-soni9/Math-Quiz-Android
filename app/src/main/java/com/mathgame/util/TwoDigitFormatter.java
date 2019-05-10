@@ -7,10 +7,10 @@ import java.util.Locale;
 
 public class TwoDigitFormatter implements NumberPicker.Formatter {
     final StringBuilder mBuilder = new StringBuilder();
-    final Object[] mArgs = new Object[1];
+    final Object[]      mArgs    = new Object[1];
     char                mZeroDigit;
     java.util.Formatter mFmt;
-    Locale mLocale;
+    Locale              mLocale;
 
     TwoDigitFormatter() {
         mLocale = Locale.getDefault();
