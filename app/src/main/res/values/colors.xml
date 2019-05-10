@@ -45,4 +45,8 @@
     <color name="gray">#444444</color>
     <color name="gray_light">#BBBBBB</color>
     <color name="gray_very_light">#DDDDDD</color>
+
+    <color name="holo_green_dark">#588100</color>
+    <color name="holo_orange_dark">#ff8800</color>
+    <color name="holo_red_dark">#cc0000</color>
 </resources>

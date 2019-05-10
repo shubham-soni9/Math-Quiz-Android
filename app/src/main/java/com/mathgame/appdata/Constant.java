@@ -17,4 +17,5 @@ public interface Constant {
         int MEDIUM = 1;
         int LARGE  = 2;
     }
+
 }

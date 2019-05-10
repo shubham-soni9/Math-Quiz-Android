@@ -1,6 +1,7 @@
 package com.mathgame;
 
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -8,6 +9,7 @@ import com.mathgame.activity.GameTypeActivity;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.GameSettings;
 import com.mathgame.model.CustomMode;
+import com.mathgame.plugin.tictactoe.selection.SelectionActivity;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
@@ -20,6 +22,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvDivision;
     private TextView tvSquareRoot;
     private TextView tvPercentage;
+    private CardView cvTicTacToe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         tvDivision = findViewById(R.id.tvDivision);
         tvPercentage = findViewById(R.id.tvPercentage);
         tvSquareRoot = findViewById(R.id.tvSquareRoot);
-        Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot);
+        cvTicTacToe=findViewById(R.id.cvTicTacToe);
+        Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
+                ,cvTicTacToe);
     }
 
     @Override
@@ -65,6 +70,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.tvPercentage:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getPercentage());
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
+                break;
+            case R.id.cvTicTacToe:
+                Transition.startActivity(this, SelectionActivity.class);
                 break;
         }
     }

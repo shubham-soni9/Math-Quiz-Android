@@ -76,5 +76,16 @@
     <string name="difficulty_level">Difficulty Level</string>
     <string name="save_for_future">Save this settings for future.</string>
     <string name="enable_timer">Enable Timer</string>
+    <string name="mode_selection_text">Select Mode</string>
+    <string name="sign_selection_text">Select Sign</string>
+    <string name="turn_selection_text">Select First Turn</string>
+    <string name="divider_text">OR</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="player_turn_prompt">Your Turn</string>
+    <string name="player_1_turn_prompt">Player 1 Turn</string>
+    <string name="player_2_turn_prompt">Player 2 Turn</string>
+    <string name="processing_text">Thinking&#8230;</string>
 </resources>
 

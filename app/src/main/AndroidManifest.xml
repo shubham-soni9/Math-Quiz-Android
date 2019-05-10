@@ -51,6 +51,13 @@
             android:name=".activity.MultipleQuestionActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".plugin.tictactoe.game.TTTGameActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".plugin.tictactoe.selection.SelectionActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
