@@ -28,8 +28,8 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class SingleGameActivity extends BaseActivity implements View.OnClickListener {
-    private static final String                       TAG               = SingleGameActivity.class.getName();
+public class DualGameActivity extends BaseActivity implements View.OnClickListener {
+    private static final String                       TAG               = DualGameActivity.class.getName();
     private              RoundedHorizontalProgressBar pbTimer;
     private              ImageView                    ivBack;
     private              CustomMode                   customMode;

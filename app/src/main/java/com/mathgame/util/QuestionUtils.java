@@ -21,7 +21,7 @@ public class QuestionUtils {
         int minimum;
         switch (customMode.getDifficulty()) {
             case Constant.DifficultyLevel.SMALL:
-                maximum = 9;
+                maximum = 10;
                 minimum = 2;
                 break;
             case Constant.DifficultyLevel.MEDIUM:
@@ -33,77 +33,81 @@ public class QuestionUtils {
                 minimum = 999;
                 break;
             default:
-                maximum = 9;
+                maximum = 20;
                 minimum = 2;
         }
         Question mQuestion = new Question();
-            int a = RandomUtils.getRandomInt(maximum, minimum);
-            int b = RandomUtils.getRandomInt(maximum, minimum);
+        int a = RandomUtils.getRandomInt(maximum, minimum);
+        int b = RandomUtils.getRandomInt(maximum, minimum);
 
-            String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
+        String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
 
-            if (chosenOperation.equals(Constant.MathSign.DIVISION)) {
-                while (a < b || (a % b != 0)) {
-                    Log.e(TAG,"a = "+a+" b = "+b);
-                    a = RandomUtils.getRandomInt(maximum, minimum);
-                    b = RandomUtils.getRandomInt(maximum, minimum);
+        if (chosenOperation.equals(Constant.MathSign.DIVISION)) {
+            while (a < b || (a % b != 0)) {
+                Log.e(TAG, "a = " + a + " b = " + b);
+                a = RandomUtils.getRandomInt(maximum, minimum);
+                b = RandomUtils.getRandomInt(maximum, minimum);
+            }
+        } else {
+            while (a == b) {
+                b = RandomUtils.getRandomInt(maximum, minimum);
+            }
+        }
+        question = dFormat.format(a) + " " + chosenOperation + " " + dFormat.format(b) + " = ?";
+        switch (chosenOperation) {
+            case Constant.MathSign.ADDITION:
+                answer = dFormat.format(a + b);
+                break;
+            case Constant.MathSign.SUBTRACTION:
+                answer = dFormat.format(a - b);
+                break;
+            case Constant.MathSign.MULTIPLICATION:
+                answer = dFormat.format(a * b);
+                break;
+            case Constant.MathSign.DIVISION:
+                answer = dFormat.format(a / b);
+                break;
+            case Constant.MathSign.PERCENTAGE:
+                answer = dFormat.format(a % b);
+                break;
+        }
+        mQuestion.setA(a);
+        mQuestion.setB(b);
+        mQuestion.setOperation(chosenOperation);
+        mQuestion.setQuestion(question);
+        mQuestion.setAnswer(answer);
+
+        if (customMode.getGameType() == Codes.GameType.YES_NO.value) {
+            int randomCheck = RandomUtils.getRandomInt(3, 1);
+            String answerPrediction;
+            if (randomCheck == 2) {
+                switch (chosenOperation) {
+                    case Constant.MathSign.ADDITION:
+                        maximum = a + b;
+                        minimum = b;
+                        break;
+                    case Constant.MathSign.SUBTRACTION:
+                        maximum = a - b;
+                        minimum = b;
+                        break;
+                    case Constant.MathSign.MULTIPLICATION:
+                        maximum = a * b;
+                        minimum = a;
+                        break;
+                    case Constant.MathSign.DIVISION:
+                        maximum = a;
+                        minimum = b;
+                        break;
                 }
+                answerPrediction = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+
+            } else {
+                answerPrediction = answer;
             }
-            question = dFormat.format(a) + " " + chosenOperation + " " + dFormat.format(b) + " = ?";
-            switch (chosenOperation) {
-                case Constant.MathSign.ADDITION:
-                    answer = dFormat.format(a + b);
-                    break;
-                case Constant.MathSign.SUBTRACTION:
-                    answer = dFormat.format(a - b);
-                    break;
-                case Constant.MathSign.MULTIPLICATION:
-                    answer = dFormat.format(a * b);
-                    break;
-                case Constant.MathSign.DIVISION:
-                    answer = dFormat.format(a / b);
-                    break;
-                case Constant.MathSign.PERCENTAGE:
-                    answer = dFormat.format(a % b);
-                    break;
-            }
-            mQuestion.setA(a);
-            mQuestion.setB(b);
-            mQuestion.setOperation(chosenOperation);
+            question = question.replace("?", answerPrediction);
             mQuestion.setQuestion(question);
-            mQuestion.setAnswer(answer);
-
-            if (customMode.getGameType() == Codes.GameType.YES_NO.value) {
-                int randomCheck = RandomUtils.getRandomInt(3, 1);
-                String answerPrediction;
-                if (randomCheck == 2) {
-                    switch (chosenOperation) {
-                        case Constant.MathSign.ADDITION:
-                            maximum = a + b;
-                            minimum = b;
-                            break;
-                        case Constant.MathSign.SUBTRACTION:
-                            maximum = a - b;
-                            minimum = b;
-                            break;
-                        case Constant.MathSign.MULTIPLICATION:
-                            maximum = a * b;
-                            minimum = a;
-                            break;
-                        case Constant.MathSign.DIVISION:
-                            maximum = a;
-                            minimum = b;
-                            break;
-                    }
-                    answerPrediction = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
-
-                } else {
-                    answerPrediction = answer;
-                }
-                question = question.replace("?", answerPrediction);
-                mQuestion.setQuestion(question);
-                mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
-            }
+            mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
+        }
         return mQuestion;
     }
 }
