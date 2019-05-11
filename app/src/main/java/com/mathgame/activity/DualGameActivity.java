@@ -109,10 +109,10 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
     private void startGame() {
         ViewUtils.setBackgroundResource(R.drawable.background_multiple_choice, tvPlayer1Option1, tvPlayer1Option2, tvPlayer1Option3,
                                         tvPlayer1Option4, tvPlayer2Option1, tvPlayer2Option2, tvPlayer2Option3, tvPlayer2Option4);
-
         ViewUtils.setCardBackgroundColor(this, R.color.colorPrimary, cvPlayer1Correct, cvPlayer1Incorrect, cvPlayer2Correct,
                                          cvPlayer2Incorrect);
 
+        tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
         if (remainingQuestion <= customMode.getNumberOfQuestions()) {
             currentQuestion = QuestionUtils.getQuestionWithAnswer(customMode);
             tvPlayer1Question.setText(currentQuestion.getQuestion());

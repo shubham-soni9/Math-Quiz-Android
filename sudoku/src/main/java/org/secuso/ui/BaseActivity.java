@@ -3,6 +3,7 @@ package org.secuso.ui;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 
 import org.secuso.privacyfriendlysudoku.ui.view.R;
@@ -47,5 +48,11 @@ public class BaseActivity extends AppCompatActivity {
             mainContent.setAlpha(0);
             mainContent.animate().alpha(1).setDuration(MAIN_CONTENT_FADEIN_DURATION);
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(event.getPointerCount() > 1) event.setAction(MotionEvent.ACTION_CANCEL);
+        return super.onTouchEvent(event);
     }
 }
