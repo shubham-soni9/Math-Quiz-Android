@@ -4,7 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_actionbar" />
+    <include
+        android:id="@+id/vActionBar"
+        layout="@layout/layout_actionbar" />
 
+    <LinearLayout
+        android:id="@+id/llQuestionList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
 
 </LinearLayout>

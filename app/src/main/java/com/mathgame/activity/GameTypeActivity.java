@@ -21,6 +21,7 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     private TextView   tvHeader;
     private CardView   cvLearn, cvPractice, cvTest, cvDual, cvMultiple, cvYesNo;
     private AppCompatImageView ivSettings;
+    private TextView tvMultipleQuestions;
 
 
     @Override
@@ -39,6 +40,7 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
         cvTest = findViewById(R.id.cvTest);
         cvYesNo = findViewById(R.id.cvYesNo);
         ivSettings = findViewById(R.id.ivSettings);
+        tvMultipleQuestions=findViewById(R.id.tvMultipleQuestions);
         Utils.setOnClickListener(this, findViewById(R.id.ivBack), cvLearn, cvDual, cvMultiple, cvPractice, cvTest, cvYesNo
                 , ivSettings);
     }
@@ -94,7 +96,7 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
                 startDual();
                 break;
             case R.id.cvMultiple:
-                startMutltiple();
+                startMultiple();
                 break;
             case R.id.cvYesNo:
                 startYesNo();
@@ -150,9 +152,11 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
         Transition.transitForResult(this, DualGameActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
     }
 
-    private void startMutltiple() {
+    private void startMultiple() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(CustomMode.class.getName(), customMode);
+        Transition.transitForResult(this, MultipleQuestionActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
     }
-
 
     @Override
     public void onBackPressed() {

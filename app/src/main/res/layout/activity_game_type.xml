@@ -141,7 +141,7 @@
                     android:layout_marginEnd="@dimen/_10dp">
 
                     <TextView
-                        android:id="@+id/tvMultiplication"
+                        android:id="@+id/tvMultipleQuestions"
                         style="@style/home_btn_style"
                         android:drawableTop="@drawable/ic_multiple"
                         android:text="@string/mutltiple" />
