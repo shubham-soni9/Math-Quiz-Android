@@ -96,7 +96,7 @@
 
 
             <LinearLayout
-                android:id="@+id/llTimerValue"
+                android:id="@+id/llPlayerTwoTimerValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llAnswerTwoLayout"
@@ -104,7 +104,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvTimerValue"
+                    android:id="@+id/tvPlayerTwoTimerValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -114,7 +114,7 @@
                     tools:text="Timer :: 00:30" />
 
                 <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
-                    android:id="@+id/pbTimer"
+                    android:id="@+id/pbPlayerTwoTimer"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -132,8 +132,8 @@
                 android:id="@+id/cvQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/llOneTimerValue"
-                android:layout_below="@+id/llTimerValue"
+                android:layout_above="@+id/llPlayerOneTimerValue"
+                android:layout_below="@+id/llPlayerTwoTimerValue"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="@color/black"
@@ -148,7 +148,7 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/tvQuestionTwo"
+                        android:id="@+id/tvQuestionOne"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -160,7 +160,7 @@
                         android:textSize="@dimen/_35dp" />
 
                     <TextView
-                        android:id="@+id/tvQuestionOne"
+                        android:id="@+id/tvQuestionTwo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -174,7 +174,7 @@
             </android.support.v7.widget.CardView>
 
             <LinearLayout
-                android:id="@+id/llOneTimerValue"
+                android:id="@+id/llPlayerOneTimerValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/llAnswerLayout"
@@ -183,7 +183,7 @@
                 android:rotation="180">
 
                 <TextView
-                    android:id="@+id/tvOneTimerValue"
+                    android:id="@+id/tvPlayerOneTimerValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -193,7 +193,7 @@
                     tools:text="Timer :: 00:30" />
 
                 <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
-                    android:id="@+id/pbOneTimer"
+                    android:id="@+id/pbPlayerOneTimer"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
