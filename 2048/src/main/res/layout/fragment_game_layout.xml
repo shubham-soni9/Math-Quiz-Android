@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="2048"
             android:textSize="35sp"
+            android:textColor="@color/text_white"
             android:fontFamily="sans-serif-light"
             android:id="@+id/tv_title"
             android:layout_toEndOf="@+id/iv_title_icon" />

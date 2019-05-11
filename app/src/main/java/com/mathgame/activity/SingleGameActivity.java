@@ -156,7 +156,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                     String wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
                     for (int j = 0; j < options.size(); j++) {
                         String value = options.get(j);
-                        if (wrongOption.equals(value)) {
+                        if (wrongOption.equals(value) || wrongOption.equalsIgnoreCase(currentQuestion.getAnswer())) {
                             wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
                             j = 0;
                         }

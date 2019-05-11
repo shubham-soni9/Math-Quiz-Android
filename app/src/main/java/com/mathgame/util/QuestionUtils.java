@@ -43,7 +43,7 @@ public class QuestionUtils {
         String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
 
         if (chosenOperation.equals(Constant.MathSign.DIVISION)) {
-            while (a < b || (a % b != 0)) {
+            while (a <= b || (a % b != 0)) {
                 Log.e(TAG, "a = " + a + " b = " + b);
                 a = RandomUtils.getRandomInt(maximum, minimum);
                 b = RandomUtils.getRandomInt(maximum, minimum);
