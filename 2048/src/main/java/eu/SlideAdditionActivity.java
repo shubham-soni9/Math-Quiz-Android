@@ -7,11 +7,12 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
+import eu.structure.BaseActivity;
 import eu.thedarken.myo.R;
 import eu.tools.KeyListener;
 
 
-public class SlideAddActivity extends Activity {
+public class SlideAdditionActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -18,8 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/iv_title_icon"
             android:src="@drawable/ic_circle_empty"
-
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerHorizontal="true"
             android:layout_alignBottom="@+id/tv_title"
             android:layout_alignParentTop="true" />
@@ -31,20 +30,7 @@
             android:textSize="35sp"
             android:fontFamily="sans-serif-light"
             android:id="@+id/tv_title"
-            android:layout_toRightOf="@+id/iv_title_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/myo_edition"
-            android:layout_toRightOf="@+id/tv_title"
-            android:layout_alignBaseline="@+id/tv_title"
-            android:fontFamily="sans-serif-light"
-            android:textSize="12sp"
-            android:textStyle="italic"
-            android:textColor="@color/myoteal"
-            android:paddingLeft="2dp"
-            android:id="@+id/tv_myoedition" />
+            android:layout_toEndOf="@+id/iv_title_icon" />
 
     </RelativeLayout>
 
@@ -59,11 +45,11 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:gravity="center_horizontal"
             android:id="@+id/ll_scorelayout"
             android:padding="5dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/scoreview_background_rectangle_inner"
             android:layout_alignParentTop="true">
 
@@ -92,12 +78,12 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/ll_scorelayout"
+            android:layout_toEndOf="@+id/ll_scorelayout"
             android:id="@+id/ll_highscore_layout"
             android:gravity="center_horizontal"
             android:background="@drawable/scoreview_background_rectangle_inner"
             android:padding="5dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_alignParentTop="true">
 
             <TextView
@@ -140,7 +126,7 @@
             android:id="@+id/ib_reset"
             android:padding="7dp"
             android:layout_weight="1"
-            android:layout_marginRight="7dp"
+            android:layout_marginEnd="7dp"
             android:textColor="@android:color/white"
             android:background="@drawable/button_selector" />
 
@@ -151,7 +137,7 @@
             android:id="@+id/ib_info"
             android:padding="7dp"
             android:layout_weight="1"
-            android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp"
             android:textColor="@android:color/white"
             android:background="@drawable/button_selector" />
 
@@ -162,7 +148,7 @@
             android:id="@+id/ib_undo"
             android:layout_weight="1"
             android:padding="7dp"
-            android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp"
             android:textColor="@android:color/white"
             android:background="@drawable/button_selector" />
 
@@ -188,10 +174,10 @@
             android:layout_height="match_parent"
             android:layout_alignTop="@+id/gameview"
             android:layout_alignBottom="@+id/gameview"
-            android:layout_alignLeft="@+id/gameview"
+            android:layout_alignStart="@+id/gameview"
             android:gravity="center"
             android:fontFamily="sans-serif-light"
-            android:layout_alignRight="@+id/gameview"
+            android:layout_alignEnd="@+id/gameview"
             android:text="@string/you_win"
             android:textColor="@color/myoteal"
             android:background="@drawable/endstate_overlay_rectangle"

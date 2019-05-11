@@ -47,19 +47,6 @@
                     android:id="@+id/tv_title"
                     android:layout_toRightOf="@+id/iv_title_icon" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/myo_edition"
-                    android:layout_toRightOf="@+id/tv_title"
-                    android:layout_alignBaseline="@+id/tv_title"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="12sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/myoteal"
-                    android:paddingLeft="2dp"
-                    android:id="@+id/tv_myoedition" />
-
             </RelativeLayout>
 
             <RelativeLayout

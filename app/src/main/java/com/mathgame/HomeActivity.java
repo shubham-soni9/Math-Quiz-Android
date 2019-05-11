@@ -16,7 +16,7 @@ import com.mathgame.util.Utils;
 
 import org.secuso.ui.SplashActivity;
 
-import eu.SlideAddActivity;
+import eu.SlideAdditionActivity;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
@@ -86,7 +86,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.startActivity(this, SplashActivity.class);
                 break;
             case R.id.cvSlideAddition:
-                Transition.startActivity(this, SlideAddActivity.class);
+                Transition.startActivity(this, SlideAdditionActivity.class);
                 break;
         }
     }
