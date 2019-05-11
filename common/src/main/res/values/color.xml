@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#024265</color>
-    <color name="colorPrimaryDark">#024265</color>
-    <color name="colorAccent">#0274B2</color>
     <color name="transparent">#00000000</color>
     <color name="lightblue">#0274B2</color>
     <color name="middleblue">#8aa5ce</color>
     <color name="middlegrey">#A8A8A8</color>
     <color name="yellow">#f6d126</color>
-    <color name="white">#ffffff</color>
-    <color name="black">#000000</color>
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen">#026499</color>
@@ -38,4 +33,52 @@
     <color name="background1">#232528</color>
     <color name="background3">#111111</color>
     <color name="bordercolor1">#222222</color>
+    <color name="colorPrimary">#2482f5</color>
+    <color name="colorPrimaryDark">#095dc3</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black_02">#05000000</color>
+    <color name="black">#000000</color>
+    <color name="black_10">#1A000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_15">#19000000</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_90">#E6000000</color>
+    <color name="black_70">#B3000000</color>
+    <color name="black_60">#99000000</color>
+    <color name="black_80">#CC000000</color>
+    <color name="black_05">#0D000000</color>
+    <color name="black_04">#0C000000</color>
+    <color name="white_100">#FFF</color>
+    <color name="black_100">#000</color>
+    <color name="app_button_pressed_color">#095dc3</color>
+    <color name="app_button_normal_color">#2482f5</color>
+    <color name="progress_bar_empty_color">#64B5F6</color>
+    <color name="progress_bar_filled_color">#1565C0</color>
+    <color name="app_text_color">#000000</color>
+
+    <color name="gradient_normal_end">#2296FF</color>
+    <color name="gradient_normal_start">#0084ff</color>
+    <color name="gradient_pressed_end">#0069cc</color>
+    <color name="gradient_pressed_start">#0069cc</color>
+
+    <color name="snackbar_bg_color_success">#e666d02a</color>
+    <color name="snackbar_bg_color_error">#e6e2574c</color>
+    <color name="red_35">#e66e65</color>
+    <color name="red_60">#af261d</color>
+    <color name="submit_pressed">#54a923</color>
+    <color name="submit_normal">#96e16b</color>
+    <color name="skip_pressed">#37474F</color>
+    <color name="skip_normal">#546E7A</color>
+    <color name="question_normal">#2E7D32</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="blue">#123256</color>
+    <color name="gray">#444444</color>
+    <color name="gray_light">#BBBBBB</color>
+    <color name="gray_very_light">#DDDDDD</color>
+
+    <color name="holo_green_dark">#588100</color>
+    <color name="holo_orange_dark">#ff8800</color>
+    <color name="holo_red_dark">#cc0000</color>
 </resources>
