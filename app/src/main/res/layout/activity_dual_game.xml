@@ -77,18 +77,18 @@
                 android:rotation="180">
 
                 <include
-                    android:id="@+id/vMultipleChoice"
-                    layout="@layout/layout_game_mutliple_choice"
+                    android:id="@+id/vPlayer1MultipleChoice"
+                    layout="@layout/layout_game_mutliple_choice_1"
                     android:visibility="gone"
                     tools:visibility="visible" />
 
                 <include
-                    android:id="@+id/vGameYesOrNo"
-                    layout="@layout/layout_game_yes_no"
+                    android:id="@+id/vPlayer1GameYesOrNo"
+                    layout="@layout/layout_game_yes_no_1"
                     android:visibility="gone" />
 
                 <include
-                    android:id="@+id/vInputAnswer"
+                    android:id="@+id/vPlayer1InputAnswer"
                     layout="@layout/layout_game_input_answer"
                     android:visibility="gone"
                     tools:visibility="gone" />
@@ -96,7 +96,7 @@
 
 
             <LinearLayout
-                android:id="@+id/llPlayerTwoTimerValue"
+                android:id="@+id/llPlayer2TimerValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llAnswerTwoLayout"
@@ -104,7 +104,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvPlayerTwoTimerValue"
+                    android:id="@+id/tvPlayer2TimerValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -114,7 +114,7 @@
                     tools:text="Timer :: 00:30" />
 
                 <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
-                    android:id="@+id/pbPlayerTwoTimer"
+                    android:id="@+id/pbPlayer2Timer"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -132,8 +132,8 @@
                 android:id="@+id/cvQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/llPlayerOneTimerValue"
-                android:layout_below="@+id/llPlayerTwoTimerValue"
+                android:layout_above="@+id/llPlayer1TimerValue"
+                android:layout_below="@+id/llPlayer2TimerValue"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="@color/black"
@@ -148,25 +148,25 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/tvQuestionOne"
+                        android:id="@+id/tvPlayer1Question"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:rotation="180"
-                        android:text="10 + 20 = ?"
+                        tools:text="10 + 20 = ?"
                         android:textAppearance="@style/CustomTextAppearance.UltraLight"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_35dp" />
 
                     <TextView
-                        android:id="@+id/tvQuestionTwo"
+                        android:id="@+id/tvPlayer2Question"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_10dp"
                         android:gravity="center"
-                        android:text="10 + 20 = ?"
+                        tools:text="10 + 20 = ?"
                         android:textAppearance="@style/CustomTextAppearance.UltraLight"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_35dp" />
@@ -174,7 +174,7 @@
             </android.support.v7.widget.CardView>
 
             <LinearLayout
-                android:id="@+id/llPlayerOneTimerValue"
+                android:id="@+id/llPlayer1TimerValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/llAnswerLayout"
@@ -183,7 +183,7 @@
                 android:rotation="180">
 
                 <TextView
-                    android:id="@+id/tvPlayerOneTimerValue"
+                    android:id="@+id/tvPlayer1TimerValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -193,7 +193,7 @@
                     tools:text="Timer :: 00:30" />
 
                 <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
-                    android:id="@+id/pbPlayerOneTimer"
+                    android:id="@+id/pbPlayer1Timer"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -215,18 +215,18 @@
                 android:orientation="vertical">
 
                 <include
-                    android:id="@+id/vMultipleChoice"
-                    layout="@layout/layout_game_mutliple_choice"
+                    android:id="@+id/vPlayer2MultipleChoice"
+                    layout="@layout/layout_game_mutliple_choice_2"
                     android:visibility="gone"
                     tools:visibility="visible" />
 
                 <include
-                    android:id="@+id/vGameYesOrNo"
-                    layout="@layout/layout_game_yes_no"
+                    android:id="@+id/vPlayer2GameYesOrNo"
+                    layout="@layout/layout_game_yes_no_2"
                     android:visibility="gone" />
 
                 <include
-                    android:id="@+id/vInputAnswer"
+                    android:id="@+id/vPlayer2InputAnswer"
                     layout="@layout/layout_game_input_answer"
                     android:visibility="gone"
                     tools:visibility="gone" />

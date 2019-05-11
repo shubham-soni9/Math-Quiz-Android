@@ -21,6 +21,7 @@ import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.RandomUtils;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
+import com.mathgame.util.ViewUtils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
 import java.util.ArrayList;
@@ -29,23 +30,21 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class DualGameActivity extends BaseActivity implements View.OnClickListener {
-    private static final String                       TAG               = DualGameActivity.class.getName();
-    private              RoundedHorizontalProgressBar pbTimer;
-    private              ImageView                    ivBack;
-    private              CustomMode                   customMode;
-    private              View                         vMultipleChoice;
-    private              View                         vGameYesOrNo;
-    private              View                         vInputAnswer;
-    private              TextView                     tvSkipToNext;
-    private              TextView                     tvTimerValue;
-    private              TextView                     tvNumberOfQuestion;
-    private              TextView                     tvQuestion;
-    private              int                          remainingQuestion = 1;
-    private              TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
+    private static final String                       TAG = DualGameActivity.class.getName();
+    private              RoundedHorizontalProgressBar pbPlayer1Timer, pbPlayer2Timer;
+    private ImageView  ivBack;
+    private CustomMode customMode;
+    private View       vPlayer1MultipleChoice, vPlayer2MultipleChoice;
+    private View vPlayer1GameYesOrNo, vPlayer2GameYesOrNo;
+    private TextView tvPlayer1TimerValue, tvPlayer2TimerValue;
+    private TextView tvNumberOfQuestion;
+    private TextView tvPlayer1Question, tvPlayer2Question;
+    private int      remainingQuestion = 1;
+    private TextView tvPlayer1Option1, tvPlayer1Option2, tvPlayer1Option3, tvPlayer1Option4;
+    private TextView tvPlayer2Option1, tvPlayer2Option2, tvPlayer2Option3, tvPlayer2Option4;
     private Question       currentQuestion;
     private CountDownTimer countDownTimer;
-    private CardView       cvCorrect, cvIncorrect;
-    private int skipNumbers;
+    private CardView       cvPlayer1Correct, cvPlayer1Incorrect, cvPlayer2Correct, cvPlayer2Incorrect;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,72 +56,67 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void init() {
-        pbTimer = findViewById(R.id.pbTimer);
         ivBack = findViewById(R.id.ivBack);
-        tvQuestion = findViewById(R.id.tvQuestion);
-        vMultipleChoice = findViewById(R.id.vMultipleChoice);
-        vGameYesOrNo = findViewById(R.id.vGameYesOrNo);
-        vInputAnswer = findViewById(R.id.vInputAnswer);
-        tvSkipToNext = findViewById(R.id.tvSkipToNext);
-        tvTimerValue = findViewById(R.id.tvTimerValue);
-        tvOption1 = findViewById(R.id.tvOption1);
-        tvOption2 = findViewById(R.id.tvOption2);
-        tvOption3 = findViewById(R.id.tvOption3);
-        tvOption4 = findViewById(R.id.tvOption4);
+        pbPlayer1Timer = findViewById(R.id.pbPlayer1Timer);
+        pbPlayer2Timer = findViewById(R.id.pbPlayer2Timer);
+        tvPlayer1Option1 = findViewById(R.id.tvPlayer1Option1);
+        tvPlayer1Option2 = findViewById(R.id.tvPlayer1Option2);
+        tvPlayer1Option3 = findViewById(R.id.tvPlayer1Option3);
+        tvPlayer1Option4 = findViewById(R.id.tvPlayer1Option4);
+        tvPlayer2Option1 = findViewById(R.id.tvPlayer2Option1);
+        tvPlayer2Option2 = findViewById(R.id.tvPlayer2Option2);
+        tvPlayer2Option3 = findViewById(R.id.tvPlayer2Option3);
+        tvPlayer2Option4 = findViewById(R.id.tvPlayer2Option4);
+        tvPlayer1Question = findViewById(R.id.tvPlayer1Question);
+        tvPlayer2Question = findViewById(R.id.tvPlayer2Question);
+        tvPlayer1TimerValue = findViewById(R.id.tvPlayer1TimerValue);
+        tvPlayer2TimerValue = findViewById(R.id.tvPlayer2TimerValue);
+        vPlayer1GameYesOrNo = findViewById(R.id.vPlayer1GameYesOrNo);
+        vPlayer2GameYesOrNo = findViewById(R.id.vPlayer2GameYesOrNo);
+        vPlayer1MultipleChoice = findViewById(R.id.vPlayer1MultipleChoice);
+        vPlayer2MultipleChoice = findViewById(R.id.vPlayer2MultipleChoice);
         tvNumberOfQuestion = findViewById(R.id.tvNumberOfQuestion);
-        cvCorrect = findViewById(R.id.cvCorrect);
-        cvIncorrect = findViewById(R.id.cvIncorrect);
-        Utils.setOnClickListener(this, ivBack, tvOption1, tvOption2, tvOption3, tvOption4, cvCorrect, cvIncorrect, tvSkipToNext);
+        cvPlayer1Correct = findViewById(R.id.cvPlayer1Correct);
+        cvPlayer2Correct = findViewById(R.id.cvPlayer2Correct);
+        cvPlayer1Incorrect = findViewById(R.id.cvPlayer1Incorrect);
+        cvPlayer2Incorrect = findViewById(R.id.cvPlayer2Incorrect);
+        Utils.setOnClickListener(this, ivBack, tvPlayer1Option1, tvPlayer1Option2, tvPlayer1Option3, tvPlayer1Option4,
+                                 tvPlayer2Option1, tvPlayer2Option2, tvPlayer2Option3, tvPlayer2Option4, cvPlayer1Correct,
+                                 cvPlayer1Incorrect, cvPlayer2Correct, cvPlayer2Incorrect);
     }
 
     private void setData() {
         customMode = Objects.requireNonNull(getIntent().getExtras()).getParcelable(CustomMode.class.getName());
         Utils.logRequestBody(customMode);
 
-        if (customMode.getGameType() == Codes.GameType.MANUAL_INPUT.value) {
-            vInputAnswer.setVisibility(View.VISIBLE);
-        } else if (customMode.getGameType() == Codes.GameType.YES_NO.value) {
-            vGameYesOrNo.setVisibility(View.VISIBLE);
+        if (customMode.getGameType() == Codes.GameType.YES_NO.value) {
+            ViewUtils.setVisibility(View.VISIBLE, vPlayer1GameYesOrNo, vPlayer2GameYesOrNo);
         } else {
-            vMultipleChoice.setVisibility(View.VISIBLE);
+            ViewUtils.setVisibility(View.VISIBLE, vPlayer1MultipleChoice, vPlayer2MultipleChoice);
         }
-        skipNumbers = customMode.getSkipNumbers();
-        if (skipNumbers == 0) {
-            tvSkipToNext.setVisibility(View.GONE);
-        } else {
-            tvSkipToNext.setVisibility(View.VISIBLE);
-            tvSkipToNext.setText(String.format("(%d) %s", skipNumbers, getString(R.string.skip_to_next)));
-        }
+
         if (customMode.getTimerValue() == 0) {
-            tvTimerValue.setVisibility(View.GONE);
-            pbTimer.setVisibility(View.GONE);
+            ViewUtils.setVisibility(View.GONE, tvPlayer1TimerValue, tvPlayer2TimerValue, pbPlayer1Timer, pbPlayer2Timer);
         } else {
-            pbTimer.setVisibility(View.VISIBLE);
-            tvTimerValue.setVisibility(View.VISIBLE);
-            tvTimerValue.setText(String.format(locale(), "%s : %d", getString(R.string.timer), customMode.getTimerValue()));
+            ViewUtils.setVisibility(View.VISIBLE, pbPlayer1Timer, pbPlayer2Timer, tvPlayer1TimerValue, tvPlayer2TimerValue);
+            tvPlayer1TimerValue.setText(String.format(locale(), "%s : %d", getString(R.string.timer), customMode.getTimerValue()));
+            tvPlayer2TimerValue.setText(String.format(locale(), "%s : %d", getString(R.string.timer), customMode.getTimerValue()));
         }
 
         tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
     }
 
     private void startGame() {
-        tvOption1.setBackgroundResource(R.drawable.background_multiple_choice);
-        tvOption2.setBackgroundResource(R.drawable.background_multiple_choice);
-        tvOption3.setBackgroundResource(R.drawable.background_multiple_choice);
-        tvOption4.setBackgroundResource(R.drawable.background_multiple_choice);
-        cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
-        cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        ViewUtils.setBackgroundResource(R.drawable.background_multiple_choice, tvPlayer1Option1, tvPlayer1Option2, tvPlayer1Option3,
+                                        tvPlayer1Option4, tvPlayer2Option1, tvPlayer2Option2, tvPlayer2Option3, tvPlayer2Option4);
 
-        if (skipNumbers == 0) {
-            tvSkipToNext.setVisibility(View.GONE);
-        } else {
-            tvSkipToNext.setVisibility(View.VISIBLE);
-            tvSkipToNext.setText(String.format("(%d) %s", skipNumbers, getString(R.string.skip_to_next)));
-        }
+        ViewUtils.setCardBackgroundColor(this, R.color.colorPrimary, cvPlayer1Correct, cvPlayer1Incorrect, cvPlayer2Correct,
+                                         cvPlayer2Incorrect);
 
         if (remainingQuestion <= customMode.getNumberOfQuestions()) {
             currentQuestion = QuestionUtils.getQuestionWithAnswer(customMode);
-            tvQuestion.setText(currentQuestion.getQuestion());
+            tvPlayer1Question.setText(currentQuestion.getQuestion());
+            tvPlayer2Question.setText(currentQuestion.getQuestion());
             if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
                 ArrayList<String> options = new ArrayList<>();
                 options.add(currentQuestion.getAnswer());
@@ -164,10 +158,14 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
                     options.add(wrongOption);
                 }
                 Collections.shuffle(options);
-                tvOption1.setText(options.get(0));
-                tvOption2.setText(options.get(1));
-                tvOption3.setText(options.get(2));
-                tvOption4.setText(options.get(3));
+                tvPlayer1Option1.setText(options.get(0));
+                tvPlayer1Option2.setText(options.get(1));
+                tvPlayer1Option3.setText(options.get(2));
+                tvPlayer1Option4.setText(options.get(3));
+                tvPlayer2Option1.setText(options.get(0));
+                tvPlayer2Option2.setText(options.get(1));
+                tvPlayer2Option3.setText(options.get(2));
+                tvPlayer2Option4.setText(options.get(3));
             }
             if (customMode.getTimerValue() > 0) {
                 if (countDownTimer != null) {
@@ -178,14 +176,17 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
                     public void onTick(long millis) {
                         String hms = String.format(locale(), "%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit
                                 .MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-                        tvTimerValue.setText(String.format(locale(), "%s : %s", getString(R.string.timer), hms));
+                        tvPlayer1TimerValue.setText(String.format(locale(), "%s : %s", getString(R.string.timer), hms));
+                        tvPlayer2TimerValue.setText(String.format(locale(), "%s : %s", getString(R.string.timer), hms));
                         // Log.e(TAG, "Millisecond :: " + millis);
                         int progress = (int) ((millis * 100) / (customMode.getTimerValue() * 1000));
                         //  Log.e(TAG, "Progress :: " + progress);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            pbTimer.setProgress(progress, true);
+                            pbPlayer1Timer.setProgress(progress, true);
+                            pbPlayer2Timer.setProgress(progress, true);
                         } else {
-                            pbTimer.setProgress(progress);
+                            pbPlayer1Timer.setProgress(progress);
+                            pbPlayer2Timer.setProgress(progress);
                         }
                     }
 
@@ -203,37 +204,37 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.ivBack:
                 onBackPressed();
                 break;
-            case R.id.tvOption1:
-                onOptionClicked(Utils.get(tvOption1), tvOption1);
+            case R.id.tvPlayer1Option1:
+            case R.id.tvPlayer1Option2:
+            case R.id.tvPlayer1Option3:
+            case R.id.tvPlayer1Option4:
+            case R.id.tvPlayer2Option1:
+            case R.id.tvPlayer2Option2:
+            case R.id.tvPlayer2Option3:
+            case R.id.tvPlayer2Option4:
+                onOptionClicked((TextView) view);
                 break;
-            case R.id.tvOption2:
-                onOptionClicked(Utils.get(tvOption2), tvOption2);
+            case R.id.cvPlayer1Correct:
+                onCorrectClicked(cvPlayer1Correct, cvPlayer1Incorrect);
                 break;
-            case R.id.tvOption3:
-                onOptionClicked(Utils.get(tvOption3), tvOption3);
+            case R.id.cvPlayer1Incorrect:
+                onIncorrectClicked(cvPlayer1Correct, cvPlayer1Incorrect);
                 break;
-            case R.id.tvOption4:
-                onOptionClicked(Utils.get(tvOption4), tvOption4);
+            case R.id.cvPlayer2Correct:
+                onCorrectClicked(cvPlayer2Correct, cvPlayer2Incorrect);
                 break;
-            case R.id.cvCorrect:
-                onCorrectClicked();
-                break;
-            case R.id.cvIncorrect:
-                onIncorrectClicked();
-                break;
-            case R.id.tvSkipToNext:
-                skipNumbers--;
-                startGame();
+            case R.id.cvPlayer2Incorrect:
+                onIncorrectClicked(cvPlayer2Correct, cvPlayer2Incorrect);
                 break;
         }
     }
 
-    private void onCorrectClicked() {
+    private void onCorrectClicked(CardView cvCorrect, CardView cvIncorrect) {
         if (currentQuestion.isCorrect()) {
             cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
             cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
@@ -249,7 +250,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    private void onIncorrectClicked() {
+    private void onIncorrectClicked(CardView cvCorrect, CardView cvIncorrect) {
         if (!currentQuestion.isCorrect()) {
             cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
             cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
@@ -265,8 +266,8 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    private void onOptionClicked(String answer, TextView tvOption) {
-        if (currentQuestion.getAnswer().equals(answer)) {
+    private void onOptionClicked(TextView tvOption) {
+        if (currentQuestion.getAnswer().equals(Utils.get(tvOption))) {
             tvOption.setBackgroundResource(R.drawable.background_correct_answer);
             remainingQuestion++;
             new Handler().postDelayed(new Runnable() {
