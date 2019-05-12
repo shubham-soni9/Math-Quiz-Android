@@ -1,4 +1,4 @@
-package com.mathgame.plugin.sudoku.ui;
+package com.mathgame.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -100,11 +100,6 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
         loadGameAdapter.delete(position);
     }
 
-    @Override
-    public void onDialogNegativeClick() {
-        // do nothing
-    }
-
     public static class DeleteDialogFragment extends DialogFragment {
 
         final   LinkedList<IDeleteDialogFragmentListener> listeners = new LinkedList<>();
@@ -182,8 +177,7 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.list_entry_layout, null);
+                convertView = LayoutInflater.from(context).inflate(R.layout.list_entry_layout, null);
             }
 
             GameInfoContainer gic = loadableGameList.get(position);
@@ -222,7 +216,7 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
             s = (seconds < 10) ? "0" + seconds : String.valueOf(seconds);
             m = (minutes < 10) ? "0" + minutes : String.valueOf(minutes);
             h = (hours < 10) ? "0" + hours : String.valueOf(hours);
-            playedTime.setText(h + ":" + m + ":" + s);
+            playedTime.setText(String.format("%s:%s:%s", h, m, s));
 
             Date lastTimePlayedDate = gic.getLastTimePlayed();
 

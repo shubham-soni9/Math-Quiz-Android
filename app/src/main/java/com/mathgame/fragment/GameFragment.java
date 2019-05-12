@@ -1,4 +1,4 @@
-package com.mathgame.plugin.slidegame;
+package com.mathgame.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mathgame.R;
+import com.mathgame.activity.SlideAdditionActivity;
 import com.mathgame.plugin.slidegame.slideview.Game;
 import com.mathgame.plugin.slidegame.slideview.GameView;
 import com.mathgame.plugin.slidegame.slideview.Tile;

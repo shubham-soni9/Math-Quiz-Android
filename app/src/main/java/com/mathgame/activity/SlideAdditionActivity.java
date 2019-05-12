@@ -1,4 +1,4 @@
-package com.mathgame.plugin.slidegame;
+package com.mathgame.activity;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.mathgame.R;
+import com.mathgame.fragment.GameFragment;
 import com.mathgame.plugin.slidegame.tools.KeyListener;
 import com.mathgame.structure.BaseActivity;
 

@@ -162,7 +162,7 @@ public class SudokuFieldLayout extends RelativeLayout implements IHighlightChang
 
         // Set connected Fields
         if (gameController.isValidCellSelected()) {
-            //String syncConnPref = sharedPref.getString(SettingsActivity., "");
+            //String syncConnPref = sharedPref.getString(SudokuSettingsActivity., "");
             final boolean highlightConnected = settings.getBoolean("pref_highlight_connected", true);
 
             if (highlightConnected) {

@@ -32,7 +32,6 @@ public class NewLevelManager {
 
     private NewLevelManager(Context context, SharedPreferences settings) {
         this.context = context;
-        SharedPreferences settings1 = settings;
         this.dbHelper = new DatabaseHelper(context);
         String LEVELS_DIR = "level";
         DIR = context.getDir(LEVELS_DIR, 0);

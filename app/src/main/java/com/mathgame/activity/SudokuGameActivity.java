@@ -1,4 +1,4 @@
-package com.mathgame.plugin.sudoku.ui;
+package com.mathgame.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -125,7 +125,7 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
                 gameController.setContextAndSettings(getApplicationContext(), sharedPref);
             } else {
                 // Error: no game could be restored. Go back to main menu.
-                Intent intent = new Intent(this, SudokuMainActivity.class);
+                Intent intent = new Intent(this, SudokuHomeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
@@ -284,12 +284,12 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
             ResetConfirmationDialog resetDialog = new ResetConfirmationDialog();
             resetDialog.show(getFragmentManager(), "ResetDialogFragment");
         } else if (id == R.id.nav_newgame) {//create new game
-            intent = new Intent(this, SudokuMainActivity.class);
+            intent = new Intent(this, SudokuHomeActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             finish();
         } else if (id == R.id.menu_settings) {//open settings
-            intent = new Intent(this, SettingsActivity.class);
-            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SettingsActivity.GamePreferenceFragment.class.getName());
+            intent = new Intent(this, SudokuSettingsActivity.class);
+            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SudokuSettingsActivity.GamePreferenceFragment.class.getName());
             intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
         } else if (id == R.id.nav_highscore) {// see highscore list
             intent = new Intent(this, StatsActivity.class);
@@ -355,7 +355,7 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(activity, SudokuMainActivity.class);
+                Intent intent = new Intent(activity, SudokuHomeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
@@ -412,11 +412,6 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
     @Override
     public void onResetDialogPositiveClick() {
         gameController.resetLevel();
-    }
-
-    @Override
-    public void onDialogNegativeClick() {
-        // do nothing
     }
 
     @Override

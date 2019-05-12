@@ -1,4 +1,4 @@
-package com.mathgame.plugin.sudoku.ui;
+package com.mathgame.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,8 +13,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,7 +35,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class SudokuMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class SudokuHomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private RatingBar         difficultyBar;
     private TextView          difficultyText;
@@ -256,8 +254,8 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
         Intent intent;
 
         if (id == R.id.menu_settings_main) {//open settings
-            intent = new Intent(this, SettingsActivity.class);
-            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SettingsActivity.GamePreferenceFragment.class.getName());
+            intent = new Intent(this, SudokuSettingsActivity.class);
+            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SudokuSettingsActivity.GamePreferenceFragment.class.getName());
             intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
             startActivity(intent);
             overridePendingTransition(0, 0);

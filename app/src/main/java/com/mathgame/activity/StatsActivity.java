@@ -1,4 +1,4 @@
-package com.mathgame.plugin.sudoku.ui;
+package com.mathgame.activity;
 
 import android.content.Context;
 import android.graphics.Color;

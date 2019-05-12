@@ -125,7 +125,7 @@ public class GameStateManager {
 
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean("savesChanged", true);
-        editor.commit();
+        editor.apply();
 
     }
 
@@ -175,7 +175,7 @@ public class GameStateManager {
         return result;
     }
 
-    public void saveGameState(GameController controller) {
+    void saveGameState(GameController controller) {
         String level = GameInfoContainer.getGameInfo(controller);
 
         File dir = context.getDir(SAVES_DIR, 0);

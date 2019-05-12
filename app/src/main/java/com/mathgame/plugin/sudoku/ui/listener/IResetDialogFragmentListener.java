@@ -6,5 +6,4 @@ package com.mathgame.plugin.sudoku.ui.listener;
 public interface IResetDialogFragmentListener {
     void onResetDialogPositiveClick();
 
-    void onDialogNegativeClick();
 }

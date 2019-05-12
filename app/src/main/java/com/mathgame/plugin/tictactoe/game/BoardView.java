@@ -555,7 +555,7 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
 
     }
 
-    interface OnBoardInteractionListener {
+    public interface OnBoardInteractionListener {
 
         void onBoardClick(BoardView board, int row, int column);
 

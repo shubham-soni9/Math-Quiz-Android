@@ -23,7 +23,7 @@ import com.mathgame.plugin.sudoku.controller.database.DatabaseHelper;
 import com.mathgame.plugin.sudoku.controller.database.model.Level;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.game.GameType;
-import com.mathgame.plugin.sudoku.ui.SudokuMainActivity;
+import com.mathgame.activity.SudokuHomeActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -261,7 +261,7 @@ public class GeneratorService extends IntentService {
         builder.setContentTitle(getString(R.string.app_name));
         builder.setContentText(getString(R.string.generating));
         builder.setSubText(getString(gameType.getStringResID()) + ", " + getString(gameDifficulty.getStringResID()));
-        builder.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, SudokuMainActivity.class), FLAG_UPDATE_CURRENT));
+        builder.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, SudokuHomeActivity.class), FLAG_UPDATE_CURRENT));
         builder.setColor(ContextCompat.getColor(this, R.color.colorAccent));
         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
         builder.setWhen(0);

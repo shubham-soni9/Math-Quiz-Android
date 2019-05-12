@@ -6,5 +6,4 @@ package com.mathgame.plugin.sudoku.ui.listener;
 public interface IHintDialogFragmentListener {
     void onHintDialogPositiveClick();
 
-    void onDialogNegativeClick();
 }

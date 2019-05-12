@@ -14,7 +14,7 @@ import java.util.Random;
  * determining the result of the game.
  */
 
-class Brain {
+public class Brain {
     private static final int   HORIZONTAL = 0;
     private static final int   VERTICAL   = 1;
     private static final int   DIAGONAL   = 2;
@@ -47,7 +47,7 @@ class Brain {
      * @return Instance of this class.
      */
 
-    static Brain getInstance() {
+    public static Brain getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new Brain();
         }
@@ -351,7 +351,7 @@ class Brain {
 
     }
 
-    interface OnProcessCompleteListener {
+    public interface OnProcessCompleteListener {
 
         void onNextMoveCalculated(int row, int column);
 
