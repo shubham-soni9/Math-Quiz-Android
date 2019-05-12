@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mathgame.R;
+import com.mathgame.appdata.Constant;
 import com.mathgame.listener.OnQuestionListener;
 import com.mathgame.model.Question;
 import com.mathgame.util.Utils;
@@ -21,6 +22,7 @@ public class QuestionView implements Question.Listener {
     private EditText           etAnswer;
     private OnQuestionListener onQuestionListener;
     private TextView           tvQuestion;
+    private Question           question;
 
     public QuestionView(Activity mActivity) {
         this.mActivity = mActivity;
@@ -30,21 +32,16 @@ public class QuestionView implements Question.Listener {
         etAnswer = mView.findViewById(R.id.etAnswer);
     }
 
-    public View render(final Question question, final int position) {
+    public View render(final Question mQuestion, final int position) {
+        this.question = mQuestion;
         question.setListener(this);
         tvQuestion.setText(question.getQuestion().replace("?", ""));
         etAnswer.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_NEXT) {
-                    if (question.getAnswer().equalsIgnoreCase(Utils.get(etAnswer))) {
                         onQuestionListener.onAnswerCompleted(position);
                         etAnswer.setBackgroundResource(R.drawable.cornered_border_success);
-                    } else {
-                        etAnswer.setBackgroundResource(R.drawable.cornered_border_error);
-                        Utils.snackBar(mActivity, R.string.wrong_answer);
-                        etAnswer.requestFocus();
-                    }
                 }
                 return false;
             }
@@ -67,17 +64,25 @@ public class QuestionView implements Question.Listener {
         return mView;
     }
 
+    public boolean isCorrectAnswer() {
+        return question.getAnswer().equalsIgnoreCase(Utils.get(etAnswer));
+    }
 
 
     public void requestFocus() {
         etAnswer.requestFocus();
         etAnswer.setBackgroundResource(R.drawable.cornered_border_selected);
+        Utils.showSoftKeyboard(mActivity, etAnswer);
     }
 
-    public void setUI(){
-        if(Utils.get(etAnswer).isEmpty()){
+    public void setUI() {
+        if (Utils.get(etAnswer).isEmpty()) {
             etAnswer.setBackgroundResource(R.drawable.cornered_border_unselected);
         }
+    }
+
+    public void setError(){
+        etAnswer.setBackgroundResource(R.drawable.cornered_border_error);
     }
 
     @Override

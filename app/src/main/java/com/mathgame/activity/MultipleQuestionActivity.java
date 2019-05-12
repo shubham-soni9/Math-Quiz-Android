@@ -33,7 +33,9 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
     private       TextView            tvChangingStatus;
     private       LinearLayout        llSlider;
     private       ArrayList<Question> questionList;
-    private final int                 NUMBER_OF_QUESTION = 5;
+    private final int                 NUMBER_OF_QUESTION = 2;
+    private       TextView            tvNumberOfQuestion;
+    private       int                 remainingQuestion  = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,18 +57,26 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
         slider = findViewById(R.id.slider);
         tvChangingStatus = findViewById(R.id.tvChangingStatus);
         llSlider = findViewById(R.id.llSlider);
+        tvNumberOfQuestion = findViewById(R.id.tvNumberOfQuestion);
         slider.setOnSeekBarChangeListener(this);
         Utils.setOnClickListener(this, findViewById(R.id.ivBack));
     }
 
 
     private void startGame() {
-        View mQuestionView;
-        llQuestionList.removeAllViews();
-        for (int i = 0; i < NUMBER_OF_QUESTION; i++) {
-            questionList.add(QuestionUtils.getQuestionWithAnswer(customMode));
-            mQuestionView = new QuestionView(this).render(questionList.get(i), i);
-            llQuestionList.addView(mQuestionView);
+        remainingQuestion++;
+        tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
+        if (remainingQuestion <= customMode.getNumberOfQuestions()) {
+            View mQuestionView;
+            llQuestionList.removeAllViews();
+            questionList.clear();
+            for (int i = 0; i < NUMBER_OF_QUESTION; i++) {
+                questionList.add(QuestionUtils.getQuestionWithAnswer(customMode));
+                mQuestionView = new QuestionView(this).render(questionList.get(i), i);
+                llQuestionList.addView(mQuestionView);
+            }
+        } else {
+            onBackPressed();
         }
     }
 
@@ -77,10 +87,6 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
                 onBackPressed();
                 break;
         }
-    }
-
-    private void onSubmitGame() {
-        startGame();
     }
 
     @Override
@@ -138,9 +144,22 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
         }
     }
 
+    private boolean isValidate() {
+        for (int i = 0; i < questionList.size(); i++) {
+            QuestionView questionView = getQuestionView(i);
+            if (!questionView.isCorrectAnswer()) {
+                questionView.setError();
+                return false;
+            }
+        }
+        return true;
+    }
+
     private void onNextQuestion() {
-        startGame();
         resetSliders();
+        if (isValidate()) {
+            startGame();
+        }
     }
 
     private void onFinishTest() {
@@ -154,7 +173,7 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
 
                     @Override
                     public void performNegativeAction(int purpose, Bundle backpack) {
-
+                        resetSliders();
                     }
                 }).build().show();
     }
@@ -162,6 +181,7 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
     private void resetSliders() {
         slider.setVisibility(View.VISIBLE);
         tvChangingStatus.setVisibility(View.GONE);
+        slider.setProgress(50);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -173,24 +193,24 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void onAnswerCompleted(int position) {
-        if (questionList.size() > (position - 1)) {
-            QuestionView questionView = getNextQuestionView(position + 1);
+        if ((questionList.size() - 1) > position) {
+            QuestionView questionView = getQuestionView(position + 1);
             questionView.requestFocus();
         } else {
-            onBackPressed();
+            startGame();
         }
     }
 
     @Override
     public void onFocusChanged(int position) {
         for (int i = 0; i < NUMBER_OF_QUESTION; i++) {
-            QuestionView questionView = getNextQuestionView(i);
+            QuestionView questionView = getQuestionView(i);
             if (position == i) questionView.requestFocus();
             else questionView.setUI();
         }
     }
 
-    private QuestionView getNextQuestionView(int position) {
+    private QuestionView getQuestionView(int position) {
         return (QuestionView) questionList.get(position).getView();
     }
 
