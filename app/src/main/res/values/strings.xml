@@ -87,5 +87,13 @@
     <string name="player_1_turn_prompt">Player 1 Turn</string>
     <string name="player_2_turn_prompt">Player 2 Turn</string>
     <string name="processing_text">Thinking&#8230;</string>
+    <string name="next_question">Next Question</string>
+    <string name="finish">Finish</string>
+    <string name="finish_test">Finish Test</string>
+    <string name="changing">Changing</string>
+    <string name="message">Message</string>
+    <string name="are_you_sure_text">Are you sure?</string>
+    <string name="are_you_sure_you_want_to_finish_test">Are you sure you want to finish the Test?</string>
+    <string name="wrong_answer">Wrong Answer</string>
 </resources>
 

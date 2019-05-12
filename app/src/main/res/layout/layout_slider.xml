@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:background="@color/white_100"
+    android:elevation="10dp"
+    android:layoutDirection="ltr">
+
+
+    <LinearLayout
+        android:id="@+id/llSlider"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tvNegativeSlider"
+            style="@style/text_alignment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center"
+            android:paddingEnd="40dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingStart="40dp"
+            android:text="@string/finish"
+            android:textAppearance="@style/CustomTextAppearance.Regular"
+            android:textColor="@color/black_30"
+            android:textSize="@dimen/text_size_normal"/>
+
+        <RelativeLayout
+            android:id="@+id/rlShimmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/rlShimmerSlider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    shimmer:auto_start="true"
+                    shimmer:duration="2000">
+
+                    <ImageView
+                        android:id="@+id/img_arrow_shimmer_slider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:background="@mipmap/ic_direction_arrows"/>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvPositiveSlider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end|center"
+                android:paddingEnd="40dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:paddingStart="40dp"
+                android:textDirection="ltr"
+                android:text="@string/next"
+                android:textAppearance="@style/CustomTextAppearance.Regular"
+                android:textColor="@color/black_100"
+                android:textSize="@dimen/text_size_normal"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:clickable="false"
+        android:max="100"
+        android:progress="50"
+        android:progressDrawable="@color/transparent"
+        android:thumb="@mipmap/start_ride"
+        android:thumbOffset="16dp"/>
+
+
+    <TextView
+        android:id="@+id/tvChangingStatus"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:textAppearance="@style/CustomTextAppearance.Regular"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/text_size_normal"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

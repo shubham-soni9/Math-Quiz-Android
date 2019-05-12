@@ -9,6 +9,11 @@
         <item name="android:textAppearance">@style/CustomTextAppearance.Regular</item>
     </style>
 
+    <style name="CustomDialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_scale_out</item>
+    </style>
+
     <!--Custom text appearances-->
     <style name="CustomTextAppearance.SemiBold" parent="android:TextAppearance"><!-- Custom Attr-->
         <item name="android:fontFamily">@font/montserrat_semibold</item>

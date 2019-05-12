@@ -1,18 +1,189 @@
 package com.mathgame.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatSeekBar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.mathgame.R;
+import com.mathgame.customview.QuestionView;
+import com.mathgame.dialog.OptionsDialog;
+import com.mathgame.listener.OnQuestionListener;
+import com.mathgame.model.CustomMode;
+import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.QuestionUtils;
+import com.mathgame.util.Transition;
+import com.mathgame.util.Utils;
+import com.mathgame.util.ViewUtils;
 
-public class MultipleQuestionActivity extends BaseActivity {
-    private LinearLayout llQuestionList;
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class MultipleQuestionActivity extends BaseActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, OnQuestionListener {
+    private LinearLayout        llQuestionList;
+    private CustomMode          customMode;
+    private Button              btnSubmit;
+    private RelativeLayout      rlShimmerSlider;
+    private AppCompatSeekBar    slider;
+    private TextView            tvChangingStatus;
+    private LinearLayout        llSlider;
+    private ArrayList<Question> questionList;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiple_question);
-        llQuestionList=findViewById(R.id.llQuestionList);
+        init();
+        setData();
+        startGame();
     }
+
+    private void setData() {
+        customMode = Objects.requireNonNull(getIntent().getExtras()).getParcelable(CustomMode.class.getName());
+        questionList = new ArrayList<>();
+    }
+
+    private void init() {
+        llQuestionList = findViewById(R.id.llQuestionList);
+        rlShimmerSlider = findViewById(R.id.rlShimmerSlider);
+        slider = findViewById(R.id.slider);
+        tvChangingStatus = findViewById(R.id.tvChangingStatus);
+        llSlider = findViewById(R.id.llSlider);
+        slider.setOnSeekBarChangeListener(this);
+        Utils.setOnClickListener(this, findViewById(R.id.ivBack), btnSubmit);
+    }
+
+
+    private void startGame() {
+        View mQuestionView;
+        llQuestionList.removeAllViews();
+        for (int i = 0; i < 5; i++) {
+            questionList.add(QuestionUtils.getQuestionWithAnswer(customMode));
+            mQuestionView = new QuestionView(this).render(questionList.get(i),i);
+            llQuestionList.addView(mQuestionView);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ivBack:
+                onBackPressed();
+                break;
+        }
+    }
+
+    private void onSubmitGame() {
+        startGame();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Transition.exit(this);
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        onSlide(seekBar.getProgress());
+    }
+
+
+    private void onSlide(int progress) {
+        int initial = -50;
+        llSlider.setVisibility(View.GONE);
+        if (progress > 50) {
+            tvChangingStatus.setVisibility(View.VISIBLE);
+            tvChangingStatus.setBackgroundResource(R.color.snackbar_bg_color_success);
+            tvChangingStatus.setText(R.string.next_question);
+            tvChangingStatus.setAlpha(2 * ((float) (initial + progress) / 100.00f));
+        } else if (progress < 50) {
+            tvChangingStatus.setVisibility(View.VISIBLE);
+            tvChangingStatus.setText(R.string.finish_test);
+            tvChangingStatus.setBackgroundResource(R.color.snackbar_bg_color_error);
+            tvChangingStatus.setAlpha(Math.abs(2 * ((float) (initial + progress) / 100.00f)));
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        if (seekBar.getProgress() > 80) seekBar.setProgress(100);
+        else if (seekBar.getProgress() < 20) seekBar.setProgress(0);
+        else seekBar.setProgress(50);
+
+        onSlideCompleted(seekBar.getProgress());
+    }
+
+    private void onSlideCompleted(int progress) {
+        switch (progress) {
+            case 0:
+                onFinishTest();
+                break;
+            case 100:
+                onNextQuestion();
+                break;
+            default:
+                resetSliders();
+                break;
+        }
+    }
+
+    private void onNextQuestion() {
+        startGame();
+        resetSliders();
+    }
+
+    private void onFinishTest() {
+        new OptionsDialog.Builder(this)
+                .message(R.string.are_you_sure_you_want_to_finish_test)
+                .listener(new OptionsDialog.Listener() {
+                    @Override
+                    public void performPositiveAction(int purpose, Bundle backpack) {
+                        onBackPressed();
+                    }
+
+                    @Override
+                    public void performNegativeAction(int purpose, Bundle backpack) {
+
+                    }
+                }).build().show();
+    }
+
+    private void resetSliders() {
+        slider.setVisibility(View.VISIBLE);
+        tvChangingStatus.setVisibility(View.GONE);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tvChangingStatus.setVisibility(View.INVISIBLE);
+                ViewUtils.setVisibility(View.VISIBLE, llSlider);
+            }
+        }, 50);
+    }
+
+    @Override
+    public void onAnswerCompleted(int position) {
+        if (questionList.size() > (position - 1)) {
+            QuestionView questionView = getNextQuestionView(position + 1);
+            questionView.requestFocus();
+        } else {
+            onBackPressed();
+        }
+    }
+
+    private QuestionView getNextQuestionView(int position) {
+        return (QuestionView) questionList.get(position).getView();
+    }
+
 }

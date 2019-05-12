@@ -32,11 +32,11 @@
                 android:textSize="40sp" />
 
             <android.support.v7.widget.AppCompatEditText
-                android:layout_width="wrap_content"
-                android:minWidth="@dimen/_100dp"
-                android:maxWidth="200dp"
+                android:id="@+id/etAnswer"
+                android:layout_width="@dimen/_100dp"
                 android:layout_height="match_parent"
                 android:textSize="40sp"
+                android:imeOptions="actionNext"
                 android:background="@drawable/cornered_border"
                 />
         </LinearLayout>

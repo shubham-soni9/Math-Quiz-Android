@@ -7,6 +7,7 @@ public class Question {
     private int     a;
     private int     b;
     private boolean isCorrect;
+    private transient Listener listener;
 
     public String getOperation() {
         return operation;
@@ -55,4 +56,22 @@ public class Question {
     public void setCorrect(boolean isCorrect) {
         this.isCorrect = isCorrect;
     }
+
+
+    public Listener getListener() {
+        return listener;
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
+    public interface Listener {
+        Object getView();
+    }
+
+    public Object getView() {
+        return listener != null ? listener.getView() : null;
+    }
+
 }
