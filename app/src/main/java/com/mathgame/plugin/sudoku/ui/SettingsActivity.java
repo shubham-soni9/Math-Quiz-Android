@@ -15,7 +15,6 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
 
-
 import com.mathgame.R;
 import com.mathgame.structure.BaseActivity;
 

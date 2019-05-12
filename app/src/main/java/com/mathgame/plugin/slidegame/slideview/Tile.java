@@ -1,8 +1,8 @@
 package com.mathgame.plugin.slidegame.slideview;
 
 public class Tile extends Position {
-    private final int value;
-    private Tile[] mergedFrom = null;
+    private final int    value;
+    private       Tile[] mergedFrom = null;
 
     public Tile(int x, int y, int value) {
         super(x, y);
@@ -24,7 +24,7 @@ public class Tile extends Position {
     }
 
     public Tile[] getMergedFrom() {
-       return mergedFrom;
+        return mergedFrom;
     }
 
     public void setMergedFrom(Tile[] tile) {

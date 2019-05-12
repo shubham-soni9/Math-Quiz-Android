@@ -21,7 +21,7 @@ import java.util.List;
 import io.objectbox.Box;
 
 public class CustomModeActivity extends BaseActivity implements View.OnClickListener {
-    private RecyclerView       rvCustomModeList;
+    private RecyclerView rvCustomModeList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

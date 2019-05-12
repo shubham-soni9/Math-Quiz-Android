@@ -148,7 +148,6 @@ public class OptionsDialog {
         /**
          * Override this method to perform operations
          * after OK button was pressed
-         *
          */
         void performPositiveAction();
 
@@ -156,7 +155,6 @@ public class OptionsDialog {
         /**
          * Override this method to perform operations
          * after CANCEL button was pressed
-         *
          */
         void performNegativeAction();
     }
@@ -185,7 +183,6 @@ public class OptionsDialog {
         /**
          * Constructor to initialize the OptionsDialog
          * (for a Fragment)
-         *
          */
         public Builder(Fragment fragment) {
 
@@ -197,7 +194,6 @@ public class OptionsDialog {
 
         /**
          * Method to set purpose code to identify the Dialog
-         *
          */
         public Builder purpose(int purposeCode) {
             optionsDialog.purposeCode = purposeCode;
@@ -207,7 +203,6 @@ public class OptionsDialog {
         /**
          * Method to set a custom listener to listen
          * the events from OptionsDialog
-         *
          */
         public Builder listener(Listener listener) {
             optionsDialog.listener = listener;
@@ -217,7 +212,6 @@ public class OptionsDialog {
         /**
          * Method to set a backpack containing the data for
          * the intended action
-         *
          */
         public Builder backpack(Bundle backpack) {
             optionsDialog.backpack = backpack;
@@ -226,15 +220,13 @@ public class OptionsDialog {
 
         /**
          * Method to set title to the Title
-         *
          */
         public Builder title(int resourceId) {
-            return title(optionsDialog.activity.getString( resourceId));
+            return title(optionsDialog.activity.getString(resourceId));
         }
 
         /**
          * Method to set title to the Title
-         *
          */
         Builder title(String title) {
             optionsDialog.title = title;
@@ -243,15 +235,13 @@ public class OptionsDialog {
 
         /**
          * Method to set message to the Dialog
-         *
          */
         public Builder message(int resourceId) {
-            return message(optionsDialog.activity.getString( resourceId));
+            return message(optionsDialog.activity.getString(resourceId));
         }
 
         /**
          * Method to set message to the Dialog
-         *
          */
         Builder message(String message) {
             optionsDialog.message = message;
@@ -260,7 +250,6 @@ public class OptionsDialog {
 
         /**
          * Method to set text to the Positive Button
-         *
          */
         public Builder positiveButton(int resourcedId) {
             return positiveButton(optionsDialog.activity.getString(resourcedId));
@@ -268,7 +257,6 @@ public class OptionsDialog {
 
         /**
          * Method to set text to the Positive Button
-         *
          */
         Builder positiveButton(String buttonText) {
             optionsDialog.positiveButton = buttonText;
@@ -277,15 +265,13 @@ public class OptionsDialog {
 
         /**
          * Method to set Text to the Negative Button
-         *
          */
         public Builder negativeButton(int resourceId) {
-            return negativeButton(optionsDialog.activity.getString( resourceId));
+            return negativeButton(optionsDialog.activity.getString(resourceId));
         }
 
         /**
          * Method to set Text to the Negative Button
-         *
          */
         Builder negativeButton(String cancel) {
             optionsDialog.negativeButton = cancel;
@@ -294,14 +280,13 @@ public class OptionsDialog {
 
         /**
          * Method to init the Options Dialog
-         *
          */
         public OptionsDialog build() {
 
             // Check for null and assign default values
             optionsDialog.title = Utils.assign(optionsDialog.title, optionsDialog.activity.getString(R.string.empty));
-            optionsDialog.message = Utils.assign(optionsDialog.message, optionsDialog.activity.getString( R.string.are_you_sure_text));
-            optionsDialog.positiveButton = Utils.assign(optionsDialog.positiveButton, optionsDialog.activity.getString( R.string.yes_text));
+            optionsDialog.message = Utils.assign(optionsDialog.message, optionsDialog.activity.getString(R.string.are_you_sure_text));
+            optionsDialog.positiveButton = Utils.assign(optionsDialog.positiveButton, optionsDialog.activity.getString(R.string.yes_text));
             optionsDialog.negativeButton = Utils.assign(optionsDialog.negativeButton, optionsDialog.activity.getString(R.string.no_text));
 
             return optionsDialog.init();

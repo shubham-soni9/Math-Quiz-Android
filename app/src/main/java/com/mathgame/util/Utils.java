@@ -216,7 +216,6 @@ public class Utils {
 
     /**
      * Method used to hide keyboard if outside touched.
-     *
      */
     public static void showSoftKeyboard(Activity activity) {
 
@@ -253,7 +252,7 @@ public class Utils {
         }
     }
 
-    public static void openOtherApps(Context context){
+    public static void openOtherApps(Context context) {
         final String appPackageName = context.getPackageName(); // getPackageName() from Context or Activity object
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));

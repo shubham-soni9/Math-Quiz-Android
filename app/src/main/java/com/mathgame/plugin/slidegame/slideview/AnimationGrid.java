@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 class AnimationGrid {
     private final ArrayList<AnimationTile>[][] mAnimationGameGrid;
-    private int mActiveAnimations = 0;
-    private boolean mOneMoreFrame = false;
-    private final ArrayList<AnimationTile> mGlobalAnimation = new ArrayList<>();
+    private final ArrayList<AnimationTile>     mGlobalAnimation  = new ArrayList<>();
+    private       int                          mActiveAnimations = 0;
+    private       boolean                      mOneMoreFrame     = false;
 
     public AnimationGrid(int x, int y) {
         mAnimationGameGrid = new ArrayList[x][y];

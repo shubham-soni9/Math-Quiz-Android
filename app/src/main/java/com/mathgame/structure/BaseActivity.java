@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if(event.getPointerCount() > 1) event.setAction(MotionEvent.ACTION_CANCEL);
+        if (event.getPointerCount() > 1) event.setAction(MotionEvent.ACTION_CANCEL);
         return super.onTouchEvent(event);
     }
 

@@ -22,12 +22,9 @@ import com.mathgame.plugin.sudoku.game.listener.IHighlightChangedListener;
 public class SudokuKeyboardLayout extends LinearLayout implements IHighlightChangedListener {
 
     private final AttributeSet   attrs;
+    private final LinearLayout[] layouts        = new LinearLayout[2];
     private       SudokuButton[] buttons;
     private       GameController gameController;
-    private       Symbol         symbolsToUse   = Symbol.Default;
-    private       float          normalTextSize = 20; // in sp
-    private final LinearLayout[] layouts        = new LinearLayout[2];
-
     private final OnClickListener listener = new OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -38,6 +35,8 @@ public class SudokuKeyboardLayout extends LinearLayout implements IHighlightChan
             }
         }
     };
+    private       Symbol         symbolsToUse   = Symbol.Default;
+    private       float          normalTextSize = 20; // in sp
 
 
     public SudokuKeyboardLayout(Context context, AttributeSet attrs) {

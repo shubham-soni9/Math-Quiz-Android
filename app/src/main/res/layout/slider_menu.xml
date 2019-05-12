@@ -60,8 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:tint="@color/colorPrimary"
-            android:src="@drawable/ic_circle" />
+            android:src="@drawable/ic_circle"
+            android:tint="@color/colorPrimary" />
 
     </RelativeLayout>
 

@@ -3,7 +3,6 @@ package com.mathgame.plugin.sudoku.game;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
 import com.mathgame.R;
 
 import java.util.LinkedList;

@@ -18,12 +18,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.mathgame.plugin.sudoku.ui.listener.IHintDialogFragmentListener;
 import com.mathgame.R;
 import com.mathgame.plugin.sudoku.controller.GameController;
 import com.mathgame.plugin.sudoku.game.listener.IHighlightChangedListener;
-
-
+import com.mathgame.plugin.sudoku.ui.listener.IHintDialogFragmentListener;
 
 import java.util.LinkedList;
 

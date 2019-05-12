@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 public class CellConflict implements Parcelable {
 
     public static final Parcelable.Creator<CellConflict> CREATOR
-            = new Parcelable.Creator<CellConflict>() {
+                                                            = new Parcelable.Creator<CellConflict>() {
         public CellConflict createFromParcel(Parcel in) {
             return new CellConflict(in);
         }
@@ -22,8 +22,8 @@ public class CellConflict implements Parcelable {
     /*
      * A conflict is created for every cell.
      */
-    private GameCell c1 = null;
-    private GameCell c2 = null;
+    private             GameCell                         c1 = null;
+    private             GameCell                         c2 = null;
 
     public CellConflict(GameCell first, GameCell second) {
         c1 = first;

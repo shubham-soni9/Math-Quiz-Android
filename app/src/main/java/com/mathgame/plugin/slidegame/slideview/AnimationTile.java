@@ -1,11 +1,11 @@
 package com.mathgame.plugin.slidegame.slideview;
 
 class AnimationTile extends Position {
-    private final int mAnimationType;
-    private long mTimeElapsed;
-    private final long mAnimationTime;
-    private final long mDelayTime;
+    private final int   mAnimationType;
+    private final long  mAnimationTime;
+    private final long  mDelayTime;
     private final int[] mExtras;
+    private       long  mTimeElapsed;
 
     public AnimationTile(int x, int y, int animationType, long length, long delay, int[] extras) {
         super(x, y);

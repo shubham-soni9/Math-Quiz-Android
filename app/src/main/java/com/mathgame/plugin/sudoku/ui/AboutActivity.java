@@ -7,7 +7,6 @@ import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-
 import com.mathgame.BuildConfig;
 import com.mathgame.R;
 import com.mathgame.structure.BaseActivity;

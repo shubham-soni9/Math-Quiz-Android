@@ -4,18 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Result implements Parcelable {
-    private int total;
-    private int correct;
-    private int incorrect;
-    private int unAttempted;
-
-    private Result(Parcel in) {
-        total = in.readInt();
-        correct = in.readInt();
-        incorrect = in.readInt();
-        unAttempted = in.readInt();
-    }
-
     public static final Creator<Result> CREATOR = new Creator<Result>() {
         @Override
         public Result createFromParcel(Parcel in) {
@@ -27,6 +15,17 @@ public class Result implements Parcelable {
             return new Result[size];
         }
     };
+    private int total;
+    private int correct;
+    private int incorrect;
+    private int unAttempted;
+
+    private Result(Parcel in) {
+        total = in.readInt();
+        correct = in.readInt();
+        incorrect = in.readInt();
+        unAttempted = in.readInt();
+    }
 
     @Override
     public int describeContents() {
@@ -40,32 +39,33 @@ public class Result implements Parcelable {
         dest.writeInt(incorrect);
         dest.writeInt(unAttempted);
     }
+
     public int getTotal() {
         return total;
-    }
-
-    public int getCorrect() {
-        return correct;
-    }
-
-    public int getIncorrect() {
-        return incorrect;
-    }
-
-    public int getUnAttempted() {
-        return unAttempted;
     }
 
     public void setTotal(int total) {
         this.total = total;
     }
 
+    public int getCorrect() {
+        return correct;
+    }
+
     public void setCorrect(int correct) {
         this.correct = correct;
     }
 
+    public int getIncorrect() {
+        return incorrect;
+    }
+
     public void setIncorrect(int incorrect) {
         this.incorrect = incorrect;
+    }
+
+    public int getUnAttempted() {
+        return unAttempted;
     }
 
     public void setUnAttempted(int unAttempted) {

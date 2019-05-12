@@ -39,8 +39,8 @@ public class QuestionView implements Question.Listener {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_NEXT) {
-                        onQuestionListener.onAnswerCompleted(position);
-                        etAnswer.setBackgroundResource(R.drawable.cornered_border_success);
+                    onQuestionListener.onAnswerCompleted(position);
+                    etAnswer.setBackgroundResource(R.drawable.cornered_border_success);
                 }
                 return false;
             }
@@ -80,7 +80,7 @@ public class QuestionView implements Question.Listener {
         }
     }
 
-    public void setError(){
+    public void setError() {
         etAnswer.setBackgroundResource(R.drawable.cornered_border_error);
     }
 

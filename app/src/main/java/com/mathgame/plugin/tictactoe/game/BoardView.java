@@ -48,7 +48,7 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
     private List<SignData> signDataList;
 
     private @TTTConstants.WinLinePosition
-            int   winLinePosition;
+    int winLinePosition;
     private Paint winLinePaint;
 
     private GestureDetector            clickDetector;
@@ -570,7 +570,7 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
 
     private class SignData {
         private @TTTConstants.Sign
-                int     sign;
+        int sign;
         private int     row;
         private int     column;
         private boolean animationFlag;

@@ -27,7 +27,6 @@ import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.game.GameType;
 import com.mathgame.structure.BaseActivity;
 
-
 import java.util.List;
 
 public class StatsActivity extends BaseActivity {

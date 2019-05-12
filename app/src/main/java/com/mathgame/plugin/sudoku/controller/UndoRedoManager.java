@@ -22,8 +22,8 @@ public class UndoRedoManager implements Parcelable {
             return new UndoRedoManager[size];
         }
     };
-    private             int                                 activeState;
     private final       LinkedList<GameBoard>               states = new LinkedList<>();
+    private             int                                 activeState;
 
     public UndoRedoManager(GameBoard initState) {
         // we get the base state and set it as active state.

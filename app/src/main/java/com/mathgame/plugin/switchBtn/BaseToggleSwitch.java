@@ -25,20 +25,22 @@ import java.util.ArrayList;
 public abstract class BaseToggleSwitch extends LinearLayout implements View.OnClickListener {
 
     private OnToggleSwitchChangeListener mOnToggleSwitchChangeListener = null;
-    private int   activeBgColor;
-    private int   activeTextColor;
-    private int   inactiveBgColor;
-    private int   inactiveTextColor;
-    private int   separatorColor;
-    private int   textSize;
-    private float cornerRadius;
-    private float toggleWidth;
-    private LinearLayout      toggleSwitchesContainer;
-    private ArrayList<String> mLabels;
-    private Context           mContext;
+    private int                          activeBgColor;
+    private int                          activeTextColor;
+    private int                          inactiveBgColor;
+    private int                          inactiveTextColor;
+    private int                          separatorColor;
+    private int                          textSize;
+    private float                        cornerRadius;
+    private float                        toggleWidth;
+    private LinearLayout                 toggleSwitchesContainer;
+    private ArrayList<String>            mLabels;
+    private Context                      mContext;
+
     public BaseToggleSwitch(Context context) {
         this(context, null);
     }
+
     public BaseToggleSwitch(Context context, AttributeSet attrs) {
         super(context, attrs);
         if (attrs != null) {

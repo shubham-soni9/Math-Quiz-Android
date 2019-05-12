@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.mathgame.plugin.sudoku.controller.helper.GameInfoContainer;
 import com.mathgame.plugin.sudoku.game.CellConflict;
 import com.mathgame.plugin.sudoku.game.CellConflictList;
 import com.mathgame.plugin.sudoku.game.GameBoard;
@@ -18,7 +19,6 @@ import com.mathgame.plugin.sudoku.game.listener.IHighlightChangedListener;
 import com.mathgame.plugin.sudoku.game.listener.IHintListener;
 import com.mathgame.plugin.sudoku.game.listener.IModelChangedListener;
 import com.mathgame.plugin.sudoku.game.listener.ITimerListener;
-import com.mathgame.plugin.sudoku.controller.helper.GameInfoContainer;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -40,6 +40,10 @@ public class GameController implements IModelChangedListener, Parcelable {
             return new GameController[size];
         }
     };
+    // Solver / Generator
+    private final       QQWingController                      qqWingController          = new QQWingController();
+    private final       AtomicBoolean                         timerRunning              = new AtomicBoolean(false);
+    private final       Handler                               timerHandler              = new Handler();
     // General
     private             SharedPreferences                     settings;
     // View
@@ -65,13 +69,9 @@ public class GameController implements IModelChangedListener, Parcelable {
     private             CellConflictList                      errorList                 = new CellConflictList();
     // Undo Redo
     private             UndoRedoManager                       undoRedoManager;
-    // Solver / Generator
-    private final       QQWingController                      qqWingController          = new QQWingController();
     // Timer
     private             int                                   time                      = 0;
-    private final       AtomicBoolean                         timerRunning              = new AtomicBoolean(false);
     private             LinkedList<ITimerListener>            timerListeners            = new LinkedList<>();
-    private final       Handler                               timerHandler              = new Handler();
     private             Timer                                 timer                     = new Timer();
     private             boolean                               noteStatus                = false;
 

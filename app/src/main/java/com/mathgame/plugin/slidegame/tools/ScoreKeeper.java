@@ -3,17 +3,18 @@ package com.mathgame.plugin.slidegame.tools;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.TextView;
+
 import com.mathgame.plugin.slidegame.slideview.Game;
 
 public class ScoreKeeper implements Game.ScoreListener {
 
-    private TextView mScoreDisplay;
-    private TextView mHighScoreDisplay;
-    private static final String HIGH_SCORE = "score.highscore";
-    private static final String PREFERENCES = "score";
-    private final SharedPreferences mPreferences;
-    private long mScore;
-    private long mHighScore;
+    private static final String            HIGH_SCORE  = "score.highscore";
+    private static final String            PREFERENCES = "score";
+    private final        SharedPreferences mPreferences;
+    private              TextView          mScoreDisplay;
+    private              TextView          mHighScoreDisplay;
+    private              long              mScore;
+    private              long              mHighScore;
 
     public ScoreKeeper(Context context) {
         mPreferences = context.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);

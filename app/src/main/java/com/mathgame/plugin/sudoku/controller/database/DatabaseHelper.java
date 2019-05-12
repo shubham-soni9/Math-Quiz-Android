@@ -5,10 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.mathgame.plugin.sudoku.game.GameDifficulty;
-import com.mathgame.plugin.sudoku.game.GameType;
 import com.mathgame.plugin.sudoku.controller.database.columns.LevelColumns;
 import com.mathgame.plugin.sudoku.controller.database.model.Level;
+import com.mathgame.plugin.sudoku.game.GameDifficulty;
+import com.mathgame.plugin.sudoku.game.GameType;
 
 import java.util.LinkedList;
 import java.util.List;

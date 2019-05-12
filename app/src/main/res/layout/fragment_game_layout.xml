@@ -19,9 +19,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_back"
             android:paddingStart="@dimen/_20dp"
             android:paddingEnd="@dimen/_20dp"
+            android:src="@drawable/ic_back"
             android:tint="@color/white_100" />
 
         <TextView
@@ -40,9 +40,9 @@
         android:id="@+id/rl_scoreview_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30dp"
         android:layout_below="@+id/rl_header"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_30dp">
 
         <LinearLayout
             android:id="@+id/ll_scorelayout"
@@ -148,8 +148,8 @@
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
         android:layout_below="@+id/ll_buttonrow"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_margin="10dp">
 
         <com.mathgame.plugin.slidegame.slideview.GameView

@@ -2,26 +2,27 @@ package com.mathgame.plugin.slidegame.tools;
 
 import android.view.MotionEvent;
 import android.view.View;
+
 import com.mathgame.plugin.slidegame.slideview.Game;
 
 public class InputListener implements View.OnTouchListener {
 
-    private static final int SWIPE_MIN_DISTANCE = 0;
+    private static final int SWIPE_MIN_DISTANCE       = 0;
     private static final int SWIPE_THRESHOLD_VELOCITY = 25;
-    private static final int MOVE_THRESHOLD = 250;
-    private static final int RESET_STARTING = 10;
+    private static final int MOVE_THRESHOLD           = 250;
+    private static final int RESET_STARTING           = 10;
 
-    private float x;
-    private float y;
-    private float lastdx;
-    private float lastdy;
-    private float previousX;
-    private float previousY;
-    private float startingX;
-    private float startingY;
-    private int previousDirection = 1;
-    private int veryLastDirection = 1;
-    private boolean hasMoved = false;
+    private float   x;
+    private float   y;
+    private float   lastdx;
+    private float   lastdy;
+    private float   previousX;
+    private float   previousY;
+    private float   startingX;
+    private float   startingY;
+    private int     previousDirection = 1;
+    private int     veryLastDirection = 1;
+    private boolean hasMoved          = false;
 
     private Game mGame;
 

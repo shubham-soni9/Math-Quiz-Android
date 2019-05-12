@@ -16,36 +16,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mathgame.R;
-import com.mathgame.util.Transition;
-
 import com.mathgame.plugin.slidegame.slideview.Game;
 import com.mathgame.plugin.slidegame.slideview.GameView;
 import com.mathgame.plugin.slidegame.slideview.Tile;
 import com.mathgame.plugin.slidegame.tools.InputListener;
 import com.mathgame.plugin.slidegame.tools.KeyListener;
 import com.mathgame.plugin.slidegame.tools.ScoreKeeper;
+import com.mathgame.util.Transition;
 
-public class GameFragment extends Fragment implements KeyListener,  Game.GameStateListener {
-    private static final String TAG = "2048Myo:GameFragment";
-    public static boolean sReversed = false;
-
+public class GameFragment extends Fragment implements KeyListener, Game.GameStateListener {
+    private static final String  TAG       = "2048Myo:GameFragment";
+    private static final String SCORE           = "savegame.score";
+    private static final String UNDO_SCORE      = "savegame.undoscore";
+    private static final String CAN_UNDO        = "savegame.canundo";
+    private static final String UNDO_GRID       = "savegame.undo";
+    private static final String GAME_STATE      = "savegame.gamestate";
+    private static final String UNDO_GAME_STATE = "savegame.undogamestate";
+    public static        boolean sReversed = false;
     private GameView mGameView;
     private Game     mGame;
-
-    private static final String SCORE = "savegame.score";
-    private static final String UNDO_SCORE = "savegame.undoscore";
-    private static final String CAN_UNDO = "savegame.canundo";
-    private static final String UNDO_GRID = "savegame.undo";
-    private static final String GAME_STATE = "savegame.gamestate";
-    private static final String UNDO_GAME_STATE = "savegame.undogamestate";
-
-    private TextView mScoreText;
-    private TextView mHighScoreText;
-    private TextView mOverlay;
+    private TextView    mScoreText;
+    private TextView    mHighScoreText;
+    private TextView    mOverlay;
     private ImageButton mResetButton, mUndoButton;
     private TextView              mTitleText;
     private SlideAdditionActivity mSlideAdditionActivity;
-    private AppCompatImageView ivBack;
+    private AppCompatImageView    ivBack;
 
     @Override
     public void onAttach(Activity activity) {
@@ -68,7 +64,7 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
         mResetButton = layout.findViewById(R.id.ib_reset);
         mUndoButton = layout.findViewById(R.id.ib_undo);
         mOverlay = layout.findViewById(R.id.tv_endgame_overlay);
-        ivBack=layout.findViewById(R.id.ivBack);
+        ivBack = layout.findViewById(R.id.ivBack);
         return layout;
     }
 

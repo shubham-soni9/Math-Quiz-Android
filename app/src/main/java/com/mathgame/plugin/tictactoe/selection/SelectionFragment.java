@@ -20,19 +20,19 @@ import com.mathgame.R;
  */
 
 public class SelectionFragment extends Fragment implements View.OnClickListener {
-    static final int TOP_BUTTON    = 0;
-    static final int BOTTOM_BUTTON = 1;
-    private static final String TITLE_TEXT               = "TITLE_TEXT";
-    private static final String TOP_BUTTON_IMG_RES_ID    = "TOP_BUTTON_IMG_RES_ID";
-    private static final String BOTTOM_BUTTON_IMG_RES_ID = "BOTTOM_BUTTON_IMG_RES_ID";
-    private String titleText;
-    private int    topButtonImageResourceId;
-    private int    bottomButtonImageResourceId;
-    private OnValueSelectedListener onValueSelectedListener;
-    private TextView      title;
-    private SqueezeButton topButton;
-    private SqueezeButton bottomButton;
-    private boolean transitionAnimationEnabled;
+    static final         int                     TOP_BUTTON               = 0;
+    static final         int                     BOTTOM_BUTTON            = 1;
+    private static final String                  TITLE_TEXT               = "TITLE_TEXT";
+    private static final String                  TOP_BUTTON_IMG_RES_ID    = "TOP_BUTTON_IMG_RES_ID";
+    private static final String                  BOTTOM_BUTTON_IMG_RES_ID = "BOTTOM_BUTTON_IMG_RES_ID";
+    private              String                  titleText;
+    private              int                     topButtonImageResourceId;
+    private              int                     bottomButtonImageResourceId;
+    private              OnValueSelectedListener onValueSelectedListener;
+    private              TextView                title;
+    private              SqueezeButton           topButton;
+    private              SqueezeButton           bottomButton;
+    private              boolean                 transitionAnimationEnabled;
 
     public SelectionFragment() {
 

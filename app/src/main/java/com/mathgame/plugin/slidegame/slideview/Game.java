@@ -8,15 +8,19 @@ import java.util.List;
 
 
 public class Game {
-    private static final int               startingMaxValue       = 2048;
-    private              int               endingMaxValue;
-    private              GameGrid          mGameGrid              = null;
+    public static final int DIRECTION_UP    = 0;
+    public static final int DIRECTION_RIGHT = 1;
+    public static final int DIRECTION_DOWN  = 2;
+    public static final int DIRECTION_LEFT  = 3;
     static final         int               DEFAULT_HEIGHT_X       = 4;
     static final         int               DEFAULT_WIDTH_Y        = 4;
     static final         int               DEFAULT_TILE_TYPES     = 24;
+    private static final int               startingMaxValue       = 2048;
     private static final int               DEFAULT_STARTING_TILES = 2;
     private final        int               mPositionsX            = DEFAULT_HEIGHT_X;
     private final        int               mPositionsY            = DEFAULT_WIDTH_Y;
+    private              int               endingMaxValue;
+    private              GameGrid          mGameGrid              = null;
     private              boolean           mCanUndo;
     private              State             mLastGameState;
     private              State             mBufferGameState;
@@ -28,21 +32,8 @@ public class Game {
     private              long              mBufferScore           = 0;
     private              GameStateListener mGameStateListener;
 
-    public enum State {
-        NORMAL, WON, LOST, ENDLESS, ENLESS_WON
-    }
-
     public Game(Context context) {
         Context mContext = context;
-    }
-
-
-    public interface ScoreListener {
-        void onNewScore(long score);
-    }
-
-    public interface GameStateListener {
-        void onGameStateChanged(State state);
     }
 
     public void setGameStateListener(GameStateListener listener) {
@@ -205,11 +196,6 @@ public class Game {
         mView.invalidate();
     }
 
-    public static final int DIRECTION_UP = 0;
-    public static final int DIRECTION_RIGHT = 1;
-    public static final int DIRECTION_DOWN = 2;
-    public static final int DIRECTION_LEFT = 3;
-
     public void move(int direction) {
         mView.cancelAnimations();
         if (!isGameOnGoing()) {
@@ -291,7 +277,7 @@ public class Game {
         do {
             previous = nextCell;
             nextCell = new Position(previous.getX() + vector.getX(),
-                    previous.getY() + vector.getY());
+                                    previous.getY() + vector.getY());
         } while (mGameGrid.isCellWithinBounds(nextCell) && mGameGrid.isCellAvailable(nextCell));
         return new Position[]{previous, nextCell};
     }
@@ -375,6 +361,18 @@ public class Game {
         mView.setGameState(mGameState);
         mView.invalidate();
         mView.setRefreshLastTime(true);
+    }
+
+    public enum State {
+        NORMAL, WON, LOST, ENDLESS, ENLESS_WON
+    }
+
+    public interface ScoreListener {
+        void onNewScore(long score);
+    }
+
+    public interface GameStateListener {
+        void onGameStateChanged(State state);
     }
 
 }

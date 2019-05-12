@@ -182,7 +182,6 @@ public class AlertDialog {
         /**
          * Override this method to listen to
          * the events fired from AlertDialog
-         *
          */
         void performPostAlertAction(int purpose, Bundle backpack);
     }
@@ -196,7 +195,6 @@ public class AlertDialog {
 
         /**
          * Constructor to build a alertDialog for Activity
-         *
          */
         public Builder(Activity activity) {
 
@@ -208,7 +206,6 @@ public class AlertDialog {
 
         /**
          * Constructor to build a alertDialog for Fragment
-         *
          */
         public Builder(Fragment fragment) {
 
@@ -221,7 +218,6 @@ public class AlertDialog {
         /**
          * Sets the a unique purpose code to differentiate
          * between the CallBacks
-         *
          */
         public Builder purpose(int purpose) {
             alertDialog.purpose = purpose;
@@ -230,7 +226,6 @@ public class AlertDialog {
 
         /**
          * Sets the a custom listener to receive the CallBacks
-         *
          */
         public Builder listener(Listener listener) {
             alertDialog.listener = listener;
@@ -239,7 +234,6 @@ public class AlertDialog {
 
         /**
          * Set the data to be sent via callback
-         *
          */
         public Builder backpack(Bundle backpack) {
             alertDialog.backpack = backpack;
@@ -248,7 +242,6 @@ public class AlertDialog {
 
         /**
          * Set the message for the AlertDialog
-         *
          */
         public Builder title(int resourceId) {
             return title(alertDialog.activity.getString(resourceId));
@@ -256,7 +249,6 @@ public class AlertDialog {
 
         /**
          * Set the message for the AlertDialog
-         *
          */
         Builder title(String title) {
             alertDialog.title = title;
@@ -265,15 +257,13 @@ public class AlertDialog {
 
         /**
          * Set the message for the AlertDialog
-         *
          */
         public Builder message(int resourceId) {
-            return message(alertDialog.activity.getString( resourceId));
+            return message(alertDialog.activity.getString(resourceId));
         }
 
         /**
          * Set the message for the AlertDialog
-         *
          */
         Builder message(String message) {
             alertDialog.message = message;
@@ -282,7 +272,6 @@ public class AlertDialog {
 
         /**
          * Set the actionButton for the AlertDialog
-         *
          */
         public Builder button(int resourceId) {
             return button(alertDialog.activity.getString(resourceId));
@@ -290,7 +279,6 @@ public class AlertDialog {
 
         /**
          * Set the actionButton for the AlertDialog
-         *
          */
         Builder button(String button) {
             alertDialog.actionButton = button;
@@ -301,7 +289,6 @@ public class AlertDialog {
          * Method to build an AlertDialog and display
          * it on the screen. The instance returned can
          * be used to manipulate the alertDialog in future.
-         *
          */
         public AlertDialog build() {
             alertDialog.message = Utils.assign(alertDialog.message, alertDialog.activity.getString(R.string.message));
@@ -311,7 +298,6 @@ public class AlertDialog {
 
         /**
          * Method to retrieve a String Resource
-         *
          */
         private String getString(int resourceId) {
             return alertDialog.activity.getString(resourceId);

@@ -10,9 +10,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.mathgame.plugin.sudoku.game.CellConflict;
 import com.mathgame.plugin.sudoku.controller.GameController;
 import com.mathgame.plugin.sudoku.controller.Symbol;
+import com.mathgame.plugin.sudoku.game.CellConflict;
 import com.mathgame.plugin.sudoku.game.GameCell;
 import com.mathgame.plugin.sudoku.game.ICellAction;
 import com.mathgame.plugin.sudoku.game.listener.IHighlightChangedListener;
@@ -24,15 +24,9 @@ import java.util.LinkedList;
  */
 public class SudokuFieldLayout extends RelativeLayout implements IHighlightChangedListener {
 
-    private       SudokuCellView[][] gamecells;
     private final AttributeSet       attrs;
+    private       SudokuCellView[][] gamecells;
     private       GameController     gameController;
-    private       int                sectionHeight;
-    private       int                sectionWidth;
-    private       int                gameCellWidth;
-    private       int                gameCellHeight;
-    private       SharedPreferences  settings;
-    private       Paint              p        = new Paint();
     private final OnTouchListener    listener = new OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -48,6 +42,12 @@ public class SudokuFieldLayout extends RelativeLayout implements IHighlightChang
             return false;
         }
     };
+    private       int                sectionHeight;
+    private       int                sectionWidth;
+    private       int                gameCellWidth;
+    private       int                gameCellHeight;
+    private       SharedPreferences  settings;
+    private       Paint              p        = new Paint();
     private       boolean            isWidthLimiting;
 
     public SudokuFieldLayout(Context context, AttributeSet attrs) {

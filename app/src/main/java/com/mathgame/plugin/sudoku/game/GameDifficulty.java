@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.StringRes;
 
-
 import com.mathgame.R;
 
 import java.util.LinkedList;
@@ -32,7 +31,7 @@ public enum GameDifficulty implements Parcelable {
             return new GameDifficulty[size];
         }
     };
-    private int resID;
+    private             int                                resID;
 
     GameDifficulty(@StringRes int resID) {
         //getResources().getString(resID);

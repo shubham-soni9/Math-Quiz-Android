@@ -2,13 +2,13 @@ package com.mathgame.plugin.sudoku.controller;
 
 import android.util.Log;
 
-import com.mathgame.plugin.sudoku.game.GameBoard;
-import com.mathgame.plugin.sudoku.game.GameDifficulty;
-import com.mathgame.plugin.sudoku.game.GameType;
 import com.mathgame.plugin.sudoku.controller.constant.Action;
 import com.mathgame.plugin.sudoku.controller.constant.PrintStyle;
 import com.mathgame.plugin.sudoku.controller.constant.QQWing;
 import com.mathgame.plugin.sudoku.controller.constant.Symmetry;
+import com.mathgame.plugin.sudoku.game.GameBoard;
+import com.mathgame.plugin.sudoku.game.GameDifficulty;
+import com.mathgame.plugin.sudoku.game.GameType;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -21,10 +21,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 class QQWingController {
 
     private final QQWingOptions opts = new QQWingOptions();
-
+    private final LinkedList<int[]> generated       = new LinkedList<>();
     private       int[]             level;
     private       int[]             solution;
-    private final LinkedList<int[]> generated       = new LinkedList<>();
     private       boolean           solveImpossible = false;
 
     private static long getMicroseconds() {
@@ -217,23 +216,23 @@ class QQWingController {
     }
 
     private static class QQWingOptions {
-        // defaults for options
-        boolean        needNow           = false;
-        boolean        printPuzzle       = false;
-        boolean        printSolution     = false;
         final boolean printHistory      = false;
         final boolean printInstructions = false;
-        boolean        timer             = false;
-        boolean        countSolutions    = false;
-        Action         action            = Action.NONE;
         final boolean    logHistory = false;
         final PrintStyle printStyle = PrintStyle.READABLE;
-        int            numberToGenerate  = 1;
         final boolean printStats = false;
-        GameDifficulty gameDifficulty    = GameDifficulty.Unspecified;
-        GameType       gameType          = GameType.Unspecified;
         final Symmetry symmetry = Symmetry.NONE;
-        int            threads           = Runtime.getRuntime().availableProcessors();
+        // defaults for options
+        boolean needNow       = false;
+        boolean printPuzzle   = false;
+        boolean printSolution = false;
+        boolean timer          = false;
+        boolean countSolutions = false;
+        Action  action         = Action.NONE;
+        int numberToGenerate = 1;
+        GameDifficulty gameDifficulty = GameDifficulty.Unspecified;
+        GameType       gameType       = GameType.Unspecified;
+        int threads = Runtime.getRuntime().availableProcessors();
     }
 
 }

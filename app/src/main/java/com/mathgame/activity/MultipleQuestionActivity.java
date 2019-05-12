@@ -26,13 +26,13 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class MultipleQuestionActivity extends BaseActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, OnQuestionListener {
+    private final int                 NUMBER_OF_QUESTION = 2;
     private       LinearLayout        llQuestionList;
     private       CustomMode          customMode;
     private       AppCompatSeekBar    slider;
     private       TextView            tvChangingStatus;
     private       LinearLayout        llSlider;
     private       ArrayList<Question> questionList;
-    private final int                 NUMBER_OF_QUESTION = 2;
     private       TextView            tvNumberOfQuestion;
     private       int                 remainingQuestion  = 0;
 

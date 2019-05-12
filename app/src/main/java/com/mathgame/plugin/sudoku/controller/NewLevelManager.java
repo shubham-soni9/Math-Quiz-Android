@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.mathgame.plugin.sudoku.game.GameDifficulty;
-import com.mathgame.plugin.sudoku.game.GameType;
 import com.mathgame.plugin.sudoku.controller.database.DatabaseHelper;
 import com.mathgame.plugin.sudoku.controller.database.model.Level;
+import com.mathgame.plugin.sudoku.game.GameDifficulty;
+import com.mathgame.plugin.sudoku.game.GameType;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,9 +23,9 @@ import java.util.Random;
 public class NewLevelManager {
 
     public static final  int             PRE_SAVES_MIN = 3;
+    private static final String          LEVEL_PREFIX  = "level_";
     public static        int             PRE_SAVES_MAX = 10;
     private static       NewLevelManager instance;
-    private static final String          LEVEL_PREFIX  = "level_";
     private static       File            DIR;
     private final        Context         context;
     private final        DatabaseHelper  dbHelper;

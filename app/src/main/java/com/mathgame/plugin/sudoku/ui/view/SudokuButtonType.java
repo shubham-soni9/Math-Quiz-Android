@@ -2,7 +2,6 @@ package com.mathgame.plugin.sudoku.ui.view;
 
 import android.support.annotation.DrawableRes;
 
-
 import com.mathgame.R;
 
 import java.util.ArrayList;
@@ -24,8 +23,7 @@ public enum SudokuButtonType {
 
     private final int resID;
 
-    SudokuButtonType(@DrawableRes int res)
-    {
+    SudokuButtonType(@DrawableRes int res) {
         this.resID = res;
     }
 

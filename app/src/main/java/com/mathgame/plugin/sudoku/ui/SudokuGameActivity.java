@@ -27,8 +27,6 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.mathgame.plugin.sudoku.ui.view.SudokuKeyboardLayout;
-import com.mathgame.plugin.sudoku.ui.view.WinDialog;
 import com.mathgame.R;
 import com.mathgame.plugin.sudoku.controller.GameController;
 import com.mathgame.plugin.sudoku.controller.GameStateManager;
@@ -41,9 +39,10 @@ import com.mathgame.plugin.sudoku.game.listener.IGameSolvedListener;
 import com.mathgame.plugin.sudoku.game.listener.ITimerListener;
 import com.mathgame.plugin.sudoku.ui.listener.IHintDialogFragmentListener;
 import com.mathgame.plugin.sudoku.ui.listener.IResetDialogFragmentListener;
-
 import com.mathgame.plugin.sudoku.ui.view.SudokuFieldLayout;
+import com.mathgame.plugin.sudoku.ui.view.SudokuKeyboardLayout;
 import com.mathgame.plugin.sudoku.ui.view.SudokuSpecialButtonLayout;
+import com.mathgame.plugin.sudoku.ui.view.WinDialog;
 import com.mathgame.structure.BaseActivity;
 
 import java.util.LinkedList;
@@ -51,6 +50,7 @@ import java.util.List;
 
 public class SudokuGameActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, IGameSolvedListener, ITimerListener, IHintDialogFragmentListener, IResetDialogFragmentListener {
 
+    private final SaveLoadStatistics        statistics = new SaveLoadStatistics(this);
     private       GameController            gameController;
     private       SudokuFieldLayout         layout;
     private       SudokuKeyboardLayout      keyboard;
@@ -58,7 +58,6 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
     private       TextView                  timerView;
     private       TextView                  viewName;
     private       RatingBar                 ratingBar;
-    private final SaveLoadStatistics        statistics = new SaveLoadStatistics(this);
     private       WinDialog                 dialog     = null;
     private       boolean                   gameSolved = false;
 
@@ -294,7 +293,7 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
             intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
         } else if (id == R.id.nav_highscore) {// see highscore list
             intent = new Intent(this, StatsActivity.class);
-        }  else if (id == R.id.menu_help) {//open about page
+        } else if (id == R.id.menu_help) {//open about page
             intent = new Intent(this, HelpActivity.class);
         }
 

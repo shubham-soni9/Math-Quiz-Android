@@ -9,22 +9,6 @@ public class Position {
         this.y = y;
     }
 
-    public int getX() {
-        return this.x;
-    }
-
-    public int getY() {
-        return this.y;
-    }
-
-    void setX(int x) {
-        this.x = x;
-    }
-
-    void setY(int y) {
-        this.y = y;
-    }
-
     public static boolean equal(Position first, Position second) {
         return first.getX() == second.getX() && first.getY() == second.getY();
     }
@@ -37,5 +21,21 @@ public class Position {
                 new Position(-1, 0)  // left
         };
         return map[direction];
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    void setY(int y) {
+        this.y = y;
     }
 }

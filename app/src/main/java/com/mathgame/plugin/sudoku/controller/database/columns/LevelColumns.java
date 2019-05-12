@@ -5,9 +5,9 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 
 import com.mathgame.plugin.sudoku.controller.Symbol;
+import com.mathgame.plugin.sudoku.controller.database.model.Level;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.game.GameType;
-import com.mathgame.plugin.sudoku.controller.database.model.Level;
 
 public class LevelColumns implements BaseColumns {
 
@@ -15,6 +15,8 @@ public class LevelColumns implements BaseColumns {
 
     public static final  String   DIFFICULTY         = "level_difficulty";
     public static final  String   GAMETYPE           = "level_gametype";
+    public static final  String   SQL_DELETE_ENTRIES =
+            "DROP TABLE IF EXISTS " + TABLE_NAME;
     private static final String   PUZZLE             = "level_puzzle";
     public static final  String[] PROJECTION         = {
             _ID,
@@ -31,8 +33,6 @@ public class LevelColumns implements BaseColumns {
                     DIFFICULTY + TEXT_TYPE + COMMA_SEP +
                     GAMETYPE + TEXT_TYPE + COMMA_SEP +
                     PUZZLE + TEXT_TYPE + " )";
-    public static final  String   SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public static Level getLevel(Cursor c) {
         Level level = new Level();

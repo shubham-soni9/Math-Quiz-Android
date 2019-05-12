@@ -17,9 +17,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_30dp"
             android:layout_marginTop="@dimen/_10dp"
             android:layout_marginEnd="@dimen/_30dp"
-            android:layout_marginStart="@dimen/_30dp"
             android:layout_marginBottom="@dimen/_10dp"
             android:gravity="end">
 
@@ -27,11 +27,11 @@
                 android:id="@+id/tvQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/etAnswer"
+                android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/_20dp"
+                android:layout_toStartOf="@+id/etAnswer"
+                android:gravity="center"
                 android:text="10 + 20 = "
                 android:textAppearance="@style/CustomTextAppearance.UltraLight"
                 android:textColor="@color/white"
@@ -40,8 +40,8 @@
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/etAnswer"
                 android:layout_width="@dimen/_80dp"
-                android:layout_alignParentEnd="true"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/cornered_border_unselected"
                 android:cursorVisible="false"
                 android:gravity="center"

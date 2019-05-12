@@ -3,11 +3,11 @@ package com.mathgame.plugin.sudoku.controller.helper;
 import android.util.Log;
 
 import com.mathgame.plugin.sudoku.controller.GameController;
+import com.mathgame.plugin.sudoku.controller.Symbol;
 import com.mathgame.plugin.sudoku.game.GameCell;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.game.GameType;
 import com.mathgame.plugin.sudoku.game.ICellAction;
-import com.mathgame.plugin.sudoku.controller.Symbol;
 
 import java.util.Date;
 

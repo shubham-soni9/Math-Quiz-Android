@@ -14,46 +14,46 @@ import com.mathgame.R;
 import java.util.ArrayList;
 
 public class GameView extends View {
-    private static final int BASE_ANIMATION_TIME = 100000000;
-    private static final float MERGING_ACCELERATION = (float) -0.5;
-    private static final float INITIAL_VELOCITY = (1 - MERGING_ACCELERATION) / 4;
-    private static final int SPAWN_ANIMATION = -1;
-    private static final int MOVE_ANIMATION = 0;
-    private static final int MERGE_ANIMATION = 1;
-    private static final int FADE_GLOBAL_ANIMATION = 0;
-    private static final long MOVE_ANIMATION_TIME = BASE_ANIMATION_TIME;
-    private static final long SPAWN_ANIMATION_TIME = BASE_ANIMATION_TIME;
-    private static final long NOTIFICATION_ANIMATION_TIME = BASE_ANIMATION_TIME * 5;
-    private static final long NOTIFICATION_DELAY_TIME = MOVE_ANIMATION_TIME + SPAWN_ANIMATION_TIME;
+    private static final int   BASE_ANIMATION_TIME         = 100000000;
+    private static final float MERGING_ACCELERATION        = (float) -0.5;
+    private static final float INITIAL_VELOCITY            = (1 - MERGING_ACCELERATION) / 4;
+    private static final int   SPAWN_ANIMATION             = -1;
+    private static final int   MOVE_ANIMATION              = 0;
+    private static final int   MERGE_ANIMATION             = 1;
+    private static final int   FADE_GLOBAL_ANIMATION       = 0;
+    private static final long  MOVE_ANIMATION_TIME         = BASE_ANIMATION_TIME;
+    private static final long  SPAWN_ANIMATION_TIME        = BASE_ANIMATION_TIME;
+    private static final long  NOTIFICATION_ANIMATION_TIME = BASE_ANIMATION_TIME * 5;
+    private static final long  NOTIFICATION_DELAY_TIME     = MOVE_ANIMATION_TIME + SPAWN_ANIMATION_TIME;
 
     //Internal variables
     private final Paint mPaint = new Paint();
 
 
     //Layout variables
-    private int mCellSize = 0;
-    private float mTextSize = 0;
+    private int   mCellSize     = 0;
+    private float mTextSize     = 0;
     private float mCellTextSize = 0;
-    private int mGridWidth = 0;
-    private int mStartingX;
-    private int mStartingY;
-    private int mEndingX;
-    private int mEndingY;
+    private int   mGridWidth    = 0;
+    private int   mStartingX;
+    private int   mStartingY;
+    private int   mEndingX;
+    private int   mEndingY;
 
     //Assets
-    private Drawable mBackgroundRectangle;
-    private Drawable[] mCellRectangle;
+    private Drawable         mBackgroundRectangle;
+    private Drawable[]       mCellRectangle;
     private BitmapDrawable[] mBitmapCell;
 
     private long mLastFPSTime = System.nanoTime();
 
-    private boolean mRefreshLastTime = true;
-    private int mNumberOfSquaresX;
-    private int mNumberOfSquaresY;
-    private Game.State mGameState;
-    private AnimationGrid mAnimationGrid = new AnimationGrid(4, 4);
-    private Bitmap mBackground;
-    private GameGrid mGameGrid;
+    private boolean       mRefreshLastTime = true;
+    private int           mNumberOfSquaresX;
+    private int           mNumberOfSquaresY;
+    private Game.State    mGameState;
+    private AnimationGrid mAnimationGrid   = new AnimationGrid(4, 4);
+    private Bitmap        mBackground;
+    private GameGrid      mGameGrid;
 
     public GameView(Context context) {
         super(context);
@@ -68,6 +68,11 @@ public class GameView extends View {
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+    }
+
+    private static int log2(int n) {
+        if (n <= 0) throw new IllegalArgumentException();
+        return 31 - Integer.numberOfLeadingZeros(n);
     }
 
     private void init() {
@@ -200,7 +205,6 @@ public class GameView extends View {
         draw.draw(canvas);
     }
 
-
     private void createBackgroundBitmap(int width, int height) {
         mBackground = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(mBackground);
@@ -300,7 +304,6 @@ public class GameView extends View {
         }
     }
 
-
     private void createBitmapCells() {
         mPaint.setTextAlign(Paint.Align.CENTER);
         for (int xx = 0; xx < mBitmapCell.length; xx++) {
@@ -338,19 +341,13 @@ public class GameView extends View {
         mLastFPSTime = System.nanoTime();
     }
 
-    private static int log2(int n) {
-        if (n <= 0) throw new IllegalArgumentException();
-        return 31 - Integer.numberOfLeadingZeros(n);
-    }
-
-
     private int centerText() {
         return (int) ((mPaint.descent() + mPaint.ascent()) / 2);
     }
 
     public void spawnTile(Tile tile) {
         mAnimationGrid.startAnimation(tile.getX(), tile.getY(), SPAWN_ANIMATION,
-                SPAWN_ANIMATION_TIME, MOVE_ANIMATION_TIME, null); //Direction: -1 = EXPANDING
+                                      SPAWN_ANIMATION_TIME, MOVE_ANIMATION_TIME, null); //Direction: -1 = EXPANDING
     }
 
     public void cancelAnimations() {
@@ -363,7 +360,7 @@ public class GameView extends View {
 
     public void mergeTile(int x, int y) {
         mAnimationGrid.startAnimation(x, y, MERGE_ANIMATION,
-                SPAWN_ANIMATION_TIME, MOVE_ANIMATION_TIME, null);
+                                      SPAWN_ANIMATION_TIME, MOVE_ANIMATION_TIME, null);
     }
 
     public void endGame() {

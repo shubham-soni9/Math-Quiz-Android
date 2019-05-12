@@ -17,17 +17,17 @@
             android:id="@+id/llBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:gravity="center">
+            android:paddingRight="16dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:tint="@color/white_100"
-                android:src="@drawable/ic_back"
                 android:clickable="false"
-                android:duplicateParentState="true" />
+                android:duplicateParentState="true"
+                android:src="@drawable/ic_back"
+                android:tint="@color/white_100" />
 
         </LinearLayout>
 
@@ -35,13 +35,13 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@string/title"
-            android:textAppearance="@style/CustomTextAppearance.Regular"
+            android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/llBack"
             android:animateLayoutChanges="true"
-            android:layout_centerVertical="true"
+            android:textAppearance="@style/CustomTextAppearance.Regular"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large" />
+            android:textSize="@dimen/text_size_extra_large"
+            tools:text="@string/title" />
     </RelativeLayout>
 
 

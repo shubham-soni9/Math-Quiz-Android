@@ -53,25 +53,25 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
  */
 public class NumberPicker extends LinearLayout {
 
-    private static final int  VERTICAL                               = LinearLayout.VERTICAL;
-    private static final int  HORIZONTAL                             = LinearLayout.HORIZONTAL;
-    private static final int  ASCENDING                              = 0;
-    private static final int  DESCENDING                             = 1;
-    private static final int  RIGHT                                  = 0;
-    private static final int  CENTER                                 = 1;
-    private static final int  LEFT                                   = 2;
+    private static final int                 VERTICAL                               = LinearLayout.VERTICAL;
+    private static final int                 HORIZONTAL                             = LinearLayout.HORIZONTAL;
+    private static final int                 ASCENDING                              = 0;
+    private static final int                 DESCENDING                             = 1;
+    private static final int                 RIGHT                                  = 0;
+    private static final int                 CENTER                                 = 1;
+    private static final int                 LEFT                                   = 2;
     /**
      * The default update interval during long press.
      */
-    private static final long DEFAULT_LONG_PRESS_UPDATE_INTERVAL     = 300;
+    private static final long                DEFAULT_LONG_PRESS_UPDATE_INTERVAL     = 300;
     /**
      * The default coefficient to adjust (divide) the max fling velocity.
      */
-    private static final int  DEFAULT_MAX_FLING_VELOCITY_COEFFICIENT = 8;
+    private static final int                 DEFAULT_MAX_FLING_VELOCITY_COEFFICIENT = 8;
     /**
      * The the duration for adjusting the selector wheel.
      */
-    private static final int  SELECTOR_ADJUSTMENT_DURATION_MILLIS    = 800;
+    private static final int                 SELECTOR_ADJUSTMENT_DURATION_MILLIS    = 800;
     /**
      * The duration of scrolling while snapping to a given position.
      */
@@ -182,6 +182,26 @@ public class NumberPicker extends LinearLayout {
      */
     private final        Scroller            mAdjustScroller;
     /**
+     * @see ViewConfiguration#getScaledTouchSlop()
+     */
+    private final int                                    mTouchSlop;
+    /**
+     * @see ViewConfiguration#getScaledMinimumFlingVelocity()
+     */
+    private final int                                    mMinimumFlingVelocity;
+    /**
+     * Flag whether the selector wheel should hidden until the picker has focus.
+     */
+    private final boolean                                mHideWheelUntilFocused;
+    /**
+     * The context of this widget.
+     */
+    private final Context                                mContext;
+    /**
+     * The view configuration of this widget.
+     */
+    private final ViewConfiguration                      mViewConfiguration;
+    /**
      * The center X position of the selected text.
      */
     private              float               mSelectedTextCenterX;
@@ -209,285 +229,243 @@ public class NumberPicker extends LinearLayout {
      * The align of the selected text.
      */
     private              int                 mSelectedTextAlign                     = DEFAULT_TEXT_ALIGN;
-
     /**
      * The color of the selected text.
      */
     private int mSelectedTextColor = DEFAULT_TEXT_COLOR;
-
     /**
      * The size of the selected text.
      */
     private float mSelectedTextSize = DEFAULT_TEXT_SIZE;
-
     private float mTextStyle;
-
     /**
      * Flag whether the selected text should strikethroughed.
      */
     private boolean mSelectedTextStrikeThru;
-
     /**
      * Flag whether the selected text should underlined.
      */
     private boolean mSelectedTextUnderline;
-
     /**
      * The align of the text.
      */
     private int mTextAlign = DEFAULT_TEXT_ALIGN;
-
     /**
      * The color of the text.
      */
     private int mTextColor = DEFAULT_TEXT_COLOR;
-
     /**
      * The size of the text.
      */
     private float mTextSize = DEFAULT_TEXT_SIZE;
-
     /**
      * Flag whether the text should strikethroughed.
      */
     private boolean mTextStrikeThru;
-
     /**
      * Flag whether the text should underlined.
      */
     private boolean mTextUnderline;
-
     /**
      * The typeface of the text.
      */
     private Typeface mTypeface;
-
     /**
      * The width of the gap between text elements if the selector wheel.
      */
     private int mSelectorTextGapWidth;
-
     /**
      * The height of the gap between text elements if the selector wheel.
      */
     private int mSelectorTextGapHeight;
-
     /**
      * The values to be displayed instead the indices.
      */
     private String[] mDisplayedValues;
-
     /**
      * Lower value of the range of numbers allowed for the NumberPicker
      */
     private int mMinValue = DEFAULT_MIN_VALUE;
-
     /**
      * Upper value of the range of numbers allowed for the NumberPicker
      */
     private int mMaxValue = DEFAULT_MAX_VALUE;
-
     /**
      * Current value of this NumberPicker
      */
     private int mValue;
-
     /**
      * Listener to be notified upon current value click.
      */
     private OnClickListener mOnClickListener;
-
     /**
      * Listener to be notified upon current value change.
      */
     private OnValueChangeListener mOnValueChangeListener;
-
     /**
      * Listener to be notified upon scroll state change.
      */
     private OnScrollListener mOnScrollListener;
-
     /**
      * Formatter for for displaying the current value.
      */
     private Formatter mFormatter;
-
     /**
      * The speed for updating the value form long press.
      */
-    private long                                   mLongPressUpdateInterval     = DEFAULT_LONG_PRESS_UPDATE_INTERVAL;
+    private       long                                   mLongPressUpdateInterval     = DEFAULT_LONG_PRESS_UPDATE_INTERVAL;
     /**
      * The number of items show in the selector wheel.
      */
-    private int                                    mWheelItemCount              = DEFAULT_WHEEL_ITEM_COUNT;
+    private       int                                    mWheelItemCount              = DEFAULT_WHEEL_ITEM_COUNT;
     /**
      * The real number of items show in the selector wheel.
      */
-    private int                                    mRealWheelItemCount          = DEFAULT_WHEEL_ITEM_COUNT;
+    private       int                                    mRealWheelItemCount          = DEFAULT_WHEEL_ITEM_COUNT;
     /**
      * The index of the middle selector item.
      */
-    private int                                    mWheelMiddleItemIndex        = mWheelItemCount / 2;
+    private       int                                    mWheelMiddleItemIndex        = mWheelItemCount / 2;
     /**
      * The selector indices whose value are show by the selector.
      */
-    private int[]                                  mSelectorIndices             = new int[mWheelItemCount];
+    private       int[]                                  mSelectorIndices             = new int[mWheelItemCount];
     /**
      * The size of a selector element (text + gap).
      */
-    private int                                    mSelectorElementSize;
+    private       int                                    mSelectorElementSize;
     /**
      * The initial offset of the scroll selector.
      */
-    private int                                    mInitialScrollOffset         = Integer.MIN_VALUE;
+    private       int                                    mInitialScrollOffset         = Integer.MIN_VALUE;
     /**
      * The current offset of the scroll selector.
      */
-    private int                                    mCurrentScrollOffset;
+    private       int                                    mCurrentScrollOffset;
     /**
      * The {@link Locale} responsible for setting the locale.
      */
-    private Locale                                 mLocale;
+    private       Locale                                 mLocale;
     /**
      * The previous X coordinate while scrolling the selector.
      */
-    private int                                    mPreviousScrollerX;
+    private       int                                    mPreviousScrollerX;
     /**
      * The previous Y coordinate while scrolling the selector.
      */
-    private int                                    mPreviousScrollerY;
+    private       int                                    mPreviousScrollerY;
     /**
      * Handle to the reusable command for setting the input text selection.
      */
-    private SetSelectionCommand                    mSetSelectionCommand;
+    private       SetSelectionCommand                    mSetSelectionCommand;
     /**
      * Handle to the reusable command for changing the current value from long press by one.
      */
-    private ChangeCurrentByOneFromLongPressCommand mChangeCurrentByOneFromLongPressCommand;
+    private       ChangeCurrentByOneFromLongPressCommand mChangeCurrentByOneFromLongPressCommand;
     /**
      * The X position of the last down event.
      */
-    private float                                  mLastDownEventX;
+    private       float                                  mLastDownEventX;
     /**
      * The Y position of the last down event.
      */
-    private       float             mLastDownEventY;
+    private       float                                  mLastDownEventY;
     /**
      * The X position of the last down or move event.
      */
-    private       float             mLastDownOrMoveEventX;
+    private       float                                  mLastDownOrMoveEventX;
     /**
      * The Y position of the last down or move event.
      */
-    private       float             mLastDownOrMoveEventY;
+    private       float                                  mLastDownOrMoveEventY;
     /**
      * Determines speed during touch scrolling.
      */
-    private       VelocityTracker   mVelocityTracker;
-    /**
-     * @see ViewConfiguration#getScaledTouchSlop()
-     */
-    private final int               mTouchSlop;
-    /**
-     * @see ViewConfiguration#getScaledMinimumFlingVelocity()
-     */
-    private final int               mMinimumFlingVelocity;
+    private       VelocityTracker                        mVelocityTracker;
     /**
      * @see ViewConfiguration#getScaledMaximumFlingVelocity()
      */
-    private       int               mMaximumFlingVelocity;
+    private       int                                    mMaximumFlingVelocity;
     /**
      * Flag whether the selector should wrap around.
      */
-    private       boolean           mWrapSelectorWheel;
+    private       boolean                                mWrapSelectorWheel;
     /**
      * User choice on whether the selector wheel should be wrapped.
      */
-    private       boolean           mWrapSelectorWheelPreferred  = true;
+    private       boolean                                mWrapSelectorWheelPreferred  = true;
     /**
      * Divider for showing item to be selected while scrolling
      */
-    private Drawable                               mDividerDrawable;
+    private       Drawable                               mDividerDrawable;
     /**
      * The color of the divider.
      */
-    private int                                    mDividerColor                = DEFAULT_DIVIDER_COLOR;
+    private       int                                    mDividerColor                = DEFAULT_DIVIDER_COLOR;
     /**
      * The distance between the two dividers.
      */
-    private int                                    mDividerDistance;
+    private       int                                    mDividerDistance;
     /**
      * The thickness of the divider.
      */
-    private int                                    mDividerThickness;
+    private       int                                    mDividerThickness;
     /**
      * The top of the top divider.
      */
-    private int                                    mTopDividerTop;
+    private       int                                    mTopDividerTop;
     /**
      * The bottom of the bottom divider.
      */
-    private int                                    mBottomDividerBottom;
+    private       int                                    mBottomDividerBottom;
     /**
      * The left of the top divider.
      */
-    private int                                    mLeftDividerLeft;
+    private       int                                    mLeftDividerLeft;
     /**
      * The right of the right divider.
      */
-    private       int               mRightDividerRight;
+    private       int                                    mRightDividerRight;
     /**
      * The current scroll state of the number picker.
      */
-    private       int               mScrollState                 = OnScrollListener.SCROLL_STATE_IDLE;
+    private       int                                    mScrollState                 = OnScrollListener.SCROLL_STATE_IDLE;
     /**
      * The keycode of the last handled DPAD down event.
      */
-    private       int               mLastHandledDownDpadKeyCode  = -1;
-    /**
-     * Flag whether the selector wheel should hidden until the picker has focus.
-     */
-    private final boolean           mHideWheelUntilFocused;
+    private       int                                    mLastHandledDownDpadKeyCode  = -1;
     /**
      * The orientation of this widget.
      */
-    private       int               mOrientation;
+    private       int                                    mOrientation;
     /**
      * The order of this widget.
      */
-    private       int               mOrder;
+    private       int                                    mOrder;
     /**
      * Flag whether the fading edge should enabled.
      */
-    private       boolean           mFadingEdgeEnabled           = true;
+    private       boolean                                mFadingEdgeEnabled           = true;
     /**
      * The strength of fading edge while drawing the selector.
      */
-    private       float             mFadingEdgeStrength          = DEFAULT_FADING_EDGE_STRENGTH;
+    private       float                                  mFadingEdgeStrength          = DEFAULT_FADING_EDGE_STRENGTH;
     /**
      * Flag whether the scroller should enabled.
      */
-    private       boolean           mScrollerEnabled             = true;
+    private       boolean                                mScrollerEnabled             = true;
     /**
      * The line spacing multiplier of the text.
      */
-    private       float             mLineSpacingMultiplier       = DEFAULT_LINE_SPACING_MULTIPLIER;
+    private       float                                  mLineSpacingMultiplier       = DEFAULT_LINE_SPACING_MULTIPLIER;
     /**
      * The coefficient to adjust (divide) the max fling velocity.
      */
-    private       int               mMaxFlingVelocityCoefficient = DEFAULT_MAX_FLING_VELOCITY_COEFFICIENT;
-    /**
-     * The context of this widget.
-     */
-    private final Context           mContext;
+    private       int                                    mMaxFlingVelocityCoefficient = DEFAULT_MAX_FLING_VELOCITY_COEFFICIENT;
     /**
      * The number formatter for current locale.
      */
-    private       NumberFormat      mNumberFormatter;
-    /**
-     * The view configuration of this widget.
-     */
-    private final ViewConfiguration mViewConfiguration;
+    private       NumberFormat                           mNumberFormatter;
 
     /**
      * Create a new number picker.
@@ -2522,8 +2500,8 @@ public class NumberPicker extends LinearLayout {
 
         /**
          * Called upon a change of the current value.
-         * @param picker The NumberPicker associated with this listener.
          *
+         * @param picker The NumberPicker associated with this listener.
          */
         void onValueChange(NumberPicker picker);
     }

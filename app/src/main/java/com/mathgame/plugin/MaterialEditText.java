@@ -46,6 +46,9 @@ public class MaterialEditText extends AppCompatEditText {
     private static final int                   FLOATING_LABEL_NONE      = 0;
     private static final int                   FLOATING_LABEL_NORMAL    = 1;
     private static final int                   FLOATING_LABEL_HIGHLIGHT = 2;
+    private final        ArgbEvaluator         focusEvaluator           = new ArgbEvaluator();
+    private final        Paint                 paint                    = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final        TextPaint             textPaint                = new TextPaint(Paint.ANTI_ALIAS_FLAG);
     /**
      * the spacing between the main text and the inner top padding.
      */
@@ -213,27 +216,24 @@ public class MaterialEditText extends AppCompatEditText {
     /**
      * Left Icon
      */
-    private       Bitmap[]              iconLeftBitmaps;
+    private              Bitmap[]              iconLeftBitmaps;
     /**
      * Right Icon
      */
-    private       Bitmap[]              iconRightBitmaps;
-    private       int                   iconSize;
-    private       int                   iconOuterWidth;
-    private       int                   iconOuterHeight;
-    private       int                   iconPadding;
-    private       ColorStateList        textColorStateList;
-    private       ColorStateList        textColorHintStateList;
-    private final ArgbEvaluator         focusEvaluator = new ArgbEvaluator();
-    private final Paint                 paint          = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private final TextPaint             textPaint      = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-    private       StaticLayout          textLayout;
-    private       ObjectAnimator        labelAnimator;
-    private       ObjectAnimator        labelFocusAnimator;
-    private       ObjectAnimator        bottomLinesAnimator;
-    private       OnFocusChangeListener innerFocusChangeListener;
-    private       OnFocusChangeListener outerFocusChangeListener;
-    private       List<METValidator>    validators;
+    private              Bitmap[]              iconRightBitmaps;
+    private              int                   iconSize;
+    private              int                   iconOuterWidth;
+    private              int                   iconOuterHeight;
+    private              int                   iconPadding;
+    private              ColorStateList        textColorStateList;
+    private              ColorStateList        textColorHintStateList;
+    private              StaticLayout          textLayout;
+    private              ObjectAnimator        labelAnimator;
+    private              ObjectAnimator        labelFocusAnimator;
+    private              ObjectAnimator        bottomLinesAnimator;
+    private              OnFocusChangeListener innerFocusChangeListener;
+    private              OnFocusChangeListener outerFocusChangeListener;
+    private              List<METValidator>    validators;
 
     public MaterialEditText(Context context) {
         super(context);

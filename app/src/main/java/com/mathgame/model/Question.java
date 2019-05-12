@@ -1,12 +1,12 @@
 package com.mathgame.model;
 
 public class Question {
-    private String  operation;
-    private String  question;
-    private String  answer;
-    private int     a;
-    private int     b;
-    private boolean isCorrect;
+    private           String   operation;
+    private           String   question;
+    private           String   answer;
+    private           int      a;
+    private           int      b;
+    private           boolean  isCorrect;
     private transient Listener listener;
 
     public String getOperation() {
@@ -66,12 +66,12 @@ public class Question {
         this.listener = listener;
     }
 
-    public interface Listener {
-        Object getView();
-    }
-
     public Object getView() {
         return listener != null ? listener.getView() : null;
+    }
+
+    public interface Listener {
+        Object getView();
     }
 
 }

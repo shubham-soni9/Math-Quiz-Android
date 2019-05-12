@@ -6,8 +6,8 @@ public interface Codes {
     enum PlayerType {
         SINGLE(R.string.single_player, 1),
         DUAL(R.string.dual_player, 2);
-        final        int label;
         public final int value;
+        final        int label;
 
         PlayerType(int label, int value) {
             this.label = label;

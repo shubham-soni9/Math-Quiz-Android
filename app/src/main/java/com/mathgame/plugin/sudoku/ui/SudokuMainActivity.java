@@ -25,20 +25,16 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mathgame.R;
 import com.mathgame.plugin.sudoku.controller.GameStateManager;
 import com.mathgame.plugin.sudoku.controller.NewLevelManager;
 import com.mathgame.plugin.sudoku.controller.helper.GameInfoContainer;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.game.GameType;
-import com.mathgame.R;
 import com.mathgame.structure.BaseActivity;
-
 
 import java.util.LinkedList;
 import java.util.List;
-
-import static com.mathgame.structure.BaseActivity.MAIN_CONTENT_FADEOUT_DURATION;
-import static com.mathgame.structure.BaseActivity.NAVDRAWER_LAUNCH_DELAY;
 
 
 public class SudokuMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,9 +43,9 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
     private TextView          difficultyText;
     private SharedPreferences settings;
     private ImageView         arrowLeft;
-    private ImageView arrowRight;
-    private DrawerLayout   drawer;
-    private NavigationView mNavigationView;
+    private ImageView         arrowRight;
+    private DrawerLayout      drawer;
+    private NavigationView    mNavigationView;
 
     /**
      * The {@link ViewPager} that will host the section contents.
