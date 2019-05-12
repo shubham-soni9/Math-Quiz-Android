@@ -4,6 +4,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:paddingRight="42dp"
-    tools:context="com.thedarken.myo.twothousandfortyeight.eu.thedarken.myo.MainActivity"
+    android:paddingEnd="42dp"
     tools:ignore="MergeRootFrame" />

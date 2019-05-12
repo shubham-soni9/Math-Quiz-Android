@@ -14,7 +14,7 @@ import android.util.Log;
 import android.util.Pair;
 
 import com.mathgame.R;
-import com.mathgame.plugin.sudoku.appdata.Constants;
+import com.mathgame.appdata.Constant;
 import com.mathgame.plugin.sudoku.controller.constant.Action;
 import com.mathgame.plugin.sudoku.controller.constant.PrintStyle;
 import com.mathgame.plugin.sudoku.controller.constant.QQWing;
@@ -249,7 +249,7 @@ public class GeneratorService extends IntentService {
     private void showNotification(GameType gameType, GameDifficulty gameDifficulty) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (notificationChannel == null) {
-                notificationChannel = new NotificationChannel(Constants.GENERATOR_NOTIFICATION, getString(R.string.generator_notification), NotificationManager.IMPORTANCE_LOW);
+                notificationChannel = new NotificationChannel(Constant.GENERATOR_NOTIFICATION, getString(R.string.generator_notification), NotificationManager.IMPORTANCE_LOW);
             }
             NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
             if (notificationManager != null) {
@@ -257,7 +257,7 @@ public class GeneratorService extends IntentService {
             }
         }
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, Constants.GENERATOR_NOTIFICATION);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, Constant.GENERATOR_NOTIFICATION);
         builder.setContentTitle(getString(R.string.app_name));
         builder.setContentText(getString(R.string.generating));
         builder.setSubText(getString(gameType.getStringResID()) + ", " + getString(gameDifficulty.getStringResID()));
@@ -266,7 +266,7 @@ public class GeneratorService extends IntentService {
         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
         builder.setWhen(0);
         builder.setSmallIcon(R.drawable.splash_icon);
-        builder.setChannelId(Constants.GENERATOR_NOTIFICATION);
+        builder.setChannelId(Constant.GENERATOR_NOTIFICATION);
         startForeground(50, builder.build());
     }
 

@@ -2,6 +2,7 @@ package com.mathgame.appdata;
 
 public interface Constant {
     String EMPTY = "";
+    String GENERATOR_NOTIFICATION = "generator_notification";
 
     interface MathSign {
         String ADDITION       = "+";

@@ -94,7 +94,6 @@
 
         <activity android:name=".plugin.sudoku.ui.SudokuGameActivity" />
 
-
         <activity
             android:name=".plugin.sudoku.ui.LoadGameActivity"
             android:screenOrientation="portrait" />

@@ -56,30 +56,10 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         settings = PreferenceManager.getDefaultSharedPreferences(this);
-
         NewLevelManager newLevelManager = NewLevelManager.getInstance(getApplicationContext(), settings);
-
-        // check if we need to pre generate levels.
         newLevelManager.checkAndRestock();
-
         setContentView(R.layout.activity_main_menu);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-
-            /*
-          The {@link android.support.v4.view.PagerAdapter} that will provide
-          fragments for each of the sections. We use a
-          {@link FragmentPagerAdapter} derivative, which will keep every
-          loaded fragment in memory. If this becomes too memory intensive, it
-          may be best to switch to a
-          {@link android.support.v4.app.FragmentStatePagerAdapter}.
-         */
         final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.scroller);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -132,12 +112,6 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
         });
         GameDifficulty lastChosenDifficulty = GameDifficulty.valueOf(settings.getString("lastChosenDifficulty", "Moderate"));
         difficultyBar.setRating(GameDifficulty.getValidDifficultyList().indexOf(lastChosenDifficulty) + 1);
-        /*LayerDrawable stars = (LayerDrawable)difficultyBar.getProgressDrawable();
-        stars.getDrawable(2).setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);//Color for Stars fully selected
-        stars.getDrawable(1).setColorFilter(getResources().getColor(R.color.middleblue), PorterDuff.Mode.SRC_ATOP);//Color for Stars partially selected
-        stars.getDrawable(0).setColorFilter(getResources().getColor(R.color.lightblue), PorterDuff.Mode.SRC_ATOP);//color for stars not selected
-        */
-        // on first create always check for loadable levels!
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean("savesChanged", true);
         editor.apply();
@@ -146,11 +120,6 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
 
         // set Nav_Bar
         drawer = findViewById(R.id.drawer_layout_main);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
         mNavigationView = findViewById(R.id.nav_view_main);
         mNavigationView.setNavigationItemSelectedListener(this);
 
