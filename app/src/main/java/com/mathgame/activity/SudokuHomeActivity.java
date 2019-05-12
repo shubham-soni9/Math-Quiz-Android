@@ -57,7 +57,6 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
         final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.scroller);
-        ImageView ivMoreOption = findViewById(R.id.ivMoreOption);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // set default gametype choice to whatever was chosen the last time.
@@ -125,7 +124,7 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
 
     @Override
     public void onClick(View view) {
-        Intent intent = null;
+        Intent intent;
         switch (view.getId()) {
             case R.id.arrow_left:
                 mViewPager.arrowScroll(View.FOCUS_LEFT);
@@ -135,6 +134,7 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
                 break;
             case R.id.continueButton:
                 intent = new Intent(this, SudokuHistoryActivity.class);
+                startActivity(intent);
                 break;
             case R.id.playButton:
                 GameType gameType = GameType.getValidGameTypes().get(mViewPager.getCurrentItem());
@@ -152,6 +152,7 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
                     intent = new Intent(this, SudokuGameActivity.class);
                     intent.putExtra("gameType", gameType.name());
                     intent.putExtra("gameDifficulty", gameDifficulty.name());
+                    startActivity(intent);
                 } else {
                     newLevelManager.checkAndRestock();
                     Toast t = Toast.makeText(getApplicationContext(), R.string.generating, Toast.LENGTH_SHORT);
@@ -165,13 +166,6 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
             case R.id.ivMoreOption:
                 showMoreOption(view);
                 break;
-        }
-
-        if (intent != null) {
-            View mainContent = findViewById(R.id.main_content);
-            if (mainContent != null)
-                mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
-            startActivity(intent);
         }
     }
 
@@ -265,7 +259,6 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
      * one of the sections/tabs/pages.
      */
     class SectionsPagerAdapter extends FragmentPagerAdapter {
-
         SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -273,11 +266,8 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a GameTypeFragment (defined as a static inner class below).
             return GameTypeFragment.newInstance(position);
         }
-
 
         @Override
         public int getCount() {
