@@ -97,13 +97,13 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
         winLinePosition = TTTConstants.NONE;
 
         gridPaint = new Paint();
-        gridPaint.setColor(getContext().getResources().getColor(R.color.holo_green_dark, null));
+        gridPaint.setColor(getContext().getResources().getColor(R.color.colorPrimary, null));
         gridPaint.setAntiAlias(true);
         gridPaint.setStrokeWidth(dpToPx(STROKE_WIDTH));
         gridPaint.setStrokeCap(Paint.Cap.ROUND);
 
         signPaint = new Paint();
-        signPaint.setColor(getContext().getResources().getColor(R.color.snackbar_bg_color_success, null));
+        signPaint.setColor(getContext().getResources().getColor(R.color.holo_green_dark, null));
         signPaint.setAntiAlias(true);
         signPaint.setStyle(Paint.Style.STROKE);
         signPaint.setStrokeWidth(dpToPx(STROKE_WIDTH));
