@@ -18,8 +18,8 @@ import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.plugin.tictactoe.selection.SelectionActivity;
 import com.mathgame.structure.BaseActivity;
-import com.sudoku.ui.SudokuMainActivity;
-import com.util.Transition;
+import com.mathgame.plugin.sudoku.ui.SudokuMainActivity;
+import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
 import com.mathgame.plugin.slidegame.SlideAdditionActivity;

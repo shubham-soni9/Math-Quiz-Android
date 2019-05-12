@@ -13,7 +13,7 @@ import com.mathgame.appdata.Codes;
 import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
-import com.util.Transition;
+import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
 import java.util.List;

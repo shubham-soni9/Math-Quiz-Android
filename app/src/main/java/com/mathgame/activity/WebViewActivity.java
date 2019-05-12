@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.mathgame.R;
 import com.mathgame.appdata.Keys;
 import com.mathgame.structure.BaseActivity;
-import com.util.Transition;
+import com.mathgame.util.Transition;
 
 public class WebViewActivity extends BaseActivity {
 

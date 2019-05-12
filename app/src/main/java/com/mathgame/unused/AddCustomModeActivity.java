@@ -20,7 +20,7 @@ import com.mathgame.model.CustomMode;
 import com.mathgame.plugin.MaterialEditText;
 import com.mathgame.plugin.numberpicker.NumberPicker;
 import com.mathgame.structure.BaseActivity;
-import com.util.Transition;
+import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 import com.rey.material.widget.CheckBox;
 import com.rey.material.widget.RadioButton;

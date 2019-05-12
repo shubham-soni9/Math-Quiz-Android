@@ -85,6 +85,37 @@
         <activity
             android:name="com.mathgame.plugin.slidegame.SlideAdditionActivity"
             android:label="@string/app_name" />
+
+        <activity
+            android:name=".plugin.sudoku.ui.SudokuMainActivity"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name=".plugin.sudoku.ui.SettingsActivity"
+            android:parentActivityName=".plugin.sudoku.ui.SudokuMainActivity" />
+
+        <activity
+            android:name=".plugin.sudoku.ui.SudokuGameActivity"
+            />
+
+
+        <activity android:name=".plugin.sudoku.ui.LoadGameActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".plugin.sudoku.ui.StatsActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".plugin.sudoku.ui.HelpActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <service
+            android:name=".plugin.sudoku.controller.GeneratorService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mathgame.R;
-import com.util.Transition;
+import com.mathgame.util.Transition;
 
 import com.mathgame.plugin.slidegame.slideview.Game;
 import com.mathgame.plugin.slidegame.slideview.GameView;

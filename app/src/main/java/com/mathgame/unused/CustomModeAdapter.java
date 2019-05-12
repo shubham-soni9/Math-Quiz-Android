@@ -17,7 +17,7 @@ import com.mathgame.activity.SingleGameActivity;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Dependencies;
 import com.mathgame.model.CustomMode;
-import com.util.Transition;
+import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
 import java.util.List;

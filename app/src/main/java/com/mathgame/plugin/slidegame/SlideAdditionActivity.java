@@ -7,8 +7,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.mathgame.R;
-import com.structure.BaseActivity;
 import com.mathgame.plugin.slidegame.tools.KeyListener;
+import com.mathgame.structure.BaseActivity;
 
 
 public class SlideAdditionActivity extends BaseActivity {

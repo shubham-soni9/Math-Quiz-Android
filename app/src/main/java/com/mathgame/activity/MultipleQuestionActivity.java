@@ -18,7 +18,7 @@ import com.mathgame.model.CustomMode;
 import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.QuestionUtils;
-import com.util.Transition;
+import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 import com.mathgame.util.ViewUtils;
 
