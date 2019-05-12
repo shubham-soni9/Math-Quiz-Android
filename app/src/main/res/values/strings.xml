@@ -246,5 +246,6 @@
     <string name="skip">Skip</string>
     <string name="menu_tutorial">Tutorial</string>
     <string name="generator_notification">Generator Notification</string>
+    <string name="history">History</string>
 </resources>
 

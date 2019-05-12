@@ -27,6 +27,8 @@ import com.mathgame.plugin.sudoku.controller.helper.GameInfoContainer;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.ui.listener.IDeleteDialogFragmentListener;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.Transition;
+import com.mathgame.util.Utils;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -34,8 +36,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TimeZone;
 
-public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragmentListener {
-
+public class SudokuHistoryActivity extends BaseActivity implements IDeleteDialogFragmentListener, View.OnClickListener {
     private List<GameInfoContainer> loadableGameList;
     private SharedPreferences       settings;
     private LoadGameAdapter         loadGameAdapter;
@@ -46,20 +47,10 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
         setContentView(R.layout.activity_load_game);
         settings = PreferenceManager.getDefaultSharedPreferences(this);
         init();
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Respond to the action bar's Up/Home button
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void init() {
-
         GameStateManager gameStateManager = new GameStateManager(this, settings);
         loadableGameList = gameStateManager.loadGameStateInfo();
 
@@ -80,7 +71,6 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
                 DeleteDialogFragment deleteDialog = new DeleteDialogFragment();
                 deleteDialog.setPosition(position);
                 deleteDialog.show(getFragmentManager(), "DeleteDialogFragment");
-
                 return true;
             }
         };
@@ -90,7 +80,9 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
         listView.setAdapter(loadGameAdapter);
         listView.setOnItemClickListener(clickListener);
         listView.setOnItemLongClickListener(longClickListener);
-
+        TextView tvTitle=findViewById(R.id.tvTitle);
+        tvTitle.setText(R.string.history);
+        Utils.setOnClickListener(this, findViewById(R.id.ivBack));
     }
 
     @Override
@@ -98,6 +90,18 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
         GameStateManager gameStateManager = new GameStateManager(getApplicationContext(), settings);
         gameStateManager.deleteGameStateFile(loadableGameList.get(position));
         loadGameAdapter.delete(position);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.ivBack) {
+            onBackPressed();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Transition.exit(this);
     }
 
     public static class DeleteDialogFragment extends DialogFragment {

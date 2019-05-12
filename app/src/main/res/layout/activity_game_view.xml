@@ -1,101 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true">
-    <!-- tools:openDrawer="start" -->
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:context="tu_darmstadt.sudoku.activity.GameActivity">
+        android:layout_height="55dp"
+        android:background="@color/white_100"
+        android:clipChildren="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="14">
 
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/_15dp"
+            android:onClick="onClick"
+            android:paddingEnd="@dimen/_15dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/gameModeText"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_5dp"
+            android:textColor="@color/colorPrimary"
             android:layout_height="wrap_content"
-            android:clipChildren="false"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_weight="7"
+            android:text="@string/gametype_unspecified" />
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:clipChildren="false"
-                app:popupTheme="@style/AppTheme.PopupOverlay">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:clipChildren="false">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:clipChildren="false"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:weightSum="14">
+            <TextView
+                android:id="@+id/difficultyText"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/difficulty_easy" />
 
-                    <TextView
-                        android:id="@+id/gameModeText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="7"
-                        android:text="@string/gametype_unspecified" />
+            <RatingBar
+                android:id="@+id/gameModeStar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/difficultyText"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:numStars="4" />
+        </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:clipChildren="false">
+        <TextView
+            android:id="@+id/timerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:gravity="end"
+            tools:text="00:00" />
+    </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/difficultyText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/difficulty_easy" />
 
-                        <RatingBar
-                            android:id="@+id/gameModeStar"
-                            style="?android:attr/ratingBarStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/difficultyText"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:clickable="false"
-                            android:numStars="4" />
-                    </RelativeLayout>
+    <View
+        android:id="@+id/vwShadow"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/shadow_gradient" />
 
-                    <TextView
-                        android:id="@+id/timerView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:gravity="end"
-                        android:text="00:00" />
-                </LinearLayout>
-            </android.support.v7.widget.Toolbar>
+    <include layout="@layout/content_game_view" />
 
-        </android.support.design.widget.AppBarLayout>
+</LinearLayout>
 
-        <include layout="@layout/content_game_view" />
-
-    </android.support.design.widget.CoordinatorLayout>
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/white"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/menu_drawer" />
-
-</android.support.v4.widget.DrawerLayout>

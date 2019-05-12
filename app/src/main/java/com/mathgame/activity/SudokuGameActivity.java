@@ -10,17 +10,9 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -44,11 +36,12 @@ import com.mathgame.plugin.sudoku.ui.view.SudokuKeyboardLayout;
 import com.mathgame.plugin.sudoku.ui.view.SudokuSpecialButtonLayout;
 import com.mathgame.plugin.sudoku.ui.view.WinDialog;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.Transition;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class SudokuGameActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, IGameSolvedListener, ITimerListener, IHintDialogFragmentListener, IResetDialogFragmentListener {
+public class SudokuGameActivity extends BaseActivity implements IGameSolvedListener, ITimerListener, IHintDialogFragmentListener, IResetDialogFragmentListener {
 
     private final SaveLoadStatistics        statistics = new SaveLoadStatistics(this);
     private       GameController            gameController;
@@ -56,8 +49,6 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
     private       SudokuKeyboardLayout      keyboard;
     private       SudokuSpecialButtonLayout specialButtonLayout;
     private       TextView                  timerView;
-    private       TextView                  viewName;
-    private       RatingBar                 ratingBar;
     private       WinDialog                 dialog     = null;
     private       boolean                   gameSolved = false;
 
@@ -81,7 +72,6 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (sharedPref.getBoolean("pref_keep_screen_on", true)) {
@@ -134,16 +124,9 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
             gameSolved = savedInstanceState.getInt("gameSolved") == 1;
         }
 
-
         setContentView(R.layout.activity_game_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //toolbar.addView();
-
-        if (gameSolved) {
-            disableReset();
-        }
-
         //Create new GameField
         layout = findViewById(R.id.sudokuLayout);
         gameController.registerGameSolvedListener(this);
@@ -177,27 +160,17 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
 
 
         //set GameName
-        viewName = findViewById(R.id.gameModeText);
+        TextView viewName = findViewById(R.id.gameModeText);
         viewName.setText(getString(gameController.getGameType().getStringResID()));
 
         //set Rating bar
         List<GameDifficulty> difficutyList = GameDifficulty.getValidDifficultyList();
         int numberOfStarts = difficutyList.size();
-        ratingBar = findViewById(R.id.gameModeStar);
+        RatingBar ratingBar = findViewById(R.id.gameModeStar);
         ratingBar.setMax(numberOfStarts);
         ratingBar.setNumStars(numberOfStarts);
         ratingBar.setRating(difficutyList.indexOf(gameController.getDifficulty()) + 1);
         ((TextView) findViewById(R.id.difficultyText)).setText(getString(gameController.getDifficulty().getStringResID()));
-
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         if (gameSolved) {
             layout.setEnabled(false);
@@ -257,99 +230,25 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            finish();
-            super.onBackPressed();
-        }
-    }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.game_view, menu);
-        return true;
-    }*/
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        Intent intent = null;
-
-        if (id == R.id.menu_reset) {
-            ResetConfirmationDialog resetDialog = new ResetConfirmationDialog();
-            resetDialog.show(getFragmentManager(), "ResetDialogFragment");
-        } else if (id == R.id.nav_newgame) {//create new game
-            intent = new Intent(this, SudokuHomeActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            finish();
-        } else if (id == R.id.menu_settings) {//open settings
-            intent = new Intent(this, SudokuSettingsActivity.class);
-            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SudokuSettingsActivity.GamePreferenceFragment.class.getName());
-            intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
-        } else if (id == R.id.nav_highscore) {// see highscore list
-            intent = new Intent(this, StatsActivity.class);
-        } else if (id == R.id.menu_help) {//open about page
-            intent = new Intent(this, HelpActivity.class);
-        }
-
-        if (intent != null) {
-
-            final Intent i = intent;
-            // fade out the active activity
-            View mainContent = findViewById(R.id.main_content);
-            if (mainContent != null) {
-                mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
-            }
-
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(i);
-
-                }
-            }, NAVDRAWER_LAUNCH_DELAY);
-
-        }
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        Transition.exit(this);
     }
 
 
     @Override
     public void onSolved() {
         gameSolved = true;
-
         gameController.pauseTimer();
         gameController.deleteGame(this);
-        disableReset();
-
-        //Show time hints new plus old best time
-
         statistics.saveGameStats();
 
         boolean isNewBestTime = gameController.getUsedHints() == 0
                 && statistics.loadStats(gameController.getGameType(), gameController.getDifficulty()).getMinTime() >= gameController.getTime();
 
         dialog = new WinDialog(this, R.style.WinDialog, timeToString(gameController.getTime()), String.valueOf(gameController.getUsedHints()), isNewBestTime);
-
         dialog.getWindow().setContentView(R.layout.win_screen_layout);
-        //dialog.setContentView(getLayoutInflater().inflate(R.layout.win_screen_layout,null));
-        //dialog.setContentView(R.layout.win_screen_layout);
         dialog.getWindow().setGravity(Gravity.CENTER_HORIZONTAL);
         dialog.getWindow().setBackgroundDrawableResource(R.color.transparent);
-
-        //((TextView)dialog.findViewById(R.id.win_hints)).setText(gameController.getUsedHints());
-        //((TextView)dialog.findViewById(R.id.win_time)).setText(timeToString(gameController.getTime()));
-
         dialog.show();
-
         final Activity activity = this;
         dialog.findViewById(R.id.win_continue_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -384,13 +283,6 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
         m = (minutes < 10) ? "0" + minutes : String.valueOf(minutes);
         h = (hours < 10) ? "0" + hours : String.valueOf(hours);
         return h + ":" + m + ":" + s;
-    }
-
-
-    private void disableReset() {
-        NavigationView navView = findViewById(R.id.nav_view);
-        Menu navMenu = navView.getMenu();
-        navMenu.findItem(R.id.menu_reset).setEnabled(false);
     }
 
     @Override

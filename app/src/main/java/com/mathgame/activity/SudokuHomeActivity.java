@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.PopupMenu;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,14 +35,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class SudokuHomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenuItemClickListener, View.OnClickListener {
     private RatingBar         difficultyBar;
     private TextView          difficultyText;
     private SharedPreferences settings;
     private ImageView         arrowLeft;
     private ImageView         arrowRight;
-    private ImageView         ivMoreOption;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -57,7 +57,7 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
         final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.scroller);
-        ivMoreOption = findViewById(R.id.ivMoreOption);
+        ImageView ivMoreOption = findViewById(R.id.ivMoreOption);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // set default gametype choice to whatever was chosen the last time.
@@ -112,63 +112,66 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
         editor.putBoolean("savesChanged", true);
         editor.apply();
         refreshContinueButton();
+    }
 
-
+    private void showMoreOption(final View view) {
+        PopupMenu popup = new PopupMenu(this, view, Gravity.NO_GRAVITY, 0, R.style.appPopupMenu);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_drawer_sudoku, popup.getMenu());
+        popup.setOnMenuItemClickListener(this);
+        popup.show();
     }
 
 
+    @Override
     public void onClick(View view) {
+        Intent intent = null;
+        switch (view.getId()) {
+            case R.id.arrow_left:
+                mViewPager.arrowScroll(View.FOCUS_LEFT);
+                break;
+            case R.id.arrow_right:
+                mViewPager.arrowScroll(View.FOCUS_RIGHT);
+                break;
+            case R.id.continueButton:
+                intent = new Intent(this, SudokuHistoryActivity.class);
+                break;
+            case R.id.playButton:
+                GameType gameType = GameType.getValidGameTypes().get(mViewPager.getCurrentItem());
+                int index = difficultyBar.getProgress() - 1;
+                GameDifficulty gameDifficulty = GameDifficulty.getValidDifficultyList().get(index < 0 ? 0 : index);
 
-        Intent i = null;
-
-        int i1 = view.getId();
-        if (i1 == R.id.arrow_left) {
-            mViewPager.arrowScroll(View.FOCUS_LEFT);
-        } else if (i1 == R.id.arrow_right) {
-            mViewPager.arrowScroll(View.FOCUS_RIGHT);
-        } else if (i1 == R.id.continueButton) {
-            i = new Intent(this, LoadGameActivity.class);
-        } else if (i1 == R.id.playButton) {
-            GameType gameType = GameType.getValidGameTypes().get(mViewPager.getCurrentItem());
-            int index = difficultyBar.getProgress() - 1;
-            GameDifficulty gameDifficulty = GameDifficulty.getValidDifficultyList().get(index < 0 ? 0 : index);
-
-            NewLevelManager newLevelManager = NewLevelManager.getInstance(getApplicationContext(), settings);
-            if (newLevelManager.isLevelLoadable(gameType, gameDifficulty)) {
-                // save current setting for later
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putString("lastChosenGameType", gameType.name());
-                editor.putString("lastChosenDifficulty", gameDifficulty.name());
-                editor.apply();
-
-                // send everything to game activity
-                i = new Intent(this, SudokuGameActivity.class);
-                i.putExtra("gameType", gameType.name());
-                i.putExtra("gameDifficulty", gameDifficulty.name());
-            } else {
-                newLevelManager.checkAndRestock();
-                Toast t = Toast.makeText(getApplicationContext(), R.string.generating, Toast.LENGTH_SHORT);
-                t.show();
-                return;
-            }
+                NewLevelManager newLevelManager = NewLevelManager.getInstance(getApplicationContext(), settings);
+                if (newLevelManager.isLevelLoadable(gameType, gameDifficulty)) {
+                    // save current setting for later
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putString("lastChosenGameType", gameType.name());
+                    editor.putString("lastChosenDifficulty", gameDifficulty.name());
+                    editor.apply();
+                    // send everything to game activity
+                    intent = new Intent(this, SudokuGameActivity.class);
+                    intent.putExtra("gameType", gameType.name());
+                    intent.putExtra("gameDifficulty", gameDifficulty.name());
+                } else {
+                    newLevelManager.checkAndRestock();
+                    Toast t = Toast.makeText(getApplicationContext(), R.string.generating, Toast.LENGTH_SHORT);
+                    t.show();
+                    return;
+                }
+                break;
+            case R.id.ivBack:
+                onBackPressed();
+                break;
+            case R.id.ivMoreOption:
+                showMoreOption(view);
+                break;
         }
 
-        final Intent intent = i;
-
         if (intent != null) {
-
             View mainContent = findViewById(R.id.main_content);
-            if (mainContent != null) {
+            if (mainContent != null)
                 mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
-            }
-
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(intent);
-                }
-            }, MAIN_CONTENT_FADEOUT_DURATION);
-
+            startActivity(intent);
         }
     }
 
@@ -193,51 +196,25 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        final int id = item.getItemId();
-
-
-        // return if we are not going to another page
-        if (id == R.id.nav_newgame_main) {
-            return true;
-        }
-
-        // delay transition so the drawer can close
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                goToNavigationItem(id);
-            }
-        }, NAVDRAWER_LAUNCH_DELAY);
-
-        // fade out the active activity
-        View mainContent = findViewById(R.id.main_content);
-        if (mainContent != null) {
-            mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
-        }
-
-        return true;
-    }
-
-    private void goToNavigationItem(int id) {
+    public boolean onMenuItemClick(MenuItem menuItem) {
         Intent intent;
-
-        if (id == R.id.menu_settings_main) {//open settings
-            intent = new Intent(this, SudokuSettingsActivity.class);
-            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SudokuSettingsActivity.GamePreferenceFragment.class.getName());
-            intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_highscore_main) {// see highscore list
-
-            intent = new Intent(this, StatsActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.menu_help_main) {//open about page
-            intent = new Intent(this, HelpActivity.class);
-            startActivity(intent);
-
+        switch (menuItem.getItemId()) {
+            case R.id.menu_settings: /**/
+                intent = new Intent(this, SudokuSettingsActivity.class);
+                intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SudokuSettingsActivity.GamePreferenceFragment.class.getName());
+                intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
+                startActivity(intent);
+                return true;
+            case R.id.nav_highscore:
+                intent = new Intent(this, StatsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.menu_help:
+                intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -275,12 +252,8 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
             View rootView = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
             GameType gameType = GameType.getValidGameTypes().get(getArguments().getInt(ARG_SECTION_NUMBER));
-
             ImageView imageView = rootView.findViewById(R.id.gameTypeImage);
-
             imageView.setImageResource(gameType.getResIDImage());
-
-
             TextView textView = rootView.findViewById(R.id.section_label);
             textView.setText(getString(gameType.getStringResID()));
             return rootView;
