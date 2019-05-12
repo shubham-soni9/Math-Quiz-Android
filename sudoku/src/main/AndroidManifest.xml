@@ -9,43 +9,43 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="org.secuso.ui.SplashActivity"
+            android:name="com.secuso.ui.SplashActivity"
             android:theme="@style/SplashTheme" />
 
         <activity
-            android:name="org.secuso.ui.MainActivity"
+            android:name="com.secuso.ui.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.secuso.ui.TutorialActivity"
+            android:name="com.secuso.ui.TutorialActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.secuso.ui.SettingsActivity"
+            android:name="com.secuso.ui.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="org.secuso.ui.MainActivity" />
+            android:parentActivityName="com.secuso.ui.MainActivity" />
 
         <activity
-            android:name="org.secuso.ui.GameActivity"
+            android:name="com.secuso.ui.GameActivity"
             android:label="@string/title_activity_game_view"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name="org.secuso.ui.AboutActivity" />
+        <activity android:name="com.secuso.ui.AboutActivity" />
 
-        <activity android:name="org.secuso.ui.LoadGameActivity" />
+        <activity android:name="com.secuso.ui.LoadGameActivity" />
 
         <activity
-            android:name="org.secuso.ui.StatsActivity"
+            android:name="com.secuso.ui.StatsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.secuso.ui.HelpActivity"
+            android:name="com.secuso.ui.HelpActivity"
             android:label="@string/title_activity_help" />
 
         <service
-            android:name="org.secuso.controller.GeneratorService"
+            android:name="com.secuso.controller.GeneratorService"
             android:enabled="true"
             android:exported="false" />
     </application>
