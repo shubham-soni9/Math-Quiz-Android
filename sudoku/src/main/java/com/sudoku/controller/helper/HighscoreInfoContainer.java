@@ -19,8 +19,6 @@ public class HighscoreInfoContainer {
     private int            numberOfGamesNoHints = 0;
     private int            timeNoHints          = 0;
 
-    private int amountOfSavedArguments = 8;
-
     public HighscoreInfoContainer() {
 
     }
@@ -55,6 +53,7 @@ public class HighscoreInfoContainer {
     public void setInfosFromFile(String s) {
         if (s.isEmpty()) return;
         String[] strings = s.split("/");
+        int amountOfSavedArguments = 8;
         if (strings.length != amountOfSavedArguments) {
             throw new IllegalArgumentException("Argument Exception");
         }
@@ -140,24 +139,23 @@ public class HighscoreInfoContainer {
     }
 
     public String getActualStats() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(time);
-        sb.append("/");
-        sb.append(numberOfHintsUsed);
-        sb.append("/");
-        sb.append(numberOfGames);
-        sb.append("/");
-        sb.append(minTime);
-        sb.append("/");
-        sb.append(type.name());
-        sb.append("/");
-        sb.append(difficulty.name());
-        sb.append("/");
-        sb.append(numberOfGamesNoHints);
-        sb.append("/");
-        sb.append(timeNoHints);
 
 
-        return sb.toString();
+        String sb = String.valueOf(time) +
+                "/" +
+                numberOfHintsUsed +
+                "/" +
+                numberOfGames +
+                "/" +
+                minTime +
+                "/" +
+                type.name() +
+                "/" +
+                difficulty.name() +
+                "/" +
+                numberOfGamesNoHints +
+                "/" +
+                timeNoHints;
+        return sb;
     }
 }

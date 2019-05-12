@@ -19,8 +19,8 @@ import java.util.List;
 public class FlowLayout extends ViewGroup {
 
     private final ConfigDefinition     config;
-    private       List<LineDefinition> lines = new ArrayList<>();
-    private       List<ViewDefinition> views = new ArrayList<>();
+    private final List<LineDefinition> lines = new ArrayList<>();
+    private final List<ViewDefinition> views = new ArrayList<>();
 
     public FlowLayout(Context context) {
         super(context);
@@ -179,7 +179,7 @@ public class FlowLayout extends ViewGroup {
 
     @Override
     protected LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        return new LayoutParams();
     }
 
     @Override
@@ -323,8 +323,8 @@ public class FlowLayout extends ViewGroup {
             this.readStyleParameters(context, attributeSet);
         }
 
-        LayoutParams(int width, int height) {
-            super(width, height);
+        LayoutParams() {
+            super(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
 
         LayoutParams(ViewGroup.LayoutParams layoutParams) {

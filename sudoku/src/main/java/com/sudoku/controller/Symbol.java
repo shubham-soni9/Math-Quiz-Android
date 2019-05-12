@@ -13,7 +13,7 @@ public enum Symbol {
     Greek(new String[]{"α", "β", "γ", "δ", "ε", "ϛ", "ζ", "η", "θ", "ι", "ια", "ιβ", "ιγ", "ιδ", "ιε", "ιϛ", "ιζ", "ιη", "ιθ", "κ"}),
     Indian(new String[]{"१", "२", "३", "४", "५", "६", "७", "८", "९", "१०", "११", "१२", "१३", "१४", "१५", "१६", "१७"});
 
-    private String[] map;
+    private final String[] map;
 
     Symbol(String[] map) {
         this.map = map;

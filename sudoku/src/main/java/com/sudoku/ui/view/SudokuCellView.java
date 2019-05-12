@@ -18,18 +18,18 @@ import com.sudoku.game.GameCell;
  */
 public class SudokuCellView extends View {
 
-    GameCell                    mGameCell;
-    int                         mWidth;
-    int                         mHeight;
-    int                         mSectionHeight;
-    int                         mSectionWidth;
-    int                         mRow;
-    int                         mCol;
-    int                         size;
-    boolean                     selected;
-    CellHighlightTypes          highlightType = CellHighlightTypes.Default;
-    Symbol                      symbolsToUse  = Symbol.Default;
-    RelativeLayout.LayoutParams params;
+    private GameCell                    mGameCell;
+    private int                         mWidth;
+    private int                         mHeight;
+    private int                         mSectionHeight;
+    private int                         mSectionWidth;
+    private int                         mRow;
+    private int                         mCol;
+    private int                         size;
+    private boolean                     selected;
+    private CellHighlightTypes          highlightType = CellHighlightTypes.Default;
+    private Symbol                      symbolsToUse  = Symbol.Default;
+    private RelativeLayout.LayoutParams params;
 
 
     public SudokuCellView(Context context) {
@@ -129,12 +129,12 @@ public class SudokuCellView extends View {
         }
     }
 
-    public void drawBackground(Canvas canvas, int left, int top, int right, int bottom, Paint p) {
+    private void drawBackground(Canvas canvas, int left, int top, int right, int bottom, Paint p) {
         RectF rect = new RectF(left, top, right, bottom);
         canvas.drawRect(rect, p);
     }
 
-    public void drawValue(Canvas canvas) {
+    private void drawValue(Canvas canvas) {
         Paint p = new Paint();
         int root = (int) Math.sqrt(size);
         int j = root + 1;
@@ -145,7 +145,7 @@ public class SudokuCellView extends View {
                     p.setTypeface(Typeface.SANS_SERIF);
                     p.setTextSize(mWidth / 4);
                     p.setTextAlign(Paint.Align.RIGHT);
-                    canvas.drawText(Symbol.getSymbol(symbolsToUse, i), (mWidth * 1 / (size + root)) * k, (mWidth * 1 / (size + root + 1)) * j, p);
+                    canvas.drawText(Symbol.getSymbol(symbolsToUse, i), (mWidth / (size + root)) * k, (mWidth / (size + root + 1)) * j, p);
                     /*canvas.drawText(String.valueOf(1), (mWidth * 1 / 12)*3, (mWidth* 1 / 12)*3, p);
                     canvas.drawText(String.valueOf(2),(mWidth*1/12)*7, (mWidth* 1 / 12)*7,p );
                     canvas.drawText(String.valueOf(3),(mWidth*1/12)*11, (mWidth* 1 / 12)*11,p );*/

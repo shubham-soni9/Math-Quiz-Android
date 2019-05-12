@@ -18,14 +18,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by Chris on 21.11.2015.
  */
-public class QQWingController {
+class QQWingController {
 
-    final QQWingOptions opts = new QQWingOptions();
+    private final QQWingOptions opts = new QQWingOptions();
 
-    private int[]             level;
-    private int[]             solution;
-    private LinkedList<int[]> generated       = new LinkedList<>();
-    private boolean           solveImpossible = false;
+    private       int[]             level;
+    private       int[]             solution;
+    private final LinkedList<int[]> generated       = new LinkedList<>();
+    private       boolean           solveImpossible = false;
 
     private static long getMicroseconds() {
         return new Date().getTime() * 1000;
@@ -93,7 +93,7 @@ public class QQWingController {
 
                         // Create a new puzzle board
                         // and set the options
-                        private QQWing ss = createQQWing();
+                        private final QQWing ss = createQQWing();
 
                         private QQWing createQQWing() {
                             QQWing ss = new QQWing(opts.gameType, opts.gameDifficulty);
@@ -186,7 +186,6 @@ public class QQWingController {
                                 }
                             } catch (Exception e) {
                                 Log.e("QQWing", "Exception Occured", e);
-                                return;
                             }
                         }
 
@@ -196,9 +195,9 @@ public class QQWingController {
         }
 
         if (opts.needNow) {
-            for (int i = 0; i < threads.length; i++) {
+            for (Thread thread : threads) {
                 try {
-                    threads[i].join();
+                    thread.join();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -209,9 +208,7 @@ public class QQWingController {
     private boolean getPuzzleToSolve(int[] puzzle) {
         if (level != null) {
             if (puzzle.length == level.length) {
-                for (int i = 0; i < level.length; i++) {
-                    puzzle[i] = level[i];
-                }
+                System.arraycopy(level, 0, puzzle, 0, level.length);
             }
             level = null;
             return true;
@@ -224,18 +221,18 @@ public class QQWingController {
         boolean        needNow           = false;
         boolean        printPuzzle       = false;
         boolean        printSolution     = false;
-        boolean        printHistory      = false;
-        boolean        printInstructions = false;
+        final boolean printHistory      = false;
+        final boolean printInstructions = false;
         boolean        timer             = false;
         boolean        countSolutions    = false;
         Action         action            = Action.NONE;
-        boolean        logHistory        = false;
-        PrintStyle     printStyle        = PrintStyle.READABLE;
+        final boolean    logHistory = false;
+        final PrintStyle printStyle = PrintStyle.READABLE;
         int            numberToGenerate  = 1;
-        boolean        printStats        = false;
+        final boolean printStats = false;
         GameDifficulty gameDifficulty    = GameDifficulty.Unspecified;
         GameType       gameType          = GameType.Unspecified;
-        Symmetry       symmetry          = Symmetry.NONE;
+        final Symmetry symmetry = Symmetry.NONE;
         int            threads           = Runtime.getRuntime().availableProcessors();
     }
 

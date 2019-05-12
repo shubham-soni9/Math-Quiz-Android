@@ -134,11 +134,9 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.reset_button:
-                board.setEnabled(false);
-                board.resetBoard();
-                break;
+        if (v.getId() == R.id.reset_button) {
+            board.setEnabled(false);
+            board.resetBoard();
         }
     }
 
@@ -149,7 +147,7 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
     @TargetApi(Build.VERSION_CODES.M)
     private void showBoardResetSnackBar() {
         Snackbar snackbar = Snackbar.make(findViewById(R.id.reset_button), "Board Reset", Snackbar.LENGTH_SHORT);
-        TextView sbText = (TextView) snackbar.getView().findViewById(R.id.snackbar_text);
+        TextView sbText = snackbar.getView().findViewById(R.id.snackbar_text);
         sbText.setTextColor(getResources().getColor(R.color.holo_orange_dark, null));
         snackbar.show();
     }
@@ -164,7 +162,7 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
     }
 
     @Override
-    public void onSignAdded(@TTTConstants.Sign int sign, int row, int column) {
+    public void onSignAdded(@TTTConstants.Sign int sign) {
         switch (gameMode) {
             case TTTConstants.SINGLE_PLAYER:
 
@@ -239,7 +237,7 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
      * @param column Column index of sign.
      */
 
-    public void putSign(@TTTConstants.Sign int sign, int row, int column) {
+    private void putSign(@TTTConstants.Sign int sign, int row, int column) {
         brain.updateBoard(sign, row, column);
         board.addSignToBoard(sign, row, column);
     }

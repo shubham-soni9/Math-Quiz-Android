@@ -14,7 +14,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    public Locale locale() {
-        return Dependencies.getLocale(this);
+    protected Locale locale() {
+        return Dependencies.getLocale();
     }
 }

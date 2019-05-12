@@ -20,6 +20,7 @@ class Brain {
     private static final int DIAGONAL   = 2;
     private static Brain INSTANCE;
     private @TTTConstants.Sign
+    final
     int[][] board = new int[3][3];
     private int rowOfResult;
     private int columnOfResult;
@@ -28,13 +29,13 @@ class Brain {
     int computerSign;
     private @TTTConstants.Sign
     int playerSign;
-    private OnProcessCompleteListener onProcessCompleteListener;
+    private       OnProcessCompleteListener onProcessCompleteListener;
     // References used by isWin function.
-    private int[] winSequence = new int[3];
-    private int[] row         = new int[3];
-    private int[] column      = new int[3];
-    private int[] diagonal1   = new int[3];
-    private int[] diagonal2   = new int[3];
+    private final int[]                     winSequence = new int[3];
+    private final int[]                     row         = new int[3];
+    private final int[]                     column      = new int[3];
+    private final int[]                     diagonal1   = new int[3];
+    private final int[]                     diagonal2   = new int[3];
     private Brain() {
 
     }
@@ -345,7 +346,7 @@ class Brain {
     }
 
     @IntDef({HORIZONTAL, VERTICAL, DIAGONAL})
-    @interface DirectionOfWinLine {
+    private @interface DirectionOfWinLine {
 
     }
 

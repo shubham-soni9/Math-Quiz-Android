@@ -3,7 +3,7 @@ package com.mathgame.plugin.flowlayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LineDefinition {
+class LineDefinition {
     private final List<ViewDefinition> views = new ArrayList<>();
     private final ConfigDefinition     config;
     private       int                  lineLength;

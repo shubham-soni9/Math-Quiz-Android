@@ -18,10 +18,6 @@ import com.mathgame.util.Utils;
 
 public class GameTypeActivity extends BaseActivity implements View.OnClickListener {
     private CustomMode customMode;
-    private TextView   tvHeader;
-    private CardView   cvLearn, cvPractice, cvTest, cvDual, cvMultiple, cvYesNo;
-    private AppCompatImageView ivSettings;
-    private TextView tvMultipleQuestions;
 
 
     @Override
@@ -33,14 +29,14 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void init() {
-        cvLearn = findViewById(R.id.cvLearn);
-        cvPractice = findViewById(R.id.cvPractice);
-        cvDual = findViewById(R.id.cvDual);
-        cvMultiple = findViewById(R.id.cvMultiple);
-        cvTest = findViewById(R.id.cvTest);
-        cvYesNo = findViewById(R.id.cvYesNo);
-        ivSettings = findViewById(R.id.ivSettings);
-        tvMultipleQuestions=findViewById(R.id.tvMultipleQuestions);
+        CardView cvLearn = findViewById(R.id.cvLearn);
+        CardView cvPractice = findViewById(R.id.cvPractice);
+        CardView cvDual = findViewById(R.id.cvDual);
+        CardView cvMultiple = findViewById(R.id.cvMultiple);
+        CardView cvTest = findViewById(R.id.cvTest);
+        CardView cvYesNo = findViewById(R.id.cvYesNo);
+        AppCompatImageView ivSettings = findViewById(R.id.ivSettings);
+        TextView tvMultipleQuestions = findViewById(R.id.tvMultipleQuestions);
         Utils.setOnClickListener(this, findViewById(R.id.ivBack), cvLearn, cvDual, cvMultiple, cvPractice, cvTest, cvYesNo
                 , ivSettings);
     }
@@ -54,7 +50,7 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void setHeader() {
-        tvHeader = findViewById(R.id.tvHeader);
+        TextView tvHeader = findViewById(R.id.tvHeader);
         switch (customMode.getMathOperations()) {
             case Constant.MathSign.ADDITION:
                 tvHeader.setText(R.string.addition);
@@ -112,12 +108,12 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
                 .customMode(customMode)
                 .listener(new SettingsDialog.Listener() {
                     @Override
-                    public void performPositiveAction(int purpose, CustomMode backpack) {
+                    public void performPositiveAction() {
 
                     }
 
                     @Override
-                    public void performNegativeAction(int purpose, Bundle backpack) {
+                    public void performNegativeAction() {
 
                     }
                 }).build().show();

@@ -217,7 +217,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+    public void onValueChange(NumberPicker picker) {
         if (picker.getId() == R.id.npNumberOfQuestion) {
             npNumberOfSkip.setMaxValue(npNumberOfQuestion.getValue());
         }

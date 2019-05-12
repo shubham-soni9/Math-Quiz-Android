@@ -8,35 +8,32 @@ import java.util.List;
 
 
 public class Game {
-    private static final int startingMaxValue = 2048;
-    private int endingMaxValue;
-    private GameGrid mGameGrid = null;
-    static final int DEFAULT_HEIGHT_X = 4;
-    static final int DEFAULT_WIDTH_Y = 4;
-    static final int DEFAULT_TILE_TYPES = 24;
-    private static final int DEFAULT_STARTING_TILES = 2;
-    private int mPositionsX = DEFAULT_HEIGHT_X;
-    private int mPositionsY = DEFAULT_WIDTH_Y;
-    private int mTileTypes = DEFAULT_TILE_TYPES;
-    private int mStartingTiles = DEFAULT_STARTING_TILES;
-    private boolean mCanUndo;
-    private State mLastGameState;
-    private State mBufferGameState;
-    private State mGameState = State.NORMAL;
-    private Context mContext;
-    private GameView mView;
-    private ScoreListener mScoreListener;
-    private long mScore = 0;
-    private long mLastScore = 0;
-    private long mBufferScore = 0;
-    private GameStateListener mGameStateListener;
+    private static final int               startingMaxValue       = 2048;
+    private              int               endingMaxValue;
+    private              GameGrid          mGameGrid              = null;
+    static final         int               DEFAULT_HEIGHT_X       = 4;
+    static final         int               DEFAULT_WIDTH_Y        = 4;
+    static final         int               DEFAULT_TILE_TYPES     = 24;
+    private static final int               DEFAULT_STARTING_TILES = 2;
+    private final        int               mPositionsX            = DEFAULT_HEIGHT_X;
+    private final        int               mPositionsY            = DEFAULT_WIDTH_Y;
+    private              boolean           mCanUndo;
+    private              State             mLastGameState;
+    private              State             mBufferGameState;
+    private              State             mGameState             = State.NORMAL;
+    private              GameView          mView;
+    private              ScoreListener     mScoreListener;
+    private              long              mScore                 = 0;
+    private              long              mLastScore             = 0;
+    private              long              mBufferScore           = 0;
+    private              GameStateListener mGameStateListener;
 
     public enum State {
         NORMAL, WON, LOST, ENDLESS, ENLESS_WON
     }
 
     public Game(Context context) {
-        mContext = context;
+        Context mContext = context;
     }
 
 
@@ -96,8 +93,8 @@ public class Game {
         mScoreListener = listener;
     }
 
-    boolean isGameWon() {
-        return mGameState == State.WON || mGameState == State.ENLESS_WON;
+    private boolean isGameWon() {
+        return mGameState != State.WON && mGameState != State.ENLESS_WON;
     }
 
     public boolean isGameOnGoing() {
@@ -126,6 +123,7 @@ public class Game {
             saveUndoState();
             mGameGrid.clearGrid();
         }
+        int mTileTypes = DEFAULT_TILE_TYPES;
         endingMaxValue = (int) Math.pow(2, mTileTypes - 1);
         mView.updateGrid(mGameGrid);
 
@@ -139,6 +137,7 @@ public class Game {
     }
 
     private void addStartTiles() {
+        int mStartingTiles = DEFAULT_STARTING_TILES;
         for (int xx = 0; xx < mStartingTiles; xx++) {
             addRandomTile();
         }
@@ -252,7 +251,7 @@ public class Game {
                         updateScore(mScore + merged.getValue());
 
                         // The mighty 2048 tile
-                        if (merged.getValue() >= winValue() && !isGameWon()) {
+                        if (merged.getValue() >= winValue() && isGameWon()) {
                             if (mGameState == State.ENDLESS) {
                                 updateGameState(State.ENLESS_WON);
                             } else if (mGameState == State.NORMAL) {
@@ -294,8 +293,7 @@ public class Game {
             nextCell = new Position(previous.getX() + vector.getX(),
                     previous.getY() + vector.getY());
         } while (mGameGrid.isCellWithinBounds(nextCell) && mGameGrid.isCellAvailable(nextCell));
-        Position[] answer = {previous, nextCell};
-        return answer;
+        return new Position[]{previous, nextCell};
     }
 
     public void updateGameState(State state) {
@@ -305,7 +303,7 @@ public class Game {
     }
 
     private void checkLose() {
-        if (!isMovePossible() && !isGameWon()) {
+        if (!isMovePossible() && isGameWon()) {
             updateGameState(State.LOST);
             mView.setGameState(mGameState);
             endGame();
@@ -318,7 +316,7 @@ public class Game {
     }
 
     private List<Integer> buildTraversalsX(Position vector) {
-        List<Integer> traversals = new ArrayList<Integer>();
+        List<Integer> traversals = new ArrayList<>();
         for (int xx = 0; xx < mPositionsX; xx++) {
             traversals.add(xx);
         }
@@ -329,7 +327,7 @@ public class Game {
     }
 
     private List<Integer> buildTraversalsY(Position vector) {
-        List<Integer> traversals = new ArrayList<Integer>();
+        List<Integer> traversals = new ArrayList<>();
         for (int xx = 0; xx < mPositionsY; xx++) {
             traversals.add(xx);
         }

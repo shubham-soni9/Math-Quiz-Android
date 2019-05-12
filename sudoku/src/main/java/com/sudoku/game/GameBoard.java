@@ -2,9 +2,11 @@ package com.sudoku.game;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.sudoku.game.listener.IModelChangedListener;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,12 +26,12 @@ public class GameBoard implements Cloneable, Parcelable {
         }
     };
     //private int id;
-    private GameType     gameType;
-    private int          sectionHeight;
-    private int          sectionWidth;
+    private final       GameType                      gameType;
+    private final       int                           sectionHeight;
+    private final       int                           sectionWidth;
     //private List additionalSections
-    private int          size;
-    private GameCell[][] field;
+    private final       int                           size;
+    private             GameCell[][]                  field;
 
     public GameBoard(GameType gameType) {
         this.gameType = gameType;
@@ -104,27 +106,25 @@ public class GameBoard implements Cloneable, Parcelable {
         return field[row][col];
     }
 
-    public GameCell[][] getField() {
+    private GameCell[][] getField() {
         return field;
     }
 
     public LinkedList<GameCell> getRow(final int row) {
-        LinkedList<GameCell> result = new LinkedList<GameCell>();
-        for (int i = 0; i < size; i++) {
-            result.add(field[row][i]);
-        }
+        LinkedList<GameCell> result = new LinkedList<>();
+        result.addAll(Arrays.asList(field[row]).subList(0, size));
         return result;
     }
 
     public LinkedList<GameCell> getColumn(final int col) {
-        LinkedList<GameCell> result = new LinkedList<GameCell>();
+        LinkedList<GameCell> result = new LinkedList<>();
         for (int i = 0; i < size; i++) {
             result.add(field[i][col]);
         }
         return result;
     }
 
-    public LinkedList<GameCell> getSection(final int sec) {
+    private LinkedList<GameCell> getSection(final int sec) {
         return actionOnCells(new ICellAction<LinkedList<GameCell>>() {
             @Override
             public LinkedList<GameCell> action(GameCell gc, LinkedList<GameCell> existing) {
@@ -146,9 +146,9 @@ public class GameBoard implements Cloneable, Parcelable {
     }
 
     public <T> T actionOnCells(ICellAction<T> ca, T existing) {
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                existing = ca.action(field[i][j], existing);
+        for (GameCell[] gameCells : field) {
+            for (int j = 0; j < gameCells.length; j++) {
+                existing = ca.action(gameCells[j], existing);
             }
         }
         return existing;
@@ -165,9 +165,9 @@ public class GameBoard implements Cloneable, Parcelable {
         // this will automatically build the CellConflict list. so we reset it before we call the checks
 
         for (int i = 0; i < size; i++) {
-            if (!checkList(getRow(i), errorList)) solved = false;
-            if (!checkList(getColumn(i), errorList)) solved = false;
-            if (!checkList(getSection(i), errorList)) solved = false;
+            if (checkList(getRow(i), errorList)) solved = false;
+            if (checkList(getColumn(i), errorList)) solved = false;
+            if (checkList(getSection(i), errorList)) solved = false;
         }
         return solved;
     }
@@ -200,7 +200,7 @@ public class GameBoard implements Cloneable, Parcelable {
                 }
             }
         }
-        return isNothingEmpty ? (errorList.size() == 0) : false;
+        return !isNothingEmpty || (errorList.size() != 0);
     }
 
     @Override
@@ -218,6 +218,7 @@ public class GameBoard implements Cloneable, Parcelable {
         return clone;
     }
 
+    @NonNull
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -299,8 +300,8 @@ public class GameBoard implements Cloneable, Parcelable {
         dest.writeInt(sectionWidth);
         dest.writeInt(size);
 
-        for (int i = 0; i < field.length; i++) {
-            dest.writeTypedArray(field[i], 0);
+        for (GameCell[] gameCells : field) {
+            dest.writeTypedArray(gameCells, 0);
         }
 
     }

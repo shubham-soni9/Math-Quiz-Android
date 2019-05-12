@@ -36,7 +36,7 @@ public class SelectionActivity extends AppCompatActivity implements SelectionFra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         modeSelectionFragment = SelectionFragment.newInstance(getResources().getString(

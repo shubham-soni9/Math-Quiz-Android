@@ -46,7 +46,7 @@ public class ScoreKeeper implements Game.ScoreListener {
         editor.commit();
     }
 
-    void setScore(long score) {
+    private void setScore(long score) {
         mScore = score;
         if (mScoreDisplay != null)
             mScoreDisplay.setText("" + mScore);

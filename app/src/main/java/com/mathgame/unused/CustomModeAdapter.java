@@ -23,8 +23,8 @@ import com.mathgame.util.Utils;
 import java.util.List;
 
 public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.ViewHolder> {
-    private List<CustomMode> customModeList;
-    private Context          context;
+    private final List<CustomMode> customModeList;
+    private       Context          context;
 
     CustomModeAdapter(List<CustomMode> customModeList) {
         this.customModeList = customModeList;
@@ -48,7 +48,7 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
         holder.tvGameType.setText(Codes.GameType.get(customMode.getGameType()).label);
         int seconds = customMode.getTimerValue() % 60;
         int minutes = customMode.getTimerValue() / 60;
-        holder.tvTimerValue.setText(String.format(Dependencies.getLocale(context), "%s:%s", Utils.convertToTwoDigit(minutes)
+        holder.tvTimerValue.setText(String.format(Dependencies.getLocale(), "%s:%s", Utils.convertToTwoDigit(minutes)
                 , Utils.convertToTwoDigit(seconds)));
         holder.tvOperations.setText(customMode.getMathOperations());
         if (customMode.getPlayerType() == Codes.PlayerType.SINGLE.value) {
@@ -72,9 +72,16 @@ public class CustomModeAdapter extends RecyclerView.Adapter<CustomModeAdapter.Vi
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvTitle, tvQuestionValue, tvVariableValue, tvSkipValue, tvGameType, tvTimerType, tvTimerValue, tvOperations;
-        private ImageView ivPlayerType;
-        private CardView  rlParent;
+        private final TextView  tvTitle;
+        private final TextView  tvQuestionValue;
+        private final TextView  tvVariableValue;
+        private final TextView  tvSkipValue;
+        private final TextView  tvGameType;
+        private final TextView  tvTimerType;
+        private final TextView  tvTimerValue;
+        private final TextView  tvOperations;
+        private final ImageView ivPlayerType;
+        private final CardView  rlParent;
 
         ViewHolder(View itemView) {
             super(itemView);

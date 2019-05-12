@@ -20,12 +20,14 @@
 // @formatter:on
 package com.sudoku.controller.constant;
 
+import android.support.annotation.NonNull;
+
 /**
  * While solving the puzzle, log steps taken in a log item. This is useful for
  * later printing out the solve history or gathering statistics about how hard
  * the puzzle was to solve.
  */
-public class LogItem {
+class LogItem {
 
     /**
      * The recursion level at which this item was gathered. Used for backing out
@@ -81,7 +83,7 @@ public class LogItem {
     /**
      * Get the row (1 indexed), or -1 if no row
      */
-    public int getRow() {
+    private int getRow() {
         if (position <= -1) return -1;
         return QQWing.cellToRow(position) + 1;
     }
@@ -89,7 +91,7 @@ public class LogItem {
     /**
      * Get the column (1 indexed), or -1 if no column
      */
-    public int getColumn() {
+    private int getColumn() {
         if (position <= -1) return -1;
         return QQWing.cellToColumn(position) + 1;
     }
@@ -104,7 +106,7 @@ public class LogItem {
     /**
      * Get the value, or -1 if no value
      */
-    public int getValue() {
+    private int getValue() {
         if (value <= 0) return -1;
         return value;
     }
@@ -113,7 +115,7 @@ public class LogItem {
      * Print the current log item. The message used is determined by the type of
      * log item.
      */
-    public String getDescription() {
+    private String getDescription() {
         StringBuilder sb = new StringBuilder();
         sb.append("Round: ").append(getRound());
         sb.append(" - ");
@@ -132,6 +134,7 @@ public class LogItem {
         return sb.toString();
     }
 
+    @NonNull
     public String toString() {
         return getDescription();
     }

@@ -41,9 +41,9 @@ public class GeneratorService extends IntentService {
 
     private static final String TAG              = GeneratorService.class.getSimpleName();
     public static final  String ACTION_GENERATE  = TAG + " ACTION_GENERATE";
-    public static final  String ACTION_STOP      = TAG + " ACTION_STOP";
-    public static final  String EXTRA_GAMETYPE   = TAG + " EXTRA_GAMETYPE";
-    public static final  String EXTRA_DIFFICULTY = TAG + " EXTRA_DIFFICULTY";
+    private static final String ACTION_STOP      = TAG + " ACTION_STOP";
+    private static final String EXTRA_GAMETYPE   = TAG + " EXTRA_GAMETYPE";
+    private static final String EXTRA_DIFFICULTY = TAG + " EXTRA_DIFFICULTY";
 
     private final QQWingOptions opts = new QQWingOptions();
 
@@ -51,7 +51,7 @@ public class GeneratorService extends IntentService {
     private final  DatabaseHelper                       dbHelper       = new DatabaseHelper(this);
     //private Handler mHandler = new Handler();
     private        int[]                                level;
-    private        LinkedList<int[]>                    generated      = new LinkedList<>();
+    private final  LinkedList<int[]>                    generated      = new LinkedList<>();
     private static NotificationChannel                  notificationChannel;
 
 
@@ -144,7 +144,7 @@ public class GeneratorService extends IntentService {
         Runnable generationRunnable = new Runnable() {
             // Create a new puzzle board
             // and set the options
-            private QQWing ss = createQQWing();
+            private final QQWing ss = createQQWing();
 
             private QQWing createQQWing() {
                 QQWing ss = new QQWing(opts.gameType, opts.gameDifficulty);
@@ -288,9 +288,7 @@ public class GeneratorService extends IntentService {
     private boolean getPuzzleToSolve(int[] puzzle) {
         if (level != null) {
             if (puzzle.length == level.length) {
-                for (int i = 0; i < level.length; i++) {
-                    puzzle[i] = level[i];
-                }
+                System.arraycopy(level, 0, puzzle, 0, level.length);
             }
             level = null;
             return true;
@@ -303,15 +301,15 @@ public class GeneratorService extends IntentService {
         boolean        needNow           = false;
         boolean        printPuzzle       = false;
         boolean        printSolution     = false;
-        boolean        printHistory      = false;
-        boolean        printInstructions = false;
+        final boolean printHistory      = false;
+        final boolean printInstructions = false;
         boolean        timer             = false;
         boolean        countSolutions    = false;
         Action         action            = Action.NONE;
-        boolean        logHistory        = false;
-        PrintStyle     printStyle        = PrintStyle.READABLE;
-        int            numberToGenerate  = 1;
-        boolean        printStats        = false;
+        final boolean    logHistory       = false;
+        final PrintStyle printStyle       = PrintStyle.READABLE;
+        final int        numberToGenerate = 1;
+        final boolean    printStats       = false;
         GameDifficulty gameDifficulty    = GameDifficulty.Unspecified;
         GameType       gameType          = GameType.Unspecified;
         Symmetry       symmetry          = Symmetry.NONE;

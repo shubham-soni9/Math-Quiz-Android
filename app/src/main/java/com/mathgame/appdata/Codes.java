@@ -6,7 +6,8 @@ public interface Codes {
     enum PlayerType {
         SINGLE(R.string.single_player, 1),
         DUAL(R.string.dual_player, 2);
-        public int label, value;
+        final        int label;
+        public final int value;
 
         PlayerType(int label, int value) {
             this.label = label;
@@ -30,7 +31,8 @@ public interface Codes {
         PER_TEST(R.string.per_test, 1),
         PER_QUESTION(R.string.per_question, 2);
 
-        public int label, value;
+        final int label;
+        final int value;
 
         TimerType(int label, int value) {
             this.label = label;
@@ -54,7 +56,8 @@ public interface Codes {
         YES_NO(R.string.yes_no, 1),
         MANUAL_INPUT(R.string.manual_input, 2);
 
-        public int label, value;
+        public final int label;
+        public final int value;
 
         GameType(int label, int value) {
             this.label = label;

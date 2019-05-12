@@ -24,8 +24,8 @@ public class GameGrid {
         return null;
     }
 
-    ArrayList<Position> getAvailableCells() {
-        ArrayList<Position> availableCells = new ArrayList<Position>();
+    private ArrayList<Position> getAvailableCells() {
+        ArrayList<Position> availableCells = new ArrayList<>();
         for (int xx = 0; xx < mGrid.length; xx++) {
             for (int yy = 0; yy < mGrid[0].length; yy++) {
                 if (mGrid[xx][yy] == null) {
@@ -69,7 +69,7 @@ public class GameGrid {
                 && 0 <= cell.getY() && cell.getY() < mGrid[0].length;
     }
 
-    boolean isCellWithinBounds(int x, int y) {
+    private boolean isCellWithinBounds(int x, int y) {
         return 0 <= x && x < mGrid.length
                 && 0 <= y && y < mGrid[0].length;
     }
@@ -126,7 +126,7 @@ public class GameGrid {
         }
     }
 
-    void clearUndoGrid() {
+    private void clearUndoGrid() {
         for (int xx = 0; xx < mGrid.length; xx++) {
             for (int yy = 0; yy < mGrid[0].length; yy++) {
                 mUndoGrid[xx][yy] = null;

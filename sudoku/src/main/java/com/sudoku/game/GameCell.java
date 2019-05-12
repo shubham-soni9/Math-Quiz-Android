@@ -2,6 +2,7 @@ package com.sudoku.game;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.sudoku.game.listener.IModelChangedListener;
 
@@ -24,14 +25,14 @@ public class GameCell implements Cloneable, Parcelable {
             return new GameCell[size];
         }
     };
-    private int                                      row                   = 0;
-    private int                                      col                   = 0;
-    private int                                      value                 = 0;
-    private boolean                                  fixed                 = false;
-    private int                                      noteCount             = 0;
-    private boolean                                  notes[];
-    private int                                      size                  = 0;
-    private List<IModelChangedListener>              modelChangedListeners = new LinkedList<IModelChangedListener>();
+    private             int                          row                   = 0;
+    private             int                          col                   = 0;
+    private             int                          value                 = 0;
+    private             boolean                      fixed                 = false;
+    private             int                          noteCount             = 0;
+    private             boolean[]                    notes;
+    private             int                          size                  = 0;
+    private             List<IModelChangedListener>  modelChangedListeners = new LinkedList<>();
 
     public GameCell(int row, int col, int size) {
         this(row, col, size, 0);
@@ -136,7 +137,7 @@ public class GameCell implements Cloneable, Parcelable {
     /**
      * Clear the notes array (set everything to false).
      */
-    public void deleteNotes() {
+    private void deleteNotes() {
         noteCount = 0;
         notes = new boolean[size];
         notifyListeners();
@@ -168,6 +169,7 @@ public class GameCell implements Cloneable, Parcelable {
         return true;
     }
 
+    @NonNull
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -201,12 +203,11 @@ public class GameCell implements Cloneable, Parcelable {
         return sb.toString();
     }
 
-    public Boolean reset() {
+    public void reset() {
         if (isFixed()) {
-            return false;
+            return;
         }
         setValue(0);
-        return true;
     }
 
     @Override
@@ -230,9 +231,9 @@ public class GameCell implements Cloneable, Parcelable {
         }
     }
 
-    public void notifyListeners() {
+    private void notifyListeners() {
         for (IModelChangedListener m : modelChangedListeners) {
-            m.onModelChange(this);
+            m.onModelChange();
         }
     }
 

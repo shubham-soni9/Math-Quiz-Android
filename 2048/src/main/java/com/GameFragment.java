@@ -42,7 +42,6 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
     private TextView mScoreText;
     private TextView mHighScoreText;
     private TextView mOverlay;
-    private ScoreKeeper mScoreKeeper;
     private ImageButton mResetButton, mUndoButton;
     private TextView              mTitleText;
     private SlideAdditionActivity mSlideAdditionActivity;
@@ -76,7 +75,7 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mScoreKeeper = new ScoreKeeper(getActivity());
+        ScoreKeeper mScoreKeeper = new ScoreKeeper(getActivity());
         mScoreKeeper.setViews(mScoreText, mHighScoreText);
         mGame = new Game(getActivity());
         mGame.setup(mGameView);
@@ -155,7 +154,7 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode) {
         if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
             mGame.move(Game.DIRECTION_DOWN);
             return true;

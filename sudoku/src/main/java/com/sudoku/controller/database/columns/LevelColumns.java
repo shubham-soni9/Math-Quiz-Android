@@ -13,25 +13,25 @@ public class LevelColumns implements BaseColumns {
 
     public static final String TABLE_NAME = "levels";
 
-    public static final String DIFFICULTY = "level_difficulty";
-    public static final String GAMETYPE   = "level_gametype";
-    public static final String PUZZLE     = "level_puzzle";
-    public static final String[] PROJECTION = {
+    public static final  String   DIFFICULTY         = "level_difficulty";
+    public static final  String   GAMETYPE           = "level_gametype";
+    private static final String   PUZZLE             = "level_puzzle";
+    public static final  String[] PROJECTION         = {
             _ID,
             DIFFICULTY,
             GAMETYPE,
             PUZZLE
     };
-    private static final String TEXT_TYPE    = " TEXT ";
-    private static final String INTEGER_TYPE = " INTEGER ";
-    private static final String COMMA_SEP    = ",";
-    public static String SQL_CREATE_ENTRIES =
+    private static final String   TEXT_TYPE          = " TEXT ";
+    private static final String   INTEGER_TYPE       = " INTEGER ";
+    private static final String   COMMA_SEP          = ",";
+    public static final  String   SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     _ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
                     DIFFICULTY + TEXT_TYPE + COMMA_SEP +
                     GAMETYPE + TEXT_TYPE + COMMA_SEP +
                     PUZZLE + TEXT_TYPE + " )";
-    public static String SQL_DELETE_ENTRIES =
+    public static final  String   SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public static Level getLevel(Cursor c) {

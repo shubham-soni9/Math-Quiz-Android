@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -40,17 +41,12 @@ public class StatsActivity extends BaseActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
@@ -63,10 +59,13 @@ public class StatsActivity extends BaseActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.main_content);
+        /**
+         * The {@link ViewPager} that will host the section contents.
+         */
+        ViewPager mViewPager = findViewById(R.id.main_content);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
 
@@ -86,7 +85,6 @@ public class StatsActivity extends BaseActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        //noinspection SimplifiableIfStatement
         int i = item.getItemId();
         if (i == R.id.action_reset) {
             SaveLoadStatistics.resetStats(this);
@@ -126,7 +124,7 @@ public class StatsActivity extends BaseActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+        static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -134,7 +132,7 @@ public class StatsActivity extends BaseActivity {
             return fragment;
         }
 
-        public void refresh(Context context) {
+        void refresh(Context context) {
             resetGeneral();
             SaveLoadStatistics s = new SaveLoadStatistics(context);
             List<HighscoreInfoContainer> stats = s.loadStats(GameType.getValidGameTypes().get(getArguments().getInt(ARG_SECTION_NUMBER)));
@@ -158,9 +156,9 @@ public class StatsActivity extends BaseActivity {
             int minutes = ((totalTime - seconds) / 60) % 60;
             int hours = (totalTime - minutes - seconds) / (3600);
             String h, m, s;
-            s = (seconds < 10) ? "0" + String.valueOf(seconds) : String.valueOf(seconds);
-            m = (minutes < 10) ? "0" + String.valueOf(minutes) : String.valueOf(minutes);
-            h = (hours < 10) ? "0" + String.valueOf(hours) : String.valueOf(hours);
+            s = (seconds < 10) ? "0" + seconds : String.valueOf(seconds);
+            m = (minutes < 10) ? "0" + minutes : String.valueOf(minutes);
+            h = (hours < 10) ? "0" + hours : String.valueOf(hours);
             return (h + ":" + m + ":" + s);
 
         }
@@ -174,11 +172,11 @@ public class StatsActivity extends BaseActivity {
         private void setGeneralInfo() {
             TextView generalInfoView;
 
-            generalInfoView = (TextView) rootView.findViewById(R.id.numb_of_hints);
+            generalInfoView = rootView.findViewById(R.id.numb_of_hints);
             generalInfoView.setText(String.valueOf(totalHints));
-            generalInfoView = (TextView) rootView.findViewById(R.id.numb_of_total_games);
+            generalInfoView = rootView.findViewById(R.id.numb_of_total_games);
             generalInfoView.setText(String.valueOf(totalGames));
-            generalInfoView = (TextView) rootView.findViewById(R.id.numb_of_total_time);
+            generalInfoView = rootView.findViewById(R.id.numb_of_total_time);
             generalInfoView.setText(formatTime(totalTime));
 
         }
@@ -187,28 +185,28 @@ public class StatsActivity extends BaseActivity {
 
             switch (pos) {
                 case 0:
-                    difficultyBarView = (RatingBar) rootView.findViewById(R.id.first_diff_bar);
-                    difficultyView = (TextView) rootView.findViewById(R.id.first_diff_text);
-                    averageTimeView = (TextView) rootView.findViewById(R.id.first_ava_time);
-                    minTimeView = (TextView) rootView.findViewById(R.id.first_min_time);
+                    difficultyBarView = rootView.findViewById(R.id.first_diff_bar);
+                    difficultyView = rootView.findViewById(R.id.first_diff_text);
+                    averageTimeView = rootView.findViewById(R.id.first_ava_time);
+                    minTimeView = rootView.findViewById(R.id.first_min_time);
                     break;
                 case 1:
-                    difficultyBarView = (RatingBar) rootView.findViewById(R.id.second_diff_bar);
-                    difficultyView = (TextView) rootView.findViewById(R.id.second_diff_text);
-                    averageTimeView = (TextView) rootView.findViewById(R.id.second_ava_time);
-                    minTimeView = (TextView) rootView.findViewById(R.id.second_min_time);
+                    difficultyBarView = rootView.findViewById(R.id.second_diff_bar);
+                    difficultyView = rootView.findViewById(R.id.second_diff_text);
+                    averageTimeView = rootView.findViewById(R.id.second_ava_time);
+                    minTimeView = rootView.findViewById(R.id.second_min_time);
                     break;
                 case 2:
-                    difficultyBarView = (RatingBar) rootView.findViewById(R.id.third_diff_bar);
-                    difficultyView = (TextView) rootView.findViewById(R.id.third_diff_text);
-                    averageTimeView = (TextView) rootView.findViewById(R.id.third_ava_time);
-                    minTimeView = (TextView) rootView.findViewById(R.id.third_min_time);
+                    difficultyBarView = rootView.findViewById(R.id.third_diff_bar);
+                    difficultyView = rootView.findViewById(R.id.third_diff_text);
+                    averageTimeView = rootView.findViewById(R.id.third_ava_time);
+                    minTimeView = rootView.findViewById(R.id.third_min_time);
                     break;
                 case 3:
-                    difficultyBarView = (RatingBar) rootView.findViewById(R.id.fourth_diff_bar);
-                    difficultyView = (TextView) rootView.findViewById(R.id.fourth_diff_text);
-                    averageTimeView = (TextView) rootView.findViewById(R.id.fourth_ava_time);
-                    minTimeView = (TextView) rootView.findViewById(R.id.fourth_min_time);
+                    difficultyBarView = rootView.findViewById(R.id.fourth_diff_bar);
+                    difficultyView = rootView.findViewById(R.id.fourth_diff_text);
+                    averageTimeView = rootView.findViewById(R.id.fourth_ava_time);
+                    minTimeView = rootView.findViewById(R.id.fourth_min_time);
                     break;
                 default:
                     return;
@@ -225,13 +223,13 @@ public class StatsActivity extends BaseActivity {
 
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
             View rootView = inflater.inflate(R.layout.fragment_stats, container, false);
             this.rootView = rootView;
             resetGeneral();
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            TextView textView = rootView.findViewById(R.id.section_label);
 
             SaveLoadStatistics s = new SaveLoadStatistics(this.getContext());
             List<HighscoreInfoContainer> stats = s.loadStats(GameType.getValidGameTypes().get(getArguments().getInt(ARG_SECTION_NUMBER)));
@@ -244,7 +242,7 @@ public class StatsActivity extends BaseActivity {
             }
             setGeneralInfo();
 
-            ImageView imageView = (ImageView) rootView.findViewById(R.id.statistic_image);
+            ImageView imageView = rootView.findViewById(R.id.statistic_image);
             imageView.setImageResource(GameType.getValidGameTypes().get(getArguments().getInt(ARG_SECTION_NUMBER)).getResIDImage());
 
             return rootView;
@@ -255,12 +253,12 @@ public class StatsActivity extends BaseActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 
-        private FragmentManager fm;
+        private final FragmentManager fm;
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
             this.fm = fm;
         }
@@ -283,7 +281,7 @@ public class StatsActivity extends BaseActivity {
             return getString(GameType.getValidGameTypes().get(position).getStringResID());
         }
 
-        public void refresh(Context context) {
+        void refresh(Context context) {
             for (Fragment f : fm.getFragments()) {
                 if (f instanceof PlaceholderFragment) {
                     ((PlaceholderFragment) f).refresh(context);

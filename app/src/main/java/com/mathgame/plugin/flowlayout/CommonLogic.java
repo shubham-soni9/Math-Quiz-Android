@@ -6,7 +6,7 @@ import android.view.View;
 
 import java.util.List;
 
-public class CommonLogic {
+class CommonLogic {
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL   = 1;
 

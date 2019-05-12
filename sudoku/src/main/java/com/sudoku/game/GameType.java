@@ -35,11 +35,11 @@ public enum GameType implements Parcelable {
         }
     };
     // change pictures for unsepc x9x9 and hyper 9x9 as soon as available
-    int resIDString;
-    int sectionWidth;
-    int sectionHeight;
-    int size;
-    int resIDImage;
+    private             int                          resIDString;
+    private             int                          sectionWidth;
+    private             int                          sectionHeight;
+    private             int                          size;
+    private             int                          resIDImage;
 
     GameType(int size, int sectionHeight, int sectionWidth, int resIDString, int resIDImage) {
         this.resIDImage = resIDImage;

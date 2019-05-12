@@ -33,15 +33,16 @@ import java.util.LinkedList;
 public class SudokuSpecialButtonLayout extends LinearLayout implements IHighlightChangedListener {
 
 
-    public int fixedButtonsCount = SudokuButtonType.getSpecialButtons().size();
-    SudokuSpecialButton[] fixedButtons;
-    GameController       gameController;
-    SudokuKeyboardLayout keyboard;
-    Bitmap               bitMap, bitResult;
-    Canvas          canvas;
-    FragmentManager fragmentManager;
+    private final int                   fixedButtonsCount = SudokuButtonType.getSpecialButtons().size();
+    private       SudokuSpecialButton[] fixedButtons;
+    private       GameController        gameController;
+    private       SudokuKeyboardLayout  keyboard;
+    private       Bitmap                bitMap;
+    private       Bitmap                bitResult;
+    private       Canvas                canvas;
+    private       FragmentManager       fragmentManager;
 
-    OnClickListener listener = new OnClickListener() {
+    private final OnClickListener listener = new OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v instanceof SudokuSpecialButton) {
@@ -101,7 +102,7 @@ public class SudokuSpecialButtonLayout extends LinearLayout implements IHighligh
         }
     }
 
-    public void setButtons(int width, GameController gc, SudokuKeyboardLayout key, FragmentManager fm, int orientation) {
+    public void setButtons(GameController gc, SudokuKeyboardLayout key, FragmentManager fm, int orientation) {
         fragmentManager = fm;
         keyboard = key;
         gameController = gc;
@@ -149,26 +150,26 @@ public class SudokuSpecialButtonLayout extends LinearLayout implements IHighligh
 
     @Override
     public void onHighlightChanged() {
-        for (int i = 0; i < fixedButtons.length; i++) {
-            switch (fixedButtons[i].getType()) {
+        for (SudokuSpecialButton fixedButton : fixedButtons) {
+            switch (fixedButton.getType()) {
                 case Undo:
-                    fixedButtons[i].setBackgroundResource(gameController.isUndoAvailable() ?
-                                                                  R.drawable.numpad_highlighted_four : R.drawable.inactive_button);
+                    fixedButton.setBackgroundResource(gameController.isUndoAvailable() ?
+                                                              R.drawable.numpad_highlighted_four : R.drawable.inactive_button);
                     break;
                 case Do:
-                    fixedButtons[i].setBackgroundResource(gameController.isRedoAvailable() ?
-                                                                  R.drawable.numpad_highlighted_four : R.drawable.inactive_button);
+                    fixedButton.setBackgroundResource(gameController.isRedoAvailable() ?
+                                                              R.drawable.numpad_highlighted_four : R.drawable.inactive_button);
                     break;
                 case NoteToggle:
-                    bitMap = BitmapFactory.decodeResource(getResources(), fixedButtons[i].getType().getResID());
+                    bitMap = BitmapFactory.decodeResource(getResources(), fixedButton.getType().getResID());
                     bitResult = Bitmap.createBitmap(bitMap.getWidth(), bitMap.getHeight(), Bitmap.Config.ARGB_8888);
 
                     canvas = new Canvas(bitResult);
                     canvas.rotate(gameController.getNoteStatus() ? 45.0f : 0.0f, bitMap.getWidth() / 2, bitMap.getHeight() / 2);
                     canvas.drawBitmap(bitMap, 0, 0, null);
 
-                    fixedButtons[i].setImageBitmap(bitResult);
-                    fixedButtons[i].setBackgroundResource(gameController.getNoteStatus() ? R.drawable.numpad_highlighted_three : R.drawable.numpad_highlighted_four);
+                    fixedButton.setImageBitmap(bitResult);
+                    fixedButton.setBackgroundResource(gameController.getNoteStatus() ? R.drawable.numpad_highlighted_three : R.drawable.numpad_highlighted_four);
 
                     keyboard.updateNotesEnabled();
 
@@ -181,7 +182,7 @@ public class SudokuSpecialButtonLayout extends LinearLayout implements IHighligh
 
     public static class HintConfirmationDialog extends DialogFragment {
 
-        LinkedList<IHintDialogFragmentListener> listeners = new LinkedList<>();
+        final LinkedList<IHintDialogFragmentListener> listeners = new LinkedList<>();
 
         @Override
         public void onAttach(Activity activity) {

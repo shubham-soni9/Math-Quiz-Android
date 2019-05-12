@@ -22,12 +22,12 @@ import java.util.List;
 public class SaveLoadStatistics implements ITimerListener, IHintListener {
 
 
-    private static String         FILE_EXTENSION = ".txt";
-    private static String         SAVE_PREFIX    = "stat";
-    private static String         SAVES_DIR      = "stats";
-    Context context;
-    private        GameController gc;
-    private int numberOfArguents = 2;
+    private static final String         FILE_EXTENSION   = ".txt";
+    private static final String         SAVE_PREFIX      = "stat";
+    private static final String         SAVES_DIR        = "stats";
+    private final        Context        context;
+    private              GameController gc;
+    private              int            numberOfArguents = 2;
 
     //GameDifficulty, time, gamemode, #hints, AvTime, amountOf Games per GameDifficulty,
     public SaveLoadStatistics(Context context) {
@@ -117,7 +117,7 @@ public class SaveLoadStatistics implements ITimerListener, IHintListener {
         return result;
     }
 
-    public void incTime(GameDifficulty gd, GameType gameType) {
+    private void incTime(GameDifficulty gd, GameType gameType) {
         HighscoreInfoContainer infos = loadStats(gameType, gd);
         infos.incTime();
         saveContainer(infos, gd, gameType);
@@ -125,13 +125,13 @@ public class SaveLoadStatistics implements ITimerListener, IHintListener {
 
     }
 
-    public void incHints(GameDifficulty gd, GameType gameType) {
+    private void incHints(GameDifficulty gd, GameType gameType) {
         HighscoreInfoContainer infos = loadStats(gameType, gd);
         infos.incHints();
         saveContainer(infos, gd, gameType);
     }
 
-    public void saveContainer(HighscoreInfoContainer infos, GameDifficulty gd, GameType t) {
+    private void saveContainer(HighscoreInfoContainer infos, GameDifficulty gd, GameType t) {
 
         File dir = context.getDir(SAVES_DIR, 0);
         File file = new File(dir, SAVE_PREFIX + t.name() + "_" + gd.name() + FILE_EXTENSION);
@@ -139,11 +139,8 @@ public class SaveLoadStatistics implements ITimerListener, IHintListener {
 
         String stats = infos.getActualStats();
         try {
-            FileOutputStream stream = new FileOutputStream(file);
-            try {
+            try (FileOutputStream stream = new FileOutputStream(file)) {
                 stream.write(stats.getBytes());
-            } finally {
-                stream.close();
             }
         } catch (IOException e) {
             Log.e("File Manager", "Could not save game. IOException occured.");
@@ -165,11 +162,8 @@ public class SaveLoadStatistics implements ITimerListener, IHintListener {
         if (file.isFile()) {
             byte[] bytes = new byte[(int) file.length()];
             try {
-                FileInputStream stream = new FileInputStream(file);
-                try {
+                try (FileInputStream stream = new FileInputStream(file)) {
                     stream.read(bytes);
-                } finally {
-                    stream.close();
                 }
             } catch (IOException e) {
                 Log.e("Stats load to save game", "error while load old game Stats");
@@ -192,11 +186,8 @@ public class SaveLoadStatistics implements ITimerListener, IHintListener {
 
         String stats = infoContainer.getActualStats();
         try {
-            FileOutputStream stream = new FileOutputStream(file);
-            try {
+            try (FileOutputStream stream = new FileOutputStream(file)) {
                 stream.write(stats.getBytes());
-            } finally {
-                stream.close();
             }
         } catch (IOException e) {
             Log.e("File Manager", "Could not save game. IOException occured.");

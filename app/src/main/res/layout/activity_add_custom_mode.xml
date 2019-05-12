@@ -233,7 +233,6 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvCustomFieldLabel"
                         style="@style/text_alignment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -274,7 +273,6 @@
                         android:background="@drawable/custom_field_dropdown" />
 
                     <LinearLayout
-                        android:id="@+id/llDropDown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -286,7 +284,6 @@
                         android:paddingBottom="@dimen/custom_field_padding">
 
                         <View
-                            android:id="@+id/vDownArrow"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:background="@drawable/arrow_down" />
@@ -378,7 +375,8 @@
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin">
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -563,7 +561,6 @@
                     android:background="@color/black_10" />
 
                 <RelativeLayout
-                    android:id="@+id/rlCheckbox"
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
                     android:background="@color/black_02"

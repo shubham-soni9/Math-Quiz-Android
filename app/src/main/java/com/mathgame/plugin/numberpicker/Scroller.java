@@ -59,7 +59,7 @@ import android.view.animation.Interpolator;
  *    ...
  * }</pre>
  */
-public class Scroller {
+class Scroller {
     private static final int     DEFAULT_DURATION  = 250;
     private static final int     SCROLL_MODE       = 0;
     private static final int     FLING_MODE        = 1;
@@ -71,7 +71,7 @@ public class Scroller {
     private static final int     NB_SAMPLES        = 100;
     private static final float[] SPLINE_POSITION   = new float[NB_SAMPLES + 1];
     private static final float[] SPLINE_TIME       = new float[NB_SAMPLES + 1];
-    private static       float   DECELERATION_RATE = (float) (Math.log(0.78) / Math.log(0.9));
+    private static final float   DECELERATION_RATE = (float) (Math.log(0.78) / Math.log(0.9));
 
     static {
         float x_min = 0.0f;
@@ -240,7 +240,7 @@ public class Scroller {
      * @return The original velocity less the deceleration. Result may be
      * negative.
      */
-    public float getCurrVelocity() {
+    private float getCurrVelocity() {
         return mMode == FLING_MODE ?
                 mCurrVelocity : mVelocity - mDeceleration * timePassed() / 2000.0f;
     }
@@ -311,9 +311,9 @@ public class Scroller {
      * Call this when you want to know the new location.  If it returns true,
      * the animation is not yet finished.
      */
-    public boolean computeScrollOffset() {
+    public void computeScrollOffset() {
         if (mFinished) {
-            return false;
+            return;
         }
 
         int timePassed = (int) (AnimationUtils.currentAnimationTimeMillis() - mStartTime);
@@ -362,7 +362,6 @@ public class Scroller {
             mCurrY = mFinalY;
             mFinished = true;
         }
-        return true;
     }
 
     /**
@@ -534,7 +533,7 @@ public class Scroller {
      *
      * @return The elapsed time in milliseconds.
      */
-    public int timePassed() {
+    private int timePassed() {
         return (int) (AnimationUtils.currentAnimationTimeMillis() - mStartTime);
     }
 

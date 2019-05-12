@@ -111,7 +111,7 @@ public class SelectionFragment extends Fragment implements View.OnClickListener 
         }
     }
 
-    public boolean isTransitionAnimationEnabled() {
+    private boolean isTransitionAnimationEnabled() {
         return transitionAnimationEnabled;
     }
 

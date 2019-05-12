@@ -536,7 +536,7 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
         if (animation == clickAnimator) {
             SignData signData = signDataList.get(signDataList.size() - 1);
             signData.setAnimationFlag(false);
-            onBoardInteractionListener.onSignAdded(signData.getSign(), signData.getRow(), signData.getColumn());
+            onBoardInteractionListener.onSignAdded(signData.getSign());
             signRadius = 0;
         } else if (animation == resetAnimator) {
             signDataList.clear();
@@ -559,7 +559,7 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
 
         void onBoardClick(BoardView board, int row, int column);
 
-        void onSignAdded(@TTTConstants.Sign int sign, int row, int column);
+        void onSignAdded(@TTTConstants.Sign int sign);
 
         void onBoardReset();
     }

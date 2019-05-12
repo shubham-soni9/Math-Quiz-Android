@@ -45,13 +45,8 @@ public class GameView extends View {
     private Drawable mBackgroundRectangle;
     private Drawable[] mCellRectangle;
     private BitmapDrawable[] mBitmapCell;
-    private Drawable mLightUpRectangle;
-    private Drawable mFadeRectangle;
 
     private long mLastFPSTime = System.nanoTime();
-    private long mCurrentTime = System.nanoTime();
-
-    private float mGameOverTextSize;
 
     private boolean mRefreshLastTime = true;
     private int mNumberOfSquaresX;
@@ -78,7 +73,7 @@ public class GameView extends View {
 
     private void init() {
         try {
-            setSquareCount(Game.DEFAULT_HEIGHT_X, Game.DEFAULT_WIDTH_Y);
+            setSquareCount();
             mCellRectangle = new Drawable[Game.DEFAULT_TILE_TYPES];
             mBitmapCell = new BitmapDrawable[Game.DEFAULT_TILE_TYPES];
 
@@ -111,8 +106,8 @@ public class GameView extends View {
                 mCellRectangle[xx] = getResources().getDrawable(R.drawable.cell_rectangle_524288);
             }
 
-            mLightUpRectangle = getResources().getDrawable(R.drawable.light_up_rectangle);
-            mFadeRectangle = getResources().getDrawable(R.drawable.fade_rectangle);
+            Drawable mLightUpRectangle = getResources().getDrawable(R.drawable.light_up_rectangle);
+            Drawable mFadeRectangle = getResources().getDrawable(R.drawable.fade_rectangle);
             mPaint.setAntiAlias(true);
         } catch (Exception e) {
             System.out.println("Error getting assets?");
@@ -127,9 +122,9 @@ public class GameView extends View {
         mGameState = state;
     }
 
-    private void setSquareCount(int x, int y) {
-        mNumberOfSquaresX = x;
-        mNumberOfSquaresY = y;
+    private void setSquareCount() {
+        mNumberOfSquaresX = Game.DEFAULT_HEIGHT_X;
+        mNumberOfSquaresY = Game.DEFAULT_WIDTH_Y;
         mAnimationGrid = new AnimationGrid(mNumberOfSquaresX, mNumberOfSquaresY);
     }
 
@@ -188,7 +183,7 @@ public class GameView extends View {
         mTextSize = mCellSize * mCellSize / Math.max(mCellSize, mPaint.measureText("0000"));
         mCellTextSize = mTextSize;
 
-        mGameOverTextSize = mTextSize * 2;
+        float mGameOverTextSize = mTextSize * 2;
 
         //Grid Dimensions
         double halfNumSquaresX = mNumberOfSquaresX / 2d;
@@ -317,12 +312,12 @@ public class GameView extends View {
             Bitmap bitmap = Bitmap.createBitmap(mCellSize, mCellSize, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(bitmap);
             drawDrawable(canvas, mCellRectangle[xx], 0, 0, mCellSize, mCellSize);
-            drawTileText(canvas, value, 0, 0);
+            drawTileText(canvas, value);
             mBitmapCell[xx] = new BitmapDrawable(getResources(), bitmap);
         }
     }
 
-    private void drawTileText(Canvas canvas, int value, int sX, int sY) {
+    private void drawTileText(Canvas canvas, int value) {
         int textShiftY = centerText();
         if (value == 2) {
             mPaint.setColor(getResources().getColor(R.color.text_shadow));
@@ -331,11 +326,11 @@ public class GameView extends View {
             mPaint.setColor(getResources().getColor(R.color.text_white));
             mPaint.setShadowLayer(2.0f, 0, 0, getResources().getColor(R.color.text_shadow));
         }
-        canvas.drawText("" + value, sX + mCellSize / 2, sY + mCellSize / 2 - textShiftY, mPaint);
+        canvas.drawText("" + value, 0 + mCellSize / 2, 0 + mCellSize / 2 - textShiftY, mPaint);
     }
 
     private void tick() {
-        mCurrentTime = System.nanoTime();
+        long mCurrentTime = System.nanoTime();
         mAnimationGrid.tickAll(mCurrentTime - mLastFPSTime);
         mLastFPSTime = mCurrentTime;
     }

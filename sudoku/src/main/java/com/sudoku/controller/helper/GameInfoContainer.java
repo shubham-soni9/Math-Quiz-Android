@@ -16,15 +16,15 @@ import java.util.Date;
  */
 public class GameInfoContainer {
 
-    GameType       gameType;
-    int            ID;
-    int            timePlayed;
-    Date           lastTimePlayed;
-    GameDifficulty difficulty;
-    int[]          fixedValues;
-    int[]          setValues;
-    boolean[][]    setNotes;
-    int            hintsUsed;
+    private GameType       gameType;
+    private int            ID;
+    private int            timePlayed;
+    private Date           lastTimePlayed;
+    private GameDifficulty difficulty;
+    private int[]          fixedValues;
+    private int[]          setValues;
+    private boolean[][]    setNotes;
+    private int            hintsUsed;
 
     public GameInfoContainer() {
     }
@@ -33,7 +33,7 @@ public class GameInfoContainer {
         this(ID, difficulty, new Date(), 0, gameType, fixedValues, setValues, setNotes, 0);
     }
 
-    public GameInfoContainer(int ID, GameDifficulty difficulty, Date lastTimePlayed, int timePlayed, GameType gameType, int[] fixedValues, int[] setValues, boolean[][] setNotes, int hintsUsed) {
+    private GameInfoContainer(int ID, GameDifficulty difficulty, Date lastTimePlayed, int timePlayed, GameType gameType, int[] fixedValues, int[] setValues, boolean[][] setNotes, int hintsUsed) {
         this.ID = ID;
         this.timePlayed = timePlayed;
         this.difficulty = difficulty;
@@ -46,26 +46,23 @@ public class GameInfoContainer {
     }
 
     public static String getGameInfo(GameController controller) {
-        StringBuilder sb = new StringBuilder();
         Date today = new Date();
 
-        sb.append(controller.getGameType().name());
-        sb.append("/");
-        sb.append(controller.getTime());
-        sb.append("/");
-        sb.append(today.getTime());
-        sb.append("/");
-        sb.append(controller.getDifficulty().name());
-        sb.append("/");
-        sb.append(getFixedCells(controller));
-        sb.append("/");
-        sb.append(getSetCells(controller));
-        sb.append("/");
-        sb.append(getNotes(controller));
-        sb.append("/");
-        sb.append(controller.getUsedHints());
-
-        String result = sb.toString();
+        String result = controller.getGameType().name() +
+                "/" +
+                controller.getTime() +
+                "/" +
+                today.getTime() +
+                "/" +
+                controller.getDifficulty().name() +
+                "/" +
+                getFixedCells(controller) +
+                "/" +
+                getSetCells(controller) +
+                "/" +
+                getNotes(controller) +
+                "/" +
+                controller.getUsedHints();
 
         Log.d("getGameInfo", result);
 

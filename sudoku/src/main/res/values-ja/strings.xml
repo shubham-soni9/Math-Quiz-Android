@@ -112,24 +112,12 @@
     <string name="help_privacyInfo">プライバシー情報</string>
     <string name="help_permissions">アクセス許可</string>
     <string name="help_permissions_summary">プライバシーフレンドリー Sudoku はいかなるアクセス許可も使用していません。</string>
-    <string name="okay">OK</string>
 
     <string name="pref_keep_screen_on">画面をオンのままにする</string>
     <string name="pref_keep_screen_on_summary">プレイ中は画面をオフにしません</string>
 
     <!-- ### Tutorial ###-->
-    <string name="slide1_heading">ようこそ!</string>
-    <string name="slide1_text">プライバシーフレンドリー Sudoku へようこそ。</string>
-
-    <string name="slide2_heading">ゲームモード</string>
-    <string name="slide2_text">スワイプまたは左右の矢印ボタンを押して、ゲームモードを変更します。</string>
-
-    <string name="slide3_heading">難易度</string>
-    <string name="slide3_text">星を押すかスワイプして難易度を変えます。</string>
 
     <string name="next">次</string>
-    <string name="skip">Skip</string>
-
-    <string name="menu_tutorial">ガイダンス</string>
 
 </resources>

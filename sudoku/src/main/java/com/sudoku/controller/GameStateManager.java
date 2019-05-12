@@ -18,13 +18,13 @@ import java.util.List;
  */
 public class GameStateManager {
 
-    private static final int               MAX_NUM_OF_SAVED_GAMES = 10;
-    private static       String            FILE_EXTENSION         = ".txt";
-    private static       String            SAVE_PREFIX            = "save_";
-    private static       String            SAVES_DIR              = "saves";
-    private static List<GameInfoContainer> list                   = new LinkedList<>();
-    Context context;
-    private SharedPreferences settings;
+    private static final int                     MAX_NUM_OF_SAVED_GAMES = 10;
+    private static final String                  FILE_EXTENSION         = ".txt";
+    private static final String                  SAVE_PREFIX            = "save_";
+    private static final String                  SAVES_DIR              = "saves";
+    private static       List<GameInfoContainer> list                   = new LinkedList<>();
+    private final        Context                 context;
+    private final        SharedPreferences       settings;
 
     public GameStateManager(Context context, SharedPreferences settings) {
         this.context = context;
@@ -55,11 +55,8 @@ public class GameStateManager {
                 // load file
                 byte[] bytes = new byte[(int) file.length()];
                 try {
-                    FileInputStream stream = new FileInputStream(file);
-                    try {
+                    try (FileInputStream stream = new FileInputStream(file)) {
                         stream.read(bytes);
-                    } finally {
-                        stream.close();
                     }
                 } catch (IOException e) {
                     Log.e("File Manager", "Could not load game. IOException occured.");
@@ -132,7 +129,7 @@ public class GameStateManager {
 
     }
 
-    public LinkedList<GameInfoContainer> sortListByLastPlayedDate(LinkedList<GameInfoContainer> list) {
+    private LinkedList<GameInfoContainer> sortListByLastPlayedDate(LinkedList<GameInfoContainer> list) {
 
         if (list.size() < 2) {
             return list;
@@ -157,7 +154,7 @@ public class GameStateManager {
         return sortListByLastPlayedDateMerge(listL, listR);
     }
 
-    public LinkedList<GameInfoContainer> sortListByLastPlayedDateMerge(LinkedList<GameInfoContainer> list1, LinkedList<GameInfoContainer> list2) {
+    private LinkedList<GameInfoContainer> sortListByLastPlayedDateMerge(LinkedList<GameInfoContainer> list1, LinkedList<GameInfoContainer> list2) {
 
         LinkedList<GameInfoContainer> result = new LinkedList<>();
 
@@ -185,14 +182,11 @@ public class GameStateManager {
 
         //controller.getGameID()
 
-        File file = new File(dir, SAVE_PREFIX + String.valueOf(controller.getGameID()) + FILE_EXTENSION);
+        File file = new File(dir, SAVE_PREFIX + controller.getGameID() + FILE_EXTENSION);
 
         try {
-            FileOutputStream stream = new FileOutputStream(file);
-            try {
+            try (FileOutputStream stream = new FileOutputStream(file)) {
                 stream.write(level.getBytes());
-            } finally {
-                stream.close();
             }
         } catch (IOException e) {
             Log.e("File Manager", "Could not save game. IOException occured.");

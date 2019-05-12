@@ -11,18 +11,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mathgame.R;
-import com.mathgame.appdata.Constant;
 import com.mathgame.listener.OnQuestionListener;
 import com.mathgame.model.Question;
 import com.mathgame.util.Utils;
 
 public class QuestionView implements Question.Listener {
-    private Activity           mActivity;
-    private View               mView;
-    private EditText           etAnswer;
-    private OnQuestionListener onQuestionListener;
-    private TextView           tvQuestion;
-    private Question           question;
+    private final Activity           mActivity;
+    private final View               mView;
+    private final EditText           etAnswer;
+    private final OnQuestionListener onQuestionListener;
+    private final TextView           tvQuestion;
+    private       Question           question;
 
     public QuestionView(Activity mActivity) {
         this.mActivity = mActivity;

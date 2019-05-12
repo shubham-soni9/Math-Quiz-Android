@@ -28,7 +28,6 @@ import java.util.Objects;
 public class MultipleQuestionActivity extends BaseActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, OnQuestionListener {
     private       LinearLayout        llQuestionList;
     private       CustomMode          customMode;
-    private       RelativeLayout      rlShimmerSlider;
     private       AppCompatSeekBar    slider;
     private       TextView            tvChangingStatus;
     private       LinearLayout        llSlider;
@@ -53,7 +52,7 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
 
     private void init() {
         llQuestionList = findViewById(R.id.llQuestionList);
-        rlShimmerSlider = findViewById(R.id.rlShimmerSlider);
+        RelativeLayout rlShimmerSlider = findViewById(R.id.rlShimmerSlider);
         slider = findViewById(R.id.slider);
         tvChangingStatus = findViewById(R.id.tvChangingStatus);
         llSlider = findViewById(R.id.llSlider);
@@ -82,10 +81,8 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ivBack:
-                onBackPressed();
-                break;
+        if (v.getId() == R.id.ivBack) {
+            onBackPressed();
         }
     }
 
@@ -167,12 +164,12 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
                 .message(R.string.are_you_sure_you_want_to_finish_test)
                 .listener(new OptionsDialog.Listener() {
                     @Override
-                    public void performPositiveAction(int purpose, Bundle backpack) {
+                    public void performPositiveAction() {
                         onBackPressed();
                     }
 
                     @Override
-                    public void performNegativeAction(int purpose, Bundle backpack) {
+                    public void performNegativeAction() {
                         resetSliders();
                     }
                 }).build().show();

@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,11 +21,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="0.36">
 
             <ImageView
-                android:id="@+id/barcodeLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
@@ -38,7 +36,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -73,7 +70,6 @@
 
 
         <TextView
-            android:id="@+id/textFieldAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -81,7 +77,6 @@
             android:text="@string/about_author" />
 
         <TextView
-            android:id="@+id/authornames"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -95,7 +90,6 @@
             android:text="@string/about_author_contributors" />
 
         <TextView
-            android:id="@+id/textFieldAffiliation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -104,7 +98,6 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -146,7 +139,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/qqWing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

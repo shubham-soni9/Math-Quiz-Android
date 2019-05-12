@@ -6,11 +6,11 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public class TwoDigitFormatter implements NumberPicker.Formatter {
-    final StringBuilder mBuilder = new StringBuilder();
-    final Object[]      mArgs    = new Object[1];
-    char                mZeroDigit;
-    java.util.Formatter mFmt;
-    Locale              mLocale;
+    private final StringBuilder       mBuilder = new StringBuilder();
+    private final Object[]            mArgs    = new Object[1];
+    private       char                mZeroDigit;
+    private       java.util.Formatter mFmt;
+    private       Locale              mLocale;
 
     TwoDigitFormatter() {
         mLocale = Locale.getDefault();

@@ -23,11 +23,10 @@ public class InputListener implements View.OnTouchListener {
     private int veryLastDirection = 1;
     private boolean hasMoved = false;
 
-    private View mView;
     private Game mGame;
 
     public void setView(View view) {
-        mView = view;
+        View mView = view;
         mView.setOnTouchListener(this);
     }
 

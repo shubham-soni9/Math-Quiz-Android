@@ -16,7 +16,7 @@ public class Transition {
      * @param toClass     Intended {@link Activity}
      * @param isBack      <code>true</code>, if firing a backevent
      */
-    public static void transit(Activity fromContext, Class<?> toClass, boolean isBack, Bundle extras) {
+    private static void transit(Activity fromContext, Class<?> toClass, boolean isBack, Bundle extras) {
 
         Intent intention = new Intent(fromContext, toClass);
 
@@ -100,8 +100,8 @@ public class Transition {
         transitForResult(fromContext, toClass, requestCode, extras, true);
     }
 
-    public static void transitForResult(Activity fromContext, Class<?> toClass,
-                                        int requestCode, Bundle extras, boolean animateSlow) {
+    private static void transitForResult(Activity fromContext, Class<?> toClass,
+                                         int requestCode, Bundle extras, boolean animateSlow) {
 
         Intent intention = new Intent(fromContext, toClass);
 
@@ -139,7 +139,7 @@ public class Transition {
         startActivity(fromContext, toClass, null);
     }
 
-    public static void startActivity(Activity fromContext, Class<?> toClass, Bundle bundle) {
+    private static void startActivity(Activity fromContext, Class<?> toClass, Bundle bundle) {
         Intent intention = new Intent(fromContext, toClass);
         if (bundle != null) {
             intention.putExtras(bundle);

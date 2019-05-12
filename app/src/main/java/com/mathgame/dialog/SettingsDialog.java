@@ -104,7 +104,7 @@ public class SettingsDialog {
 
             npNumberOfQuestion.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                 @Override
-                public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                public void onValueChange(NumberPicker picker) {
                     npNumberOfSkip.setMaxValue(npNumberOfQuestion.getMaxValue());
                 }
             });
@@ -144,7 +144,7 @@ public class SettingsDialog {
                         GameSettings.saveCustomMode(customMode);
                     }
                     if (listener != null) {
-                        listener.performPositiveAction(purposeCode, customMode);
+                        listener.performPositiveAction();
                     }
                 }
             });
@@ -156,7 +156,7 @@ public class SettingsDialog {
                     optionsDialog.dismiss();
 
                     if (listener != null)
-                        listener.performNegativeAction(purposeCode, backpack);
+                        listener.performNegativeAction();
                 }
             });
 
@@ -199,14 +199,14 @@ public class SettingsDialog {
          * Override this method to perform operations
          * after OK button was pressed
          */
-        void performPositiveAction(int purpose, CustomMode customMode);
+        void performPositiveAction();
 
 
         /**
          * Override this method to perform operations
          * after CANCEL button was pressed
          */
-        void performNegativeAction(int purpose, Bundle backpack);
+        void performNegativeAction();
     }
 
     /**
@@ -214,7 +214,7 @@ public class SettingsDialog {
      */
     public static class Builder {
 
-        private SettingsDialog settingsDialog = new SettingsDialog();
+        private final SettingsDialog settingsDialog = new SettingsDialog();
 
         /**
          * Constructor to initialize the SettingsDialog
@@ -276,7 +276,7 @@ public class SettingsDialog {
         /**
          * Method to set title to the Title
          */
-        public Builder title(String title) {
+        Builder title(String title) {
             settingsDialog.title = title;
             return this;
         }
@@ -291,7 +291,7 @@ public class SettingsDialog {
         /**
          * Method to set message to the Dialog
          */
-        public Builder message(String message) {
+        Builder message(String message) {
             settingsDialog.message = message;
             return this;
         }
@@ -306,7 +306,7 @@ public class SettingsDialog {
         /**
          * Method to set text to the Positive Button
          */
-        public Builder positiveButton(String buttonText) {
+        Builder positiveButton(String buttonText) {
             settingsDialog.positiveButton = buttonText;
             return this;
         }
@@ -326,7 +326,7 @@ public class SettingsDialog {
         /**
          * Method to set Text to the Negative Button
          */
-        public Builder negativeButton(String cancel) {
+        Builder negativeButton(String cancel) {
             settingsDialog.negativeButton = cancel;
             return this;
         }

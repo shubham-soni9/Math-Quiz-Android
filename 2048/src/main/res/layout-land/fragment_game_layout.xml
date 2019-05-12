@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
@@ -10,7 +9,8 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_marginEnd="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -64,8 +64,7 @@
                         android:maxEms="6"
                         android:gravity="center"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="@color/colorPrimary"
-                        android:id="@+id/tv_score_label" />
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -82,7 +81,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/ll_scorelayout"
-                    android:id="@+id/ll_highscore_layout"
                     android:gravity="center_horizontal"
                     android:background="@drawable/scoreview_background_rectangle_inner"
                     android:padding="5dp"
@@ -97,8 +95,7 @@
                         android:ems="6"
                         android:maxEms="6"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="@color/colorPrimary"
-                        android:id="@+id/tv_highscore_label" />
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -137,7 +134,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_info"
-                    android:id="@+id/ib_info"
                     android:padding="7dp"
                     android:layout_weight="1"
                     android:layout_marginRight="7dp"
@@ -149,7 +145,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_myo"
-                    android:id="@+id/ib_myo"
                     android:padding="7dp"
                     android:layout_marginLeft="7dp"
                     android:layout_weight="1"
@@ -173,13 +168,10 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_game_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_alignWithParentIfMissing="true"
-            android:layout_below="@+id/ll_buttonrow">
+            android:layout_weight="1">
 
             <com.slidegame.GameView
                 android:id="@+id/gameview"

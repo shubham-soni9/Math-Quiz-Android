@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -39,12 +40,13 @@ import java.util.List;
 
 public class SudokuMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    RatingBar         difficultyBar;
-    TextView          difficultyText;
-    SharedPreferences settings;
-    ImageView         arrowLeft, arrowRight;
-    DrawerLayout   drawer;
-    NavigationView mNavigationView;
+    private RatingBar         difficultyBar;
+    private TextView          difficultyText;
+    private SharedPreferences settings;
+    private ImageView         arrowLeft;
+    private ImageView arrowRight;
+    private DrawerLayout   drawer;
+    private NavigationView mNavigationView;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -63,7 +65,7 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
 
         setContentView(R.layout.activity_main_menu);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -80,7 +82,7 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
 
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.scroller);
+        mViewPager = findViewById(R.id.scroller);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // set default gametype choice to whatever was chosen the last time.
@@ -88,8 +90,8 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
         String lastChosenGameType = settings.getString("lastChosenGameType", GameType.Default_9x9.name());
         int index = validGameTypes.indexOf(Enum.valueOf(GameType.class, lastChosenGameType));
         mViewPager.setCurrentItem(index);
-        arrowLeft = (ImageView) findViewById(R.id.arrow_left);
-        arrowRight = (ImageView) findViewById(R.id.arrow_right);
+        arrowLeft = findViewById(R.id.arrow_left);
+        arrowRight = findViewById(R.id.arrow_right);
 
         //care for initial postiton of the ViewPager
         arrowLeft.setVisibility((index == 0) ? View.INVISIBLE : View.VISIBLE);
@@ -115,8 +117,8 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
 
 
         // Set the difficulty Slider to whatever was chosen the last time
-        difficultyBar = (RatingBar) findViewById(R.id.difficultyBar);
-        difficultyText = (TextView) findViewById(R.id.difficultyText);
+        difficultyBar = findViewById(R.id.difficultyBar);
+        difficultyText = findViewById(R.id.difficultyText);
         final LinkedList<GameDifficulty> difficultyList = GameDifficulty.getValidDifficultyList();
         difficultyBar.setNumStars(difficultyList.size());
         difficultyBar.setMax(difficultyList.size());
@@ -144,13 +146,13 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
 
 
         // set Nav_Bar
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout_main);
+        drawer = findViewById(R.id.drawer_layout_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view_main);
+        mNavigationView = findViewById(R.id.nav_view_main);
         mNavigationView.setNavigationItemSelectedListener(this);
 
         selectNavigationItem(R.id.nav_newgame_main);
@@ -233,7 +235,7 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
 
     private void refreshContinueButton() {
         // enable continue button if we have saved games.
-        Button continueButton = (Button) findViewById(R.id.continueButton);
+        Button continueButton = findViewById(R.id.continueButton);
         GameStateManager fm = new GameStateManager(getBaseContext(), settings);
         List<GameInfoContainer> gic = fm.loadGameStateInfo();
         if (gic.size() > 0) {
@@ -246,7 +248,7 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         final int id = item.getItemId();
 
@@ -282,7 +284,7 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
         }
     }
 
-    private boolean goToNavigationItem(int id) {
+    private void goToNavigationItem(int id) {
         Intent intent;
 
         if (id == R.id.menu_settings_main) {//open settings
@@ -301,7 +303,6 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
             startActivity(intent);
             overridePendingTransition(0, 0);
         }
-        return true;
     }
 
     /*@Override
@@ -334,7 +335,7 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static GameTypeFragment newInstance(int sectionNumber) {
+        static GameTypeFragment newInstance(int sectionNumber) {
             GameTypeFragment fragment = new GameTypeFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -343,18 +344,18 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
             GameType gameType = GameType.getValidGameTypes().get(getArguments().getInt(ARG_SECTION_NUMBER));
 
-            ImageView imageView = (ImageView) rootView.findViewById(R.id.gameTypeImage);
+            ImageView imageView = rootView.findViewById(R.id.gameTypeImage);
 
             imageView.setImageResource(gameType.getResIDImage());
 
 
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            TextView textView = rootView.findViewById(R.id.section_label);
             textView.setText(getString(gameType.getStringResID()));
             return rootView;
         }
@@ -364,9 +365,9 @@ public class SudokuMainActivity extends BaseActivity implements NavigationView.O
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

@@ -3,7 +3,6 @@ package com.sudoku.controller;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import com.sudoku.controller.database.DatabaseHelper;
@@ -13,7 +12,6 @@ import com.sudoku.game.GameType;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,21 +22,19 @@ import java.util.Random;
  */
 public class NewLevelManager {
 
-    public static  int             PRE_SAVES_MIN  = 3;
-    public static  int             PRE_SAVES_MAX  = 10;
-    private static NewLevelManager instance;
-    private static String          FILE_EXTENSION = ".txt";
-    private static String          LEVEL_PREFIX   = "level_";
-    private static String          LEVELS_DIR     = "level";
-    private static File            DIR;
-    Context context;
-    private SharedPreferences settings;
-    private DatabaseHelper    dbHelper;
+    public static final  int             PRE_SAVES_MIN = 3;
+    public static        int             PRE_SAVES_MAX = 10;
+    private static       NewLevelManager instance;
+    private static final String          LEVEL_PREFIX  = "level_";
+    private static       File            DIR;
+    private final        Context         context;
+    private final        DatabaseHelper  dbHelper;
 
     private NewLevelManager(Context context, SharedPreferences settings) {
         this.context = context;
-        this.settings = settings;
+        SharedPreferences settings1 = settings;
         this.dbHelper = new DatabaseHelper(context);
+        String LEVELS_DIR = "level";
         DIR = context.getDir(LEVELS_DIR, 0);
     }
 
@@ -122,11 +118,8 @@ public class NewLevelManager {
                     // load file
                     byte[] bytes = new byte[(int) file.length()];
                     try {
-                        FileInputStream stream = new FileInputStream(file);
-                        try {
+                        try (FileInputStream stream = new FileInputStream(file)) {
                             stream.read(bytes);
-                        } finally {
-                            stream.close();
                         }
                     } catch (IOException e) {
                         Log.e("File Manager", "Could not load game. IOException occured.");
@@ -155,15 +148,14 @@ public class NewLevelManager {
             int chosen = availableFiles.get(i);
             int[] resultPuzzle = result.get(i);
 
-            StringBuilder sb = new StringBuilder();
-            sb.append(LEVEL_PREFIX);
-            sb.append(type.name());
-            sb.append("_");
-            sb.append(diff.name());
-            sb.append("_");
-            sb.append(chosen);
-            sb.append(FILE_EXTENSION);
-            String filename = sb.toString();
+            String FILE_EXTENSION = ".txt";
+            String filename = LEVEL_PREFIX +
+                    type.name() +
+                    "_" +
+                    diff.name() +
+                    "_" +
+                    chosen +
+                    FILE_EXTENSION;
 
             // select and delete the file
             File file = new File(DIR, filename);

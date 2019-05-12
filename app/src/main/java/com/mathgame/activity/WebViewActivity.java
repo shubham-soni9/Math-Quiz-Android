@@ -12,7 +12,6 @@ import com.mathgame.structure.BaseActivity;
 import com.util.Transition;
 
 public class WebViewActivity extends BaseActivity {
-    private final int iBack = R.id.llBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,7 @@ public class WebViewActivity extends BaseActivity {
             webViewInvoice.loadDataWithBaseURL(null, webUrl, "text/html", "utf-8", null);
             tvTitle.setText(title);
         }
+        int iBack = R.id.llBack;
         findViewById(iBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

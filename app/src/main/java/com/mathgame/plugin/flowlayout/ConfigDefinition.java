@@ -3,7 +3,7 @@ package com.mathgame.plugin.flowlayout;
 import android.view.Gravity;
 import android.view.View;
 
-public class ConfigDefinition {
+class ConfigDefinition {
     private int     orientation;
     private boolean debugDraw;
     private float   weightDefault;

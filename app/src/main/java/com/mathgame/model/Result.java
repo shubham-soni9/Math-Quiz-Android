@@ -9,7 +9,7 @@ public class Result implements Parcelable {
     private int incorrect;
     private int unAttempted;
 
-    protected Result(Parcel in) {
+    private Result(Parcel in) {
         total = in.readInt();
         correct = in.readInt();
         incorrect = in.readInt();

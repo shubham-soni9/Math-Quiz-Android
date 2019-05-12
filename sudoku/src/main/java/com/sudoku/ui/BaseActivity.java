@@ -19,7 +19,7 @@ public class BaseActivity extends AppCompatActivity {
     static final int MAIN_CONTENT_FADEOUT_DURATION = 150;
     static final int MAIN_CONTENT_FADEIN_DURATION  = 250;
 
-    protected Handler mHandler;
+    Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

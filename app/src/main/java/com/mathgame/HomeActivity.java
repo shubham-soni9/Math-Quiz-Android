@@ -26,18 +26,7 @@ import com.SlideAdditionActivity;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
-    private TextView           tvAddition;
-    private TextView           tvSubtraction;
-    private TextView           tvMultiplication;
-    private TextView           tvDivision;
-    private TextView           tvSquareRoot;
-    private TextView           tvPercentage;
-    private CardView           cvTicTacToe;
-    private CardView           cvSudoku;
-    private CardView           cvSlideAddition;
     private DrawerLayout       drawerLayout;
-    private AppCompatImageView ivHome;
-    private AppCompatImageView ivSelectedColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,24 +36,24 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void init() {
-        tvAddition = findViewById(R.id.tvAddition);
-        tvSubtraction = findViewById(R.id.tvSubtraction);
-        tvMultiplication = findViewById(R.id.tvMultiplication);
-        tvDivision = findViewById(R.id.tvDivision);
-        tvPercentage = findViewById(R.id.tvPercentage);
-        tvSquareRoot = findViewById(R.id.tvSquareRoot);
-        cvTicTacToe = findViewById(R.id.cvTicTacToe);
-        cvSudoku = findViewById(R.id.cvSudoku);
-        cvSlideAddition = findViewById(R.id.cvSlideAddition);
-        ivHome = findViewById(R.id.ivHome);
+        TextView tvAddition = findViewById(R.id.tvAddition);
+        TextView tvSubtraction = findViewById(R.id.tvSubtraction);
+        TextView tvMultiplication = findViewById(R.id.tvMultiplication);
+        TextView tvDivision = findViewById(R.id.tvDivision);
+        TextView tvPercentage = findViewById(R.id.tvPercentage);
+        TextView tvSquareRoot = findViewById(R.id.tvSquareRoot);
+        CardView cvTicTacToe = findViewById(R.id.cvTicTacToe);
+        CardView cvSudoku = findViewById(R.id.cvSudoku);
+        CardView cvSlideAddition = findViewById(R.id.cvSlideAddition);
+        AppCompatImageView ivHome = findViewById(R.id.ivHome);
         drawerLayout = findViewById(R.id.activity_home_dl_main);
-        ivSelectedColor=findViewById(R.id.ivSelectedColor);
+        AppCompatImageView ivSelectedColor = findViewById(R.id.ivSelectedColor);
 
         Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
                 , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
                 , findViewById(R.id.tvSliderSettings), findViewById(R.id.tvSliderPolicy), findViewById(R.id.tvSliderShare)
                 , findViewById(R.id.tvSliderRate), findViewById(R.id.tvSliderMoreApps), findViewById(R.id.tvSliderReportBug)
-                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit),findViewById(R.id.rlSliderTheme));
+                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit), findViewById(R.id.rlSliderTheme));
     }
 
     @Override
@@ -194,12 +183,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 .message(R.string.are_you_sure_you_want_to_exit)
                 .listener(new OptionsDialog.Listener() {
                     @Override
-                    public void performPositiveAction(int purpose, Bundle backpack) {
+                    public void performPositiveAction() {
                         finishAffinity();
                     }
 
                     @Override
-                    public void performNegativeAction(int purpose, Bundle backpack) {
+                    public void performNegativeAction() {
                     }
                 }).build().show();
     }

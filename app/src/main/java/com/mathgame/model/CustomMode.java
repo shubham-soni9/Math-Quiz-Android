@@ -21,7 +21,7 @@ public class CustomMode implements Parcelable {
     };
 
     @Id
-    public  long   id;
+    private long   id;
     private String title;
     private int    numberOfQuestions;
     private int    playerType;

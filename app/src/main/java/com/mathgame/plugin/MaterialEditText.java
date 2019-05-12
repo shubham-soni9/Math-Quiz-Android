@@ -213,27 +213,27 @@ public class MaterialEditText extends AppCompatEditText {
     /**
      * Left Icon
      */
-    private              Bitmap[]              iconLeftBitmaps;
+    private       Bitmap[]              iconLeftBitmaps;
     /**
      * Right Icon
      */
-    private              Bitmap[]              iconRightBitmaps;
-    private              int                   iconSize;
-    private              int                   iconOuterWidth;
-    private              int                   iconOuterHeight;
-    private              int                   iconPadding;
-    private              ColorStateList        textColorStateList;
-    private              ColorStateList        textColorHintStateList;
-    private              ArgbEvaluator         focusEvaluator           = new ArgbEvaluator();
-    private              Paint                 paint                    = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private              TextPaint             textPaint                = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-    private              StaticLayout          textLayout;
-    private              ObjectAnimator        labelAnimator;
-    private              ObjectAnimator        labelFocusAnimator;
-    private              ObjectAnimator        bottomLinesAnimator;
-    private              OnFocusChangeListener innerFocusChangeListener;
-    private              OnFocusChangeListener outerFocusChangeListener;
-    private              List<METValidator>    validators;
+    private       Bitmap[]              iconRightBitmaps;
+    private       int                   iconSize;
+    private       int                   iconOuterWidth;
+    private       int                   iconOuterHeight;
+    private       int                   iconPadding;
+    private       ColorStateList        textColorStateList;
+    private       ColorStateList        textColorHintStateList;
+    private final ArgbEvaluator         focusEvaluator = new ArgbEvaluator();
+    private final Paint                 paint          = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final TextPaint             textPaint      = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+    private       StaticLayout          textLayout;
+    private       ObjectAnimator        labelAnimator;
+    private       ObjectAnimator        labelFocusAnimator;
+    private       ObjectAnimator        bottomLinesAnimator;
+    private       OnFocusChangeListener innerFocusChangeListener;
+    private       OnFocusChangeListener outerFocusChangeListener;
+    private       List<METValidator>    validators;
 
     public MaterialEditText(Context context) {
         super(context);
@@ -347,11 +347,7 @@ public class MaterialEditText extends AppCompatEditText {
         innerPaddingBottom = paddingsTypedArray.getDimensionPixelSize(4, padding);
         paddingsTypedArray.recycle();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            setBackground(null);
-        } else {
-            setBackgroundDrawable(null);
-        }
+        setBackground(null);
         if (singleLineEllipsis) {
             TransformationMethod transformationMethod = getTransformationMethod();
             setSingleLine();
@@ -997,7 +993,7 @@ public class MaterialEditText extends AppCompatEditText {
      * only used to draw the bottom line
      */
     private boolean isInternalValid() {
-        return tempErrorText == null && isCharactersCountValid();
+        return tempErrorText != null || !isCharactersCountValid();
     }
 
     /**
@@ -1054,9 +1050,9 @@ public class MaterialEditText extends AppCompatEditText {
      *
      * @return True if all validators pass, false if not
      */
-    private boolean validate() {
+    private void validate() {
         if (validators == null || validators.isEmpty()) {
-            return true;
+            return;
         }
 
         CharSequence text = getText();
@@ -1076,7 +1072,6 @@ public class MaterialEditText extends AppCompatEditText {
         }
 
         postInvalidate();
-        return isValid;
     }
 
     @Override
@@ -1158,13 +1153,13 @@ public class MaterialEditText extends AppCompatEditText {
         // draw the icon(s)
         paint.setAlpha(255);
         if (iconLeftBitmaps != null) {
-            Bitmap icon = iconLeftBitmaps[!isInternalValid() ? 3 : !isEnabled() ? 2 : hasFocus() ? 1 : 0];
+            Bitmap icon = iconLeftBitmaps[isInternalValid() ? 3 : !isEnabled() ? 2 : hasFocus() ? 1 : 0];
             int iconLeft = startX - iconPadding - iconOuterWidth + (iconOuterWidth - icon.getWidth()) / 2;
             int iconTop = lineStartY + bottomSpacing - iconOuterHeight + (iconOuterHeight - icon.getHeight()) / 2;
             canvas.drawBitmap(icon, iconLeft, iconTop, paint);
         }
         if (iconRightBitmaps != null) {
-            Bitmap icon = iconRightBitmaps[!isInternalValid() ? 3 : !isEnabled() ? 2 : hasFocus() ? 1 : 0];
+            Bitmap icon = iconRightBitmaps[isInternalValid() ? 3 : !isEnabled() ? 2 : hasFocus() ? 1 : 0];
             int iconRight = endX + iconPadding + (iconOuterWidth - icon.getWidth()) / 2;
             int iconTop = lineStartY + bottomSpacing - iconOuterHeight + (iconOuterHeight - icon.getHeight()) / 2;
             canvas.drawBitmap(icon, iconRight, iconTop, paint);
@@ -1174,7 +1169,7 @@ public class MaterialEditText extends AppCompatEditText {
         // draw the underline
         if (!hideUnderline) {
             lineStartY += bottomSpacing;
-            if (!isInternalValid()) { // not valid
+            if (isInternalValid()) { // not valid
                 paint.setColor(errorColor);
                 canvas.drawRect(startX, lineStartY, endX, lineStartY + getPixel(2), paint);
             } else if (!isEnabled()) { // disabled
@@ -1271,9 +1266,6 @@ public class MaterialEditText extends AppCompatEditText {
     }
 
     private boolean isRTL() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            return false;
-        }
         Configuration config = getResources().getConfiguration();
         return config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
     }
@@ -1351,7 +1343,7 @@ public class MaterialEditText extends AppCompatEditText {
     }
 
     @IntDef({FLOATING_LABEL_NONE, FLOATING_LABEL_NORMAL, FLOATING_LABEL_HIGHLIGHT})
-    @interface FloatingLabelType {
+    private @interface FloatingLabelType {
     }
 
     /**

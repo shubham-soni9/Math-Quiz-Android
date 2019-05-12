@@ -2,21 +2,18 @@
 
     <PreferenceCategory android:title="@string/pref_group_game">
         <SwitchPreference
-            android:id="@+id/pref_automatic_note_deletion"
             android:defaultValue="true"
             android:key="pref_automatic_note_deletion"
             android:summary="@string/pref_automatic_note_deletion_summary"
             android:title="@string/pref_automatic_note_deletion" />
 
         <SwitchPreference
-            android:id="@+id/pref_timer_reset"
             android:defaultValue="true"
             android:key="pref_timer_reset"
             android:summary="@string/pref_timer_reset_summary"
             android:title="@string/pref_timer_reset" />
 
         <SwitchPreference
-            android:id="@+id/pref_keep_screen_on"
             android:defaultValue="true"
             android:key="pref_keep_screen_on"
             android:summary="@string/pref_keep_screen_on_summary"
@@ -34,7 +31,6 @@
 
     <PreferenceCategory android:title="@string/pref_group_highlight_selection">
         <SwitchPreference
-            android:id="@+id/pref_highlight_connected"
             android:defaultValue="true"
             android:key="pref_highlight_connected"
             android:summary=""
@@ -42,19 +38,16 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_group_highlight_value">
         <SwitchPreference
-            android:id="@+id/pref_highlight_vals"
             android:defaultValue="true"
             android:key="pref_highlight_vals"
             android:summary=""
             android:title="@string/pref_highlight_vals" />
         <SwitchPreference
-            android:id="@+id/pref_highlight_notes"
             android:defaultValue="true"
             android:key="pref_highlight_notes"
             android:summary=""
             android:title="@string/pref_highlight_notes" />
         <SwitchPreference
-            android:id="@+id/pref_highlightInputError"
             android:defaultValue="true"
             android:key="pref_highlightInputError"
             android:summary=""

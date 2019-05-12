@@ -8,16 +8,13 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:context="tu_darmstadt.sudoku.ui.MainActivity">
 
         <android.support.design.widget.AppBarLayout
-            android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
@@ -83,12 +80,10 @@
                     android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
             </RelativeLayout>
 
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+            <LinearLayout
                 style="?android:buttonBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_below="@id/scroller"
                 android:layout_weight="6"
                 android:baselineAligned="false"
                 android:divider="#000"
@@ -120,7 +115,8 @@
                     android:padding="0dp"
                     android:paddingTop="70dp"
                     android:rating="1"
-                    android:stepSize="1" />
+                    android:stepSize="1"
+                    android:focusable="true" />
 
                 <Button
                     android:id="@+id/playButton"

@@ -2,6 +2,7 @@ package com.sudoku.game;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 /**
  * Created by Chris on 08.11.2015.
@@ -70,22 +71,19 @@ public class CellConflict implements Parcelable {
         if (!(other instanceof CellConflict)) {
             return false;
         }
-        if (!(c1.equals(((CellConflict) other).c1) && c2.equals(((CellConflict) other).c2)
-                || c1.equals(((CellConflict) other).c2) && c2.equals(((CellConflict) other).c1))) {
-            return false;
-        }
-        return true;
+        return c1.equals(((CellConflict) other).c1) && c2.equals(((CellConflict) other).c2)
+                || c1.equals(((CellConflict) other).c2) && c2.equals(((CellConflict) other).c1);
     }
 
+    @NonNull
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[Conflict ");
-        sb.append(c1.toString());
-        sb.append(" ");
-        sb.append(c2.toString());
-        sb.append("]");
-        return sb.toString();
+        String sb = "[Conflict " +
+                c1.toString() +
+                " " +
+                c2.toString() +
+                "]";
+        return sb;
     }
 
     @Override

@@ -10,7 +10,6 @@
     android:background="@android:color/transparent">
 
     <RelativeLayout
-        android:id="@+id/rlTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone">
@@ -43,7 +42,6 @@
         android:scrollbars="none">
 
         <LinearLayout
-            android:id="@+id/llSettings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"

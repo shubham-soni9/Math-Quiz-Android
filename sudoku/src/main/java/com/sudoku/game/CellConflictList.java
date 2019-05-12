@@ -1,5 +1,7 @@
 package com.sudoku.game;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 
 /**
@@ -22,6 +24,7 @@ public class CellConflictList extends ArrayList<CellConflict> {
         return false;
     }
 
+    @NonNull
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

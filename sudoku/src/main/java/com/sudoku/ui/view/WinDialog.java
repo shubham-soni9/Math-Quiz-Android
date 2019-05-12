@@ -3,6 +3,7 @@ package com.sudoku.ui.view;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ public class WinDialog extends Dialog {
     }
 
 
-    public void setParam(String timeString, String hintString, boolean isNewBestTime) {
+    private void setParam(String timeString, String hintString, boolean isNewBestTime) {
         this.timeString = timeString;
         this.hintString = hintString;
         this.isNewBestTime = isNewBestTime;
@@ -42,10 +43,11 @@ public class WinDialog extends Dialog {
         ((TextView) findViewById(R.id.win_hints)).setText(hintString);
         ((TextView) findViewById(R.id.win_time)).setText(timeString);
         if (isNewBestTime) {
-            ((TextView) findViewById(R.id.win_new_besttime)).setVisibility(View.VISIBLE);
+            findViewById(R.id.win_new_besttime).setVisibility(View.VISIBLE);
         }
     }
 
+    @NonNull
     @Override
     public Bundle onSaveInstanceState() {
         Bundle bundle = super.onSaveInstanceState();
@@ -56,7 +58,7 @@ public class WinDialog extends Dialog {
     }
 
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
         if (savedInstanceState == null) return;

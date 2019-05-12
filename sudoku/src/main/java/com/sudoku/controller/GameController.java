@@ -58,23 +58,22 @@ public class GameController implements IModelChangedListener, Parcelable {
     private             int                                   sectionHeight;
     private             int                                   sectionWidth;
     private             int                                   usedHints                 = 0;
-    private             GameBoard                             gameBoard;
-    private             int[]                                 solution                  = new int[0];
-    private             GameType                              gameType;
-    private             GameDifficulty                        difficulty;
-    private             CellConflictList                      errorList                 = new CellConflictList();
+    private       GameBoard                  gameBoard;
+    private       int[]                      solution         = new int[0];
+    private       GameType                   gameType;
+    private       GameDifficulty             difficulty;
+    private       CellConflictList           errorList        = new CellConflictList();
     // Undo Redo
-    private             UndoRedoManager                       undoRedoManager;
+    private       UndoRedoManager            undoRedoManager;
     // Solver / Generator
-    private             QQWingController                      qqWingController          = new QQWingController();
+    private final QQWingController           qqWingController = new QQWingController();
     // Timer
-    private             int                                   time                      = 0;
-    private             AtomicBoolean                         timerRunning              = new AtomicBoolean(false);
-    private             LinkedList<ITimerListener>            timerListeners            = new LinkedList<>();
-    private             Handler                               timerHandler              = new Handler();
-    private             Timer                                 timer                     = new Timer();
-    private             TimerTask                             timerTask;
-    private             boolean                               noteStatus                = false;
+    private       int                        time             = 0;
+    private final AtomicBoolean              timerRunning     = new AtomicBoolean(false);
+    private       LinkedList<ITimerListener> timerListeners   = new LinkedList<>();
+    private final Handler                    timerHandler     = new Handler();
+    private       Timer                      timer            = new Timer();
+    private       boolean                    noteStatus       = false;
 
     // Constructors
     public GameController() {
@@ -85,7 +84,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         this(GameType.Default_9x9, pref, context);
     }
 
-    public GameController(GameType type, SharedPreferences pref, Context context) {
+    private GameController(GameType type, SharedPreferences pref, Context context) {
         this.context = context;
         this.gameBoard = new GameBoard(type);
 
@@ -199,11 +198,11 @@ public class GameController implements IModelChangedListener, Parcelable {
         }
     }*/
 
-    public void setSettings(SharedPreferences pref) {
+    private void setSettings(SharedPreferences pref) {
         settings = pref;
     }
 
-    public int[] solve() {
+    private int[] solve() {
 
         if (solution == null || solution.length == 0) {
             solution = qqWingController.solve(gameBoard);
@@ -242,13 +241,13 @@ public class GameController implements IModelChangedListener, Parcelable {
         return gameBoard.isSolved(errorList);
     }
 
-    public void setValue(int row, int col, int value) {
+    private void setValue(int row, int col, int value) {
         GameCell cell = gameBoard.getCell(row, col);
         if (!cell.isFixed() && isValidNumber(value)) {
             cell.setValue(value);
 
             if (settings != null && settings.getBoolean("pref_automatic_note_deletion", true)) {
-                LinkedList<GameCell> updateList = new LinkedList<GameCell>();
+                LinkedList<GameCell> updateList = new LinkedList<>();
                 updateList.addAll(gameBoard.getRow(cell.getRow()));
                 updateList.addAll(gameBoard.getColumn(cell.getCol()));
                 updateList.addAll(gameBoard.getSection(cell.getRow(), cell.getCol()));
@@ -292,9 +291,8 @@ public class GameController implements IModelChangedListener, Parcelable {
     }
 
     public LinkedList<GameCell> getConnectedCells(int row, int col) {
-        LinkedList<GameCell> list = new LinkedList<>();
 
-        list.addAll(gameBoard.getRow(row));
+        LinkedList<GameCell> list = new LinkedList<>(gameBoard.getRow(row));
         list.remove(gameBoard.getCell(row, col));
         list.addAll(gameBoard.getColumn(col));
         list.remove(gameBoard.getCell(row, col));
@@ -304,7 +302,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         return list;
     }
 
-    public void deleteNotes(List<GameCell> updateList, int value) {
+    private void deleteNotes(List<GameCell> updateList, int value) {
         for (GameCell c : updateList) {
             c.deleteNote(value);
         }
@@ -365,7 +363,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         fm.deleteGameStateFile(getInfoContainer());
     }
 
-    public GameInfoContainer getInfoContainer() {
+    private GameInfoContainer getInfoContainer() {
         // this functionality is not needed as of yet. this is not correctly implemented
         // but its sufficient to our needs
         return new GameInfoContainer(gameID, difficulty, gameType, null, null, null);
@@ -382,7 +380,7 @@ public class GameController implements IModelChangedListener, Parcelable {
      * @return true, if {@code val} is a number from 1 to {code size}.
      * @see GameController#getSize()
      */
-    public boolean isValidNumber(int val) {
+    private boolean isValidNumber(int val) {
         return 0 < val && val <= size;
     }
 
@@ -404,17 +402,15 @@ public class GameController implements IModelChangedListener, Parcelable {
         notifyHighlightChangedListeners();
     }
 
-    public boolean deleteValue(int row, int col) {
+    private void deleteValue(int row, int col) {
         GameCell c = gameBoard.getCell(row, col);
         if (!c.isFixed()) {
             c.setValue(0);
             //notifyListeners();
-            return true;
         }
-        return false;
     }
 
-    public void setNote(int row, int col, int value) {
+    private void setNote(int row, int col, int value) {
         if (isValidNumber(value)) {
             GameCell c = gameBoard.getCell(row, col);
             c.setNote(value);
@@ -437,7 +433,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         //notifyListeners();
     }
 
-    public void toggleNote(int row, int col, int value) {
+    private void toggleNote(int row, int col, int value) {
         GameCell c = gameBoard.getCell(row, col);
         if (c.hasValue()) {
             c.setValue(0);
@@ -471,7 +467,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         return selectedCol;
     }
 
-    public int getSelectedCellsValue() {
+    private int getSelectedCellsValue() {
         return isValidCellSelected() ? getGameCell(selectedRow, selectedCol).getValue() : 0;
     }
 
@@ -584,7 +580,7 @@ public class GameController implements IModelChangedListener, Parcelable {
     }
 
     @Override
-    public void onModelChange(GameCell c) {
+    public void onModelChange() {
 
         checkErrorList();
 
@@ -606,7 +602,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         }
     }
 
-    public void checkErrorList() {
+    private void checkErrorList() {
         LinkedList<CellConflict> toRemove = new LinkedList<>();
         for (CellConflict cc : errorList) {
             if (cc.getCell1().getValue() != cc.getCell2().getValue()) {
@@ -616,7 +612,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         errorList.removeAll(toRemove);
     }
 
-    public void resetSelects() {
+    private void resetSelects() {
         selectedCol = -1;
         selectedRow = -1;
         selectedValue = 0;
@@ -648,7 +644,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         }
     }
 
-    public void notifySolvedListeners() {
+    private void notifySolvedListeners() {
         for (IGameSolvedListener l : solvedListeners) {
             l.onSolved();
         }
@@ -672,7 +668,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         }
     }
 
-    public void notifyHintListener() {
+    private void notifyHintListener() {
         for (IHintListener listener : hintListener) {
             listener.onHintUsed();
         }
@@ -696,7 +692,8 @@ public class GameController implements IModelChangedListener, Parcelable {
     public void initTimer() {
         deleteTimer();
 
-        timerTask = new TimerTask() {
+        //Log.d("Timer", "calling notifyTimerListener(" + time + ");");
+        TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
                 timerHandler.post(new Runnable() {
@@ -745,7 +742,7 @@ public class GameController implements IModelChangedListener, Parcelable {
         return undoRedoManager.isUnDoAvailable();
     }
 
-    public void updateGameBoard(final GameBoard gameBoard) {
+    private void updateGameBoard(final GameBoard gameBoard) {
         if (gameBoard == null) {
             return;
         }
@@ -772,7 +769,6 @@ public class GameController implements IModelChangedListener, Parcelable {
         }
 
         notifyHighlightChangedListeners();
-        return;
     }
 
     public int getValueCount(final int value) {

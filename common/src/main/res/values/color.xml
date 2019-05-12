@@ -7,26 +7,11 @@
     <color name="yellow">#f6d126</color>
 
     <!-- dots inactive colors -->
-    <color name="dot_dark_screen">#026499</color>
 
     <!-- dots active colors -->
-    <color name="dot_light_screen">#448bb2</color>
-
-    <array name="array_dot_active">
-        <item>@color/dot_light_screen</item>
-        <item>@color/dot_light_screen</item>
-        <item>@color/dot_light_screen</item>
-    </array>
-
-    <array name="array_dot_inactive">
-        <item>@color/dot_dark_screen</item>
-        <item>@color/dot_dark_screen</item>
-        <item>@color/dot_dark_screen</item>
-    </array>
 
     <color name="text_white">#f9f6f2</color>
     <color name="text_shadow">#212121</color>
-    <color name="text_brown">#d6cdc4</color>
     <color name="background">#000000</color>
     <color name="myoblack">#1e242b</color>
     <color name="background1">#232528</color>
@@ -41,18 +26,13 @@
     <color name="black_10">#1A000000</color>
     <color name="black_50">#80000000</color>
     <color name="black_20">#33000000</color>
-    <color name="black_15">#19000000</color>
     <color name="black_30">#4D000000</color>
-    <color name="black_90">#E6000000</color>
     <color name="black_70">#B3000000</color>
     <color name="black_60">#99000000</color>
-    <color name="black_80">#CC000000</color>
     <color name="black_05">#0D000000</color>
     <color name="black_04">#0C000000</color>
     <color name="white_100">#FFF</color>
     <color name="black_100">#000</color>
-    <color name="app_button_pressed_color">#095dc3</color>
-    <color name="app_button_normal_color">#2482f5</color>
     <color name="progress_bar_empty_color">#64B5F6</color>
     <color name="progress_bar_filled_color">#1565C0</color>
     <color name="app_text_color">#000000</color>
@@ -70,8 +50,6 @@
     <color name="submit_normal">#96e16b</color>
     <color name="skip_pressed">#37474F</color>
     <color name="skip_normal">#546E7A</color>
-    <color name="question_normal">#2E7D32</color>
-    <color name="holo_blue_light">#ff33b5e5</color>
     <color name="blue">#123256</color>
     <color name="gray">#444444</color>
     <color name="gray_light">#BBBBBB</color>
@@ -82,5 +60,4 @@
     <color name="holo_red_dark">#cc0000</color>
     <color name="teal_600">#00897b</color>
 
-    <color name="side_menu_text_color">#B3000000</color>
 </resources>

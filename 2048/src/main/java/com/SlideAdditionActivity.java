@@ -33,7 +33,7 @@ public class SlideAdditionActivity extends BaseActivity {
         if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN || keyCode == KeyEvent.KEYCODE_DPAD_UP || keyCode == KeyEvent.KEYCODE_DPAD_LEFT || keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
             Fragment current = getFragmentManager().findFragmentById(R.id.container);
             if (current instanceof KeyListener) {
-                return ((KeyListener) current).onKeyDown(keyCode, event);
+                return ((KeyListener) current).onKeyDown(keyCode);
             }
         }
         return super.onKeyDown(keyCode, event);

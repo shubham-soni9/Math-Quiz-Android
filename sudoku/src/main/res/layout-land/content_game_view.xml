@@ -33,7 +33,8 @@
         android:layout_toRightOf="@+id/sudokuSpecialLayout"
         android:clickable="true"
         android:gravity="center"
-        android:minWidth="100dp" />
+        android:minWidth="100dp"
+        android:focusable="true" />
 
     <com.sudoku.ui.view.SudokuKeyboardLayout
         android:id="@+id/sudokuKeyboardLayout"

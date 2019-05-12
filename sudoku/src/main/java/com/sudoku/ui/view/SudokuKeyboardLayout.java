@@ -21,14 +21,14 @@ import com.sudoku.game.listener.IHighlightChangedListener;
 
 public class SudokuKeyboardLayout extends LinearLayout implements IHighlightChangedListener {
 
-    AttributeSet   attrs;
-    SudokuButton[] buttons;
-    GameController gameController;
-    Symbol         symbolsToUse   = Symbol.Default;
-    float          normalTextSize = 20; // in sp
-    LinearLayout[] layouts        = new LinearLayout[2];
+    private final AttributeSet   attrs;
+    private       SudokuButton[] buttons;
+    private       GameController gameController;
+    private       Symbol         symbolsToUse   = Symbol.Default;
+    private       float          normalTextSize = 20; // in sp
+    private final LinearLayout[] layouts        = new LinearLayout[2];
 
-    OnClickListener listener = new OnClickListener() {
+    private final OnClickListener listener = new OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v instanceof SudokuButton) {
@@ -52,7 +52,7 @@ public class SudokuKeyboardLayout extends LinearLayout implements IHighlightChan
         }
     }
 
-    public void setKeyBoard(int size, int width, int height, int orientation) {
+    public void setKeyBoard(int size, int orientation) {
         LayoutParams p;
         int number = 0;
         int numberOfButtonsPerRow = (size % 2 == 0) ? size / 2 : (size + 1) / 2;
@@ -145,16 +145,16 @@ public class SudokuKeyboardLayout extends LinearLayout implements IHighlightChan
     public void updateNotesEnabled() {
 
         if (gameController.getNoteStatus()) {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, normalTextSize * 0.55f);
+            setTextSize(normalTextSize * 0.55f);
         } else {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, normalTextSize);
+            setTextSize(normalTextSize);
         }
     }
 
-    private void setTextSize(int unit, float size) {
+    private void setTextSize(float size) {
         for (SudokuButton b : buttons) {
             //b.setTextSize(size);
-            b.setTextSize(unit, size);
+            b.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
         }
     }
 

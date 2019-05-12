@@ -33,7 +33,6 @@ import java.util.concurrent.TimeUnit;
 public class DualGameActivity extends BaseActivity implements View.OnClickListener {
     private static final String                       TAG = DualGameActivity.class.getName();
     private              RoundedHorizontalProgressBar pbPlayer1Timer, pbPlayer2Timer;
-    private ImageView  ivBack;
     private CustomMode customMode;
     private View       vPlayer1MultipleChoice, vPlayer2MultipleChoice;
     private View vPlayer1GameYesOrNo, vPlayer2GameYesOrNo;
@@ -57,7 +56,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void init() {
-        ivBack = findViewById(R.id.ivBack);
+        ImageView ivBack = findViewById(R.id.ivBack);
         pbPlayer1Timer = findViewById(R.id.pbPlayer1Timer);
         pbPlayer2Timer = findViewById(R.id.pbPlayer2Timer);
         tvPlayer1Option1 = findViewById(R.id.tvPlayer1Option1);

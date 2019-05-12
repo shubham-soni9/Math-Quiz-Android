@@ -39,9 +39,9 @@ public enum LogType {
     HIDDEN_PAIR_COLUMN("Remove possibilities from hidden pair in column"),
     HIDDEN_PAIR_SECTION("Remove possibilities from hidden pair in section");
 
-    private String description;
+    private final String description;
 
-    private LogType(String description) {
+    LogType(String description) {
         this.description = description;
     }
 

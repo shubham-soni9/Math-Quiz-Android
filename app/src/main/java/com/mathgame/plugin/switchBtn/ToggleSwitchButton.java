@@ -12,9 +12,9 @@ import com.mathgame.R;
  * Created by lorenzorigato on 4/1/16.
  */
 public class ToggleSwitchButton {
-    private View     view;
-    private TextView textView;
-    private View     separator;
+    private final View     view;
+    private final TextView textView;
+    private final View     separator;
 
     public ToggleSwitchButton(Context context) {
         this(LayoutInflater.from(context).inflate(R.layout.item_widget_toggle_switch, null));

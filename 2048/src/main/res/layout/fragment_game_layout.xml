@@ -57,7 +57,6 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/tv_score_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="6"
@@ -78,7 +77,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_highscore_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -90,7 +88,6 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/tv_highscore_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="6"
@@ -147,7 +144,6 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_game_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"

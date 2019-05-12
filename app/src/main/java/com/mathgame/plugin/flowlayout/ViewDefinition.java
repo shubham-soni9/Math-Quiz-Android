@@ -3,7 +3,7 @@ package com.mathgame.plugin.flowlayout;
 import android.view.Gravity;
 import android.view.View;
 
-public class ViewDefinition {
+class ViewDefinition {
     private final ConfigDefinition config;
     private final View             view;
     private       int              inlineStartLength;

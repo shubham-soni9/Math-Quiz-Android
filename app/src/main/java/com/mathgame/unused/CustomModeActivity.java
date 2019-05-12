@@ -21,11 +21,7 @@ import java.util.List;
 import io.objectbox.Box;
 
 public class CustomModeActivity extends BaseActivity implements View.OnClickListener {
-    private AppCompatImageView ivBack;
     private RecyclerView       rvCustomModeList;
-    private CustomModeAdapter  adapter;
-    private List<CustomMode>   customModes;
-    private AppCompatImageView ivAddOption;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,15 +33,15 @@ public class CustomModeActivity extends BaseActivity implements View.OnClickList
 
     private void setList() {
         Box<CustomMode> customModeBox = ObjectBox.get().boxFor(CustomMode.class);
-        customModes = customModeBox.getAll();
-        adapter = new CustomModeAdapter(customModes);
+        List<CustomMode> customModes = customModeBox.getAll();
+        CustomModeAdapter adapter = new CustomModeAdapter(customModes);
         rvCustomModeList.setAdapter(adapter);
     }
 
     private void init() {
         rvCustomModeList = findViewById(R.id.rvCustomModeList);
-        ivBack = findViewById(R.id.ivBack);
-        ivAddOption = findViewById(R.id.ivAddOption);
+        AppCompatImageView ivBack = findViewById(R.id.ivBack);
+        AppCompatImageView ivAddOption = findViewById(R.id.ivAddOption);
         rvCustomModeList.setLayoutManager(new LinearLayoutManager(this));
         Utils.setOnClickListener(this, ivBack, ivAddOption);
         ivAddOption.setVisibility(View.VISIBLE);
@@ -55,10 +51,8 @@ public class CustomModeActivity extends BaseActivity implements View.OnClickList
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case Codes.RequestCode.OPEN_ADD_CUSTOM_MODE_ACTIVITY:
-                    setList();
-                    break;
+            if (requestCode == Codes.RequestCode.OPEN_ADD_CUSTOM_MODE_ACTIVITY) {
+                setList();
             }
         }
     }

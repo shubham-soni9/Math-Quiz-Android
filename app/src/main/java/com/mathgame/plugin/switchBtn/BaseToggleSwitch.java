@@ -33,7 +33,6 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
     private int   textSize;
     private float cornerRadius;
     private float toggleWidth;
-    private LayoutInflater    mInflater;
     private LinearLayout      toggleSwitchesContainer;
     private ArrayList<String> mLabels;
     private Context           mContext;
@@ -48,7 +47,7 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
             try {
                 mContext = context;
 
-                mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 mInflater.inflate(R.layout.widget_toggle_switch, this, true);
 
                 toggleSwitchesContainer = findViewById(R.id.toggle_switches_container);
@@ -147,7 +146,7 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         this.toggleWidth = toggleWidth;
     }
 
-    protected void activate(int position) {
+    void activate(int position) {
         setColors(getToggleSwitchButton(position), activeBgColor, activeTextColor);
     }
 
@@ -194,16 +193,16 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
                     null);
     }
 
-    protected void buildToggleButtons() {
+    void buildToggleButtons() {
         for (String label : mLabels)
             addToogleBtn(label);
     }
 
-    protected void disable(int position) {
+    private void disable(int position) {
         setColors(getToggleSwitchButton(position), inactiveBgColor, inactiveTextColor);
     }
 
-    protected void disableAll() {
+    void disableAll() {
         for (int i = 0; i < toggleSwitchesContainer.getChildCount(); i++)
             disable(i);
     }
@@ -214,7 +213,7 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         return getToggleSwitchesContainer().getChildCount();
     }
 
-    protected LinearLayout getToggleSwitchesContainer() {
+    LinearLayout getToggleSwitchesContainer() {
         return toggleSwitchesContainer;
     }
 
@@ -222,7 +221,7 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         return toggleSwitchesContainer.indexOfChild(toggleSwitchButton.getView());
     }
 
-    protected ToggleSwitchButton getToggleSwitchButton(int position) {
+    private ToggleSwitchButton getToggleSwitchButton(int position) {
         return new ToggleSwitchButton(toggleSwitchesContainer.getChildAt(position));
     }
 
@@ -239,7 +238,7 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
 
     protected abstract void onClickOnToggleSwitch(int position);
 
-    protected void setColors(ToggleSwitchButton toggleSwitchButton, int bgColor, int textColor) {
+    private void setColors(ToggleSwitchButton toggleSwitchButton, int bgColor, int textColor) {
         ShapeDrawable sd = new ShapeDrawable(buildRect(toggleSwitchButton));
         sd.getPaint().setColor(bgColor);
         toggleSwitchButton.getView().setBackground(sd);
@@ -258,7 +257,7 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         this.mOnToggleSwitchChangeListener = onToggleSwitchChangeListener;
     }
 
-    public void notifyOnToggleChange(int position) {
+    void notifyOnToggleChange(int position) {
         if (mOnToggleSwitchChangeListener != null)
             mOnToggleSwitchChangeListener.onToggleSwitchChangeListener(position, isActive(position));
     }
@@ -287,11 +286,11 @@ public abstract class BaseToggleSwitch extends LinearLayout implements View.OnCl
         return toggleSwitchesContainer.indexOfChild(toggleSwitchButton.getView()) == lastPosition;
     }
 
-    public interface OnToggleSwitchChangeListener {
+    interface OnToggleSwitchChangeListener {
         void onToggleSwitchChangeListener(int position, boolean isChecked);
     }
 
-    protected static class Default {
+    static class Default {
 
         static final int   ACTIVE_BG_COLOR     = R.color.blue;
         static final int   ACTIVE_TEXT_COLOR   = android.R.color.white;

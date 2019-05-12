@@ -77,24 +77,13 @@
     <string name="help_privacyInfo">Privatsphäre Information</string>
     <string name="pref_timer_reset">Zeit zurücksetzen</string>
     <string name="pref_timer_reset_summary">Beim zurücksetzen des Spielfeldes wird die Zeit auch zurückgesetzt.</string>
-    <string name="okay">Okay</string>
     <string name="difficulty_challenge">Profi</string>
 
     <string name="pref_keep_screen_on">Bildschirm dauerhaft an</string>
     <string name="pref_keep_screen_on_summary">Der Bildschirm bleibt während des Spielens an.</string>
 
     <!-- ### Tutorial ###-->
-    <string name="slide1_heading">Willkommen!</string>
-    <string name="slide1_text">Willkommen zu Privacy Friendly Sudoku!</string>
-
-    <string name="slide2_heading">Spielmodus</string>
-    <string name="slide2_text">Wischen oder drücken Sie auf die Pfeile auf der linken und rechten Seite um den Spielmodus zu ändern.</string>
-
-    <string name="slide3_heading">Schwierigkeit</string>
-    <string name="slide3_text">Drücken oder wischen Sie über die Sterne um den Schwierigkeitsgrad zu ändern.</string>
 
     <string name="next">Weiter</string>
-    <string name="skip">Skip</string>
-    <string name="menu_tutorial">Tutorial</string>
 
 </resources>

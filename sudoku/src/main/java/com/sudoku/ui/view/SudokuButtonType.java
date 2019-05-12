@@ -22,7 +22,7 @@ public enum SudokuButtonType {
     Delete(R.drawable.ic_delete_black_48dp),
     Reset(R.drawable.ic_settings_backup_restore_black_48dp);
 
-    private int resID;
+    private final int resID;
 
     SudokuButtonType(@DrawableRes int res)
     {
@@ -30,7 +30,7 @@ public enum SudokuButtonType {
     }
 
     public static List<SudokuButtonType> getSpecialButtons() {
-        ArrayList<SudokuButtonType> result = new ArrayList<SudokuButtonType>();
+        ArrayList<SudokuButtonType> result = new ArrayList<>();
         result.add(Undo);
         result.add(Do);
         result.add(Hint);

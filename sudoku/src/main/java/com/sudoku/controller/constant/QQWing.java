@@ -45,19 +45,19 @@ public class QQWing {
 
     //public static final int GRID_SIZE = 3;
 
-    public static int GRID_SIZE_ROW = 3;
+    private static int GRID_SIZE_ROW = 3;
 
-    public static int GRID_SIZE_COL = 3;
+    private static int GRID_SIZE_COL = 3;
 
-    public static int ROW_COL_SEC_SIZE = (GRID_SIZE_ROW * GRID_SIZE_COL);
+    private static int ROW_COL_SEC_SIZE = (GRID_SIZE_ROW * GRID_SIZE_COL);
 
-    public static int SEC_GROUP_SIZE = (ROW_COL_SEC_SIZE * GRID_SIZE_ROW);
+    private static int SEC_GROUP_SIZE = (ROW_COL_SEC_SIZE * GRID_SIZE_ROW);
 
     public static int BOARD_SIZE = (ROW_COL_SEC_SIZE * ROW_COL_SEC_SIZE);
 
-    public static int POSSIBILITY_SIZE = (BOARD_SIZE * ROW_COL_SEC_SIZE);
+    private static int POSSIBILITY_SIZE = (BOARD_SIZE * ROW_COL_SEC_SIZE);
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     /**
      * The last round of solving
@@ -120,14 +120,14 @@ public class QQWing {
      * A list of moves used to solve the puzzle. This list contains all moves,
      * even on solve branches that did not lead to a solution.
      */
-    private ArrayList<LogItem> solveHistory = new ArrayList<LogItem>();
+    private final ArrayList<LogItem> solveHistory = new ArrayList<>();
 
     /**
      * A list of moves used to solve the puzzle. This list contains only the
      * moves needed to solve the puzzle, but doesn't contain information about
      * bad guesses.
      */
-    private ArrayList<LogItem> solveInstructions = new ArrayList<LogItem>();
+    private final ArrayList<LogItem> solveInstructions = new ArrayList<>();
 
     /**
      * The style with which to print puzzles and solutions
@@ -135,14 +135,13 @@ public class QQWing {
     private PrintStyle printStyle = PrintStyle.READABLE;
 
     private GameType       gameType   = GameType.Unspecified;
-    private GameDifficulty difficulty = GameDifficulty.Unspecified;
 
     /**
      * Create a new Sudoku board
      */
     public QQWing(GameType type, GameDifficulty difficulty) {
         gameType = type;
-        this.difficulty = difficulty;
+        GameDifficulty difficulty1 = difficulty;
 
         GRID_SIZE_ROW = type.getSectionHeight();    // 3    // 2
 
@@ -218,7 +217,7 @@ public class QQWing {
      * resides.
      * Checked!
      */
-    static int cellToSection(int cell) {
+    private static int cellToSection(int cell) {
         return ((cell / SEC_GROUP_SIZE * GRID_SIZE_ROW)
                 + (cellToColumn(cell) / GRID_SIZE_COL));
     }
@@ -228,7 +227,7 @@ public class QQWing {
      * upper left start cell of that section.
      * Checked!
      */
-    static int cellToSectionStartCell(int cell) {
+    private static int cellToSectionStartCell(int cell) {
         return ((cell / SEC_GROUP_SIZE * SEC_GROUP_SIZE)
                 + (cellToColumn(cell) / GRID_SIZE_COL * GRID_SIZE_COL));
     }
@@ -237,7 +236,7 @@ public class QQWing {
      * Given a row (0-8) calculate the first cell (0-80) of that row.
      * Checked!
      */
-    static int rowToFirstCell(int row) {
+    private static int rowToFirstCell(int row) {
         return ROW_COL_SEC_SIZE * row;
     }
 
@@ -245,7 +244,7 @@ public class QQWing {
      * Given a column (0-8) calculate the first cell (0-80) of that column.
      * Checked!
      */
-    static int columnToFirstCell(int column) {
+    private static int columnToFirstCell(int column) {
         return column;
     }
 
@@ -253,7 +252,7 @@ public class QQWing {
      * Given a section (0-8) calculate the first cell (0-80) of that section.
      * Checked!
      */
-    static int sectionToFirstCell(int section) {
+    private static int sectionToFirstCell(int section) {
         return ((section % GRID_SIZE_ROW * GRID_SIZE_COL)
                 + (section / GRID_SIZE_ROW * SEC_GROUP_SIZE));
     }
@@ -263,7 +262,7 @@ public class QQWing {
      * offset into the possibility array (0-728).
      * Checked!
      */
-    static int getPossibilityIndex(int valueIndex, int cell) {
+    private static int getPossibilityIndex(int valueIndex, int cell) {
         return valueIndex + (ROW_COL_SEC_SIZE * cell);
     }
 
@@ -271,7 +270,7 @@ public class QQWing {
      * Given a row (0-8) and a column (0-8) calculate the cell (0-80).
      * Checked!
      */
-    static int rowColumnToCell(int row, int column) {
+    private static int rowColumnToCell(int row, int column) {
         return (row * ROW_COL_SEC_SIZE) + column;
     }
 
@@ -280,7 +279,7 @@ public class QQWing {
      * cell (0-80)
      * Checked!
      */
-    static int sectionToCell(int section, int offset) {
+    private static int sectionToCell(int section, int offset) {
         return (sectionToFirstCell(section)
                 + ((offset / GRID_SIZE_COL) * ROW_COL_SEC_SIZE)
                 + (offset % GRID_SIZE_COL));
@@ -385,7 +384,7 @@ public class QQWing {
      * Get the number of cells for which the solution was determined because
      * there was only one possible value for that cell.
      */
-    public int getSingleCount() {
+    private int getSingleCount() {
         return getLogCount(solveInstructions, LogType.SINGLE);
     }
 
@@ -394,7 +393,7 @@ public class QQWing {
      * that cell had the only possibility for some value in the row, column, or
      * section.
      */
-    public int getHiddenSingleCount() {
+    private int getHiddenSingleCount() {
         return (getLogCount(solveInstructions, LogType.HIDDEN_SINGLE_ROW) +
                 getLogCount(solveInstructions, LogType.HIDDEN_SINGLE_COLUMN) + getLogCount(solveInstructions, LogType.HIDDEN_SINGLE_SECTION));
     }
@@ -403,7 +402,7 @@ public class QQWing {
      * Get the number of naked pair reductions that were performed in solving
      * this puzzle.
      */
-    public int getNakedPairCount() {
+    private int getNakedPairCount() {
         return (getLogCount(solveInstructions, LogType.NAKED_PAIR_ROW) +
                 getLogCount(solveInstructions, LogType.NAKED_PAIR_COLUMN) + getLogCount(solveInstructions, LogType.NAKED_PAIR_SECTION));
     }
@@ -412,7 +411,7 @@ public class QQWing {
      * Get the number of hidden pair reductions that were performed in solving
      * this puzzle.
      */
-    public int getHiddenPairCount() {
+    private int getHiddenPairCount() {
         return (getLogCount(solveInstructions, LogType.HIDDEN_PAIR_ROW) +
                 getLogCount(solveInstructions, LogType.HIDDEN_PAIR_COLUMN) + getLogCount(solveInstructions, LogType.HIDDEN_PAIR_SECTION));
     }
@@ -421,7 +420,7 @@ public class QQWing {
      * Get the number of pointing pair/triple reductions that were performed in
      * solving this puzzle.
      */
-    public int getPointingPairTripleCount() {
+    private int getPointingPairTripleCount() {
         return (getLogCount(solveInstructions, LogType.POINTING_PAIR_TRIPLE_ROW) + getLogCount(solveInstructions, LogType.POINTING_PAIR_TRIPLE_COLUMN));
     }
 
@@ -429,14 +428,14 @@ public class QQWing {
      * Get the number of box/line reductions that were performed in solving this
      * puzzle.
      */
-    public int getBoxLineReductionCount() {
+    private int getBoxLineReductionCount() {
         return (getLogCount(solveInstructions, LogType.ROW_BOX) + getLogCount(solveInstructions, LogType.COLUMN_BOX));
     }
 
     /**
      * Get the number lucky guesses in solving this puzzle.
      */
-    public int getGuessCount() {
+    private int getGuessCount() {
         return getLogCount(solveInstructions, LogType.GUESS);
     }
 
@@ -497,9 +496,7 @@ public class QQWing {
 
         // Record all marked squares as the puzzle so
         // that we can call countSolutions without losing it.
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            puzzle[i] = solution[i];
-        }
+        if (BOARD_SIZE >= 0) System.arraycopy(solution, 0, puzzle, 0, BOARD_SIZE);
 
         // Rerandomize everything so that we test squares
         // in a different order than they were added.
@@ -625,7 +622,7 @@ public class QQWing {
             }
         }
         for (int i = 0; i < v.size(); i++) {
-            sb.append(i + 1 + ". ").append(NL);
+            sb.append(i).append(1).append(". ").append(NL);
             (v.get(i)).print();
             if (printStyle == PrintStyle.CSV) {
                 sb.append(" -- ").append(NL);
@@ -645,7 +642,7 @@ public class QQWing {
         System.out.print(getSolveInstructionsString());
     }
 
-    public String getSolveInstructionsString() {
+    private String getSolveInstructionsString() {
         if (isSolved()) {
             return historyToString(solveInstructions);
         } else {
@@ -673,10 +670,10 @@ public class QQWing {
         return Collections.unmodifiableList(solveHistory);
     }
 
-    public boolean solve() {
+    public void solve() {
         reset();
         shuffleRandomArrays();
-        return solve(2);
+        solve(2);
     }
 
     private boolean solve(int round) {
@@ -724,7 +721,7 @@ public class QQWing {
      * when you are interested in knowing if the
      * puzzle has zero, one, or multiple solutions.
      */
-    public int countSolutionsLimited() {
+    private int countSolutionsLimited() {
         return countSolutions(true);
     }
 
@@ -789,7 +786,7 @@ public class QQWing {
         }
     }
 
-    public boolean isSolved() {
+    private boolean isSolved() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             if (solution[i] == 0) {
                 return false;
@@ -866,8 +863,7 @@ public class QQWing {
         if (colBoxReduction(round)) return true;
         if (hiddenPairInRow(round)) return true;
         if (hiddenPairInColumn(round)) return true;
-        if (hiddenPairInSection(round)) return true;
-        return false;
+        return hiddenPairInSection(round);
     }
 
     private boolean colBoxReduction(int round) {

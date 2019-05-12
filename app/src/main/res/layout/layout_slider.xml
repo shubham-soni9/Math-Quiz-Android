@@ -21,7 +21,6 @@
         android:weightSum="2">
 
         <TextView
-            android:id="@+id/tvNegativeSlider"
             style="@style/text_alignment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -37,7 +36,6 @@
             android:textSize="@dimen/text_size_normal"/>
 
         <RelativeLayout
-            android:id="@+id/rlShimmer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -55,7 +53,6 @@
                     shimmer:duration="2000">
 
                     <ImageView
-                        android:id="@+id/img_arrow_shimmer_slider"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
@@ -65,7 +62,6 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tvPositiveSlider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="end|center"

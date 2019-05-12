@@ -26,7 +26,7 @@ public class Prefs {
     private static SharedPreferences.Editor editor;
 
 
-    private static Gson GSON = new Gson();
+    private static final Gson GSON = new Gson();
     Type typeOfObject = new TypeToken<Object>() {
     }.getType();
 

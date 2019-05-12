@@ -10,7 +10,7 @@ import com.mathgame.util.Prefs;
 import java.util.Locale;
 
 public class Dependencies {
-    public static Locale getLocale(Context context) {
+    public static Locale getLocale() {
         return Locale.getDefault();
     }
 

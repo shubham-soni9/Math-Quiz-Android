@@ -177,7 +177,7 @@ public class AlertDialog {
      * Interfaces the events from the AlertDialog
      * to the Calling Context
      */
-    public interface Listener {
+    interface Listener {
 
         /**
          * Override this method to listen to
@@ -192,7 +192,7 @@ public class AlertDialog {
      */
     public static class Builder {
 
-        private AlertDialog alertDialog = new AlertDialog();
+        private final AlertDialog alertDialog = new AlertDialog();
 
         /**
          * Constructor to build a alertDialog for Activity
@@ -258,7 +258,7 @@ public class AlertDialog {
          * Set the message for the AlertDialog
          *
          */
-        public Builder title(String title) {
+        Builder title(String title) {
             alertDialog.title = title;
             return this;
         }
@@ -275,7 +275,7 @@ public class AlertDialog {
          * Set the message for the AlertDialog
          *
          */
-        public Builder message(String message) {
+        Builder message(String message) {
             alertDialog.message = message;
             return this;
         }
@@ -292,7 +292,7 @@ public class AlertDialog {
          * Set the actionButton for the AlertDialog
          *
          */
-        public Builder button(String button) {
+        Builder button(String button) {
             alertDialog.actionButton = button;
             return this;
         }

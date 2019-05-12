@@ -12,6 +12,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -50,16 +51,16 @@ import java.util.List;
 
 public class GameActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, IGameSolvedListener, ITimerListener, IHintDialogFragmentListener, IResetDialogFragmentListener {
 
-    GameController            gameController;
-    SudokuFieldLayout         layout;
-    SudokuKeyboardLayout      keyboard;
-    SudokuSpecialButtonLayout specialButtonLayout;
-    TextView                  timerView;
-    TextView                  viewName;
-    RatingBar                 ratingBar;
-    SaveLoadStatistics        statistics = new SaveLoadStatistics(this);
-    WinDialog                 dialog     = null;
-    private boolean gameSolved = false;
+    private       GameController            gameController;
+    private       SudokuFieldLayout         layout;
+    private       SudokuKeyboardLayout      keyboard;
+    private       SudokuSpecialButtonLayout specialButtonLayout;
+    private       TextView                  timerView;
+    private       TextView                  viewName;
+    private       RatingBar                 ratingBar;
+    private final SaveLoadStatistics        statistics = new SaveLoadStatistics(this);
+    private       WinDialog                 dialog     = null;
+    private       boolean                   gameSolved = false;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -136,7 +137,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
 
 
         setContentView(R.layout.activity_game_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //toolbar.addView();
 
@@ -145,7 +146,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
         }
 
         //Create new GameField
-        layout = (SudokuFieldLayout) findViewById(R.id.sudokuLayout);
+        layout = findViewById(R.id.sudokuLayout);
         gameController.registerGameSolvedListener(this);
         gameController.registerTimerListener(this);
         statistics.setGameController(gameController);
@@ -153,7 +154,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
         layout.setSettingsAndGame(sharedPref, gameController);
 
         //set KeyBoard
-        keyboard = (SudokuKeyboardLayout) findViewById(R.id.sudokuKeyboardLayout);
+        keyboard = findViewById(R.id.sudokuKeyboardLayout);
         keyboard.removeAllViews();
         keyboard.setGameController(gameController);
         //keyboard.setColumnCount((gameController.getSize() / 2) + 1);
@@ -165,38 +166,38 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
         int orientation = getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT ?
                 LinearLayout.HORIZONTAL : LinearLayout.VERTICAL;
 
-        keyboard.setKeyBoard(gameController.getSize(), p.x, layout.getHeight() - p.y, orientation);
+        keyboard.setKeyBoard(gameController.getSize(), orientation);
 
 
         //set Special keys
-        specialButtonLayout = (SudokuSpecialButtonLayout) findViewById(R.id.sudokuSpecialLayout);
-        specialButtonLayout.setButtons(p.x, gameController, keyboard, getFragmentManager(), orientation);
+        specialButtonLayout = findViewById(R.id.sudokuSpecialLayout);
+        specialButtonLayout.setButtons(gameController, keyboard, getFragmentManager(), orientation);
 
         //set TimerView
-        timerView = (TextView) findViewById(R.id.timerView);
+        timerView = findViewById(R.id.timerView);
 
 
         //set GameName
-        viewName = (TextView) findViewById(R.id.gameModeText);
+        viewName = findViewById(R.id.gameModeText);
         viewName.setText(getString(gameController.getGameType().getStringResID()));
 
         //set Rating bar
         List<GameDifficulty> difficutyList = GameDifficulty.getValidDifficultyList();
         int numberOfStarts = difficutyList.size();
-        ratingBar = (RatingBar) findViewById(R.id.gameModeStar);
+        ratingBar = findViewById(R.id.gameModeStar);
         ratingBar.setMax(numberOfStarts);
         ratingBar.setNumStars(numberOfStarts);
         ratingBar.setRating(difficutyList.indexOf(gameController.getDifficulty()) + 1);
         ((TextView) findViewById(R.id.difficultyText)).setText(getString(gameController.getDifficulty().getStringResID()));
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         if (gameSolved) {
@@ -209,7 +210,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
         gameController.notifyTimerListener(gameController.getTime());
 
         // run this so the error list gets build again.
-        gameController.onModelChange(null);
+        gameController.onModelChange();
 
         overridePendingTransition(0, 0);
     }
@@ -257,7 +258,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -273,9 +274,8 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
         return true;
     }*/
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -317,7 +317,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -352,7 +352,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
         dialog.show();
 
         final Activity activity = this;
-        ((Button) dialog.findViewById(R.id.win_continue_button)).setOnClickListener(new View.OnClickListener() {
+        dialog.findViewById(R.id.win_continue_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
@@ -363,7 +363,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
                 activity.finish();
             }
         });
-        ((Button) dialog.findViewById(R.id.win_showGame_button)).setOnClickListener(new View.OnClickListener() {
+        dialog.findViewById(R.id.win_showGame_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
@@ -376,20 +376,20 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
         specialButtonLayout.setButtonsEnabled(false);
     }
 
-    public String timeToString(int time) {
+    private String timeToString(int time) {
         int seconds = time % 60;
         int minutes = ((time - seconds) / 60) % 60;
         int hours = (time - minutes - seconds) / (3600);
         String h, m, s;
-        s = (seconds < 10) ? "0" + String.valueOf(seconds) : String.valueOf(seconds);
-        m = (minutes < 10) ? "0" + String.valueOf(minutes) : String.valueOf(minutes);
-        h = (hours < 10) ? "0" + String.valueOf(hours) : String.valueOf(hours);
+        s = (seconds < 10) ? "0" + seconds : String.valueOf(seconds);
+        m = (minutes < 10) ? "0" + minutes : String.valueOf(minutes);
+        h = (hours < 10) ? "0" + hours : String.valueOf(hours);
         return h + ":" + m + ":" + s;
     }
 
 
     private void disableReset() {
-        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navView = findViewById(R.id.nav_view);
         Menu navMenu = navView.getMenu();
         navMenu.findItem(R.id.menu_reset).setEnabled(false);
     }
@@ -438,7 +438,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
 
     public static class ResetConfirmationDialog extends DialogFragment {
 
-        LinkedList<IResetDialogFragmentListener> listeners = new LinkedList<>();
+        final LinkedList<IResetDialogFragmentListener> listeners = new LinkedList<>();
 
         @Override
         public void onAttach(Activity activity) {

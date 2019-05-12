@@ -8,12 +8,11 @@ import com.mathgame.R;
 import com.mathgame.structure.BaseActivity;
 
 public class GameResultActivity extends BaseActivity {
-    private PieChart pieChartPlayerOne;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_result);
-        pieChartPlayerOne=findViewById(R.id.pieChartPlayerOne);
+        PieChart pieChartPlayerOne = findViewById(R.id.pieChartPlayerOne);
 
     }
 }

@@ -50,7 +50,7 @@ public class Utils {
         return editText.getText().toString().trim();
     }
 
-    public static boolean isEmpty(String value) {
+    private static boolean isEmpty(String value) {
         return value == null || value.isEmpty();
     }
 
@@ -58,7 +58,7 @@ public class Utils {
         return Utils.isEmpty(Utils.get(editText));
     }
 
-    public static void snackBar(Activity activity, String message, int type) {
+    private static void snackBar(Activity activity, String message, int type) {
         try {
             snackBar(activity, message, activity.getWindow().getDecorView().findViewById(android.R.id.content), type);
         } catch (Exception e) {
@@ -73,7 +73,7 @@ public class Utils {
                 (assignable.equals("null") ? assign(alternative) : assignable);
     }
 
-    public static String assign(String assignable) {
+    private static String assign(String assignable) {
 
         return assignable == null || assignable.equalsIgnoreCase("[]") || assignable.equals("null") ?
                 Constant.EMPTY : assignable;
@@ -83,7 +83,7 @@ public class Utils {
         snackBar(activity, activity.getString(messageId), type);
     }
 
-    public static void snackBar(Activity activity, String message) {
+    private static void snackBar(Activity activity, String message) {
         try {
             snackBar(activity, message, Codes.SnackBarType.ERROR);
         } catch (Exception e) {
@@ -99,7 +99,7 @@ public class Utils {
         }
     }
 
-    public static void snackBar(final Activity activity, final String message, final View view, final int type) {
+    private static void snackBar(final Activity activity, final String message, final View view, final int type) {
 
         if (activity == null) return;
 
@@ -112,9 +112,7 @@ public class Utils {
                     TextView tv = view.findViewById(android.support.design.R.id.snackbar_text);
                     tv.setMaxLines(3);
                     tv.setGravity(Gravity.CENTER_HORIZONTAL);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                        tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                    }
+                    tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                     tv.setTextAppearance(activity, R.style.CustomTextAppearance_Light);
                     tv.setTextColor(ContextCompat.getColor(activity, R.color.white));
                     view.setBackgroundColor(ContextCompat.getColor(activity, type == Codes.SnackBarType.SUCCESS ? R.color.snackbar_bg_color_success : R.color.snackbar_bg_color_error));
@@ -171,12 +169,11 @@ public class Utils {
     }
 
     public static String toDecimal(final double decimalInput) {
-        return toDecimal(decimalInput, Locale.US, 2);
+        return toDecimal(decimalInput, Locale.US);
     }
 
-    private static String toDecimal(final double decimalInput, final Locale locale,
-                                    final int decimalPlace) {
-        String mString = "%." + decimalPlace + "f";
+    private static String toDecimal(final double decimalInput, final Locale locale) {
+        String mString = "%." + 2 + "f";
         return String.format(locale, mString, decimalInput);
     }
 
@@ -204,7 +201,7 @@ public class Utils {
         return result;
     }
 
-    public static void hideSoftKeyboard(Activity activity) {
+    private static void hideSoftKeyboard(Activity activity) {
 
         View focusedView = activity.getCurrentFocus();
         if (focusedView == null) return;

@@ -24,16 +24,16 @@ import java.util.LinkedList;
  */
 public class SudokuFieldLayout extends RelativeLayout implements IHighlightChangedListener {
 
-    public SudokuCellView[][] gamecells;
-    AttributeSet attrs;
-    private GameController    gameController;
-    private int               sectionHeight;
-    private int               sectionWidth;
-    private int               gameCellWidth;
-    private int               gameCellHeight;
-    private SharedPreferences settings;
-    private Paint             p = new Paint();
-    private OnTouchListener listener = new OnTouchListener() {
+    private       SudokuCellView[][] gamecells;
+    private final AttributeSet       attrs;
+    private       GameController     gameController;
+    private       int                sectionHeight;
+    private       int                sectionWidth;
+    private       int                gameCellWidth;
+    private       int                gameCellHeight;
+    private       SharedPreferences  settings;
+    private       Paint              p        = new Paint();
+    private final OnTouchListener    listener = new OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             if (v instanceof SudokuCellView) {
@@ -48,7 +48,7 @@ public class SudokuFieldLayout extends RelativeLayout implements IHighlightChang
             return false;
         }
     };
-    private boolean isWidthLimiting;
+    private       boolean            isWidthLimiting;
 
     public SudokuFieldLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -122,9 +122,9 @@ public class SudokuFieldLayout extends RelativeLayout implements IHighlightChang
     }
 
     public void setSymbols(Symbol s) {
-        for (int i = 0; i < gamecells.length; i++) {
-            for (int j = 0; j < gamecells[i].length; j++) {
-                gamecells[i][j].setSymbols(s);
+        for (SudokuCellView[] gamecell : gamecells) {
+            for (int j = 0; j < gamecell.length; j++) {
+                gamecell[j].setSymbols(s);
             }
         }
     }

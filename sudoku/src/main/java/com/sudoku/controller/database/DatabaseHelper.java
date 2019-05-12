@@ -15,8 +15,8 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final int    DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME    = "Database.db";
+    private static final int    DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME    = "Database.db";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             throw new IllegalArgumentException("Arguments may not be null");
         }
 
-        List<Level> levelList = new LinkedList<Level>();
+        List<Level> levelList = new LinkedList<>();
 
         SQLiteDatabase database = getWritableDatabase();
 
@@ -86,9 +86,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.delete(LevelColumns.TABLE_NAME, selection, selectionArgs);
     }
 
-    public long addLevel(Level level) {
+    public void addLevel(Level level) {
         SQLiteDatabase database = getWritableDatabase();
-        return database.insert(LevelColumns.TABLE_NAME, null, LevelColumns.getValues(level));
+        database.insert(LevelColumns.TABLE_NAME, null, LevelColumns.getValues(level));
     }
 }
 

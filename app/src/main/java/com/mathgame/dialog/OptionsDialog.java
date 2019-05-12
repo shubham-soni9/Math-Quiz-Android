@@ -95,7 +95,7 @@ public class OptionsDialog {
                     optionsDialog.dismiss();
 
                     if (listener != null)
-                        listener.performPositiveAction(purposeCode, backpack);
+                        listener.performPositiveAction();
                 }
             });
 
@@ -106,7 +106,7 @@ public class OptionsDialog {
                     optionsDialog.dismiss();
 
                     if (listener != null)
-                        listener.performNegativeAction(purposeCode, backpack);
+                        listener.performNegativeAction();
                 }
             });
 
@@ -149,18 +149,16 @@ public class OptionsDialog {
          * Override this method to perform operations
          * after OK button was pressed
          *
-         * @param purpose
          */
-        void performPositiveAction(int purpose, Bundle backpack);
+        void performPositiveAction();
 
 
         /**
          * Override this method to perform operations
          * after CANCEL button was pressed
          *
-         * @param purpose
          */
-        void performNegativeAction(int purpose, Bundle backpack);
+        void performNegativeAction();
     }
 
     /**
@@ -168,7 +166,7 @@ public class OptionsDialog {
      */
     public static class Builder {
 
-        private OptionsDialog optionsDialog = new OptionsDialog();
+        private final OptionsDialog optionsDialog = new OptionsDialog();
 
         /**
          * Constructor to initialize the OptionsDialog
@@ -238,7 +236,7 @@ public class OptionsDialog {
          * Method to set title to the Title
          *
          */
-        public Builder title(String title) {
+        Builder title(String title) {
             optionsDialog.title = title;
             return this;
         }
@@ -255,7 +253,7 @@ public class OptionsDialog {
          * Method to set message to the Dialog
          *
          */
-        public Builder message(String message) {
+        Builder message(String message) {
             optionsDialog.message = message;
             return this;
         }
@@ -272,7 +270,7 @@ public class OptionsDialog {
          * Method to set text to the Positive Button
          *
          */
-        public Builder positiveButton(String buttonText) {
+        Builder positiveButton(String buttonText) {
             optionsDialog.positiveButton = buttonText;
             return this;
         }
@@ -289,7 +287,7 @@ public class OptionsDialog {
          * Method to set Text to the Negative Button
          *
          */
-        public Builder negativeButton(String cancel) {
+        Builder negativeButton(String cancel) {
             optionsDialog.negativeButton = cancel;
             return this;
         }

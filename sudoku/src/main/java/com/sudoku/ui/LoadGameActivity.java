@@ -36,9 +36,9 @@ import java.util.TimeZone;
 
 public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragmentListener {
 
-    List<GameInfoContainer> loadableGameList;
-    SharedPreferences       settings;
-    LoadGameAdapter         loadGameAdapter;
+    private List<GameInfoContainer> loadableGameList;
+    private SharedPreferences       settings;
+    private LoadGameAdapter         loadGameAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +50,15 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                finish();
-                return true;
+        // Respond to the action bar's Up/Home button
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void init() {
+    private void init() {
 
         GameStateManager gameStateManager = new GameStateManager(this, settings);
         loadableGameList = gameStateManager.loadGameStateInfo();
@@ -86,7 +85,7 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
             }
         };
 
-        ListView listView = (ListView) findViewById(R.id.main_content);
+        ListView listView = findViewById(R.id.main_content);
         loadGameAdapter = new LoadGameAdapter(this, loadableGameList);
         listView.setAdapter(loadGameAdapter);
         listView.setOnItemClickListener(clickListener);
@@ -102,20 +101,20 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
     }
 
     @Override
-    public void onDialogNegativeClick(int position) {
+    public void onDialogNegativeClick() {
         // do nothing
     }
 
     public static class DeleteDialogFragment extends DialogFragment {
 
-        LinkedList<IDeleteDialogFragmentListener> listeners = new LinkedList<>();
-        private int position = 0;
+        final   LinkedList<IDeleteDialogFragmentListener> listeners = new LinkedList<>();
+        private int                                       position  = 0;
 
-        public int getPosition() {
+        int getPosition() {
             return position;
         }
 
-        public void setPosition(int position) {
+        void setPosition(int position) {
             this.position = position;
         }
 
@@ -152,15 +151,15 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
 
     private class LoadGameAdapter extends BaseAdapter {
 
-        private Context                 context;
-        private List<GameInfoContainer> loadableGameList;
+        private final Context                 context;
+        private final List<GameInfoContainer> loadableGameList;
 
-        public LoadGameAdapter(Context context, List<GameInfoContainer> loadableGameList) {
+        LoadGameAdapter(Context context, List<GameInfoContainer> loadableGameList) {
             this.context = context;
             this.loadableGameList = loadableGameList;
         }
 
-        public void delete(int position) {
+        void delete(int position) {
             loadableGameList.remove(position);
             notifyDataSetChanged();
         }
@@ -184,17 +183,17 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-                convertView = (View) inflater.inflate(R.layout.list_entry_layout, null);
+                convertView = inflater.inflate(R.layout.list_entry_layout, null);
             }
 
             GameInfoContainer gic = loadableGameList.get(position);
 
-            TextView gameType = (TextView) convertView.findViewById(R.id.loadgame_listentry_gametype);
-            TextView difficulty = (TextView) convertView.findViewById(R.id.loadgame_listentry_difficultytext);
-            RatingBar difficultyBar = (RatingBar) convertView.findViewById(R.id.loadgame_listentry_difficultybar);
-            TextView playedTime = (TextView) convertView.findViewById(R.id.loadgame_listentry_timeplayed);
-            TextView lastTimePlayed = (TextView) convertView.findViewById(R.id.loadgame_listentry_lasttimeplayed);
-            ImageView image = (ImageView) convertView.findViewById(R.id.loadgame_listentry_gametypeimage);
+            TextView gameType = convertView.findViewById(R.id.loadgame_listentry_gametype);
+            TextView difficulty = convertView.findViewById(R.id.loadgame_listentry_difficultytext);
+            RatingBar difficultyBar = convertView.findViewById(R.id.loadgame_listentry_difficultybar);
+            TextView playedTime = convertView.findViewById(R.id.loadgame_listentry_timeplayed);
+            TextView lastTimePlayed = convertView.findViewById(R.id.loadgame_listentry_lasttimeplayed);
+            ImageView image = convertView.findViewById(R.id.loadgame_listentry_gametypeimage);
 
             switch (gic.getGameType()) {
                 case Default_6x6:
@@ -220,9 +219,9 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
             int minutes = ((time - seconds) / 60) % 60;
             int hours = (time - minutes - seconds) / (3600);
             String h, m, s;
-            s = (seconds < 10) ? "0" + String.valueOf(seconds) : String.valueOf(seconds);
-            m = (minutes < 10) ? "0" + String.valueOf(minutes) : String.valueOf(minutes);
-            h = (hours < 10) ? "0" + String.valueOf(hours) : String.valueOf(hours);
+            s = (seconds < 10) ? "0" + seconds : String.valueOf(seconds);
+            m = (minutes < 10) ? "0" + minutes : String.valueOf(minutes);
+            h = (hours < 10) ? "0" + hours : String.valueOf(hours);
             playedTime.setText(h + ":" + m + ":" + s);
 
             Date lastTimePlayedDate = gic.getLastTimePlayed();

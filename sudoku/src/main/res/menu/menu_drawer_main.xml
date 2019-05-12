@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group
-        android:id="@+id/group4"
-        android:checkableBehavior="all">
+    <group android:checkableBehavior="all">
         <item
             android:id="@+id/nav_newgame_main"
             android:icon="@drawable/ic_menu_home"
@@ -14,9 +12,7 @@
             android:title="@string/menu_highscore" />
     </group>
 
-    <group
-        android:id="@+id/group2"
-        android:checkableBehavior="all">
+    <group android:checkableBehavior="all">
         <item
             android:id="@+id/menu_settings_main"
             android:icon="@drawable/ic_menu_settings"
