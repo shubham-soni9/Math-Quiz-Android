@@ -99,7 +99,7 @@ public class Utils {
         }
     }
 
-    private static void snackBar(final Activity activity, final String message, final View view, final int type) {
+    public static void snackBar(final Activity activity, final String message, final View view, final int type) {
 
         if (activity == null) return;
 

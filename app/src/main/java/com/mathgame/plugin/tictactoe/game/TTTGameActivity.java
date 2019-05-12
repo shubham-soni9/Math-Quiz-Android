@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mathgame.R;
+import com.mathgame.appdata.Codes;
 import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.plugin.tictactoe.TTTConstants;
 import com.mathgame.util.Transition;
@@ -164,12 +165,8 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
      * Shows a {@link Snackbar} for board reset.
      */
 
-    @TargetApi(Build.VERSION_CODES.M)
     private void showBoardResetSnackBar() {
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.reset_button), "Board Reset", Snackbar.LENGTH_SHORT);
-        TextView sbText = snackbar.getView().findViewById(R.id.snackbar_text);
-        sbText.setTextColor(getResources().getColor(R.color.holo_orange_dark, null));
-        snackbar.show();
+        Utils.snackBar(this, getString(R.string.board_reset), findViewById(R.id.reset_button), Codes.SnackBarType.SUCCESS);
     }
 
     @Override
