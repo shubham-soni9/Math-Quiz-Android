@@ -29,4 +29,12 @@ public class Dependencies {
     public static int getThemeColor(Context context) {
         return Prefs.with(context).getInt(Keys.Prefs.KEY_SETTINGS, ContextCompat.getColor(context, R.color.colorPrimary));
     }
+
+    public static void setFirstTimeSudokuLaunch(Context context, boolean value) {
+        Prefs.with(context).save(Keys.Prefs.KEY_SETTINGS, value);
+    }
+
+    public static boolean isFirstTimeSudokuLaunch(Context context) {
+        return Prefs.with(context).getBoolean(Keys.Prefs.KEY_SETTINGS, false);
+    }
 }

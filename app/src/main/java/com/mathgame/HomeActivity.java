@@ -12,12 +12,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mathgame.activity.GameTypeActivity;
+import com.mathgame.activity.SlideAdditionActivity;
+import com.mathgame.activity.SudokuHomeActivity;
+import com.mathgame.activity.SudokuTutorialActivity;
 import com.mathgame.appdata.Codes;
+import com.mathgame.appdata.Dependencies;
 import com.mathgame.appdata.GameSettings;
 import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
-import com.mathgame.activity.SlideAdditionActivity;
-import com.mathgame.activity.SudokuHomeActivity;
 import com.mathgame.plugin.tictactoe.selection.SelectionActivity;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
@@ -87,7 +89,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.startActivity(this, SelectionActivity.class);
                 break;
             case R.id.cvSudoku:
-                Transition.startActivity(this, SudokuHomeActivity.class);
+                if (Dependencies.isFirstTimeSudokuLaunch(this)) {
+                    Transition.startActivity(this, SudokuTutorialActivity.class);
+                } else {
+                    Transition.startActivity(this, SudokuHomeActivity.class);
+                }
                 break;
             case R.id.cvSlideAddition:
                 Transition.startActivity(this, SlideAdditionActivity.class);
