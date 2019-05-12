@@ -10,9 +10,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.secuso.ui.GameActivity">
+    tools:context="com.sudoku.ui.GameActivity">
 
-    <com.secuso.ui.view.SudokuFieldLayout
+    <com.sudoku.ui.view.SudokuFieldLayout
         android:id="@+id/sudokuLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:orientation="vertical"
         android:weightSum="3">
 
-        <com.secuso.ui.view.SudokuKeyboardLayout
+        <com.sudoku.ui.view.SudokuKeyboardLayout
             android:id="@+id/sudokuKeyboardLayout"
             android:layout_width="fill_parent"
             android:layout_height="0px"
@@ -35,15 +35,15 @@
             android:orientation="vertical"
             android:weightSum="2">
 
-        </com.secuso.ui.view.SudokuKeyboardLayout>
+        </com.sudoku.ui.view.SudokuKeyboardLayout>
 
-        <com.secuso.ui.view.SudokuSpecialButtonLayout
+        <com.sudoku.ui.view.SudokuSpecialButtonLayout
             android:id="@+id/sudokuSpecialLayout"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-        </com.secuso.ui.view.SudokuSpecialButtonLayout>
+        </com.sudoku.ui.view.SudokuSpecialButtonLayout>
 
     </LinearLayout>
 

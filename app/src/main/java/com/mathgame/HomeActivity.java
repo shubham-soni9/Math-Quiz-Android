@@ -21,7 +21,7 @@ import com.mathgame.structure.BaseActivity;
 import com.util.Transition;
 import com.mathgame.util.Utils;
 
-import com.secuso.ui.SplashActivity;
+import com.sudoku.ui.SplashActivity;
 
 import com.SlideAdditionActivity;
 
