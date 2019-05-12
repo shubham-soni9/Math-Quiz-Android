@@ -2,6 +2,8 @@ package com.mathgame.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.VibrationEffect;
@@ -218,9 +220,7 @@ public class Utils {
     /**
      * Method used to hide keyboard if outside touched.
      *
-     * @param activity
      */
-
     public static void showSoftKeyboard(Activity activity) {
 
         try {
@@ -240,4 +240,28 @@ public class Utils {
         }
     }
 
+    public static void openEmailApp(Activity context, String subject, String message) {
+        try {
+            Utils.hideSoftKeyboard(context);
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            emailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            String uriText = "mailto:" + Uri.encode("shubhamsonicse@gmail.com") +
+                    "?subject=" + Uri.encode(subject) +
+                    "&body=" + Uri.encode(message);
+            emailIntent.setData(Uri.parse(uriText));
+            context.startActivity(Intent.createChooser(emailIntent, "Send mail using..."));
+        } catch (Exception e) {
+            Utils.snackBar(context, context.getString(R.string.some_error_occurred));
+            e.printStackTrace();
+        }
+    }
+
+    public static void openOtherApps(Context context){
+        final String appPackageName = context.getPackageName(); // getPackageName() from Context or Activity object
+        try {
+            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (android.content.ActivityNotFoundException anfe) {
+            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+        }
+    }
 }

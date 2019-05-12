@@ -107,5 +107,8 @@
     <string name="suggestions">Suggestions</string>
     <string name="send_feedback">Send Feedback</string>
     <string name="exit">Exit</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
+    <string name="some_error_occurred">Some Error Occurred</string>
+    <string name="feedback">FeedBack</string>
 </resources>
 
