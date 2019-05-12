@@ -40,7 +40,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private              TextView                     tvTimerValue;
     private              TextView                     tvNumberOfQuestion;
     private              TextView                     tvQuestion;
-    private              int                          remainingQuestion = 1;
+    private              int                          remainingQuestion = 0;
     private              TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
     private Question       currentQuestion;
     private CountDownTimer countDownTimer;
@@ -106,6 +106,8 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     }
 
     private void startGame() {
+        remainingQuestion++;
+        tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
         tvOption1.setBackgroundResource(R.drawable.background_multiple_choice);
         tvOption2.setBackgroundResource(R.drawable.background_multiple_choice);
         tvOption3.setBackgroundResource(R.drawable.background_multiple_choice);
@@ -144,6 +146,10 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                     case Constant.MathSign.DIVISION:
                         maximum = currentQuestion.getA();
                         minimum = currentQuestion.getB();
+                        break;
+                    case Constant.MathSign.PERCENTAGE:
+                        maximum = 9;
+                        minimum = 1;
                         break;
                 }
 
@@ -191,7 +197,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
                     @Override
                     public void onFinish() {
-                        remainingQuestion++;
                         startGame();
                     }
                 };
@@ -237,7 +242,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         if (currentQuestion.isCorrect()) {
             cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
             cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
-            remainingQuestion++;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -253,7 +257,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         if (!currentQuestion.isCorrect()) {
             cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
             cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
-            remainingQuestion++;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -268,7 +271,6 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private void onOptionClicked(String answer, TextView tvOption) {
         if (currentQuestion.getAnswer().equals(answer)) {
             tvOption.setBackgroundResource(R.drawable.background_correct_answer);
-            remainingQuestion++;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

@@ -139,6 +139,10 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
                         maximum = currentQuestion.getA();
                         minimum = currentQuestion.getB();
                         break;
+                    case Constant.MathSign.PERCENTAGE:
+                        maximum = 9;
+                        minimum = 1;
+                        break;
                 }
 
                 while ((maximum - minimum) < 4) {

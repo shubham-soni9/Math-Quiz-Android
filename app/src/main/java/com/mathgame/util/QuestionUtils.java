@@ -48,8 +48,14 @@ public class QuestionUtils {
                 a = RandomUtils.getRandomInt(maximum, minimum);
                 b = RandomUtils.getRandomInt(maximum, minimum);
             }
+        } else if (chosenOperation.equals(Constant.MathSign.PERCENTAGE)) {
+            while (a <= b) {
+                a = RandomUtils.getRandomInt(maximum, minimum);
+                b = RandomUtils.getRandomInt(maximum, minimum);
+            }
         } else {
             while (a == b) {
+                a = RandomUtils.getRandomInt(maximum, minimum);
                 b = RandomUtils.getRandomInt(maximum, minimum);
             }
         }

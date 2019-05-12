@@ -71,12 +71,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getDivision());
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
-            case R.id.tvSquareRoot:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSquareRoot());
-                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
-                break;
             case R.id.tvPercentage:
                 bundle.putParcelable(CustomMode.class.getName(), GameSettings.getPercentage());
+                Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
+                break;
+            case R.id.tvSquareRoot:
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSquareRoot());
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.cvTicTacToe:

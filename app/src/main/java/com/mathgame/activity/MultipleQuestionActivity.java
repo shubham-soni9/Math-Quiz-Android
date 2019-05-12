@@ -197,7 +197,7 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
             QuestionView questionView = getQuestionView(position + 1);
             questionView.requestFocus();
         } else {
-            startGame();
+            onNextQuestion();
         }
     }
 
