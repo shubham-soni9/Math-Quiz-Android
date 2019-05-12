@@ -38,6 +38,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private CardView           cvSlideAddition;
     private DrawerLayout       drawerLayout;
     private AppCompatImageView ivHome;
+    private AppCompatImageView ivSelectedColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +59,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         cvSlideAddition = findViewById(R.id.cvSlideAddition);
         ivHome = findViewById(R.id.ivHome);
         drawerLayout = findViewById(R.id.activity_home_dl_main);
+        ivSelectedColor=findViewById(R.id.ivSelectedColor);
 
         Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
                 , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
                 , findViewById(R.id.tvSliderSettings), findViewById(R.id.tvSliderPolicy), findViewById(R.id.tvSliderShare)
                 , findViewById(R.id.tvSliderRate), findViewById(R.id.tvSliderMoreApps), findViewById(R.id.tvSliderReportBug)
-                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit));
+                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit),findViewById(R.id.rlSliderTheme));
     }
 
     @Override
@@ -137,7 +139,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.tvSliderExit:
                 exit();
                 break;
+            case R.id.rlSliderTheme:
+                changeTheme();
+                break;
         }
+    }
+
+    private void changeTheme() {
     }
 
     private void shareApp() {

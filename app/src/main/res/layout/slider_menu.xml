@@ -42,6 +42,29 @@
         android:drawableStart="@drawable/ic_slider_settings"
         android:text="@string/settings" />
 
+    <RelativeLayout
+        android:id="@+id/rlSliderTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/side_menu_text_color"
+            android:drawableStart="@drawable/ic_theme"
+            android:text="@string/theme" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivSelectedColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/colorPrimary"
+            android:src="@drawable/ic_circle" />
+
+    </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
