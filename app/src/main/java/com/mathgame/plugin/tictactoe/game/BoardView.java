@@ -103,14 +103,14 @@ public class BoardView extends View implements GestureDetector.OnGestureListener
         gridPaint.setStrokeCap(Paint.Cap.ROUND);
 
         signPaint = new Paint();
-        signPaint.setColor(getContext().getResources().getColor(R.color.holo_orange_dark, null));
+        signPaint.setColor(getContext().getResources().getColor(R.color.snackbar_bg_color_success, null));
         signPaint.setAntiAlias(true);
         signPaint.setStyle(Paint.Style.STROKE);
         signPaint.setStrokeWidth(dpToPx(STROKE_WIDTH));
         signPaint.setStrokeCap(Paint.Cap.ROUND);
 
         winLinePaint = new Paint();
-        winLinePaint.setColor(getContext().getResources().getColor(R.color.holo_red_dark, null));
+        winLinePaint.setColor(getContext().getResources().getColor(R.color.snackbar_bg_color_error, null));
         winLinePaint.setAntiAlias(true);
         winLinePaint.setStrokeWidth(dpToPx(STROKE_WIDTH));
         winLinePaint.setStrokeCap(Paint.Cap.ROUND);

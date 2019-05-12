@@ -157,7 +157,7 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
             public void performNegativeAction() {
 
             }
-        }).build();
+        }).build().show();
     }
 
     /**
