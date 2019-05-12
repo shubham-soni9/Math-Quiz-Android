@@ -18,10 +18,9 @@ import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.plugin.tictactoe.selection.SelectionActivity;
 import com.mathgame.structure.BaseActivity;
+import com.sudoku.ui.SudokuMainActivity;
 import com.util.Transition;
 import com.mathgame.util.Utils;
-
-import com.sudoku.ui.SplashActivity;
 
 import com.SlideAdditionActivity;
 
@@ -100,7 +99,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.startActivity(this, SelectionActivity.class);
                 break;
             case R.id.cvSudoku:
-                Transition.startActivity(this, SplashActivity.class);
+                Transition.startActivity(this, SudokuMainActivity.class);
                 break;
             case R.id.cvSlideAddition:
                 Transition.startActivity(this, SlideAdditionActivity.class);

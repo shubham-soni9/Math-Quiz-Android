@@ -12,10 +12,6 @@
             android:id="@+id/nav_highscore_main"
             android:icon="@android:drawable/ic_menu_myplaces"
             android:title="@string/menu_highscore" />
-        <item
-            android:id="@+id/menu_tutorial_main"
-            android:icon="@drawable/ic_school_black_24dp"
-            android:title="@string/menu_tutorial" />
     </group>
 
     <group
@@ -29,9 +25,5 @@
             android:id="@+id/menu_help_main"
             android:icon="@drawable/ic_menu_help"
             android:title="@string/menu_help" />
-        <item
-            android:id="@+id/menu_about_main"
-            android:icon="@drawable/ic_menu_about"
-            android:title="@string/menu_about" />
     </group>
 </menu>

@@ -19,11 +19,12 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.sudoku.R;
 import com.sudoku.controller.SaveLoadStatistics;
 import com.sudoku.controller.helper.HighscoreInfoContainer;
 import com.sudoku.game.GameDifficulty;
 import com.sudoku.game.GameType;
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
 
 import java.util.List;
 

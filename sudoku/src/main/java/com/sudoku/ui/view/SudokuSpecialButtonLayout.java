@@ -18,11 +18,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.sudoku.R;
 import com.sudoku.ui.listener.IHintDialogFragmentListener;
 import com.sudoku.controller.GameController;
 import com.sudoku.game.listener.IHighlightChangedListener;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
 
 import java.util.LinkedList;
 

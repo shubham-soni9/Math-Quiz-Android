@@ -2,7 +2,8 @@ package com.sudoku.ui.view;
 
 import android.support.annotation.DrawableRes;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
+import com.sudoku.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,8 @@ public enum SudokuButtonType {
 
     private int resID;
 
-    SudokuButtonType(@DrawableRes int res) {
+    SudokuButtonType(@DrawableRes int res)
+    {
         this.resID = res;
     }
 

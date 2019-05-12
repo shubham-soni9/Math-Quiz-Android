@@ -18,10 +18,11 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 // @formatter:on
-package com.sudoku.controller.qqwing;
+package com.sudoku.controller.constant;
 
-public enum Action {
-    NONE,
-    GENERATE,
-    SOLVE
-}
+public enum PrintStyle {
+    ONE_LINE,
+    COMPACT,
+    READABLE,
+    CSV
+};

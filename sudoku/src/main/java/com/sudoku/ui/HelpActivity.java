@@ -12,7 +12,8 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+import com.sudoku.R;
+
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

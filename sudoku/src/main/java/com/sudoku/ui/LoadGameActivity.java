@@ -21,11 +21,12 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.sudoku.R;
 import com.sudoku.controller.GameStateManager;
 import com.sudoku.controller.helper.GameInfoContainer;
 import com.sudoku.game.GameDifficulty;
 import com.sudoku.ui.listener.IDeleteDialogFragmentListener;
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -42,15 +43,8 @@ public class LoadGameActivity extends BaseActivity implements IDeleteDialogFragm
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_load_game);
-
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.menu_continue_game);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
         settings = PreferenceManager.getDefaultSharedPreferences(this);
-
         init();
     }
 

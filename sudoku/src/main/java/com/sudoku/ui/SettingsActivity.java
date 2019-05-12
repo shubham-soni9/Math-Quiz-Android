@@ -15,7 +15,8 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
+import com.sudoku.R;
 
 import java.util.List;
 

@@ -6,7 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+import com.sudoku.R;
+
 
 /**
  * Created by Chris on 15.10.2016.

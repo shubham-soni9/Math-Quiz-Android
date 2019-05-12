@@ -18,7 +18,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 // @formatter:on
-package com.sudoku.controller.qqwing;
+package com.sudoku.controller.constant;
 
 import java.util.Locale;
 

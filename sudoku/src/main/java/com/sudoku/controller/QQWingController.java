@@ -5,10 +5,10 @@ import android.util.Log;
 import com.sudoku.game.GameBoard;
 import com.sudoku.game.GameDifficulty;
 import com.sudoku.game.GameType;
-import com.sudoku.controller.qqwing.Action;
-import com.sudoku.controller.qqwing.PrintStyle;
-import com.sudoku.controller.qqwing.QQWing;
-import com.sudoku.controller.qqwing.Symmetry;
+import com.sudoku.controller.constant.Action;
+import com.sudoku.controller.constant.PrintStyle;
+import com.sudoku.controller.constant.QQWing;
+import com.sudoku.controller.constant.Symmetry;
 
 import java.util.Date;
 import java.util.LinkedList;

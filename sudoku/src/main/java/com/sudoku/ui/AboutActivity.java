@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 
 import com.common.BuildConfig;
+import com.sudoku.R;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
 
 public class AboutActivity extends BaseActivity {
 

@@ -24,20 +24,20 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sudoku.R;
 import com.sudoku.controller.GameStateManager;
 import com.sudoku.controller.NewLevelManager;
 import com.sudoku.controller.helper.GameInfoContainer;
 import com.sudoku.game.GameDifficulty;
 import com.sudoku.game.GameType;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
 
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.sudoku.ui.TutorialActivity.ACTION_SHOW_ANYWAYS;
 
-public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class SudokuMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     RatingBar         difficultyBar;
     TextView          difficultyText;
@@ -54,7 +54,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         settings = PreferenceManager.getDefaultSharedPreferences(this);
 
         NewLevelManager newLevelManager = NewLevelManager.getInstance(getApplicationContext(), settings);
@@ -297,17 +296,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             intent = new Intent(this, StatsActivity.class);
             startActivity(intent);
             overridePendingTransition(0, 0);
-        } else if (id == R.id.menu_about_main) {//open about page
-            intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
-            overridePendingTransition(0, 0);
         } else if (id == R.id.menu_help_main) {//open about page
             intent = new Intent(this, HelpActivity.class);
-            startActivity(intent);
-            overridePendingTransition(0, 0);
-        } else if (id == R.id.menu_tutorial_main) {
-            intent = new Intent(this, TutorialActivity.class);
-            intent.setAction(ACTION_SHOW_ANYWAYS);
             startActivity(intent);
             overridePendingTransition(0, 0);
         }

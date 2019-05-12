@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.sudoku.R;
 import com.sudoku.ui.view.SudokuKeyboardLayout;
 import com.sudoku.ui.view.WinDialog;
 import com.sudoku.controller.GameController;
@@ -40,7 +41,7 @@ import com.sudoku.game.listener.IGameSolvedListener;
 import com.sudoku.game.listener.ITimerListener;
 import com.sudoku.ui.listener.IHintDialogFragmentListener;
 import com.sudoku.ui.listener.IResetDialogFragmentListener;
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
 import com.sudoku.ui.view.SudokuFieldLayout;
 import com.sudoku.ui.view.SudokuSpecialButtonLayout;
 
@@ -124,7 +125,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
                 gameController.setContextAndSettings(getApplicationContext(), sharedPref);
             } else {
                 // Error: no game could be restored. Go back to main menu.
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, SudokuMainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
@@ -284,7 +285,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
             ResetConfirmationDialog resetDialog = new ResetConfirmationDialog();
             resetDialog.show(getFragmentManager(), "ResetDialogFragment");
         } else if (id == R.id.nav_newgame) {//create new game
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, SudokuMainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             finish();
         } else if (id == R.id.menu_settings) {//open settings
@@ -293,9 +294,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
             intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
         } else if (id == R.id.nav_highscore) {// see highscore list
             intent = new Intent(this, StatsActivity.class);
-        } else if (id == R.id.menu_about) {//open about page
-            intent = new Intent(this, AboutActivity.class);
-        } else if (id == R.id.menu_help) {//open about page
+        }  else if (id == R.id.menu_help) {//open about page
             intent = new Intent(this, HelpActivity.class);
         }
 
@@ -357,7 +356,7 @@ public class GameActivity extends BaseActivity implements NavigationView.OnNavig
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(activity, MainActivity.class);
+                Intent intent = new Intent(activity, SudokuMainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(0, 0);

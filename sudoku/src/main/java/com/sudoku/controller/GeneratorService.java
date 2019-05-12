@@ -13,18 +13,19 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.Pair;
 
+import com.sudoku.R;
 import com.sudoku.game.GameDifficulty;
 import com.sudoku.game.GameType;
 import com.sudoku.appdata.Constants;
 import com.sudoku.controller.database.DatabaseHelper;
 import com.sudoku.controller.database.model.Level;
-import com.sudoku.controller.qqwing.Action;
-import com.sudoku.controller.qqwing.PrintStyle;
-import com.sudoku.controller.qqwing.QQWing;
-import com.sudoku.controller.qqwing.Symmetry;
+import com.sudoku.controller.constant.Action;
+import com.sudoku.controller.constant.PrintStyle;
+import com.sudoku.controller.constant.QQWing;
+import com.sudoku.controller.constant.Symmetry;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
-import com.sudoku.ui.MainActivity;
+
+import com.sudoku.ui.SudokuMainActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -121,7 +122,6 @@ public class GeneratorService extends IntentService {
     }
 
     private void generateLevel(final GameType gameType, final GameDifficulty gameDifficulty) {
-        showNotification(gameType, gameDifficulty);
 
         generated.clear();
         opts.gameDifficulty = gameDifficulty;
@@ -265,7 +265,7 @@ public class GeneratorService extends IntentService {
         builder.setContentTitle(getString(R.string.app_name));
         builder.setContentText(getString(R.string.generating));
         builder.setSubText(getString(gameType.getStringResID()) + ", " + getString(gameDifficulty.getStringResID()));
-        builder.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), FLAG_UPDATE_CURRENT));
+        builder.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, SudokuMainActivity.class), FLAG_UPDATE_CURRENT));
         builder.setColor(ContextCompat.getColor(this, R.color.colorAccent));
         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
         builder.setWhen(0);

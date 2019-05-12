@@ -18,7 +18,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 // @formatter:on
-package com.sudoku.controller.qqwing;
+package com.sudoku.controller.constant;
 
 /**
  * While solving the puzzle, log steps taken in a log item. This is useful for

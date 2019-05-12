@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+import com.sudoku.R;
+
 
 /**
  * Created by TMZ_LToP on 30.01.2016.

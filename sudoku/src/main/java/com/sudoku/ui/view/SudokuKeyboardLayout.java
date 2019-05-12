@@ -8,10 +8,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.sudoku.R;
 import com.sudoku.controller.GameController;
 import com.sudoku.controller.Symbol;
 import com.sudoku.game.listener.IHighlightChangedListener;
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
 
 /**
  * Created by TMZ_LToP on 12.11.2015.

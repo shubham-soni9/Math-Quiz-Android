@@ -3,7 +3,8 @@ package com.sudoku.game;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
+import com.sudoku.R;
 
 import java.util.LinkedList;
 

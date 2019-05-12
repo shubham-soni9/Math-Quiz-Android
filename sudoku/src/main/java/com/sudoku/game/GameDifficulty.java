@@ -4,7 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.StringRes;
 
-import org.secuso.privacyfriendlysudoku.ui.view.R;
+
+import com.sudoku.R;
 
 import java.util.LinkedList;
 

@@ -25,10 +25,6 @@
             android:id="@+id/menu_help"
             android:icon="@drawable/ic_menu_help"
             android:title="@string/menu_help" />
-        <item
-            android:id="@+id/menu_about"
-            android:icon="@drawable/ic_menu_about"
-            android:title="@string/menu_about" />
     </group>
 
 </menu>
