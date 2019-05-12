@@ -54,7 +54,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
                 , findViewById(R.id.tvSliderSettings), findViewById(R.id.tvSliderPolicy), findViewById(R.id.tvSliderShare)
                 , findViewById(R.id.tvSliderRate), findViewById(R.id.tvSliderMoreApps), findViewById(R.id.tvSliderReportBug)
-                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit), findViewById(R.id.rlSliderTheme));
+                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit),findViewById(R.id.tvSliderCareerMode));
     }
 
     @Override
@@ -109,10 +109,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.tvSliderTutorials:
+                openTutorials();
                 break;
             case R.id.tvSliderSettings:
+                openSettings();
                 break;
             case R.id.tvSliderPolicy:
+                openPolicyScreen();
                 break;
             case R.id.tvSliderShare:
                 shareApp();
@@ -132,13 +135,22 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.tvSliderExit:
                 exit();
                 break;
-            case R.id.rlSliderTheme:
-                changeTheme();
+            case R.id.tvSliderCareerMode:
+                openCareerMode();
                 break;
         }
     }
 
-    private void changeTheme() {
+    private void openTutorials() {
+    }
+
+    private void openSettings() {
+    }
+
+    private void openPolicyScreen() {
+    }
+
+    private void openCareerMode() {
     }
 
     private void shareApp() {
