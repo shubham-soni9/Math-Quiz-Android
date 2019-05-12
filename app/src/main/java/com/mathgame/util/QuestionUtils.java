@@ -19,6 +19,7 @@ public class QuestionUtils {
 
         int maximum;
         int minimum;
+        String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
         switch (customMode.getDifficulty()) {
             case Constant.DifficultyLevel.SMALL:
                 maximum = 10;
@@ -40,7 +41,6 @@ public class QuestionUtils {
         int a = RandomUtils.getRandomInt(maximum, minimum);
         int b = RandomUtils.getRandomInt(maximum, minimum);
 
-        String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
 
         if (chosenOperation.equals(Constant.MathSign.DIVISION)) {
             while (a <= b || (a % b != 0)) {
@@ -53,13 +53,21 @@ public class QuestionUtils {
                 a = RandomUtils.getRandomInt(maximum, minimum);
                 b = RandomUtils.getRandomInt(maximum, minimum);
             }
+        } else if (chosenOperation.equals(Constant.MathSign.SQUARE_ROOT)) {
+            if (a == 1) {
+                a++;
+            }
         } else {
             while (a == b) {
                 a = RandomUtils.getRandomInt(maximum, minimum);
                 b = RandomUtils.getRandomInt(maximum, minimum);
             }
         }
-        question = dFormat.format(a) + " " + chosenOperation + " " + dFormat.format(b) + " = ?";
+        if (chosenOperation.equals(Constant.MathSign.SQUARE_ROOT)) {
+            question = "sqrt(" + dFormat.format(a) + ")";
+        } else {
+            question = dFormat.format(a) + " " + chosenOperation + " " + dFormat.format(b) + " = ?";
+        }
         switch (chosenOperation) {
             case Constant.MathSign.ADDITION:
                 answer = dFormat.format(a + b);
@@ -75,6 +83,9 @@ public class QuestionUtils {
                 break;
             case Constant.MathSign.PERCENTAGE:
                 answer = dFormat.format(a % b);
+                break;
+            case Constant.MathSign.SQUARE_ROOT:
+                answer = dFormat.format(Math.sqrt(a));
                 break;
         }
         mQuestion.setA(a);
@@ -103,6 +114,14 @@ public class QuestionUtils {
                     case Constant.MathSign.DIVISION:
                         maximum = a;
                         minimum = b;
+                        break;
+                    case Constant.MathSign.PERCENTAGE:
+                        maximum = 9;
+                        minimum = 1;
+                        break;
+                    case Constant.MathSign.SQUARE_ROOT:
+                        maximum = (int) (Math.sqrt(a)+4);
+                        minimum = (int) (Math.sqrt(a)-4);
                         break;
                 }
                 answerPrediction = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));

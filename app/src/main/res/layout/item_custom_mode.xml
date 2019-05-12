@@ -140,7 +140,7 @@
                 <TextView
                     android:id="@+id/tvOperations"
                     style="@style/item_custom_mode_value"
-                    tools:text="+ - * / sqt()" />
+                    tools:text="+ - * / sqrt()" />
             </LinearLayout>
 
         </LinearLayout>

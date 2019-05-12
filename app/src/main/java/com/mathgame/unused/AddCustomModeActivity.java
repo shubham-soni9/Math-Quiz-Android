@@ -151,7 +151,7 @@ public class AddCustomModeActivity extends BaseActivity implements View.OnClickL
         if (cbMultiplication.isChecked()) mathOperations = mathOperations + "* ";
         if (cbDivision.isChecked()) mathOperations = mathOperations + "/ ";
         if (cbPercentage.isChecked()) mathOperations = mathOperations + "%";
-        if (cbSquareRoot.isChecked()) mathOperations = mathOperations + "sqt() ";
+        if (cbSquareRoot.isChecked()) mathOperations = mathOperations + "sqrt() ";
         return mathOperations;
     }
 
