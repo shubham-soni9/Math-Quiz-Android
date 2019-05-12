@@ -1,4 +1,4 @@
-package eu.game;
+package com.slidegame;
 
 import java.util.ArrayList;
 

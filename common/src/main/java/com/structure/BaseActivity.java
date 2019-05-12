@@ -1,4 +1,4 @@
-package eu.structure;
+package com.structure;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

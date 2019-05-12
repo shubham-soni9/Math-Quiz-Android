@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:paddingRight="42dp"
     android:layout_height="match_parent"
-    tools:context="eu.thedarken.myo.twothousandfortyeight.eu.thedarken.myo.MainActivity"
+    tools:context="com.thedarken.myo.twothousandfortyeight.eu.thedarken.myo.MainActivity"
     tools:ignore="MergeRootFrame" />

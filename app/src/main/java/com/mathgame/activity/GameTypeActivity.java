@@ -13,7 +13,7 @@ import com.mathgame.appdata.Constant;
 import com.mathgame.dialog.SettingsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
-import com.mathgame.util.Transition;
+import com.util.Transition;
 import com.mathgame.util.Utils;
 
 public class GameTypeActivity extends BaseActivity implements View.OnClickListener {

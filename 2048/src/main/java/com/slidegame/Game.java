@@ -1,12 +1,10 @@
-package eu.game;
+package com.slidegame;
 
 import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import eu.thedarken.myo.BuildConfig;
 
 
 public class Game {

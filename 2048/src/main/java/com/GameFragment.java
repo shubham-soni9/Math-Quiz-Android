@@ -1,11 +1,11 @@
-package eu;
+package com;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.AppCompatImageView;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -15,13 +15,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import eu.game.Game;
-import eu.game.GameView;
-import eu.game.Tile;
-import eu.thedarken.myo.R;
-import eu.tools.InputListener;
-import eu.tools.KeyListener;
-import eu.tools.ScoreKeeper;
+import com.util.Transition;
+
+import com.slidegame.Game;
+import com.slidegame.GameView;
+import com.slidegame.Tile;
+import com.thedarken.myo.R;
+import com.tools.InputListener;
+import com.tools.KeyListener;
+import com.tools.ScoreKeeper;
 
 public class GameFragment extends Fragment implements KeyListener,  Game.GameStateListener {
     private static final String TAG = "2048Myo:GameFragment";
@@ -41,9 +43,10 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
     private TextView mHighScoreText;
     private TextView mOverlay;
     private ScoreKeeper mScoreKeeper;
-    private ImageButton mResetButton, mUndoButton, mInfoButton;
+    private ImageButton mResetButton, mUndoButton;
     private TextView              mTitleText;
     private SlideAdditionActivity mSlideAdditionActivity;
+    private AppCompatImageView ivBack;
 
     @Override
     public void onAttach(Activity activity) {
@@ -65,8 +68,8 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
         mTitleText = layout.findViewById(R.id.tv_title);
         mResetButton = layout.findViewById(R.id.ib_reset);
         mUndoButton = layout.findViewById(R.id.ib_undo);
-        mInfoButton = layout.findViewById(R.id.ib_info);
         mOverlay = layout.findViewById(R.id.tv_endgame_overlay);
+        ivBack=layout.findViewById(R.id.ivBack);
         return layout;
     }
 
@@ -126,23 +129,10 @@ public class GameFragment extends Fragment implements KeyListener,  Game.GameSta
             }
         });
 
-        mInfoButton.setOnClickListener(new View.OnClickListener() {
+        ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                Fragment infoFrag = getFragmentManager().findFragmentByTag(InfoFragment.class.getName());
-                if (infoFrag == null)
-                    infoFrag = InfoFragment.newInstance();
-                transaction.replace(R.id.container, infoFrag, InfoFragment.class.getName());
-                transaction.addToBackStack(GameFragment.class.getName());
-                transaction.commit();
-            }
-        });
-        mInfoButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getActivity(), mSlideAdditionActivity.getString(R.string.about_this_app), Toast.LENGTH_SHORT).show();
-                return true;
+                Transition.exit(getActivity());
             }
         });
     }

@@ -1,9 +1,9 @@
-package eu.tools;
+package com.tools;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.TextView;
-import eu.game.Game;
+import com.slidegame.Game;
 
 public class ScoreKeeper implements Game.ScoreListener {
 

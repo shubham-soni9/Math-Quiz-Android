@@ -1,37 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="eu.thedarken.myo.twothousandfortyeight.eu.thedarken.myo.GameFragment">
+    android:layout_height="match_parent">
 
     <RelativeLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="15dp">
+        android:layout_marginTop="@dimen/_5dp"
+        android:orientation="horizontal">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/iv_title_icon"
-            android:src="@drawable/ic_circle_empty"
-            android:layout_alignParentStart="true"
-            android:layout_centerHorizontal="true"
             android:layout_alignBottom="@+id/tv_title"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/white_100" />
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2048"
-            android:textSize="35sp"
-            android:textColor="@color/text_white"
+            android:layout_centerInParent="true"
             android:fontFamily="sans-serif-light"
-            android:id="@+id/tv_title"
-            android:layout_toEndOf="@+id/iv_title_icon" />
+            android:text="2048"
+            android:textColor="@color/text_white"
+            android:textSize="35sp" />
 
     </RelativeLayout>
 
@@ -39,119 +40,109 @@
         android:id="@+id/rl_scoreview_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/rl_header">
+        android:layout_marginTop="@dimen/_30dp"
+        android:layout_below="@+id/rl_header"
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/ll_scorelayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:gravity="center_horizontal"
-            android:id="@+id/ll_scorelayout"
-            android:padding="5dp"
+            android:layout_alignParentTop="true"
             android:layout_marginEnd="8dp"
             android:background="@drawable/scoreview_background_rectangle_inner"
-            android:layout_alignParentTop="true">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
+                android:id="@+id/tv_score_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/score"
                 android:ems="6"
-                android:maxEms="6"
-                android:gravity="center"
                 android:fontFamily="sans-serif-light"
-                android:textColor="@color/myoteal"
-                android:id="@+id/tv_score_label" />
+                android:gravity="center"
+                android:maxEms="6"
+                android:text="@string/score"
+                android:textColor="@color/colorPrimary" />
 
             <TextView
+                android:id="@+id/tv_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
                 android:fontFamily="sans-serif-light"
+                android:text="0"
                 android:textColor="@android:color/white"
-                android:textSize="22sp"
-                android:id="@+id/tv_score" />
+                android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/ll_highscore_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/ll_scorelayout"
-            android:id="@+id/ll_highscore_layout"
-            android:gravity="center_horizontal"
-            android:background="@drawable/scoreview_background_rectangle_inner"
-            android:padding="5dp"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
-            android:layout_alignParentTop="true">
+            android:layout_toEndOf="@+id/ll_scorelayout"
+            android:background="@drawable/scoreview_background_rectangle_inner"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
+                android:id="@+id/tv_highscore_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/high_score"
-                android:gravity="center"
                 android:ems="6"
-                android:maxEms="6"
                 android:fontFamily="sans-serif-light"
-                android:textColor="@color/myoteal"
-                android:id="@+id/tv_highscore_label" />
+                android:gravity="center"
+                android:maxEms="6"
+                android:text="@string/high_score"
+                android:textColor="@color/colorPrimary" />
 
             <TextView
+                android:id="@+id/tv_highscore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1337"
                 android:fontFamily="sans-serif-light"
+                android:text="1337"
                 android:textColor="@android:color/white"
-                android:textSize="22sp"
-                android:id="@+id/tv_highscore" />
+                android:textSize="22sp" />
         </LinearLayout>
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ll_buttonrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ll_buttonrow"
         android:layout_below="@+id/rl_scoreview_layout"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="14dp"
+        android:layout_alignStart="@+id/rl_scoreview_layout"
         android:layout_alignEnd="@+id/rl_scoreview_layout"
-        android:layout_alignStart="@+id/rl_scoreview_layout">
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp">
 
 
         <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_reload"
             android:id="@+id/ib_reset"
-            android:padding="7dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="7dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_selector" />
-
-        <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_info"
-            android:id="@+id/ib_info"
-            android:padding="7dp"
             android:layout_weight="1"
-            android:layout_marginStart="7dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_selector" />
+            android:background="@drawable/button_selector"
+            android:padding="7dp"
+            android:src="@drawable/ic_reload"
+            android:textColor="@android:color/white" />
 
         <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_undo"
             android:id="@+id/ib_undo"
-            android:layout_weight="1"
-            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_selector" />
+            android:layout_weight="1"
+            android:background="@drawable/button_selector"
+            android:padding="7dp"
+            android:src="@drawable/ic_undo"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
@@ -159,31 +150,32 @@
         android:id="@+id/rl_game_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_centerHorizontal="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_below="@+id/ll_buttonrow">
+        android:layout_below="@+id/ll_buttonrow"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp">
 
-        <eu.game.GameView
+        <com.slidegame.GameView
             android:id="@+id/gameview"
             android:layout_width="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
 
         <TextView
+            android:id="@+id/tv_endgame_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignTop="@+id/gameview"
-            android:layout_alignBottom="@+id/gameview"
             android:layout_alignStart="@+id/gameview"
-            android:gravity="center"
-            android:fontFamily="sans-serif-light"
+            android:layout_alignTop="@+id/gameview"
             android:layout_alignEnd="@+id/gameview"
-            android:text="@string/you_win"
-            android:textColor="@color/myoteal"
+            android:layout_alignBottom="@+id/gameview"
             android:background="@drawable/endstate_overlay_rectangle"
-            android:textSize="38sp"
-            android:id="@+id/tv_endgame_overlay" />
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="@string/you_win"
+            android:textColor="@color/colorPrimary"
+            android:textSize="38sp" />
     </RelativeLayout>
 
 </RelativeLayout>

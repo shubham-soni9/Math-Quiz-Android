@@ -1,4 +1,4 @@
-package eu.game;
+package com.slidegame;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,7 +11,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import eu.thedarken.myo.R;
+import com.thedarken.myo.R;
 
 
 public class GameView extends View {

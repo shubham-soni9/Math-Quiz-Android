@@ -1,4 +1,4 @@
-package eu.game;
+package com.slidegame;
 
 public class Tile extends Position {
     private final int value;

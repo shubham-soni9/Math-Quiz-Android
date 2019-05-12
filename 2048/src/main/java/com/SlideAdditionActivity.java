@@ -1,15 +1,14 @@
-package eu;
+package com;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
-import eu.structure.BaseActivity;
-import eu.thedarken.myo.R;
-import eu.tools.KeyListener;
+import com.structure.BaseActivity;
+import com.thedarken.myo.R;
+import com.tools.KeyListener;
 
 
 public class SlideAdditionActivity extends BaseActivity {

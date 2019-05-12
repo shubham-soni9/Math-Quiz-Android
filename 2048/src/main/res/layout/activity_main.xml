@@ -4,7 +4,8 @@
     android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?android:attr/actionBarSize"
     android:paddingBottom="?android:attr/actionBarSize"
     android:keepScreenOn="true"
+    android:paddingLeft="@dimen/_10dp"
+    android:paddingTop="@dimen/_30dp"
     tools:ignore="MergeRootFrame" />

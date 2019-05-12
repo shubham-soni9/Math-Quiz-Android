@@ -19,7 +19,7 @@ import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.RandomUtils;
-import com.mathgame.util.Transition;
+import com.util.Transition;
 import com.mathgame.util.Utils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 

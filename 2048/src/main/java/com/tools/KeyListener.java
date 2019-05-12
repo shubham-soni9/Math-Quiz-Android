@@ -1,4 +1,4 @@
-package eu.tools;
+package com.tools;
 
 import android.view.KeyEvent;
 

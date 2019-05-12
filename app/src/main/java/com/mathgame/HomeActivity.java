@@ -18,12 +18,12 @@ import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.plugin.tictactoe.selection.SelectionActivity;
 import com.mathgame.structure.BaseActivity;
-import com.mathgame.util.Transition;
+import com.util.Transition;
 import com.mathgame.util.Utils;
 
 import org.secuso.ui.SplashActivity;
 
-import eu.SlideAdditionActivity;
+import com.SlideAdditionActivity;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {

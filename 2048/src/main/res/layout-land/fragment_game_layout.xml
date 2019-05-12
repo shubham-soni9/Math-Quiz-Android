@@ -3,14 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="horizontal"
-    tools:context="eu.thedarken.myo.twothousandfortyeight.eu.thedarken.myo.MainActivity$PlaceholderFragment">
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -27,17 +26,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="14dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/iv_title_icon"
-                    android:src="@drawable/ic_circle_empty"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignBottom="@+id/tv_title"
-                    android:layout_alignParentTop="true" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +64,7 @@
                         android:maxEms="6"
                         android:gravity="center"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="@color/myoteal"
+                        android:textColor="@color/colorPrimary"
                         android:id="@+id/tv_score_label" />
 
                     <TextView
@@ -109,7 +97,7 @@
                         android:ems="6"
                         android:maxEms="6"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="@color/myoteal"
+                        android:textColor="@color/colorPrimary"
                         android:id="@+id/tv_highscore_label" />
 
                     <TextView
@@ -193,7 +181,7 @@
             android:layout_alignWithParentIfMissing="true"
             android:layout_below="@+id/ll_buttonrow">
 
-            <eu.game.GameView
+            <com.slidegame.GameView
                 android:id="@+id/gameview"
                 android:layout_width="wrap_content"
                 android:layout_centerInParent="true"
@@ -209,7 +197,7 @@
                 android:fontFamily="sans-serif-light"
                 android:layout_alignRight="@+id/gameview"
                 android:text="@string/you_win"
-                android:textColor="@color/myoteal"
+                android:textColor="@color/colorPrimary"
                 android:background="@drawable/endstate_overlay_rectangle"
                 android:textSize="38sp"
                 android:id="@+id/tv_endgame_overlay" />

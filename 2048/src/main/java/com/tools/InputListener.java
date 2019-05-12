@@ -1,8 +1,8 @@
-package eu.tools;
+package com.tools;
 
 import android.view.MotionEvent;
 import android.view.View;
-import eu.game.Game;
+import com.slidegame.Game;
 
 public class InputListener implements View.OnTouchListener {
 

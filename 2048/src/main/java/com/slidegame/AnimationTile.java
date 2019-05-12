@@ -1,4 +1,4 @@
-package eu.game;
+package com.slidegame;
 
 class AnimationTile extends Position {
     private final int mAnimationType;
