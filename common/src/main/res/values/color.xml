@@ -81,4 +81,5 @@
     <color name="holo_green_dark">#588100</color>
     <color name="holo_orange_dark">#ff8800</color>
     <color name="holo_red_dark">#cc0000</color>
+    <color name="teal_600">#00897b</color>
 </resources>

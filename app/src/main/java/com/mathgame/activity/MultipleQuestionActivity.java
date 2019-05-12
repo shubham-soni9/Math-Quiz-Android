@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -27,14 +26,14 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class MultipleQuestionActivity extends BaseActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, OnQuestionListener {
-    private LinearLayout        llQuestionList;
-    private CustomMode          customMode;
-    private Button              btnSubmit;
-    private RelativeLayout      rlShimmerSlider;
-    private AppCompatSeekBar    slider;
-    private TextView            tvChangingStatus;
-    private LinearLayout        llSlider;
-    private ArrayList<Question> questionList;
+    private       LinearLayout        llQuestionList;
+    private       CustomMode          customMode;
+    private       RelativeLayout      rlShimmerSlider;
+    private       AppCompatSeekBar    slider;
+    private       TextView            tvChangingStatus;
+    private       LinearLayout        llSlider;
+    private       ArrayList<Question> questionList;
+    private final int                 NUMBER_OF_QUESTION = 5;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,16 +56,16 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
         tvChangingStatus = findViewById(R.id.tvChangingStatus);
         llSlider = findViewById(R.id.llSlider);
         slider.setOnSeekBarChangeListener(this);
-        Utils.setOnClickListener(this, findViewById(R.id.ivBack), btnSubmit);
+        Utils.setOnClickListener(this, findViewById(R.id.ivBack));
     }
 
 
     private void startGame() {
         View mQuestionView;
         llQuestionList.removeAllViews();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < NUMBER_OF_QUESTION; i++) {
             questionList.add(QuestionUtils.getQuestionWithAnswer(customMode));
-            mQuestionView = new QuestionView(this).render(questionList.get(i),i);
+            mQuestionView = new QuestionView(this).render(questionList.get(i), i);
             llQuestionList.addView(mQuestionView);
         }
     }
@@ -179,6 +178,15 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
             questionView.requestFocus();
         } else {
             onBackPressed();
+        }
+    }
+
+    @Override
+    public void onFocusChanged(int position) {
+        for (int i = 0; i < NUMBER_OF_QUESTION; i++) {
+            QuestionView questionView = getNextQuestionView(i);
+            if (position == i) questionView.requestFocus();
+            else questionView.setUI();
         }
     }
 

@@ -3,6 +3,7 @@ package com.mathgame.util;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.os.IBinder;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -198,6 +200,44 @@ public class Utils {
             result = Html.fromHtml(html);
         }
         return result;
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+
+        View focusedView = activity.getCurrentFocus();
+        if (focusedView == null) return;
+
+        IBinder windowToken = focusedView.getWindowToken();
+        if (windowToken == null) return;
+
+        InputMethodManager inputMethodManager = (InputMethodManager) activity
+                .getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(windowToken, 0);
+    }
+
+    /**
+     * Method used to hide keyboard if outside touched.
+     *
+     * @param activity
+     */
+
+    public static void showSoftKeyboard(Activity activity) {
+
+        try {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showSoftKeyboard(Activity activity, View view) {
+        try {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1,8 +1,10 @@
 package com.mathgame.customview;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -37,18 +39,45 @@ public class QuestionView implements Question.Listener {
                 if (actionId == EditorInfo.IME_ACTION_NEXT) {
                     if (question.getAnswer().equalsIgnoreCase(Utils.get(etAnswer))) {
                         onQuestionListener.onAnswerCompleted(position);
+                        etAnswer.setBackgroundResource(R.drawable.cornered_border_success);
                     } else {
+                        etAnswer.setBackgroundResource(R.drawable.cornered_border_error);
                         Utils.snackBar(mActivity, R.string.wrong_answer);
+                        etAnswer.requestFocus();
                     }
                 }
                 return false;
             }
         });
+        if (position == 0) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    requestFocus();
+                }
+            }, 500);
+        }
+        etAnswer.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                onQuestionListener.onFocusChanged(position);
+                return true;
+            }
+        });
         return mView;
     }
 
+
+
     public void requestFocus() {
         etAnswer.requestFocus();
+        etAnswer.setBackgroundResource(R.drawable.cornered_border_selected);
+    }
+
+    public void setUI(){
+        if(Utils.get(etAnswer).isEmpty()){
+            etAnswer.setBackgroundResource(R.drawable.cornered_border_unselected);
+        }
     }
 
     @Override
