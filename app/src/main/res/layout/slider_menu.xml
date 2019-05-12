@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150dp"
+            android:background="@color/teal_600" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/app_name"
+            android:textSize="@dimen/text_size_title_big"
+            android:textColor="@color/white_100" />
+
+    </RelativeLayout>
+
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_home"
+        android:text="@string/home" />
+
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_tutorial"
+        android:text="@string/tutorials" />
+
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_settings"
+        android:text="@string/settings" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:background="@color/black_20" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10dp"
+        android:text="@string/communicate"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:textAppearance="@style/CustomTextAppearance.Light"
+        android:textColor="@color/black_70"
+        android:textSize="@dimen/text_size_medium" />
+
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_policy"
+        android:text="@string/privacy_policy" />
+
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_share"
+        android:text="@string/share" />
+
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_rate"
+        android:text="@string/rate_us" />
+
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_more_apps"
+        android:text="@string/see_more_apps" />
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_report_bug"
+        android:text="@string/report_a_bug" />
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_suggestion"
+        android:text="@string/send_feedback" />
+    <TextView
+        style="@style/side_menu_text_color"
+        android:drawableStart="@drawable/ic_slider_exit"
+        android:text="@string/exit" />
+</LinearLayout>

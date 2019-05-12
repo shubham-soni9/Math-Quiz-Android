@@ -95,5 +95,17 @@
     <string name="are_you_sure_text">Are you sure?</string>
     <string name="are_you_sure_you_want_to_finish_test">Are you sure you want to finish the Test?</string>
     <string name="wrong_answer">Wrong Answer</string>
+    <string name="home">Home</string>
+    <string name="math_tutorial">Math Tutorial</string>
+    <string name="communicate">Communicate</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="share">Share</string>
+    <string name="see_more_apps">See More Apps</string>
+    <string name="rate_us">Rate us</string>
+    <string name="tutorials">Tutorials</string>
+    <string name="report_a_bug">Report A Bug</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="exit">Exit</string>
 </resources>
 

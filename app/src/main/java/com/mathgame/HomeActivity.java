@@ -1,6 +1,9 @@
 package com.mathgame;
 
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.TextView;
@@ -20,15 +23,17 @@ import eu.SlideAdditionActivity;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
-    private TextView tvAddition;
-    private TextView tvSubtraction;
-    private TextView tvMultiplication;
-    private TextView tvDivision;
-    private TextView tvSquareRoot;
-    private TextView tvPercentage;
-    private CardView cvTicTacToe;
-    private CardView cvSudoku;
-    private CardView cvSlideAddition;
+    private TextView           tvAddition;
+    private TextView           tvSubtraction;
+    private TextView           tvMultiplication;
+    private TextView           tvDivision;
+    private TextView           tvSquareRoot;
+    private TextView           tvPercentage;
+    private CardView           cvTicTacToe;
+    private CardView           cvSudoku;
+    private CardView           cvSlideAddition;
+    private DrawerLayout       drawerLayout;
+    private AppCompatImageView ivHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +52,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         cvTicTacToe = findViewById(R.id.cvTicTacToe);
         cvSudoku = findViewById(R.id.cvSudoku);
         cvSlideAddition = findViewById(R.id.cvSlideAddition);
+        ivHome = findViewById(R.id.ivHome);
+        drawerLayout = findViewById(R.id.activity_home_dl_main);
         Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
-                , cvTicTacToe, cvSudoku, cvSlideAddition);
+                , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome);
     }
 
     @Override
@@ -87,6 +94,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.cvSlideAddition:
                 Transition.startActivity(this, SlideAdditionActivity.class);
+                break;
+            case R.id.ivHome:
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
                 break;
         }
     }
