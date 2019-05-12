@@ -144,7 +144,7 @@ public class QuestionUtils {
             } else {
                 answerPrediction = answer;
             }
-            question = question.replace("?", answerPrediction);
+            question = question + " = " + answerPrediction;
             mQuestion.setQuestion(question);
             mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
         }
