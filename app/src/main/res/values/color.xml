@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="colorPrimary">#2482f5</color>
+    <color name="colorPrimaryDark">#095dc3</color>
+
     <color name="transparent">#00000000</color>
     <color name="lightblue">#0274B2</color>
     <color name="middleblue">#8aa5ce</color>
@@ -17,8 +21,6 @@
     <color name="background1">#232528</color>
     <color name="background3">#111111</color>
     <color name="bordercolor1">#222222</color>
-    <color name="colorPrimary">#2482f5</color>
-    <color name="colorPrimaryDark">#095dc3</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
     <color name="black_02">#05000000</color>

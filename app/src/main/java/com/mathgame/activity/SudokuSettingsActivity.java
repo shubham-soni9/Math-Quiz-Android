@@ -19,7 +19,7 @@ public class SudokuSettingsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setupActionBar();
 
-        overridePendingTransition(0, 0);
+
 
         View mainContent = findViewById(R.id.main_content);
         if (mainContent != null) {

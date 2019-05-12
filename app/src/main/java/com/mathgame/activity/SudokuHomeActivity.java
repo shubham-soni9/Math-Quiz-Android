@@ -10,9 +10,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,8 +40,7 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
     private SharedPreferences settings;
     private ImageView         arrowLeft;
     private ImageView         arrowRight;
-    private DrawerLayout      drawer;
-    private NavigationView    mNavigationView;
+    private ImageView         ivMoreOption;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -56,10 +53,11 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
         settings = PreferenceManager.getDefaultSharedPreferences(this);
         NewLevelManager newLevelManager = NewLevelManager.getInstance(getApplicationContext(), settings);
         newLevelManager.checkAndRestock();
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_sudoku_home);
         final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.scroller);
+        ivMoreOption = findViewById(R.id.ivMoreOption);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // set default gametype choice to whatever was chosen the last time.
@@ -115,22 +113,6 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
         editor.apply();
         refreshContinueButton();
 
-
-        // set Nav_Bar
-        drawer = findViewById(R.id.drawer_layout_main);
-        mNavigationView = findViewById(R.id.nav_view_main);
-        mNavigationView.setNavigationItemSelectedListener(this);
-
-        selectNavigationItem(R.id.nav_newgame_main);
-
-        overridePendingTransition(0, 0);
-    }
-
-    public void callFragment(View view) {
-        /*FragmentManager fm = getSupportFragmentManager();
-        DialogWinScreen winScreen = new DialogWinScreen();
-
-        winScreen.show(fm,"win_screen_layout");*/
 
     }
 
@@ -193,9 +175,6 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
     @Override
     public void onResume() {
         super.onResume();
-
-        selectNavigationItem(R.id.nav_newgame_main);
-
         refreshContinueButton();
     }
 
@@ -218,7 +197,6 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
         // Handle navigation view item clicks here.
         final int id = item.getItemId();
 
-        drawer.closeDrawer(GravityCompat.START);
 
         // return if we are not going to another page
         if (id == R.id.nav_newgame_main) {
@@ -242,14 +220,6 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
         return true;
     }
 
-    // set active navigation item
-    private void selectNavigationItem(int itemId) {
-        for (int i = 0; i < mNavigationView.getMenu().size(); i++) {
-            boolean b = itemId == mNavigationView.getMenu().getItem(i).getItemId();
-            mNavigationView.getMenu().getItem(i).setChecked(b);
-        }
-    }
-
     private void goToNavigationItem(int id) {
         Intent intent;
 
@@ -258,28 +228,18 @@ public class SudokuHomeActivity extends BaseActivity implements NavigationView.O
             intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, SudokuSettingsActivity.GamePreferenceFragment.class.getName());
             intent.putExtra(PreferenceActivity.EXTRA_NO_HEADERS, true);
             startActivity(intent);
-            overridePendingTransition(0, 0);
+
         } else if (id == R.id.nav_highscore_main) {// see highscore list
 
             intent = new Intent(this, StatsActivity.class);
             startActivity(intent);
-            overridePendingTransition(0, 0);
+
         } else if (id == R.id.menu_help_main) {//open about page
             intent = new Intent(this, HelpActivity.class);
             startActivity(intent);
-            overridePendingTransition(0, 0);
+
         }
     }
-
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     /**
      * A placeholder fragment containing a simple view.

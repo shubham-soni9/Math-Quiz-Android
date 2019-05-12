@@ -129,7 +129,7 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
-                overridePendingTransition(0, 0);
+
             }
             gameSolved = savedInstanceState.getInt("gameSolved") == 1;
         }
@@ -211,7 +211,7 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
         // run this so the error list gets build again.
         gameController.onModelChange();
 
-        overridePendingTransition(0, 0);
+
     }
 
     @Override
@@ -310,7 +310,7 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
                 @Override
                 public void run() {
                     startActivity(i);
-                    overridePendingTransition(0, 0);
+
                 }
             }, NAVDRAWER_LAUNCH_DELAY);
 
@@ -358,7 +358,7 @@ public class SudokuGameActivity extends BaseActivity implements NavigationView.O
                 Intent intent = new Intent(activity, SudokuHomeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                overridePendingTransition(0, 0);
+
                 activity.finish();
             }
         });
