@@ -173,7 +173,7 @@
             android:layout_gravity="center"
             android:layout_weight="1">
 
-            <com.slidegame.GameView
+            <com.mathgame.plugin.slidegame.slideview.GameView
                 android:id="@+id/gameview"
                 android:layout_width="wrap_content"
                 android:layout_centerInParent="true"

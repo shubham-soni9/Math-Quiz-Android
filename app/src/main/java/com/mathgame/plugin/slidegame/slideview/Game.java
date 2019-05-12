@@ -1,4 +1,4 @@
-package com.slidegame;
+package com.mathgame.plugin.slidegame.slideview;
 
 import android.content.Context;
 

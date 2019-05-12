@@ -1,9 +1,9 @@
-package com.tools;
+package com.mathgame.plugin.slidegame.tools;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.TextView;
-import com.slidegame.Game;
+import com.mathgame.plugin.slidegame.slideview.Game;
 
 public class ScoreKeeper implements Game.ScoreListener {
 

@@ -1,4 +1,4 @@
-package com;
+package com.mathgame.plugin.slidegame;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,9 +6,9 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.mathgame.R;
 import com.structure.BaseActivity;
-import com.thedarken.myo.R;
-import com.tools.KeyListener;
+import com.mathgame.plugin.slidegame.tools.KeyListener;
 
 
 public class SlideAdditionActivity extends BaseActivity {

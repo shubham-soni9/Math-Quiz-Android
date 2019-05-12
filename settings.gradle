@@ -1,1 +1,1 @@
-include ':app', ':sudoku', ':2048', ':common'
+include ':app', ':sudoku', ':common'

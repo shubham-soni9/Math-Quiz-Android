@@ -22,7 +22,7 @@ import com.sudoku.ui.SudokuMainActivity;
 import com.util.Transition;
 import com.mathgame.util.Utils;
 
-import com.SlideAdditionActivity;
+import com.mathgame.plugin.slidegame.SlideAdditionActivity;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {

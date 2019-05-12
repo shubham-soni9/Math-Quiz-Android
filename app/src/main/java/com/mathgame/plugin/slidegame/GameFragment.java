@@ -1,4 +1,4 @@
-package com;
+package com.mathgame.plugin.slidegame;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -15,22 +15,22 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mathgame.R;
 import com.util.Transition;
 
-import com.slidegame.Game;
-import com.slidegame.GameView;
-import com.slidegame.Tile;
-import com.thedarken.myo.R;
-import com.tools.InputListener;
-import com.tools.KeyListener;
-import com.tools.ScoreKeeper;
+import com.mathgame.plugin.slidegame.slideview.Game;
+import com.mathgame.plugin.slidegame.slideview.GameView;
+import com.mathgame.plugin.slidegame.slideview.Tile;
+import com.mathgame.plugin.slidegame.tools.InputListener;
+import com.mathgame.plugin.slidegame.tools.KeyListener;
+import com.mathgame.plugin.slidegame.tools.ScoreKeeper;
 
 public class GameFragment extends Fragment implements KeyListener,  Game.GameStateListener {
     private static final String TAG = "2048Myo:GameFragment";
     public static boolean sReversed = false;
 
     private GameView mGameView;
-    private Game mGame;
+    private Game     mGame;
 
     private static final String SCORE = "savegame.score";
     private static final String UNDO_SCORE = "savegame.undoscore";

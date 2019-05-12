@@ -1,4 +1,4 @@
-package com.slidegame;
+package com.mathgame.plugin.slidegame.slideview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,10 +9,9 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.mathgame.R;
+
 import java.util.ArrayList;
-
-import com.thedarken.myo.R;
-
 
 public class GameView extends View {
     private static final int BASE_ANIMATION_TIME = 100000000;

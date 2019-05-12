@@ -1,4 +1,4 @@
-package com.tools;
+package com.mathgame.plugin.slidegame.tools;
 
 
 public interface KeyListener {

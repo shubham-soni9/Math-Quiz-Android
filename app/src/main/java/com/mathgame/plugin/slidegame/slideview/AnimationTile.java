@@ -1,4 +1,4 @@
-package com.slidegame;
+package com.mathgame.plugin.slidegame.slideview;
 
 class AnimationTile extends Position {
     private final int mAnimationType;
