@@ -31,10 +31,14 @@ import com.mathgame.plugin.sudoku.controller.helper.GameInfoContainer;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.game.GameType;
 import com.mathgame.R;
+import com.mathgame.structure.BaseActivity;
 
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static com.mathgame.structure.BaseActivity.MAIN_CONTENT_FADEOUT_DURATION;
+import static com.mathgame.structure.BaseActivity.NAVDRAWER_LAUNCH_DELAY;
 
 
 public class SudokuMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {

@@ -26,6 +26,7 @@ import com.mathgame.plugin.sudoku.controller.GameStateManager;
 import com.mathgame.plugin.sudoku.controller.helper.GameInfoContainer;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.ui.listener.IDeleteDialogFragmentListener;
+import com.mathgame.structure.BaseActivity;
 
 
 import java.text.DateFormat;

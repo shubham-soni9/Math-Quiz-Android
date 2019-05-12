@@ -17,6 +17,7 @@ import android.view.View;
 
 
 import com.mathgame.R;
+import com.mathgame.structure.BaseActivity;
 
 import java.util.List;
 

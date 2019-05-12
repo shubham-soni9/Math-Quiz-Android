@@ -44,6 +44,7 @@ import com.mathgame.plugin.sudoku.ui.listener.IResetDialogFragmentListener;
 
 import com.mathgame.plugin.sudoku.ui.view.SudokuFieldLayout;
 import com.mathgame.plugin.sudoku.ui.view.SudokuSpecialButtonLayout;
+import com.mathgame.structure.BaseActivity;
 
 import java.util.LinkedList;
 import java.util.List;

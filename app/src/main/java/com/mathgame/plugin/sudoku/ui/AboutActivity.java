@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.mathgame.BuildConfig;
 import com.mathgame.R;
+import com.mathgame.structure.BaseActivity;
 
 
 public class AboutActivity extends BaseActivity {
