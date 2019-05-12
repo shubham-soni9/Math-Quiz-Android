@@ -24,6 +24,7 @@ import com.mathgame.util.Utils;
 import com.mathgame.util.ViewUtils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -143,24 +144,41 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
                         maximum = 9;
                         minimum = 1;
                         break;
+                    case Constant.MathSign.SQUARE_ROOT:
+                        maximum = (int) (Math.sqrt(currentQuestion.getA()) + 1);
+                        minimum = (int) (Math.sqrt(currentQuestion.getA()) - 1);
+                        break;
                 }
 
-                while ((maximum - minimum) < 4) {
-                    maximum = ++maximum;
-                    minimum = --minimum;
+                if (!currentQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
+                    while ((maximum - minimum) < 4) {
+                        maximum = ++maximum;
+                        minimum = --minimum;
+                    }
                 }
+                DecimalFormat twoDecimalFormatter = new DecimalFormat("#.##");
 
                 for (int i = 0; i < 3; i++) {
-                    String wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                    String wrongOption;
+                    if (currentQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
+                        wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
+                    } else {
+                        wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                    }
                     for (int j = 0; j < options.size(); j++) {
                         String value = options.get(j);
                         if (wrongOption.equals(value) || wrongOption.equalsIgnoreCase(currentQuestion.getAnswer())) {
-                            wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                            if (currentQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
+                                wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
+                            } else {
+                                wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                            }
                             j = 0;
                         }
                     }
                     options.add(wrongOption);
                 }
+
                 Collections.shuffle(options);
                 tvPlayer1Option1.setText(options.get(0));
                 tvPlayer1Option2.setText(options.get(1));

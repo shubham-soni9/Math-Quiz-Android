@@ -13,6 +13,7 @@ public class QuestionUtils {
 
     public static Question getQuestionWithAnswer(CustomMode customMode) {
         DecimalFormat dFormat = new DecimalFormat("###.#");
+        DecimalFormat twoDecimalFormatter = new DecimalFormat("#.##");
         String[] operations = customMode.getMathOperations().split(" ");
         String question;
         String answer = Constant.EMPTY;
@@ -42,26 +43,31 @@ public class QuestionUtils {
         int b = RandomUtils.getRandomInt(maximum, minimum);
 
 
-        if (chosenOperation.equals(Constant.MathSign.DIVISION)) {
-            while (a <= b || (a % b != 0)) {
-                Log.e(TAG, "a = " + a + " b = " + b);
-                a = RandomUtils.getRandomInt(maximum, minimum);
-                b = RandomUtils.getRandomInt(maximum, minimum);
-            }
-        } else if (chosenOperation.equals(Constant.MathSign.PERCENTAGE)) {
-            while (a <= b) {
-                a = RandomUtils.getRandomInt(maximum, minimum);
-                b = RandomUtils.getRandomInt(maximum, minimum);
-            }
-        } else if (chosenOperation.equals(Constant.MathSign.SQUARE_ROOT)) {
-            if (a == 1) {
-                a++;
-            }
-        } else {
-            while (a == b) {
-                a = RandomUtils.getRandomInt(maximum, minimum);
-                b = RandomUtils.getRandomInt(maximum, minimum);
-            }
+        switch (chosenOperation) {
+            case Constant.MathSign.DIVISION:
+                while (a <= b || (a % b != 0)) {
+                    Log.e(TAG, "a = " + a + " b = " + b);
+                    a = RandomUtils.getRandomInt(maximum, minimum);
+                    b = RandomUtils.getRandomInt(maximum, minimum);
+                }
+                break;
+            case Constant.MathSign.PERCENTAGE:
+                while (a <= b) {
+                    a = RandomUtils.getRandomInt(maximum, minimum);
+                    b = RandomUtils.getRandomInt(maximum, minimum);
+                }
+                break;
+            case Constant.MathSign.SQUARE_ROOT:
+                if (a == 1) {
+                    a++;
+                }
+                break;
+            default:
+                while (a == b) {
+                    a = RandomUtils.getRandomInt(maximum, minimum);
+                    b = RandomUtils.getRandomInt(maximum, minimum);
+                }
+                break;
         }
         if (chosenOperation.equals(Constant.MathSign.SQUARE_ROOT)) {
             question = "sqrt(" + dFormat.format(a) + ")";
@@ -85,7 +91,7 @@ public class QuestionUtils {
                 answer = dFormat.format(a % b);
                 break;
             case Constant.MathSign.SQUARE_ROOT:
-                answer = dFormat.format(Math.sqrt(a));
+                answer = twoDecimalFormatter.format(Math.sqrt(a));
                 break;
         }
         mQuestion.setA(a);
@@ -120,11 +126,20 @@ public class QuestionUtils {
                         minimum = 1;
                         break;
                     case Constant.MathSign.SQUARE_ROOT:
-                        maximum = (int) (Math.sqrt(a)+4);
-                        minimum = (int) (Math.sqrt(a)-4);
+                        maximum = (int) (Math.sqrt(a) + 1);
+                        minimum = (int) (Math.sqrt(a) - 1);
                         break;
                 }
-                answerPrediction = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                int randomInt = RandomUtils.getRandomInt(3, 1);
+                if (randomInt == 2) {
+                    answerPrediction = answer;
+                } else {
+                    if (chosenOperation.equals(Constant.MathSign.SQUARE_ROOT)) {
+                        answerPrediction = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
+                    } else {
+                        answerPrediction = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                    }
+                }
 
             } else {
                 answerPrediction = answer;
