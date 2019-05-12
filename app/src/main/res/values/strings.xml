@@ -247,5 +247,6 @@
     <string name="menu_tutorial">Tutorial</string>
     <string name="generator_notification">Generator Notification</string>
     <string name="history">History</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 </resources>
 

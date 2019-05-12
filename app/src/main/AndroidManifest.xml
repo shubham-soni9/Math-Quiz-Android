@@ -99,7 +99,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.StatsActivity"
+            android:name=".activity.SudokuHighScoreActivity"
             android:screenOrientation="portrait" />
 
         <activity

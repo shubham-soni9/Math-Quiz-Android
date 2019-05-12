@@ -322,6 +322,14 @@ public class SudokuGameActivity extends BaseActivity implements IGameSolvedListe
         //super.onRestoreInstanceState(savedInstanceState);
     }
 
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.ivBack:
+                onBackPressed();
+                break;
+        }
+    }
+
     public static class ResetConfirmationDialog extends DialogFragment {
 
         final LinkedList<IResetDialogFragmentListener> listeners = new LinkedList<>();

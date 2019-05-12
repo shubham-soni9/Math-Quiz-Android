@@ -200,7 +200,7 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
                 startActivity(intent);
                 return true;
             case R.id.nav_highscore:
-                intent = new Intent(this, StatsActivity.class);
+                intent = new Intent(this, SudokuHighScoreActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.menu_help:

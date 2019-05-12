@@ -9,6 +9,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -29,39 +30,27 @@ import com.mathgame.structure.BaseActivity;
 
 import java.util.List;
 
-public class StatsActivity extends BaseActivity {
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+public class SudokuHighScoreActivity extends BaseActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stats);
-
+        setContentView(R.layout.activity_sudoku_highscore);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.menu_highscore);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#024265")));
-
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.menu_highscore);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this,R.color.colorPrimary)));
+        }
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        /**
-         * The {@link ViewPager} that will host the section contents.
-         */
         ViewPager mViewPager = findViewById(R.id.main_content);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
@@ -81,10 +70,6 @@ public class StatsActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
         int i = item.getItemId();
         if (i == R.id.action_reset) {
             SaveLoadStatistics.resetStats(this);
@@ -229,7 +214,6 @@ public class StatsActivity extends BaseActivity {
             View rootView = inflater.inflate(R.layout.fragment_stats, container, false);
             this.rootView = rootView;
             resetGeneral();
-            TextView textView = rootView.findViewById(R.id.section_label);
 
             SaveLoadStatistics s = new SaveLoadStatistics(this.getContext());
             List<HighscoreInfoContainer> stats = s.loadStats(GameType.getValidGameTypes().get(getArguments().getInt(ARG_SECTION_NUMBER)));
