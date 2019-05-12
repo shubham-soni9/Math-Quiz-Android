@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ABS</string>
+    <string name="app_name">Math Game</string>
     <string name="sudoku">Sudoku</string>
     <string name="tic_tac_toe">Tic Tac Toe</string>
     <string name="two_zero_four_eight">2048</string>
