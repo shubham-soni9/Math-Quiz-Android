@@ -249,5 +249,6 @@
     <string name="history">History</string>
 
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="do_you_want_to_leave_the_game">Do you want to leave the game?</string>
 </resources>
 

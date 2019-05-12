@@ -8,13 +8,16 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mathgame.R;
+import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.plugin.tictactoe.TTTConstants;
+import com.mathgame.util.Transition;
+import com.mathgame.util.Utils;
 
 import java.util.Random;
 
@@ -46,10 +49,10 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ttt_game);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        TextView tvTitle = findViewById(R.id.tvTitle);
+        tvTitle.setText(R.string.tic_tac_toe);
+        AppCompatImageView ivBack = findViewById(R.id.ivBack);
+        Utils.setOnClickListener(this, ivBack);
         initializeViews();
         setClickListeners();
 
@@ -137,7 +140,24 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
         if (v.getId() == R.id.reset_button) {
             board.setEnabled(false);
             board.resetBoard();
+        } else if (v.getId() == R.id.ivBack) {
+            onBackPressed();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new OptionsDialog.Builder(this).message(R.string.do_you_want_to_leave_the_game).listener(new OptionsDialog.Listener() {
+            @Override
+            public void performPositiveAction() {
+                Transition.exit(TTTGameActivity.this);
+            }
+
+            @Override
+            public void performNegativeAction() {
+
+            }
+        }).build();
     }
 
     /**

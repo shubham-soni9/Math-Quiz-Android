@@ -20,7 +20,7 @@ import com.mathgame.appdata.Dependencies;
 import com.mathgame.appdata.GameSettings;
 import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
-import com.mathgame.plugin.tictactoe.selection.SelectionActivity;
+import com.mathgame.plugin.tictactoe.selection.TTTSelectionActivity;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
@@ -86,7 +86,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.cvTicTacToe:
-                Transition.startActivity(this, SelectionActivity.class);
+                Transition.startActivity(this, TTTSelectionActivity.class);
                 break;
             case R.id.cvSudoku:
                 if (Dependencies.isFirstTimeSudokuLaunch(this)) {

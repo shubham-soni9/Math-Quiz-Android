@@ -35,6 +35,6 @@ public class Dependencies {
     }
 
     public static boolean isFirstTimeSudokuLaunch(Context context) {
-        return Prefs.with(context).getBoolean(Keys.Prefs.KEY_SETTINGS, false);
+        return Prefs.with(context).getBoolean(Keys.Prefs.KEY_SETTINGS, true);
     }
 }

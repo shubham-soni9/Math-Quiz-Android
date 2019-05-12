@@ -4,18 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.AppCompatImageView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.plugin.tictactoe.TTTConstants;
 import com.mathgame.plugin.tictactoe.game.TTTGameActivity;
+import com.mathgame.util.Transition;
+import com.mathgame.util.Utils;
 
 /**
  * This activity takes the user through the selection flow.
  * <p>
  * are prompted for selection.
  */
-public class SelectionActivity extends AppCompatActivity implements SelectionFragment.OnValueSelectedListener {
+public class TTTSelectionActivity extends AppCompatActivity implements SelectionFragment.OnValueSelectedListener, View.OnClickListener {
     private SelectionFragment modeSelectionFragment;
     private SelectionFragment signSelectionFragment;
     private SelectionFragment turnSelectionFragment;
@@ -36,18 +40,17 @@ public class SelectionActivity extends AppCompatActivity implements SelectionFra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        TextView tvTitle = findViewById(R.id.tvTitle);
+        tvTitle.setText(R.string.tic_tac_toe);
+        AppCompatImageView ivBack = findViewById(R.id.ivBack);
+        Utils.setOnClickListener(this, ivBack);
 
         modeSelectionFragment = SelectionFragment.newInstance(getResources().getString(
                 R.string.mode_selection_text), R.drawable.single_player, R.drawable.multi_player);
-
         signSelectionFragment = SelectionFragment.newInstance(getResources().getString(
                 R.string.sign_selection_text), R.drawable.circle, R.drawable.cross);
-
         turnSelectionFragment = SelectionFragment.newInstance(getResources().getString(
                 R.string.turn_selection_text), R.drawable.user, R.drawable.system);
-
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, modeSelectionFragment)
                 .commit();
@@ -59,7 +62,6 @@ public class SelectionActivity extends AppCompatActivity implements SelectionFra
 
         if (backFromGameActivity) {
             setFragmentTransitionAnimationEnabled(false);
-
             getSupportFragmentManager().popBackStack();
             getSupportFragmentManager().popBackStack();
 
@@ -148,16 +150,25 @@ public class SelectionActivity extends AppCompatActivity implements SelectionFra
         intent.putExtra("FIRST_TURN", firstTurn);
         intent.putExtra("GAME_MODE", gameMode);
         startActivity(intent);
-
         backFromGameActivity = true;
     }
 
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            super.onBackPressed();
+            Transition.exit(this);
         } else {
             getSupportFragmentManager().popBackStack();
         }
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ivBack:
+                onBackPressed();
+                break;
+        }
+    }
+
 }

@@ -67,7 +67,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".plugin.tictactoe.selection.SelectionActivity"
+            android:name=".plugin.tictactoe.selection.TTTSelectionActivity"
             android:screenOrientation="portrait" />
 
         <activity
