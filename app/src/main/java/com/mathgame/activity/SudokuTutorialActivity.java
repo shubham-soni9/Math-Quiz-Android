@@ -20,7 +20,6 @@ import com.mathgame.appdata.Dependencies;
 
 
 public class SudokuTutorialActivity extends AppCompatActivity {
-
     private ViewPager          viewPager;
     private LinearLayout       dotsLayout;
     private int[]              layouts;
@@ -53,6 +52,7 @@ public class SudokuTutorialActivity extends AppCompatActivity {
 
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
