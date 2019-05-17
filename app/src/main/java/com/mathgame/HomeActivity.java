@@ -54,7 +54,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
                 , findViewById(R.id.tvSliderSettings), findViewById(R.id.tvSliderPolicy), findViewById(R.id.tvSliderShare)
                 , findViewById(R.id.tvSliderRate), findViewById(R.id.tvSliderMoreApps), findViewById(R.id.tvSliderReportBug)
-                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit),findViewById(R.id.tvSliderCareerMode));
+                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit));
     }
 
     @Override
@@ -135,9 +135,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.tvSliderExit:
                 exit();
                 break;
-            case R.id.tvSliderCareerMode:
-                openCareerMode();
-                break;
         }
     }
 
@@ -148,9 +145,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void openPolicyScreen() {
-    }
-
-    private void openCareerMode() {
     }
 
     private void shareApp() {

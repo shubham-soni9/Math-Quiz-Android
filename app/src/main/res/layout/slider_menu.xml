@@ -37,12 +37,6 @@
         android:text="@string/tutorials" />
 
     <TextView
-        android:id="@+id/tvSliderCareerMode"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_tutorial"
-        android:text="@string/career_mode" />
-
-    <TextView
         android:id="@+id/tvSliderSettings"
         style="@style/side_menu_text_color"
         android:drawableStart="@drawable/ic_slider_settings"
