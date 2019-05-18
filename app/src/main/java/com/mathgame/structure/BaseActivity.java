@@ -52,6 +52,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     protected Locale locale() {
         return Dependencies.getLocale();
     }
