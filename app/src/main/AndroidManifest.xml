@@ -113,7 +113,11 @@
         <activity
             android:name=".activity.MathTutorialActivity"
             android:screenOrientation="portrait" />
+
         <activity android:name=".activity.TutorialDataActivity" />
+
+        <activity android:name=".activity.CareerActivity"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".plugin.sudoku.controller.GeneratorService"

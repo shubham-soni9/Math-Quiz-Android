@@ -11,6 +11,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mathgame.activity.CareerActivity;
 import com.mathgame.activity.GameTypeActivity;
 import com.mathgame.activity.MathTutorialActivity;
 import com.mathgame.activity.SlideAdditionActivity;
@@ -54,7 +55,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
                 , findViewById(R.id.tvSliderSettings), findViewById(R.id.tvSliderPolicy), findViewById(R.id.tvSliderShare)
                 , findViewById(R.id.tvSliderRate), findViewById(R.id.tvSliderMoreApps), findViewById(R.id.tvSliderReportBug)
-                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit));
+                , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit), findViewById(R.id.tvSliderCareer));
     }
 
     @Override
@@ -110,6 +111,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.tvSliderTutorials:
                 Transition.startActivity(this, MathTutorialActivity.class);
+                break;
+            case R.id.tvSliderCareer:
+                Transition.startActivity(this, CareerActivity.class);
                 break;
             case R.id.tvSliderSettings:
                 openSettings();

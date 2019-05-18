@@ -27,111 +27,118 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvSliderHome"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_home"
-        android:text="@string/home" />
-
-    <TextView
-        android:id="@+id/tvSliderTutorials"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_tutorial"
-        android:text="@string/tutorials" />
-
-    <TextView
-        android:id="@+id/tvSliderSettings"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_settings"
-        android:text="@string/settings" />
-
-    <RelativeLayout
-        android:id="@+id/rlSliderTheme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_20dp"
-        android:visibility="gone"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/side_menu_text_color"
-            android:drawableStart="@drawable/ic_theme"
-            android:text="@string/theme" />
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/ivSelectedColor"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_circle"
-            android:tint="@color/colorPrimary" />
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tvSliderHome"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_home"
+                android:text="@string/home" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/_10dp"
-        android:layout_marginBottom="@dimen/_10dp"
-        android:background="@color/black_20" />
+            <TextView
+                android:id="@+id/tvSliderCareer"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_career"
+                android:text="@string/career_mode" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10dp"
-        android:layout_marginBottom="@dimen/_10dp"
-        android:text="@string/communicate"
-        android:textAppearance="@style/CustomTextAppearance.Light"
-        android:textColor="@color/black_70"
-        android:textSize="@dimen/text_size_medium" />
+            <TextView
+                android:id="@+id/tvSliderTutorials"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_tutorial"
+                android:text="@string/tutorials" />
 
-    <TextView
-        android:id="@+id/tvSliderPolicy"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_policy"
-        android:text="@string/privacy_policy" />
+            <TextView
+                android:id="@+id/tvSliderSettings"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_settings"
+                android:text="@string/settings" />
 
-    <TextView
-        android:id="@+id/tvSliderShare"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_share"
-        android:text="@string/share" />
+            <RelativeLayout
+                android:id="@+id/rlSliderTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
-    <TextView
-        android:id="@+id/tvSliderRate"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_rate"
-        android:text="@string/rate_us" />
+                <TextView
+                    style="@style/side_menu_text_color"
+                    android:drawableStart="@drawable/ic_theme"
+                    android:text="@string/theme" />
 
-    <TextView
-        android:id="@+id/tvSliderMoreApps"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_more_apps"
-        android:text="@string/see_more_apps" />
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/ivSelectedColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_circle"
+                    android:tint="@color/colorPrimary" />
 
-    <TextView
-        android:id="@+id/tvSliderReportBug"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_report_bug"
-        android:text="@string/report_a_bug" />
+            </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvSliderFeedback"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_suggestion"
-        android:text="@string/send_feedback" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:background="@color/black_20" />
 
-    <TextView
-        android:id="@+id/tvSliderExit"
-        style="@style/side_menu_text_color"
-        android:drawableStart="@drawable/ic_slider_exit"
-        android:text="@string/exit" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:text="@string/communicate"
+                android:textAppearance="@style/CustomTextAppearance.Light"
+                android:textColor="@color/black_70"
+                android:textSize="@dimen/text_size_medium" />
+
+            <TextView
+                android:id="@+id/tvSliderPolicy"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_policy"
+                android:text="@string/privacy_policy" />
+
+            <TextView
+                android:id="@+id/tvSliderShare"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_share"
+                android:text="@string/share" />
+
+            <TextView
+                android:id="@+id/tvSliderRate"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_rate"
+                android:text="@string/rate_us" />
+
+            <TextView
+                android:id="@+id/tvSliderMoreApps"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_more_apps"
+                android:text="@string/see_more_apps" />
+
+            <TextView
+                android:id="@+id/tvSliderReportBug"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_report_bug"
+                android:text="@string/report_a_bug" />
+
+            <TextView
+                android:id="@+id/tvSliderFeedback"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_suggestion"
+                android:text="@string/send_feedback" />
+
+            <TextView
+                android:id="@+id/tvSliderExit"
+                style="@style/side_menu_text_color"
+                android:drawableStart="@drawable/ic_slider_exit"
+                android:text="@string/exit" />
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>
