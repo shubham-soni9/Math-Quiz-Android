@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mathgame.R;
+import com.mathgame.activity.TutorialDataActivity;
 import com.mathgame.activity.WebViewActivity;
 import com.mathgame.model.Article;
 import com.mathgame.util.Transition;
@@ -57,7 +58,7 @@ public class TutorialAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     Bundle bundle = new Bundle();
                     bundle.putString(KEY_TITLE, articles.get(holder.getAdapterPosition()).getTitle());
                     bundle.putString(KEY_WEB_URL, articles.get(holder.getAdapterPosition()).getLink());
-                    Transition.startActivity(context, WebViewActivity.class, bundle);
+                    Transition.startActivity(context, TutorialDataActivity.class, bundle);
                 }
             });
         }

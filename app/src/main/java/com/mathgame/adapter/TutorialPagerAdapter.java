@@ -20,7 +20,7 @@ public class TutorialPagerAdapter extends FragmentStatePagerAdapter {
      *
      * @param fragmentManager the provided fragment manager
      */
-    public TutorialPagerAdapter(final Context context, final FragmentManager fragmentManager, ArrayList<Tutorial> tutorialList) {
+    public TutorialPagerAdapter(final FragmentManager fragmentManager, ArrayList<Tutorial> tutorialList) {
         super(fragmentManager);
         this.tutorialList = tutorialList;
         for (Tutorial tutorial : tutorialList) {

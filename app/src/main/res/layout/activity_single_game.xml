@@ -123,7 +123,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:text="10 + 20 = ?"
-                        android:textAppearance="@style/CustomTextAppearance.UltraLight"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:textColor="@color/white"
                         android:textSize="40sp" />
                 </LinearLayout>

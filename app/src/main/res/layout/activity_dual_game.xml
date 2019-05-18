@@ -152,7 +152,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:rotation="180"
-                        android:textAppearance="@style/CustomTextAppearance.UltraLight"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_35dp"
                         tools:text="10 + 20 = ?" />
@@ -164,7 +164,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_10dp"
                         android:gravity="center"
-                        android:textAppearance="@style/CustomTextAppearance.UltraLight"
+                        android:textAppearance="@style/CustomTextAppearance.Light"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_35dp"
                         tools:text="10 + 20 = ?" />

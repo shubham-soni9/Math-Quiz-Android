@@ -33,7 +33,7 @@
                 android:layout_toStartOf="@+id/etAnswer"
                 android:gravity="center"
                 android:text="10 + 20 = "
-                android:textAppearance="@style/CustomTextAppearance.UltraLight"
+                android:textAppearance="@style/CustomTextAppearance.Light"
                 android:textColor="@color/white"
                 android:textSize="35sp" />
 

@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.mathgame.R;
 import com.mathgame.adapter.TutorialPagerAdapter;
@@ -27,11 +26,12 @@ public class MathTutorialActivity extends BaseActivity {
     }
 
     private void setData() {
-        TutorialPagerAdapter tutorialPagerAdapter = new TutorialPagerAdapter(this, getSupportFragmentManager(), GameSettings.getTutorialList(this));
+        TutorialPagerAdapter tutorialPagerAdapter = new TutorialPagerAdapter(getSupportFragmentManager(), GameSettings.getTutorialList(this));
         tutorialPager.setAdapter(tutorialPagerAdapter);
         tabTutorials.setupWithViewPager(tutorialPager);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.tutorials);
     }
 
     private void init() {

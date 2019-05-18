@@ -2,6 +2,8 @@ package com.mathgame.activity;
 
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -10,29 +12,25 @@ import com.mathgame.R;
 import com.mathgame.appdata.Keys;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
+import com.mathgame.util.Utils;
 
-public class WebViewActivity extends BaseActivity {
+public class TutorialDataActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_webview);
-        WebView webViewInvoice = findViewById(R.id.webViewInvoice);
-        TextView tvTitle = findViewById(R.id.tvTitle);
+        setContentView(R.layout.activity_tutorial_data);
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        TextView tvTutorial=findViewById(R.id.tvTutorial);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
             String title = mBundle.getString(Keys.Prefs.KEY_TITLE);
             String webUrl = mBundle.getString(Keys.Prefs.KEY_WEB_URL);
-            webViewInvoice.loadDataWithBaseURL(null, webUrl, "text/html", "utf-8", null);
-            tvTitle.setText(title);
+            tvTutorial.setText(Utils.fromHtml(webUrl));
+            getSupportActionBar().setTitle(title);
         }
-        int iBack = R.id.llBack;
-        findViewById(iBack).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 
     @Override

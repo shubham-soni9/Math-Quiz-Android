@@ -292,4 +292,5 @@ public class Utils {
     public static  <T> T toResponseModel(String data,Class<T> classRef) {
         return new Gson().fromJson(data, classRef);
     }
+
 }
