@@ -111,6 +111,10 @@
           "link": "Subtraction in mathematics means you are taking something away from a group or number of things. When you subtract, what is left in the group becomes less. An example of a subtraction problem is the following: 5 - 3 = 2."
         },
         {
+          "title": "How Subtraction works?",
+          "link": "<p>7 - 2 =5  <br><br>Here first Digit which is 7 and second Digit 2 is subtracted and the subtraction of those number is 5.<br><br> Some subtraction looks big like 80-10-20-10 = 40. <br>In this way the subtraction are performed and outcome result is always small.</p>"
+        },
+        {
           "type": 1,
           "title": "SHORT TRICKS"
         },
@@ -143,6 +147,10 @@
         {
           "title": "What is Multiplication?",
           "link": "A mathematical operation performed on a pair of numbers in order to derive a third number called a product. For positive integers, multiplication consists of adding a number (the multiplicand) to itself a specified number of times. Thus multiplying 6 by 3 means adding 6 to itself three times."
+        },
+        {
+          "title": "How Multiplication works?",
+          "link": "<p>7 * 2 =14  <br><br>Here first Digit which is 7 and second Digit 2 is mutliplied and the Multiplication of those number is 14.<br>The result of multiplication is always larger among the multiplied digits.</p>"
         },
         {
           "type": 1,
@@ -251,6 +259,10 @@
           "link": "In mathematics, the word \"division\" means the operation which is the opposite of multiplication. ... Each, of those three, means \"6 divided by 3\" giving 2 as the answer. The first number is the dividend (6), and the second number is the divisor (3). The result (or answer) is the quotient."
         },
         {
+          "title": "How Division works?",
+          "link": "<p>12 ÷ 3 = 4. <br>We use both ÷ and / symbol. <br><br>Here first Digit which is 12 and second Digit 3 is divided and the Division of those number is 4.<br>The result of division is always smaller.</p>"
+        },
+        {
           "title": "Divisibility Rules",
           "link": "<p>1. If the end digit of any number is Zero or Even Number then number can easily Divisible by 2. Example: 4587952/2 = 2293976.</p>\n\n<p>2. If the Sum of all numbers is divisible by 3 then the number is divisible by 3. Example:(8+6+1) = 15 and 15 is divisible by 3, So the 861 is divisible by 3. Some more Example: 22104/3 = 7368. (2+2+1+0+4) = 9. 9/3 = 3, So 22104 divisible by 3.</p>\n\n<p>3. The number is Divisible by 4 when the end of two digit is divisible by 4 or end of two digit is Zero. Example: 85736 = 21434. (End two digit divisible by 4). 98300 = 24575 (End of both digit is Zero).</p>\n\n<p>4. The number is end with Zero or 5 Then the number is divisible by 5. Example: 7775/5 = 1555 (End digit is 5), 3390/5 = 678 (End digit is 0).</p>\n\n<p>5. The number is divisible by 6 when the number is divisible by 3 and 2. So both the condition should be satisfied by Rule 3 and 2 otherwise number will be not divisible by 6. 5844/6 = 974 (Both condition are satisfied).</p>\n\n<p>6. Three end digit of number if divisible by 8 and if the last three digit is Zero then the number is also divisible by 8. Example:224256/8=28032 here the last digit 256 is divisible by 8 so the total number should be divisible by 8. 92045000/8=11505625.last three digit is Zero so the number is divisible by 8.</p>\n\n<p>7. All digits sum of a number if divisible by 9 then the number is divisible by 9. Example: 9522:(9+5+2+2)=18 that is divisible by 9 so the number 9522/9=1058.</p>\n\n<p>8. The number is divisible by 10 if the number is end with Zero then the number divisible by 10. Example: 4790/10=479 and 1250/10=125 this two numbers are end with Zero that why it is divisible by 10.</p>\n\n<p>9. Using 11 a number is divisible if difference sum of Even places and sum of odd places is Zero so divisible by 11. Example: 1236431460/11=112402860. (1+3+4+1+6)(odd places)-(2+6+3+4+0)(Even places)=0 and sum of odd and Even digit is equal so the number is divisible by 11.</p>\n\n<p>10. We can write 15 as (5&times;3) so if a number is divisible by 5 and 3 then the number is divisible by 15.</p>"
         },
@@ -323,6 +335,10 @@
         {
           "title": "What is Square Root",
           "link": "A square root of a number is a value that, when multiplied by itself, gives the number. ... The symbol is √ which always means the positive square root."
+        },
+        {
+          "title": "How Square Root works?",
+          "link": "<p>√25. <br>Here first Digit which is 25.<br> The Square Root of number is 5. The Square Root is opposite of Square of a number.<br>The result of square root is always smaller.</p>"
         },
         {
           "type": 1,
