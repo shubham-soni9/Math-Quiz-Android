@@ -326,6 +326,24 @@
     },
     {
       "tutorial_id": 5,
+      "tutorial_name": "PERCENTAGE",
+      "articles": [
+        {
+          "type": 1,
+          "title": "THEORY"
+        },
+        {
+          "title": "What is Percentage",
+          "link": "A square root of a number is a value that, when multiplied by itself, gives the number. ... The symbol is √ which always means the positive square root."
+        },
+        {
+          "title": "How Percentage works?",
+          "link": "<p>√25. <br>Here first Digit which is 25.<br> The Square Root of number is 5. The Square Root is opposite of Square of a number.<br>The result of square root is always smaller.</p>"
+        }
+      ]
+    },
+    {
+      "tutorial_id": 6,
       "tutorial_name": "Square Root",
       "articles": [
         {
