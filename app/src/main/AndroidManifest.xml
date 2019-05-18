@@ -110,6 +110,10 @@
             android:name=".activity.SudokuTutorialActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activity.MathTutorialActivity"
+            android:screenOrientation="portrait" />
+
         <service
             android:name=".plugin.sudoku.controller.GeneratorService"
             android:enabled="true"

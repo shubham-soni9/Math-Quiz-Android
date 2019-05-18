@@ -233,7 +233,7 @@
     <string name="pref_keep_screen_on">Keep Screen On</string>
     <string name="pref_keep_screen_on_summary">Don\'t turn the screen off while playing</string>
 
-    <!-- ### Tutorial ###-->
+    <!-- ### Article ###-->
     <string name="slide1_heading">Welcome!</string>
     <string name="slide1_text">Welcome to Privacy Friendly Sudoku!</string>
 

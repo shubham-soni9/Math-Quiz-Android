@@ -3,7 +3,7 @@ package com.mathgame.appdata;
 public interface Keys {
 
     interface Extras {
-
+        String TUTORIAL_LIST = "tutorial_list";
     }
 
     interface Prefs {

@@ -25,8 +25,12 @@ import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
 import com.rey.material.widget.CheckBox;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Locale;
 
 public class Utils {
@@ -56,6 +60,14 @@ public class Utils {
 
     public static boolean isEmpty(EditText editText) {
         return Utils.isEmpty(Utils.get(editText));
+    }
+
+    public static boolean isEmpty(List list) {
+        return list == null || list.isEmpty();
+    }
+
+    public static boolean containData(List list) {
+        return list != null && !list.isEmpty();
     }
 
     private static void snackBar(Activity activity, String message, int type) {
@@ -259,5 +271,25 @@ public class Utils {
         } catch (android.content.ActivityNotFoundException anfe) {
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
         }
+    }
+
+    public static String loadJSONFromAsset(Context context, String fileName) {
+        String json = null;
+        try {
+            InputStream is = context.getAssets().open(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, StandardCharsets.UTF_8);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
+    public static  <T> T toResponseModel(String data,Class<T> classRef) {
+        return new Gson().fromJson(data, classRef);
     }
 }

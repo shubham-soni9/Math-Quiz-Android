@@ -1,7 +1,7 @@
 package com.mathgame.appdata;
 
 public interface Constant {
-    String EMPTY = "";
+    String EMPTY                  = "";
     String GENERATOR_NOTIFICATION = "generator_notification";
 
     interface MathSign {
@@ -19,4 +19,7 @@ public interface Constant {
         int LARGE  = 2;
     }
 
+    interface JSONFileNames {
+        String TUTORIAL_FILE = "tutorial.json";
+    }
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mathgame.activity.GameTypeActivity;
+import com.mathgame.activity.MathTutorialActivity;
 import com.mathgame.activity.SlideAdditionActivity;
 import com.mathgame.activity.SudokuHomeActivity;
 import com.mathgame.activity.SudokuTutorialActivity;
@@ -48,7 +49,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         CardView cvSlideAddition = findViewById(R.id.cvSlideAddition);
         AppCompatImageView ivHome = findViewById(R.id.ivHome);
         drawerLayout = findViewById(R.id.activity_home_dl_main);
-        AppCompatImageView ivSelectedColor = findViewById(R.id.ivSelectedColor);
 
         Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
                 , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
@@ -109,7 +109,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.tvSliderTutorials:
-                openTutorials();
+                Transition.startActivity(this, MathTutorialActivity.class);
                 break;
             case R.id.tvSliderSettings:
                 openSettings();
@@ -136,9 +136,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 exit();
                 break;
         }
-    }
-
-    private void openTutorials() {
     }
 
     private void openSettings() {
