@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
+import com.mathgame.appdata.Keys;
 import com.mathgame.dialog.SettingsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.structure.BaseActivity;
@@ -140,6 +141,30 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void startLearning() {
+        Bundle bundle = new Bundle();
+        int operationType = -1;
+        switch (customMode.getMathOperations()) {
+            case Constant.MathSign.ADDITION:
+                operationType = 0;
+                break;
+            case Constant.MathSign.SUBTRACTION:
+                operationType = 1;
+                break;
+            case Constant.MathSign.MULTIPLICATION:
+                operationType = 2;
+                break;
+            case Constant.MathSign.DIVISION:
+                operationType = 3;
+                break;
+            case Constant.MathSign.PERCENTAGE:
+                operationType = 4;
+                break;
+            case Constant.MathSign.SQUARE_ROOT:
+                operationType = 5;
+                break;
+        }
+        bundle.putInt(Keys.Extras.OPERATION_TYPE, operationType);
+        Transition.transitForResult(this, MathTutorialActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
     }
 
     private void startDual() {

@@ -9,12 +9,13 @@ import android.support.v7.widget.Toolbar;
 import com.mathgame.R;
 import com.mathgame.adapter.TutorialPagerAdapter;
 import com.mathgame.appdata.GameSettings;
+import com.mathgame.appdata.Keys;
 import com.mathgame.structure.BaseActivity;
 
 public class MathTutorialActivity extends BaseActivity {
     private ViewPager tutorialPager;
     private TabLayout tabTutorials;
-    private Toolbar toolbar;
+    private Toolbar   toolbar;
 
 
     @Override
@@ -32,11 +33,15 @@ public class MathTutorialActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.tutorials);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && bundle.getInt(Keys.Extras.OPERATION_TYPE, -1) != -1) {
+            tutorialPager.setCurrentItem(bundle.getInt(Keys.Extras.OPERATION_TYPE));
+        }
     }
 
     private void init() {
         tutorialPager = findViewById(R.id.tutorialPager);
         tabTutorials = findViewById(R.id.tabTutorials);
-        toolbar =  findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
     }
 }

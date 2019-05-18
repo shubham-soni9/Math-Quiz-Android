@@ -3,7 +3,8 @@ package com.mathgame.appdata;
 public interface Keys {
 
     interface Extras {
-        String TUTORIAL_LIST = "tutorial_list";
+        String TUTORIAL_LIST  = "tutorial_list";
+        String    OPERATION_TYPE = "operation_type";
     }
 
     interface Prefs {
