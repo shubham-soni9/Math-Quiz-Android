@@ -75,4 +75,12 @@
         <item>@color/dot_dark_screen</item>
         <item>@color/dot_dark_screen</item>
     </array>
+    <color name="grey_20">#cccccc</color>
+    <color name="grey_45"> #8c8c8c</color>
+    <color name="grey_65"> #595959</color>
+    <color name="grey_75"> #404040</color>
+    <color name="background_theme_color">#414a4c</color>
+    <color name="white_10"> #f2f2f2</color>
+
+    <color name="tutorial_header"> #acb6b9</color>
 </resources>

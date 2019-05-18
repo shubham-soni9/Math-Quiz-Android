@@ -1,14 +1,82 @@
 {
-	"tutorials":[
-		{
-			"tutorial_id":1,
-			"tutorial_name":"Addition",
-			"articles":[
-				{
-					"title":"Simple Addition",
-					"link":"www.google.com"
-				}
-			]
-		}
-	]
+  "tutorials": [
+    {
+      "tutorial_id": 1,
+      "tutorial_name": "Addition",
+      "articles": [
+        {
+          "type": 1,
+          "title": "SINGLE DIGITS"
+        },
+        {
+          "title": "Simple Addition",
+          "link": "www.google.com"
+        },
+        {
+          "type": 1,
+          "title": "DOUBLE DIGITS"
+        },
+        {
+          "title": "Addition By 2's Compliment",
+          "link": "www.google.com"
+        }
+      ]
+    },
+    {
+      "tutorial_id": 2,
+      "tutorial_name": "Subtraction",
+      "articles": [
+        {
+          "type": 1,
+          "title": "SINGLE DIGITS"
+        },
+        {
+          "title": "Simple Subtraction",
+          "link": "www.google.com"
+        }
+      ]
+    },
+    {
+      "tutorial_id": 3,
+      "tutorial_name": "Multiplication",
+      "articles": [
+        {
+          "type": 1,
+          "title": "SINGLE DIGITS"
+        },
+        {
+          "title": "Simple Multiplication",
+          "link": "www.google.com"
+        }
+      ]
+    },
+    {
+      "tutorial_id": 4,
+      "tutorial_name": "Division",
+      "articles": [
+        {
+          "type": 1,
+          "title": "SINGLE DIGITS"
+        },
+        {
+          "title": "Simple Division",
+          "link": "www.google.com"
+        }
+      ]
+    },
+    {
+      "tutorial_id": 5,
+      "tutorial_name": "Square Root",
+      "articles": [
+        {
+          "type": 1,
+          "title": "SINGLE DIGITS"
+        },
+        {
+          "title": "Simple Square Root",
+          "link": "www.google.com"
+        }
+      ]
+    }
+  ]
 }

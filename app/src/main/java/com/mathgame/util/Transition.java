@@ -139,7 +139,7 @@ public class Transition {
         startActivity(fromContext, toClass, null);
     }
 
-    private static void startActivity(Activity fromContext, Class<?> toClass, Bundle bundle) {
+    public static void startActivity(Activity fromContext, Class<?> toClass, Bundle bundle) {
         Intent intention = new Intent(fromContext, toClass);
         if (bundle != null) {
             intention.putExtras(bundle);

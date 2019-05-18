@@ -1,14 +1,11 @@
 package com.mathgame.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.mathgame.appdata.Keys;
 import com.mathgame.fragment.TutorialListFragment;
-import com.mathgame.model.Article;
 import com.mathgame.model.Tutorial;
 
 import java.util.ArrayList;
@@ -26,11 +23,8 @@ public class TutorialPagerAdapter extends FragmentStatePagerAdapter {
     public TutorialPagerAdapter(final Context context, final FragmentManager fragmentManager, ArrayList<Tutorial> tutorialList) {
         super(fragmentManager);
         this.tutorialList = tutorialList;
-        Bundle bundle = new Bundle();
-        String className = TutorialListFragment.class.getName();
         for (Tutorial tutorial : tutorialList) {
-            bundle.putParcelableArrayList(Keys.Extras.TUTORIAL_LIST, tutorial.getArticleList());
-            mFragmentList.add(TutorialListFragment.instantiate(context, className, bundle));
+            mFragmentList.add(TutorialListFragment.newInstance(tutorial.getArticleList()));
         }
     }
 

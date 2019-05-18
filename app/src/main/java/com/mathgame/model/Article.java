@@ -6,10 +6,12 @@ import android.os.Parcelable;
 public class Article implements Parcelable {
     private String title;
     private String link;
+    private int type;
 
     protected Article(Parcel in) {
         title = in.readString();
         link = in.readString();
+        type=in.readInt();
     }
 
     public static final Creator<Article> CREATOR = new Creator<Article>() {
@@ -41,5 +43,9 @@ public class Article implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(link);
+    }
+
+    public int getType() {
+        return type;
     }
 }

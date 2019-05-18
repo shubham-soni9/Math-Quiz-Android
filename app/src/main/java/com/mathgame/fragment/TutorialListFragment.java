@@ -1,5 +1,6 @@
 package com.mathgame.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,14 @@ import com.mathgame.util.Utils;
 import java.util.ArrayList;
 
 public class TutorialListFragment extends BaseFragment {
+
+    public static TutorialListFragment newInstance(ArrayList<Article> articles) {
+        Bundle args = new Bundle();
+        args.putParcelableArrayList(Keys.Extras.TUTORIAL_LIST,articles);
+        TutorialListFragment fragment = new TutorialListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     private RecyclerView rvTutorialList;
     @Override
     protected int getContentView() {
@@ -32,7 +41,7 @@ public class TutorialListFragment extends BaseFragment {
         if (bundle != null) {
             ArrayList<Article> articles = bundle.getParcelableArrayList(Keys.Extras.TUTORIAL_LIST);
             if (Utils.containData(articles)) {
-                TutorialAdapter tutorialAdapter = new TutorialAdapter(articles);
+                TutorialAdapter tutorialAdapter = new TutorialAdapter((Activity) context, articles);
                 rvTutorialList.setLayoutManager(new LinearLayoutManager(context));
                 rvTutorialList.setAdapter(tutorialAdapter);
             }
