@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/white_100">
+        android:background="@color/colorPrimary">
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivBack"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/app_name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/white_100"
             android:textSize="23sp"
             android:textStyle="bold" />
     </RelativeLayout>
@@ -34,7 +34,7 @@
     <View
         android:id="@+id/vwShadow"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="1dp"
         android:background="@drawable/shadow_gradient" />
 
 </LinearLayout>
