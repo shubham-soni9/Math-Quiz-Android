@@ -35,13 +35,13 @@
         android:id="@+id/vwShadow"
         android:layout_width="match_parent"
         android:layout_height="10dp"
+        android:visibility="gone"
         android:background="@drawable/shadow_gradient" />
-
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
+        android:background="@color/background_theme_color"
         android:scrollbars="none">
 
         <LinearLayout
@@ -140,7 +140,7 @@
                 android:layout_marginStart="@dimen/_10dp"
                 android:layout_marginTop="@dimen/_10dp"
                 android:text="@string/games_learn_with_fun"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/white_100"
                 android:textSize="22sp" />
 
             <LinearLayout

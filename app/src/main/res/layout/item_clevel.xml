@@ -6,8 +6,6 @@
     app:cardCornerRadius="@dimen/_15dp"
     android:layout_margin="@dimen/_10dp"
     app:cardElevation="3dp"
-    android:layout_centerInParent="true"
-    android:layout_gravity="center"
     android:layout_height="wrap_content">
 
     <TextView

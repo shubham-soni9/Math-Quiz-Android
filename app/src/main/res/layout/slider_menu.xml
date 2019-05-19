@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -26,6 +27,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:background="@color/background_theme_color"
+        android:fillViewport="true"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -88,15 +91,16 @@
                 android:layout_marginBottom="@dimen/_10dp"
                 android:background="@color/black_20" />
 
+
             <TextView
+                android:id="@+id/tvHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10dp"
-                android:layout_marginBottom="@dimen/_10dp"
-                android:text="@string/communicate"
-                android:textAppearance="@style/CustomTextAppearance.Light"
-                android:textColor="@color/black_70"
-                android:textSize="@dimen/text_size_medium" />
+                android:padding="@dimen/_15dp"
+                android:textAllCaps="true"
+                android:textAppearance="@style/CustomTextAppearance.Medium"
+                android:textColor="@color/tutorial_header"
+                android:text="@string/communicate" />
 
             <TextView
                 android:id="@+id/tvSliderPolicy"
