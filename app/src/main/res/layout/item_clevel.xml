@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white_100"
+    app:cardCornerRadius="@dimen/_15dp"
+    android:layout_margin="@dimen/_10dp"
+    app:cardElevation="3dp"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvLevelName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/_10dp"
+        android:text="Level 1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_large_xxxx" />
+</android.support.v7.widget.CardView>

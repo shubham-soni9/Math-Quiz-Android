@@ -21,5 +21,6 @@ public interface Constant {
 
     interface JSONFileNames {
         String TUTORIAL_FILE = "tutorial.json";
+        String CAREER_QUESTION= "career_question.json";
     }
 }

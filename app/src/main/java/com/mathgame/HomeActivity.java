@@ -11,7 +11,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.mathgame.activity.CareerActivity;
+import com.mathgame.activity.CareerLevelActivity;
 import com.mathgame.activity.GameTypeActivity;
 import com.mathgame.activity.MathTutorialActivity;
 import com.mathgame.activity.SlideAdditionActivity;
@@ -113,7 +113,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Transition.startActivity(this, MathTutorialActivity.class);
                 break;
             case R.id.tvSliderCareer:
-                Transition.startActivity(this, CareerActivity.class);
+                Transition.startActivity(this, CareerLevelActivity.class);
                 break;
             case R.id.tvSliderSettings:
                 openSettings();

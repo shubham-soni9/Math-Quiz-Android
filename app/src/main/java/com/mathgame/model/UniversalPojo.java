@@ -7,9 +7,12 @@ import java.util.ArrayList;
 
 public class UniversalPojo implements Parcelable {
     private ArrayList<Tutorial> tutorials;
+    private ArrayList<CLevel> questions;
+
 
     protected UniversalPojo(Parcel in) {
         tutorials = in.createTypedArrayList(Tutorial.CREATOR);
+        questions = in.createTypedArrayList(CLevel.CREATOR);
     }
 
     public static final Creator<UniversalPojo> CREATOR = new Creator<UniversalPojo>() {
@@ -29,9 +32,14 @@ public class UniversalPojo implements Parcelable {
         return 0;
     }
 
+    public ArrayList<CLevel> getLevelList() {
+        return questions;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeTypedList(tutorials);
+        dest.writeTypedList(questions);
     }
 
     public ArrayList<Tutorial> getTutorials() {

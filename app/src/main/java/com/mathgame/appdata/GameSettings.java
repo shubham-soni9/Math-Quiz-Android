@@ -3,6 +3,7 @@ package com.mathgame.appdata;
 import android.content.Context;
 
 import com.mathgame.database.ObjectBox;
+import com.mathgame.model.CLevel;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.CustomMode_;
 import com.mathgame.model.Tutorial;
@@ -59,5 +60,11 @@ public class GameSettings {
         String json = Utils.loadJSONFromAsset(context, Constant.JSONFileNames.TUTORIAL_FILE);
         UniversalPojo universalPojo = Utils.toResponseModel(json, UniversalPojo.class);
         return universalPojo.getTutorials();
+    }
+
+    public static ArrayList<CLevel> getLevelList(Context context) {
+        String json = Utils.loadJSONFromAsset(context, Constant.JSONFileNames.CAREER_QUESTION);
+        UniversalPojo universalPojo = Utils.toResponseModel(json, UniversalPojo.class);
+        return universalPojo.getLevelList();
     }
 }

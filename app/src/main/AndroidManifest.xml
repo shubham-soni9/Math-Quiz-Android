@@ -116,7 +116,7 @@
 
         <activity android:name=".activity.TutorialDataActivity" />
 
-        <activity android:name=".activity.CareerActivity"
+        <activity android:name=".activity.CareerLevelActivity"
             android:screenOrientation="portrait"/>
 
         <service

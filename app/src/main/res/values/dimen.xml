@@ -12,6 +12,7 @@
     <dimen name="text_size_extra_large_x">22sp</dimen>
     <dimen name="text_size_extra_large_xxx">30sp</dimen>
     <dimen name="text_size_title_big">34sp</dimen>
+    <dimen name="text_size_large_xxxx">38sp</dimen>
     <dimen name="custom_field_padding">7dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
 
