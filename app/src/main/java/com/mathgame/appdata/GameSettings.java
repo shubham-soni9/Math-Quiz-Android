@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CLevel;
+import com.mathgame.model.CQuestion;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.CustomMode_;
 import com.mathgame.model.Tutorial;

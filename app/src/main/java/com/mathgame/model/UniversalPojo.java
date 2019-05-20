@@ -6,13 +6,13 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class UniversalPojo implements Parcelable {
-    private ArrayList<Tutorial> tutorials;
-    private ArrayList<CLevel> questions;
+    private ArrayList<Tutorial>  tutorials;
+    private ArrayList<CLevel> levels;
 
 
     protected UniversalPojo(Parcel in) {
         tutorials = in.createTypedArrayList(Tutorial.CREATOR);
-        questions = in.createTypedArrayList(CLevel.CREATOR);
+        levels = in.createTypedArrayList(CLevel.CREATOR);
     }
 
     public static final Creator<UniversalPojo> CREATOR = new Creator<UniversalPojo>() {
@@ -33,13 +33,13 @@ public class UniversalPojo implements Parcelable {
     }
 
     public ArrayList<CLevel> getLevelList() {
-        return questions;
+        return levels;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeTypedList(tutorials);
-        dest.writeTypedList(questions);
+        dest.writeTypedList(levels);
     }
 
     public ArrayList<Tutorial> getTutorials() {

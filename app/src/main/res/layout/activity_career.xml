@@ -22,6 +22,8 @@
         android:id="@+id/tutorialPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingStart="@dimen/_10dp"
+        android:paddingEnd="@dimen/_10dp"
         android:orientation="vertical"
         android:background="@color/background_theme_color"
         android:paddingTop="@dimen/_10dp"

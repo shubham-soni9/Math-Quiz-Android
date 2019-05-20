@@ -252,5 +252,6 @@
     <string name="do_you_want_to_leave_the_game">Do you want to leave the game?</string>
     <string name="board_reset">Borad Reset</string>
     <string name="career_mode">Career Mode</string>
+    <string name="level">Level</string>
 </resources>
 
