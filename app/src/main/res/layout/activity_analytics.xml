@@ -75,6 +75,20 @@
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginBottom="@dimen/_5dp"
                 android:background="@color/background_theme_color_dark"
+                android:gravity="start"
+                android:padding="@dimen/_15dp"
+                android:text="@string/see_all_questions"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:textAppearance="@style/CustomTextAppearance.Bold"
+                android:textColor="@color/white_10"
+                android:textSize="@dimen/text_size_extra_large" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_5dp"
+                android:background="@color/background_theme_color_dark"
                 android:gravity="center"
                 android:padding="@dimen/_15dp"
                 android:text="@string/player_1"
