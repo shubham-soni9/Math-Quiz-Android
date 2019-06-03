@@ -107,7 +107,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void startGame() {
-        ViewUtils.setBackgroundResource(R.drawable.background_multiple_choice, tvPlayer1Option1, tvPlayer1Option2, tvPlayer1Option3,
+        ViewUtils.setBackgroundResource(R.drawable.bg_multiple_choice, tvPlayer1Option1, tvPlayer1Option2, tvPlayer1Option3,
                                         tvPlayer1Option4, tvPlayer2Option1, tvPlayer2Option2, tvPlayer2Option3, tvPlayer2Option4);
         ViewUtils.setCardBackgroundColor(this, R.color.colorPrimary, cvPlayer1Correct, cvPlayer1Incorrect, cvPlayer2Correct,
                                          cvPlayer2Incorrect);
@@ -289,7 +289,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
 
     private void onOptionClicked(TextView tvOption) {
         if (currentQuestion.getAnswer().equals(Utils.get(tvOption))) {
-            tvOption.setBackgroundResource(R.drawable.background_correct_answer);
+            tvOption.setBackgroundResource(R.drawable.bg_correct_answer);
             remainingQuestion++;
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -299,7 +299,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
             }, 500);
         } else {
             Utils.vibrate(this);
-            tvOption.setBackgroundResource(R.drawable.background_incorrect_anwer);
+            tvOption.setBackgroundResource(R.drawable.bg_incorrect_anwer);
         }
     }
 

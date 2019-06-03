@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="7dp"
             android:layout_weight="1"
-            android:background="@drawable/button_selector"
+            android:background="@drawable/btn_selector"
             android:padding="7dp"
             android:src="@drawable/ic_reload"
             android:textColor="@android:color/white" />
@@ -136,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_weight="1"
-            android:background="@drawable/button_selector"
+            android:background="@drawable/btn_selector"
             android:padding="7dp"
             android:src="@drawable/ic_undo"
             android:textColor="@android:color/white" />

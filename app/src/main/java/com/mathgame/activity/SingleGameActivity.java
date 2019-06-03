@@ -108,10 +108,10 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private void startGame() {
         remainingQuestion++;
         tvNumberOfQuestion.setText(String.format(locale(), "%d/%d", remainingQuestion, customMode.getNumberOfQuestions()));
-        tvOption1.setBackgroundResource(R.drawable.background_multiple_choice);
-        tvOption2.setBackgroundResource(R.drawable.background_multiple_choice);
-        tvOption3.setBackgroundResource(R.drawable.background_multiple_choice);
-        tvOption4.setBackgroundResource(R.drawable.background_multiple_choice);
+        tvOption1.setBackgroundResource(R.drawable.bg_multiple_choice);
+        tvOption2.setBackgroundResource(R.drawable.bg_multiple_choice);
+        tvOption3.setBackgroundResource(R.drawable.bg_multiple_choice);
+        tvOption4.setBackgroundResource(R.drawable.bg_multiple_choice);
         cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
         cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
@@ -286,7 +286,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     private void onOptionClicked(String answer, TextView tvOption) {
         if (currentQuestion.getAnswer().equals(answer)) {
-            tvOption.setBackgroundResource(R.drawable.background_correct_answer);
+            tvOption.setBackgroundResource(R.drawable.bg_correct_answer);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -295,7 +295,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             }, 500);
         } else {
             Utils.vibrate(this);
-            tvOption.setBackgroundResource(R.drawable.background_incorrect_anwer);
+            tvOption.setBackgroundResource(R.drawable.bg_incorrect_anwer);
         }
     }
 

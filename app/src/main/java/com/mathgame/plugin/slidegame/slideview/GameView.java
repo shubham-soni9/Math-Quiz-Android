@@ -83,7 +83,7 @@ public class GameView extends View {
 
             updateGrid(new GameGrid(4, 4));
             //Getting assets
-            mBackgroundRectangle = getResources().getDrawable(R.drawable.background_rectangle);
+            mBackgroundRectangle = getResources().getDrawable(R.drawable.bg_rectangle);
             mCellRectangle[0] = getResources().getDrawable(R.drawable.cell_rectangle);
 
             mCellRectangle[1] = getResources().getDrawable(R.drawable.cell_rectangle_2);
