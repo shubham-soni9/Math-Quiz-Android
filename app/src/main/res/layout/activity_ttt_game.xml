@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
     <include
         android:id="@+id/toolbar"
-        layout="@layout/side_menu" />
+        layout="@layout/layout_top_bar" />
     </android.support.design.widget.AppBarLayout>
     <RelativeLayout
         android:layout_width="match_parent"

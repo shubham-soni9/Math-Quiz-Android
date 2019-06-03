@@ -253,5 +253,8 @@
     <string name="board_reset">Borad Reset</string>
     <string name="career_mode">Career Mode</string>
     <string name="level">Level</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
+    <string name="player_1_wins">Player 1 wins</string>
 </resources>
 

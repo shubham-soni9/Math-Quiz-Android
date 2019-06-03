@@ -6,7 +6,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/side_menu" />
+        layout="@layout/layout_top_bar" />
 
     <FrameLayout
         android:id="@+id/fragment_container"

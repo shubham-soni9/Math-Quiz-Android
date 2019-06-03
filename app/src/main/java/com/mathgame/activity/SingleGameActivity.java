@@ -219,7 +219,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 countDownTimer.start();
             }
         } else {
-            onBackPressed();
+            Transition.transit(this,AnalyticsActivity.class);
         }
     }
 
