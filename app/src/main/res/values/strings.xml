@@ -261,5 +261,6 @@
     <string name="attempted">Attempted</string>
     <string name="correct">Correct</string>
     <string name="incorrect">Incorrect</string>
+    <string name="complete_chart">Complete Chart</string>
 </resources>
 
