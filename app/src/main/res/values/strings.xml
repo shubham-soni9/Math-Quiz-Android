@@ -262,5 +262,6 @@
     <string name="correct">Correct</string>
     <string name="incorrect">Incorrect</string>
     <string name="complete_chart">Complete Chart</string>
+    <string name="feedback_colon">Feedback:</string>
 </resources>
 

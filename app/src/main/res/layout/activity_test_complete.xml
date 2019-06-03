@@ -196,6 +196,7 @@
                 android:gravity="center"
                 android:padding="@dimen/_15dp"
                 android:text="@string/player_1"
+                tools:text="Player Score  :  75%"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
                 android:textSize="@dimen/text_size_extra_large_x" />
@@ -206,8 +207,7 @@
                 android:layout_height="@dimen/_150dp"
                 android:layout_marginStart="@dimen/_20dp"
                 android:layout_marginTop="@dimen/_10dp"
-                android:layout_marginEnd="@dimen/_20dp"
-                android:layout_marginBottom="@dimen/_10dp">
+                android:layout_marginEnd="@dimen/_20dp">
 
                 <com.app.progresviews.ProgressWheel
                     android:id="@+id/userCorrect"
@@ -218,13 +218,13 @@
                     android:layout_weight="0.5"
                     app:barWidth="17dp"
                     app:countText="7"
-                    app:percentage="252"
                     app:countTextColor="@android:color/white"
                     app:countTextSize="@dimen/text_size_extra_large_x"
                     app:defTextColor="@android:color/white"
                     app:defTextSize="@dimen/text_size_normal"
                     app:definitionText="@string/correct"
                     app:marginBtwText="@dimen/_15dp"
+                    app:percentage="252"
                     app:progressColor="@color/snackbar_bg_color_success" />
 
                 <com.app.progresviews.ProgressWheel
@@ -243,6 +243,38 @@
                     app:marginBtwText="@dimen/_15dp"
                     app:percentage="108"
                     app:progressColor="@color/snackbar_bg_color_error" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:paddingStart="@dimen/_15dp"
+                android:paddingEnd="@dimen/_15dp"
+                android:paddingBottom="@dimen/_10dp"
+                android:paddingTop="@dimen/_10dp"
+                android:background="@color/background_theme_color_dark"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="@string/feedback_colon"
+                    android:textAppearance="@style/CustomTextAppearance.Bold"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/text_size_large" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5dp"
+                    android:gravity="start"
+                    android:text="@string/complete_chart"
+                    android:textAppearance="@style/CustomTextAppearance.Bold"
+                    android:textColor="@color/gradient_normal_end"
+                    tools:text="You need more practice."
+                    android:textSize="@dimen/text_size_normal" />
             </LinearLayout>
 
             <TextView
