@@ -38,9 +38,18 @@ public class SingleGameResultActivity extends BaseActivity implements View.OnCli
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_game_result);
         init();
         setData();
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getString(R.string.analytics);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_single_game_result;
     }
 
     private void init() {
@@ -54,10 +63,6 @@ public class SingleGameResultActivity extends BaseActivity implements View.OnCli
         tvSeeAllQuestions = findViewById(R.id.tvSeeAllQuestions);
         pbCorrectWheel = findViewById(R.id.pbCorrectWheel);
         pbInCorrectWheel = findViewById(R.id.pbInCorrectWheel);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(getString(R.string.analytics));
         Utils.setOnClickListener(this, tvSeeAllQuestions);
     }
 

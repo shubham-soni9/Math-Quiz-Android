@@ -55,10 +55,19 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_game);
         init();
         setData();
         startGame();
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return null;
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_single_game;
     }
 
     private void init() {

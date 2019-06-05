@@ -16,24 +16,29 @@ import java.util.Objects;
 
 public class CareerLevelActivity extends BaseActivity {
     private RecyclerView rvLevelList;
-    private Toolbar      toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_career);
         init();
         setData();
     }
 
+    @Override
+    public String getToolbarTitle() {
+        return getString(R.string.career_mode);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_career;
+    }
+
     private void init() {
-        toolbar = findViewById(R.id.toolbar);
         rvLevelList = findViewById(R.id.rvLevelList);
     }
 
     private void setData() {
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         LevelAdapter levelAdapter = new LevelAdapter(this, GameSettings.getLevelList(this));
         rvLevelList.setLayoutManager(new LinearLayoutManager(this));
         rvLevelList.setAdapter(levelAdapter);

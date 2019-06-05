@@ -296,4 +296,8 @@ public class Utils {
     public static String getUniqueId() {
         return UUID.randomUUID().toString();
     }
+
+    public static boolean hasData(String toolbarTitle) {
+        return toolbarTitle!=null && !toolbarTitle.trim().isEmpty();
+    }
 }

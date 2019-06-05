@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:id="@+id/vTopbar"
         android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
         android:layout_height="55dp">
 
         <android.support.v7.widget.AppCompatImageView
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/app_name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/white_100"
             android:textSize="23sp"
             android:textStyle="bold" />
 

@@ -273,5 +273,7 @@
     <string name="analytics">Result</string>
     <string name="question_result">Question Result</string>
     <string name="results">Results</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
 

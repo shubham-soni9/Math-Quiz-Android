@@ -16,23 +16,23 @@ public class WebViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_webview);
         WebView webViewInvoice = findViewById(R.id.webViewInvoice);
         TextView tvTitle = findViewById(R.id.tvTitle);
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
-            String title = mBundle.getString(Keys.Prefs.KEY_TITLE);
             String webUrl = mBundle.getString(Keys.Prefs.KEY_WEB_URL);
             webViewInvoice.loadDataWithBaseURL(null, webUrl, "text/html", "utf-8", null);
-            tvTitle.setText(title);
         }
-        int iBack = R.id.llBack;
-        findViewById(iBack).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getIntent().getStringExtra(Keys.Prefs.KEY_TITLE);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_webview;
     }
 
     @Override

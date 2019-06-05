@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.plugin.tictactoe.TTTConstants;
+import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
@@ -27,7 +29,7 @@ import java.util.Random;
  * It contains the {@link BoardView} and makes appropriate calls to {@link Brain}.
  */
 
-public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBoardInteractionListener, Brain.OnProcessCompleteListener, View.OnClickListener {
+public class TTTGameActivity extends BaseActivity implements BoardView.OnBoardInteractionListener, Brain.OnProcessCompleteListener, View.OnClickListener {
     private static final int BRAIN_RESPONSE_MANUAL_DELAY = 0;
 
     private Brain brain;
@@ -49,18 +51,22 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ttt_game);
-        TextView tvTitle = findViewById(R.id.tvTitle);
-        tvTitle.setText(R.string.tic_tac_toe);
-        AppCompatImageView ivBack = findViewById(R.id.ivBack);
-        Utils.setOnClickListener(this, ivBack);
         initializeViews();
         setClickListeners();
 
         brain = Brain.getInstance();
         brain.setOnProcessCompleteListener(this);
-
         getValues();
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getString(R.string.tic_tac_toe);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_ttt_game;
     }
 
     @Override
@@ -141,8 +147,6 @@ public class TTTGameActivity extends AppCompatActivity implements BoardView.OnBo
         if (v.getId() == R.id.reset_button) {
             board.setEnabled(false);
             board.resetBoard();
-        } else if (v.getId() == R.id.ivBack) {
-            onBackPressed();
         }
     }
 

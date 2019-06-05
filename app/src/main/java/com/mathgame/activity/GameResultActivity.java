@@ -11,8 +11,16 @@ public class GameResultActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_result);
         PieChart pieChartPlayerOne = findViewById(R.id.pieChartPlayerOne);
+    }
 
+    @Override
+    public String getToolbarTitle() {
+        return null;
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_game_result;
     }
 }

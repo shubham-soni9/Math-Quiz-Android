@@ -2,15 +2,22 @@ package com.mathgame;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.mathgame.activity.CareerLevelActivity;
 import com.mathgame.activity.GameTypeActivity;
 import com.mathgame.activity.MathTutorialActivity;
@@ -34,8 +41,18 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
         init();
+        setActionbarAnimation();
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return null;
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_home;
     }
 
     private void init() {
@@ -48,15 +65,76 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         CardView cvTicTacToe = findViewById(R.id.cvTicTacToe);
         CardView cvSudoku = findViewById(R.id.cvSudoku);
         CardView cvSlideAddition = findViewById(R.id.cvSlideAddition);
-        AppCompatImageView ivHome = findViewById(R.id.ivHome);
         drawerLayout = findViewById(R.id.activity_home_dl_main);
-
         Utils.setOnClickListener(this, tvAddition, tvSubtraction, tvMultiplication, tvDivision, tvPercentage, tvSquareRoot
-                , cvTicTacToe, cvSudoku, cvSlideAddition, ivHome, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
+                , cvTicTacToe, cvSudoku, cvSlideAddition, findViewById(R.id.tvSliderHome), findViewById(R.id.tvSliderTutorials)
                 , findViewById(R.id.tvSliderSettings), findViewById(R.id.tvSliderPolicy), findViewById(R.id.tvSliderShare)
                 , findViewById(R.id.tvSliderRate), findViewById(R.id.tvSliderMoreApps), findViewById(R.id.tvSliderReportBug)
                 , findViewById(R.id.tvSliderFeedback), findViewById(R.id.tvSliderExit), findViewById(R.id.tvSliderCareer));
     }
+
+    private void setActionbarAnimation() {
+        final DrawerLayout drawerLayout = findViewById(R.id.activity_home_dl_main);
+        final CoordinatorLayout content = findViewById(R.id.content_main);
+        drawerLayout.setScrimColor(Color.TRANSPARENT);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close) {
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                float slideX = drawerView.getWidth() * slideOffset;
+                content.setTranslationX(slideX);
+            }
+        };
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.ic_menu);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
+        final MaterialMenuDrawable materialMenu = new MaterialMenuDrawable(this, Color.WHITE, MaterialMenuDrawable.Stroke.THIN);
+        toolbar.setNavigationIcon(materialMenu);
+
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                materialMenu.setTransformationOffset(
+                        MaterialMenuDrawable.AnimationState.BURGER_ARROW,
+                        drawerLayout.isDrawerOpen(GravityCompat.START) ? 2 - slideOffset : slideOffset
+                );
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                if(newState == DrawerLayout.STATE_IDLE) {
+                    if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                        materialMenu.setIconState(MaterialMenuDrawable.IconState.ARROW);
+                    } else {
+                        materialMenu.setIconState(MaterialMenuDrawable.IconState.BURGER);
+                    }
+                }
+            }
+        });
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -98,13 +176,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.cvSlideAddition:
                 Transition.startActivity(this, SlideAdditionActivity.class);
-                break;
-            case R.id.ivHome:
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
                 break;
             case R.id.tvSliderHome:
                 drawerLayout.closeDrawer(GravityCompat.START);

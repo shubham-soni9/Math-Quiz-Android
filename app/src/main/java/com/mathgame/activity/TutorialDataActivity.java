@@ -19,18 +19,22 @@ public class TutorialDataActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorial_data);
-        Toolbar toolbar=findViewById(R.id.toolbar);
         TextView tvTutorial=findViewById(R.id.tvTutorial);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
-            String title = mBundle.getString(Keys.Prefs.KEY_TITLE);
             String webUrl = mBundle.getString(Keys.Prefs.KEY_WEB_URL);
             tvTutorial.setText(Utils.fromHtml(webUrl));
-            getSupportActionBar().setTitle(title);
         }
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getIntent().getStringExtra(Keys.Prefs.KEY_TITLE);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_tutorial_data;
     }
 
     @Override

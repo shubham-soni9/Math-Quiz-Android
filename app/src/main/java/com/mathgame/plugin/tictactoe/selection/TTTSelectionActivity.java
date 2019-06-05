@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.plugin.tictactoe.TTTConstants;
 import com.mathgame.plugin.tictactoe.game.TTTGameActivity;
+import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
@@ -19,13 +21,14 @@ import com.mathgame.util.Utils;
  * <p>
  * are prompted for selection.
  */
-public class TTTSelectionActivity extends AppCompatActivity implements SelectionFragment.OnValueSelectedListener, View.OnClickListener {
+public class TTTSelectionActivity extends BaseActivity implements SelectionFragment.OnValueSelectedListener {
     private SelectionFragment modeSelectionFragment;
     private SelectionFragment signSelectionFragment;
     private SelectionFragment turnSelectionFragment;
 
     private @TTTConstants.Sign
     int player1Sign;
+
     private @TTTConstants.Sign
     int player2Sign;
     private @TTTConstants.Player
@@ -38,12 +41,6 @@ public class TTTSelectionActivity extends AppCompatActivity implements Selection
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selection);
-
-        TextView tvTitle = findViewById(R.id.tvTitle);
-        tvTitle.setText(R.string.tic_tac_toe);
-        AppCompatImageView ivBack = findViewById(R.id.ivBack);
-        Utils.setOnClickListener(this, ivBack);
 
         modeSelectionFragment = SelectionFragment.newInstance(getResources().getString(
                 R.string.mode_selection_text), R.drawable.single_player, R.drawable.multi_player);
@@ -54,10 +51,21 @@ public class TTTSelectionActivity extends AppCompatActivity implements Selection
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, modeSelectionFragment)
                 .commit();
+
     }
 
     @Override
-    protected void onResume() {
+    public String getToolbarTitle() {
+        return getString(R.string.tic_tac_toe);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_selection;
+    }
+
+    @Override
+    public void onResume() {
         super.onResume();
 
         if (backFromGameActivity) {
@@ -161,14 +169,4 @@ public class TTTSelectionActivity extends AppCompatActivity implements Selection
             getSupportFragmentManager().popBackStack();
         }
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ivBack:
-                onBackPressed();
-                break;
-        }
-    }
-
 }

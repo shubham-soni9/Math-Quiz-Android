@@ -17,9 +17,10 @@ import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.appdata.Dependencies;
+import com.mathgame.structure.BaseActivity;
 
 
-public class SudokuTutorialActivity extends AppCompatActivity {
+public class SudokuTutorialActivity extends BaseActivity {
     private ViewPager          viewPager;
     private LinearLayout       dotsLayout;
     private int[]              layouts;
@@ -57,7 +58,6 @@ public class SudokuTutorialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent i = getIntent();
-        setContentView(R.layout.activity_tutorial);
         viewPager = findViewById(R.id.view_pager);
         dotsLayout = findViewById(R.id.layoutDots);
         btnSkip = findViewById(R.id.btn_skip);
@@ -90,6 +90,16 @@ public class SudokuTutorialActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return null;
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_tutorial;
     }
 
     private void addBottomDots(int currentPage) {

@@ -1,56 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/colorPrimary">
-
-
-        <LinearLayout
-            android:id="@+id/llBack"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:duplicateParentState="true"
-                android:src="@drawable/ic_back"
-                android:tint="@color/white_100" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/llBack"
-            android:animateLayoutChanges="true"
-            android:textAppearance="@style/CustomTextAppearance.Regular"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large"
-            tools:text="@string/title" />
-    </RelativeLayout>
-
+    <include layout="@layout/layout_top_bar" />
 
     <WebView
         android:id="@+id/webViewInvoice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="false"
-        android:focusableInTouchMode="true" />
+        android:focusableInTouchMode="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -39,10 +39,19 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multiple_question);
         init();
         setData();
         startGame();
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getString(R.string.app_name);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_multiple_question;
     }
 
     private void setData() {

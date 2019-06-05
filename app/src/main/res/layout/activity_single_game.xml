@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:id="@+id/vTopbar"
         android:layout_width="match_parent"
@@ -56,8 +55,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/vTopbar"
         android:fillViewport="true"
-        android:paddingStart="@dimen/_10dp"
-        android:paddingEnd="@dimen/_10dp">
+        android:padding="@dimen/_10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -102,7 +100,7 @@
                 android:layout_below="@+id/llTimerValue"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/black"
+                app:cardBackgroundColor="@color/background_theme_color_dark"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="5dp">
 

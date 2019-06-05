@@ -124,9 +124,6 @@ public class SudokuGameActivity extends BaseActivity implements IGameSolvedListe
             gameSolved = savedInstanceState.getInt("gameSolved") == 1;
         }
 
-        setContentView(R.layout.activity_game_view);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         //Create new GameField
         layout = findViewById(R.id.sudokuLayout);
         gameController.registerGameSolvedListener(this);
@@ -185,6 +182,16 @@ public class SudokuGameActivity extends BaseActivity implements IGameSolvedListe
         gameController.onModelChange();
 
 
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return null;
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_game_view;
     }
 
     @Override

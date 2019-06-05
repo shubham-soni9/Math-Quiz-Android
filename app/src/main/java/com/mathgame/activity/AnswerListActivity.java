@@ -15,16 +15,17 @@ public class AnswerListActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question_list);
-        init();
         setData();
     }
 
-    private void init() {
-        Toolbar toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.results);
+    @Override
+    public String getToolbarTitle() {
+        return getString(R.string.results);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_question_list;
     }
 
     private void setData() {

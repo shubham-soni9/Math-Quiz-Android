@@ -44,10 +44,19 @@ public class SudokuHistoryActivity extends BaseActivity implements IDeleteDialog
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load_game);
         settings = PreferenceManager.getDefaultSharedPreferences(this);
         init();
 
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getString(R.string.history);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_load_game;
     }
 
     private void init() {

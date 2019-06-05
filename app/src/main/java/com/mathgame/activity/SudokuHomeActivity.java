@@ -53,7 +53,6 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
         settings = PreferenceManager.getDefaultSharedPreferences(this);
         NewLevelManager newLevelManager = NewLevelManager.getInstance(getApplicationContext(), settings);
         newLevelManager.checkAndRestock();
-        setContentView(R.layout.activity_sudoku_home);
         final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.scroller);
@@ -111,6 +110,16 @@ public class SudokuHomeActivity extends BaseActivity implements PopupMenu.OnMenu
         editor.putBoolean("savesChanged", true);
         editor.apply();
         refreshContinueButton();
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return null;
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_sudoku_home;
     }
 
     private void showMoreOption(final View view) {

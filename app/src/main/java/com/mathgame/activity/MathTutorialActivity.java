@@ -21,18 +21,24 @@ public class MathTutorialActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_math_tutorial);
         init();
         setData();
+    }
+
+    @Override
+    public String getToolbarTitle() {
+        return getString(R.string.tutorials);
+    }
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_math_tutorial;
     }
 
     private void setData() {
         TutorialPagerAdapter tutorialPagerAdapter = new TutorialPagerAdapter(getSupportFragmentManager(), GameSettings.getTutorialList(this));
         tutorialPager.setAdapter(tutorialPagerAdapter);
         tabTutorials.setupWithViewPager(tutorialPager);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.tutorials);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.getInt(Keys.Extras.OPERATION_TYPE, -1) != -1) {
             tutorialPager.setCurrentItem(bundle.getInt(Keys.Extras.OPERATION_TYPE));
