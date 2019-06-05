@@ -32,6 +32,7 @@ import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 public class Utils {
     private static final String TAG = Utils.class.getName();
@@ -289,8 +290,11 @@ public class Utils {
         return json;
     }
 
-    public static  <T> T toResponseModel(String data,Class<T> classRef) {
+    public static <T> T toResponseModel(String data, Class<T> classRef) {
         return new Gson().fromJson(data, classRef);
     }
 
+    public static String getUniqueId() {
+        return UUID.randomUUID().toString();
+    }
 }

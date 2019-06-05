@@ -12,5 +12,4 @@
         android:background="?attr/colorPrimary"
         app:layout_scrollFlags="scroll|enterAlways"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
 </LinearLayout>

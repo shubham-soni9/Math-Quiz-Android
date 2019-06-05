@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
+import com.mathgame.appdata.Dependencies;
 import com.mathgame.model.CustomMode;
+import com.mathgame.model.GameResult;
 import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.QuestionUtils;
@@ -29,8 +31,9 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+import static com.mathgame.appdata.Constant.QUESTION_DELAY_TIME;
+
 public class SingleGameActivity extends BaseActivity implements View.OnClickListener {
-    private static final String                       TAG               = SingleGameActivity.class.getName();
     private              RoundedHorizontalProgressBar pbTimer;
     private              CustomMode                   customMode;
     private              View                         vMultipleChoice;
@@ -45,7 +48,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private Question       currentQuestion;
     private CountDownTimer countDownTimer;
     private CardView       cvCorrect, cvIncorrect;
-    private int skipNumbers;
+    private int        skipNumbers;
+    private GameResult gameResult;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,6 +81,8 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     }
 
     private void setData() {
+        Dependencies.setGameResult(this, null);
+        gameResult = new GameResult();
         customMode = Objects.requireNonNull(getIntent().getExtras()).getParcelable(CustomMode.class.getName());
         Utils.logRequestBody(customMode);
 
@@ -219,7 +226,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 countDownTimer.start();
             }
         } else {
-            Transition.transit(this,AnalyticsActivity.class);
+            Transition.transit(this, SingleGameResultActivity.class);
         }
     }
 
@@ -248,14 +255,40 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 onIncorrectClicked();
                 break;
             case R.id.tvSkipToNext:
-                skipNumbers--;
-                startGame();
+                onQuestionSkipped();
                 break;
         }
     }
 
+    private void onQuestionSkipped() {
+        skipNumbers--;
+        saveForAnalytics(Constant.AnswerType.SKIPPED, currentQuestion, "-");
+        startGame();
+    }
+
+    private void saveForAnalytics(int answerType, Question mQuestion, String answer) {
+        mQuestion.setAnswerType(answerType);
+        mQuestion.setUserInput(answer);
+        ArrayList<Question> questionList = gameResult.getQuestionList();
+        boolean isFound = false;
+        for (int i = 0; i < questionList.size(); i++) {
+            Question question = questionList.get(i);
+            if (question.getId().equalsIgnoreCase(mQuestion.getId())) {
+                questionList.set(i, mQuestion);
+                isFound = true;
+                break;
+            }
+        }
+        if (!isFound) {
+            questionList.add(mQuestion);
+        }
+        gameResult.setQuestionList(questionList);
+        Dependencies.setGameResult(this, gameResult);
+    }
+
     private void onCorrectClicked() {
         if (currentQuestion.isCorrect()) {
+            saveForAnalytics(Constant.AnswerType.CORRECT, currentQuestion, getString(R.string.yes_text));
             cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
             cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
             new Handler().postDelayed(new Runnable() {
@@ -263,14 +296,16 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 public void run() {
                     startGame();
                 }
-            }, 500);
+            }, QUESTION_DELAY_TIME);
         } else {
+            saveForAnalytics(Constant.AnswerType.INCORRECT, currentQuestion, getString(R.string.no_text));
             cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_error));
         }
     }
 
     private void onIncorrectClicked() {
         if (!currentQuestion.isCorrect()) {
+            saveForAnalytics(Constant.AnswerType.CORRECT, currentQuestion, getString(R.string.yes_text));
             cvCorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
             cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_success));
             new Handler().postDelayed(new Runnable() {
@@ -278,22 +313,25 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 public void run() {
                     startGame();
                 }
-            }, 500);
+            }, QUESTION_DELAY_TIME);
         } else {
+            saveForAnalytics(Constant.AnswerType.INCORRECT, currentQuestion, getString(R.string.no_text));
             cvIncorrect.setCardBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_bg_color_error));
         }
     }
 
     private void onOptionClicked(String answer, TextView tvOption) {
         if (currentQuestion.getAnswer().equals(answer)) {
+            saveForAnalytics(Constant.AnswerType.CORRECT, currentQuestion, currentQuestion.getAnswer());
             tvOption.setBackgroundResource(R.drawable.bg_correct_answer);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     startGame();
                 }
-            }, 500);
+            }, QUESTION_DELAY_TIME);
         } else {
+            saveForAnalytics(Constant.AnswerType.INCORRECT, currentQuestion, answer);
             Utils.vibrate(this);
             tvOption.setBackgroundResource(R.drawable.bg_incorrect_anwer);
         }
@@ -305,9 +343,5 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             countDownTimer.cancel();
         }
         Transition.exit(this);
-    }
-
-    private void saveForAnalytics() {
-
     }
 }

@@ -237,7 +237,7 @@ class Scroller {
     /**
      * Returns the current velocity.
      *
-     * @return The original velocity less the deceleration. Result may be
+     * @return The original velocity less the deceleration. GameResult may be
      * negative.
      */
     private float getCurrVelocity() {

@@ -148,6 +148,7 @@ public class QuestionUtils {
             mQuestion.setQuestion(question);
             mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
         }
+        mQuestion.setId(Utils.getUniqueId());
         return mQuestion;
     }
 }

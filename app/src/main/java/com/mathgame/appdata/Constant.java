@@ -3,6 +3,7 @@ package com.mathgame.appdata;
 public interface Constant {
     String EMPTY                  = "";
     String GENERATOR_NOTIFICATION = "generator_notification";
+    int QUESTION_DELAY_TIME=300;
 
     interface MathSign {
         String ADDITION       = "+";
@@ -23,4 +24,11 @@ public interface Constant {
         String TUTORIAL_FILE = "tutorial.json";
         String CAREER_QUESTION= "career_question.json";
     }
+
+    interface AnswerType{
+        int CORRECT=1;
+        int INCORRECT=2;
+        int SKIPPED=3;
+    }
 }
+

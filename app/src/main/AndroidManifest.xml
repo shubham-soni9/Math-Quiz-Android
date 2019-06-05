@@ -71,7 +71,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.AnalyticsActivity"
+            android:name=".activity.SingleGameResultActivity"
             android:screenOrientation="portrait" />
 
         <activity

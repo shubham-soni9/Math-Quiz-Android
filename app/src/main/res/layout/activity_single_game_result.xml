@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/layout_top_bar" />
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <include layout="@layout/layout_top_bar" />
+
+    </android.support.design.widget.AppBarLayout>
+
 
     <ScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_theme_color"
@@ -58,6 +65,7 @@
                         android:textSize="@dimen/text_size_extra_large_x" />
 
                     <TextView
+                        android:id="@+id/tvTotal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5dp"
@@ -97,6 +105,7 @@
                         android:textSize="@dimen/text_size_extra_large_x" />
 
                     <TextView
+                        android:id="@+id/tvAttempted"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5dp"
@@ -136,6 +145,7 @@
                         android:textSize="@dimen/text_size_extra_large_x" />
 
                     <TextView
+                        android:id="@+id/tvCorrect"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5dp"
@@ -175,6 +185,7 @@
                         android:textSize="@dimen/text_size_extra_large_x" />
 
                     <TextView
+                        android:id="@+id/tvInCorrect"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5dp"
@@ -188,6 +199,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tvPlayerScore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10dp"
@@ -195,7 +207,7 @@
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center"
                 android:padding="@dimen/_15dp"
-                android:text="@string/player_1"
+                android:text="@string/player_score"
                 tools:text="Player Score  :  75%"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
@@ -209,8 +221,8 @@
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginEnd="@dimen/_20dp">
 
-                <com.app.progresviews.ProgressWheel
-                    android:id="@+id/userCorrect"
+                <com.mathgame.plugin.ProgressWheel
+                    android:id="@+id/pbCorrectWheel"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -224,11 +236,10 @@
                     app:defTextSize="@dimen/text_size_normal"
                     app:definitionText="@string/correct"
                     app:marginBtwText="@dimen/_15dp"
-                    app:percentage="252"
                     app:progressColor="@color/snackbar_bg_color_success" />
 
-                <com.app.progresviews.ProgressWheel
-                    android:id="@+id/userIncorrect"
+                <com.mathgame.plugin.ProgressWheel
+                    android:id="@+id/pbInCorrectWheel"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -241,7 +252,6 @@
                     app:defTextSize="@dimen/text_size_normal"
                     app:definitionText="@string/incorrect"
                     app:marginBtwText="@dimen/_15dp"
-                    app:percentage="108"
                     app:progressColor="@color/snackbar_bg_color_error" />
             </LinearLayout>
 
@@ -266,6 +276,7 @@
                     android:textSize="@dimen/text_size_large" />
 
                 <TextView
+                    android:id="@+id/tvFeedBack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_5dp"
@@ -278,6 +289,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tvSeeAllQuestions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10dp"
@@ -305,11 +317,11 @@
                 android:textSize="@dimen/text_size_extra_large_x" />
 
             <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/playerOneChart"
+                android:id="@+id/resultPieChart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_margin="@dimen/_10dp" />
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

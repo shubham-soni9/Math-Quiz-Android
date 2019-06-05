@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 
 import com.mathgame.R;
+import com.mathgame.model.GameResult;
 import com.mathgame.model.Settings;
 import com.mathgame.util.Prefs;
 
@@ -36,5 +37,13 @@ public class Dependencies {
 
     public static boolean isFirstTimeSudokuLaunch(Context context) {
         return Prefs.with(context).getBoolean(Keys.Prefs.KEY_SETTINGS, true);
+    }
+
+    public static void setGameResult(Context context, GameResult gameResult) {
+        Prefs.with(context).save(Keys.Prefs.GAME_RESULTS, gameResult);
+    }
+
+    public static GameResult getGameResult(Context context) {
+        return Prefs.with(context).getObject(Keys.Prefs.GAME_RESULTS, GameResult.class);
     }
 }
