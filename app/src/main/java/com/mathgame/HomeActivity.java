@@ -220,6 +220,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void shareApp() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Please share this Application");
+        sendIntent.setType("text/plain");
+        this.startActivity(sendIntent);
     }
 
     private void sendRating() {
