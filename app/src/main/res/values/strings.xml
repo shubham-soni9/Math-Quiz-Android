@@ -271,5 +271,7 @@
     <string name="unattempted">Unattempted</string>
     <string name="player_score">Player Score</string>
     <string name="analytics">Result</string>
+    <string name="question_result">Question Result</string>
+    <string name="results">Results</string>
 </resources>
 

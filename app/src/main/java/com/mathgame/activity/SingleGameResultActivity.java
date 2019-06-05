@@ -2,11 +2,14 @@ package com.mathgame.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -17,6 +20,7 @@ import com.mathgame.model.GameResult;
 import com.mathgame.model.Question;
 import com.mathgame.plugin.ProgressWheel;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
 import java.util.ArrayList;
@@ -27,9 +31,9 @@ import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
 public class SingleGameResultActivity extends BaseActivity implements View.OnClickListener {
     private int[]    MATERIAL_COLORS = {rgb("#e666d02a"), rgb("#e6e2574c"), rgb("#4D000000")};
     private PieChart playerOneChart, playerTwoChart;
-    private TextView tvTotal, tvAttempted, tvCorrect, tvInCorrect, tvPlayerScore,tvFeedBack,tvSeeAllQuestions;
+    private TextView tvTotal, tvAttempted, tvCorrect, tvInCorrect, tvPlayerScore, tvFeedBack, tvSeeAllQuestions;
     private ProgressWheel pbCorrectWheel, pbInCorrectWheel;
-    private Toolbar toolbar;
+    private GameResult gameResult;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,27 +50,19 @@ public class SingleGameResultActivity extends BaseActivity implements View.OnCli
         tvCorrect = findViewById(R.id.tvCorrect);
         tvInCorrect = findViewById(R.id.tvInCorrect);
         tvPlayerScore = findViewById(R.id.tvPlayerScore);
-        tvFeedBack=findViewById(R.id.tvFeedBack);
-        tvSeeAllQuestions=findViewById(R.id.tvSeeAllQuestions);
+        tvFeedBack = findViewById(R.id.tvFeedBack);
+        tvSeeAllQuestions = findViewById(R.id.tvSeeAllQuestions);
         pbCorrectWheel = findViewById(R.id.pbCorrectWheel);
         pbInCorrectWheel = findViewById(R.id.pbInCorrectWheel);
-        toolbar=findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.analytics));
-        Utils.setOnClickListener(this,tvSeeAllQuestions);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tvSeeAllQuestions:
-                break;
-        }
+        Utils.setOnClickListener(this, tvSeeAllQuestions);
     }
 
     private void setData() {
-        GameResult gameResult = Dependencies.getGameResult(this);
+        gameResult = Dependencies.getGameResult(this);
         if (gameResult != null) {
             ArrayList<Question> questionList = gameResult.getQuestionList();
             int correct = 0, incorrect = 0, unattempted = 0, total;
@@ -82,9 +78,9 @@ public class SingleGameResultActivity extends BaseActivity implements View.OnCli
             }
 
             tvTotal.setText(String.format("%02d", total));
-            tvAttempted.setText(String.format("%02d",total - unattempted));
-            tvCorrect.setText(String.format("%02d",correct));
-            tvInCorrect.setText(String.format("%02d",incorrect));
+            tvAttempted.setText(String.format("%02d", total - unattempted));
+            tvCorrect.setText(String.format("%02d", correct));
+            tvInCorrect.setText(String.format("%02d", incorrect));
 
             float score = (correct / (float) total) * 100;
             tvPlayerScore.setText(String.format("%s  :  %s%%", getString(R.string.player_score), score));
@@ -98,14 +94,43 @@ public class SingleGameResultActivity extends BaseActivity implements View.OnCli
             pbInCorrectWheel.setStepCountText(String.valueOf(incorrect));
 
             List<PieEntry> NoOfEmp = new ArrayList<>();
-            NoOfEmp.add(new PieEntry(correct, 0));
-            NoOfEmp.add(new PieEntry(incorrect, 1));
-            NoOfEmp.add(new PieEntry(unattempted, 2));
-            PieDataSet dataSet = new PieDataSet(NoOfEmp, "Number Of Employees");
+            if (correct > 0) {
+                NoOfEmp.add(new PieEntry(correct, 0));
+            }
+            if (incorrect > 0) {
+                NoOfEmp.add(new PieEntry(incorrect, 1));
+            }
+            if (unattempted > 0) {
+                NoOfEmp.add(new PieEntry(unattempted, 2));
+            }
+            PieDataSet dataSet = new PieDataSet(NoOfEmp, getString(R.string.question_result));
+            dataSet.setValueTextSize(20f);
+            dataSet.setValueTextColor(ContextCompat.getColor(this, R.color.white));
             PieData data = new PieData(dataSet);
+            LegendEntry l1 = new LegendEntry(getString(R.string.correct), Legend.LegendForm.SQUARE, 10f, 2f, null, MATERIAL_COLORS[0]);
+            LegendEntry l2 = new LegendEntry(getString(R.string.incorrect), Legend.LegendForm.SQUARE, 10f, 2f, null, MATERIAL_COLORS[1]);
+            LegendEntry l3 = new LegendEntry(getString(R.string.unattempted), Legend.LegendForm.SQUARE, 10f, 2f, null, MATERIAL_COLORS[2]);
+
+            playerOneChart.getLegend().setCustom(new LegendEntry[]{l1, l2, l3});
+            playerOneChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+            playerOneChart.getLegend().setTextColor(ContextCompat.getColor(this, R.color.white));
+            playerOneChart.getDescription().setEnabled(false);
+            playerOneChart.getLegend().setTextSize(13f);
+            playerOneChart.getLegend().setFormToTextSpace(5f);
             playerOneChart.setData(data);
             dataSet.setColors(MATERIAL_COLORS);
             playerOneChart.animateXY(1000, 1000);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tvSeeAllQuestions:
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList(Question.class.getName(), gameResult.getQuestionList());
+                Transition.transit(this, AnswerListActivity.class, bundle);
+                break;
         }
     }
 

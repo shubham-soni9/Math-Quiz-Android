@@ -119,6 +119,9 @@
         <activity android:name=".activity.CareerLevelActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.AnswerListActivity"
+            android:screenOrientation="portrait"/>
+
         <service
             android:name=".plugin.sudoku.controller.GeneratorService"
             android:enabled="true"
