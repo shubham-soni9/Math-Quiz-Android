@@ -1,9 +1,7 @@
 package com.mathgame.plugin
 
-
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -123,14 +121,14 @@ class ProgressWheel : View {
         mRimBounds = RectF(
                 paddingLeft + mBarWidth,
                 paddingTop + mBarWidth,
-                width.toFloat() - paddingRight.toFloat() - mBarWidth,
-                height.toFloat() - paddingBottom.toFloat() - mBarWidth)
+                width.toFloat() - paddingRight - mBarWidth,
+                height.toFloat() - paddingBottom - mBarWidth)
 
         mProgressBounds = RectF(
                 paddingLeft + mBarWidth,
                 paddingTop + mBarWidth,
-                width.toFloat() - paddingRight.toFloat() - mBarWidth,
-                height.toFloat() - paddingBottom.toFloat() - mBarWidth)
+                width.toFloat() - paddingRight - mBarWidth,
+                height.toFloat() - paddingBottom - mBarWidth)
 
         // Count number text
         mCountTextPaint.textSize = mCountTextSize
@@ -139,7 +137,7 @@ class ProgressWheel : View {
         mCountTextWidth = mCountTextPaint.measureText(if (mCountText == null || mCountText!!.isEmpty()) " " else mCountText)
 
         // Definition text
-        if (mDefText != null){
+        if (mDefText != null) {
             mDefTextPaint.textSize = mDefTextSize
             val fontDefMetrics = mDefTextPaint.fontMetrics
             mDefTextHeight = fontDefMetrics.bottom
@@ -183,17 +181,17 @@ class ProgressWheel : View {
         canvas.drawArc(mRimBounds, 0f, 360f, false, mCirclePaint)
         canvas.drawArc(mProgressBounds, -90f, mPercentage.toFloat(), false, mBarPaint)
 
-        if (mCountText != null){
+        if (mCountText != null) {
             val horizontalCountTextOffset = mCountTextPaint.measureText(mCountText) / 2
             canvas.drawText(mCountText!!,
                     this.width / 2 - horizontalCountTextOffset,
-                    (this.height / 2).toFloat() + if (mDefText == null) mCountTextSize/2 else 0f,
+                    (this.height / 2).toFloat() + if (mDefText == null) mCountTextSize / 2 else 0f,
                     mCountTextPaint
             )
         }
 
 
-        if (mDefText != null){
+        if (mDefText != null) {
             val horizontalDefTextOffset = mDefTextPaint.measureText(mDefText) / 2
             canvas.drawText(mDefText!!,
                     this.width / 2 - horizontalDefTextOffset,
@@ -214,7 +212,7 @@ class ProgressWheel : View {
         invalidate()
     }
 
-    fun setProgressColor(color: Int){
+    fun setProgressColor(color: Int) {
         mProgressColor = color
         invalidate()
     }

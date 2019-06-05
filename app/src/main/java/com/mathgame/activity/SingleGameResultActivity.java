@@ -81,10 +81,10 @@ public class SingleGameResultActivity extends BaseActivity implements View.OnCli
                 }
             }
 
-            tvTotal.setText(String.valueOf(total));
-            tvAttempted.setText(String.valueOf(total - unattempted));
-            tvCorrect.setText(String.valueOf(correct));
-            tvInCorrect.setText(String.valueOf(incorrect));
+            tvTotal.setText(String.format("%02d", total));
+            tvAttempted.setText(String.format("%02d",total - unattempted));
+            tvCorrect.setText(String.format("%02d",correct));
+            tvInCorrect.setText(String.format("%02d",incorrect));
 
             float score = (correct / (float) total) * 100;
             tvPlayerScore.setText(String.format("%s  :  %s%%", getString(R.string.player_score), score));

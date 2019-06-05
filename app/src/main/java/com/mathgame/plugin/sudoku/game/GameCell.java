@@ -226,9 +226,7 @@ public class GameCell implements Cloneable, Parcelable {
     }
 
     public void removeOnModelChangeListener(IModelChangedListener listener) {
-        if (modelChangedListeners.contains(listener)) {
-            modelChangedListeners.remove(listener);
-        }
+        modelChangedListeners.remove(listener);
     }
 
     private void notifyListeners() {

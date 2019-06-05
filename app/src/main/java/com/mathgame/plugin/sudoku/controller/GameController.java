@@ -633,9 +633,7 @@ public class GameController implements IModelChangedListener, Parcelable {
     }
 
     public void removeGameSolvedListener(IGameSolvedListener l) {
-        if (solvedListeners.contains(l)) {
-            solvedListeners.remove(l);
-        }
+        solvedListeners.remove(l);
     }
 
     public void notifyHighlightChangedListeners() {

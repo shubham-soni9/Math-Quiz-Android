@@ -141,7 +141,7 @@ public class HighscoreInfoContainer {
     public String getActualStats() {
 
 
-        String sb = String.valueOf(time) +
+        String sb = time +
                 "/" +
                 numberOfHintsUsed +
                 "/" +
