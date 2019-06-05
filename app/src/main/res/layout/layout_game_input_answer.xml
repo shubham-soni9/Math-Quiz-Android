@@ -24,7 +24,7 @@
             android:paddingEnd="@dimen/_20dp"
             android:paddingBottom="@dimen/_5dp"
             android:text="0"
-            android:textSize="@dimen/text_size_title_big" />
+            android:textSize="@dimen/text_size_title_viii" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
             android:paddingEnd="@dimen/_20dp"
             android:paddingBottom="@dimen/_5dp"
             android:text="0"
-            android:textSize="@dimen/text_size_title_big" />
+            android:textSize="@dimen/text_size_title_viii" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:paddingEnd="@dimen/_20dp"
             android:paddingBottom="@dimen/_5dp"
             android:text="0"
-            android:textSize="@dimen/text_size_title_big" />
+            android:textSize="@dimen/text_size_title_viii" />
 
     </LinearLayout>
 

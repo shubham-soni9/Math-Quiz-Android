@@ -6,3 +6,8 @@
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/assetWizardSettings.xml
+sampledata/
+src/androidTest/
+src/test/
+app/src/androidTest/
+app/src/test/

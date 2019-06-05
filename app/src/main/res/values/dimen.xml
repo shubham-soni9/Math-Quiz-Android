@@ -14,7 +14,8 @@
     <dimen name="text_size_large_iv">26sp</dimen>
     <dimen name="text_size_large_v">28sp</dimen>
     <dimen name="text_size_large_vi">30sp</dimen>
-    <dimen name="text_size_title_big">34sp</dimen>
+    <dimen name="text_size_title_vii">32sp</dimen>
+    <dimen name="text_size_title_viii">34sp</dimen>
     <dimen name="text_size_large_xxxx">38sp</dimen>
     <dimen name="custom_field_padding">7dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
