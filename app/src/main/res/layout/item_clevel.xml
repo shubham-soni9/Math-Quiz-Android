@@ -18,14 +18,14 @@
             android:layout_height="match_parent"
             android:layout_above="@+id/ivLock"
             android:layout_centerInParent="true"
-            android:background="@color/colorPrimary" />
+            android:background="@color/white_100" />
 
         <ImageView
             android:id="@+id/ivLock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:tint="@color/colorPrimary"
+            android:tint="@color/white_100"
             android:src="@drawable/ic_lock" />
 
         <View
@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/ivLock"
             android:layout_centerInParent="true"
-            android:background="@color/colorPrimary" />
+            android:background="@color/white_100" />
 
     </RelativeLayout>
 
@@ -77,7 +77,7 @@
                 android:layout_marginStart="@dimen/_5dp"
                 android:id="@+id/tvSamleQuestion"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/_20dp"
                 android:layout_centerVertical="true"
