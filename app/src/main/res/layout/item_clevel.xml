@@ -1,91 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:layout_marginBottom="20dp"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rlLock"
+    <TextView
+        android:id="@+id/tvLevelName"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true">
-
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/ivLock"
-            android:layout_centerInParent="true"
-            android:background="@color/white_100" />
-
-        <ImageView
-            android:id="@+id/ivLock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:tint="@color/white_100"
-            android:src="@drawable/ic_lock" />
-
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/ivLock"
-            android:layout_centerInParent="true"
-            android:background="@color/white_100" />
-
-    </RelativeLayout>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10dp"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/rlLock"
-        app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="@dimen/_15dp"
-        app:cardElevation="3dp">
+        android:layout_gravity="center"
+        android:background="@drawable/bg_level"
+        android:gravity="center"
+        android:paddingStart="@dimen/_30dp"
+        android:paddingTop="@dimen/_15dp"
+        android:paddingEnd="@dimen/_30dp"
+        android:paddingBottom="@dimen/_15dp"
+        android:textAppearance="@style/CustomTextAppearance.Bold"
+        android:textColor="@color/white"
+        android:elevation="@dimen/_5dp"
+        android:textSize="@dimen/text_size_large_vi"
+        tools:text="1" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_10dp">
+</LinearLayout>
 
-            <ImageView
-                android:id="@+id/ivInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_info" />
-
-            <TextView
-                android:layout_alignTop="@+id/ivInfo"
-                android:layout_marginStart="@dimen/_10dp"
-                android:layout_toEndOf="@+id/ivInfo"
-                android:id="@+id/tvLevelName"
-                android:layout_marginEnd="@dimen/_10dp"
-                android:layout_width="wrap_content"
-                android:layout_toStartOf="@+id/tvSamleQuestion"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:textAppearance="@style/CustomTextAppearance.Regular"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_extra_large_x"
-                tools:text="Level 1" />
-            <TextView
-                android:layout_marginStart="@dimen/_5dp"
-                android:id="@+id/tvSamleQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/_20dp"
-                android:layout_centerVertical="true"
-                android:textAppearance="@style/CustomTextAppearance.Regular"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_extra_large_x"
-                tools:text="a + b" />
-
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</RelativeLayout>

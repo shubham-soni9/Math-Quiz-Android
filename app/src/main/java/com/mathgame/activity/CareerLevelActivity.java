@@ -40,7 +40,7 @@ public class CareerLevelActivity extends BaseActivity {
 
     private void setData() {
         LevelAdapter levelAdapter = new LevelAdapter(this, GameSettings.getLevelList(this));
-        rvLevelList.setLayoutManager(new LinearLayoutManager(this));
+        rvLevelList.setLayoutManager(new GridLayoutManager(this,4));
         rvLevelList.setAdapter(levelAdapter);
     }
 }

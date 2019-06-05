@@ -67,7 +67,7 @@
                 android:text="@string/player_1_wins"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_extra_large_x" />
+                android:textSize="@dimen/text_size_large_ii" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                 android:drawableEnd="@drawable/ic_right_arrow"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_10"
-                android:textSize="@dimen/text_size_extra_large" />
+                android:textSize="@dimen/text_size_large_i" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 android:text="@string/player_1"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_extra_large_x" />
+                android:textSize="@dimen/text_size_large_ii" />
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/playerOneChart"
@@ -112,7 +112,7 @@
                 android:text="@string/player_2"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_extra_large_x" />
+                android:textSize="@dimen/text_size_large_ii" />
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/playerTwoChart"

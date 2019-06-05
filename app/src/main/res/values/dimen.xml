@@ -8,9 +8,12 @@
     <dimen name="text_size_medium">14sp</dimen>
     <dimen name="text_size_normal">16sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
-    <dimen name="text_size_extra_large">20sp</dimen>
-    <dimen name="text_size_extra_large_x">22sp</dimen>
-    <dimen name="text_size_extra_large_xxx">30sp</dimen>
+    <dimen name="text_size_large_i">20sp</dimen>
+    <dimen name="text_size_large_ii">22sp</dimen>
+    <dimen name="text_size_large_iii">24sp</dimen>
+    <dimen name="text_size_large_iv">26sp</dimen>
+    <dimen name="text_size_large_v">28sp</dimen>
+    <dimen name="text_size_large_vi">30sp</dimen>
     <dimen name="text_size_title_big">34sp</dimen>
     <dimen name="text_size_large_xxxx">38sp</dimen>
     <dimen name="custom_field_padding">7dp</dimen>

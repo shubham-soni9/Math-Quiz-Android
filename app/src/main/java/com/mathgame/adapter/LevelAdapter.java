@@ -35,14 +35,7 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        int level=i+1;
-        viewHolder.tvLevelName.setText(String.format("%s %d", context.getString(R.string.level), level));
-        viewHolder.tvSamleQuestion.setText(levelList.get(viewHolder.getAdapterPosition()).getQuestionSample());
-        viewHolder.ivInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
+        viewHolder.tvLevelName.setText(String.valueOf(viewHolder.getAdapterPosition()+1));
         viewHolder.tvLevelName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,15 +51,10 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView     tvLevelName;
-        private LinearLayout llItemParent;
-        private TextView tvSamleQuestion;
-        private ImageView ivInfo;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvLevelName = itemView.findViewById(R.id.tvLevelName);
-            tvSamleQuestion=itemView.findViewById(R.id.tvSamleQuestion);
-            ivInfo=itemView.findViewById(R.id.ivInfo);
         }
     }
 }

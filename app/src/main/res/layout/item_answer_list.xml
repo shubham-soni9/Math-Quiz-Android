@@ -68,7 +68,7 @@
             android:text="@string/question"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large" />
+            android:textSize="@dimen/text_size_large_i" />
 
         <TextView
             android:layout_width="0dp"
@@ -79,7 +79,7 @@
             android:text="@string/colon_text"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large" />
+            android:textSize="@dimen/text_size_large_i" />
 
         <TextView
             android:id="@+id/tvQuestion"
@@ -90,7 +90,7 @@
             android:gravity="center"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large"
+            android:textSize="@dimen/text_size_large_i"
             tools:text="10 + 12" />
     </LinearLayout>
 
@@ -110,7 +110,7 @@
             android:text="@string/input"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large" />
+            android:textSize="@dimen/text_size_large_i" />
 
         <TextView
             android:layout_width="0dp"
@@ -121,7 +121,7 @@
             android:text="@string/colon_text"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large" />
+            android:textSize="@dimen/text_size_large_i" />
 
         <TextView
             android:id="@+id/tvInputValue"
@@ -132,7 +132,7 @@
             android:gravity="center"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large"
+            android:textSize="@dimen/text_size_large_i"
             tools:text="22" />
     </LinearLayout>
 
@@ -152,7 +152,7 @@
             android:text="@string/correct"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large" />
+            android:textSize="@dimen/text_size_large_i" />
 
         <TextView
             android:layout_width="0dp"
@@ -163,7 +163,7 @@
             android:text="@string/colon_text"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large" />
+            android:textSize="@dimen/text_size_large_i" />
 
         <TextView
             android:id="@+id/tvCorrect"
@@ -174,7 +174,7 @@
             android:gravity="center"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_size_extra_large"
+            android:textSize="@dimen/text_size_large_i"
             tools:text="22" />
     </LinearLayout>
 </LinearLayout>

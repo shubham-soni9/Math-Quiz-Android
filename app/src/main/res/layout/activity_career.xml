@@ -11,9 +11,10 @@
         android:layout_height="match_parent"
         android:paddingStart="@dimen/_10dp"
         android:paddingEnd="@dimen/_10dp"
+        android:paddingTop="@dimen/_20dp"
+        android:paddingBottom="@dimen/_20dp"
         android:orientation="vertical"
         android:background="@color/background_theme_color"
-        android:paddingTop="@dimen/_10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.v7.widget.RecyclerView
