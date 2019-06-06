@@ -6,19 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mathgame.R;
-import com.mathgame.dialog.AlertDialog;
+import com.mathgame.appdata.Constant;
 import com.mathgame.model.CLevel;
-import com.mathgame.model.CQuestion;
 
 import java.util.ArrayList;
 
 public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> {
-    private Context              context;
+    private Context           context;
     private ArrayList<CLevel> levelList;
 
     public LevelAdapter(Context context, ArrayList<CLevel> levelList) {
@@ -34,8 +31,19 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.tvLevelName.setText(String.valueOf(viewHolder.getAdapterPosition()+1));
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+        viewHolder.tvLevelName.setText(String.valueOf(position + 1));
+        switch (levelList.get(position).getDifficulty()) {
+            case Constant.DifficultyLevel.SMALL:
+                viewHolder.tvLevelName.setBackgroundResource(R.drawable.bg_level_small);
+                break;
+            case Constant.DifficultyLevel.MEDIUM:
+                viewHolder.tvLevelName.setBackgroundResource(R.drawable.bg_level_medium);
+                break;
+            case Constant.DifficultyLevel.LARGE:
+                viewHolder.tvLevelName.setBackgroundResource(R.drawable.bg_level_large);
+                break;
+        }
         viewHolder.tvLevelName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +58,7 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView     tvLevelName;
+        private TextView tvLevelName;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);

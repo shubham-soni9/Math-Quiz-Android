@@ -15,7 +15,7 @@
         android:minWidth="90dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/bg_level"
+        android:background="@drawable/bg_level_small"
         android:gravity="center"
         android:paddingStart="@dimen/_25dp"
         android:paddingTop="@dimen/_15dp"
