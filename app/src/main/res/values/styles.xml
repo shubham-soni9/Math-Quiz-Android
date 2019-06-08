@@ -213,5 +213,35 @@
         <item name="android:itemTextAppearance">@style/CustomTextAppearance.Regular</item>
     </style>
 
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/text_size_large_ii</item>
+        <item name="android:textAppearance">@style/CustomTextAppearance.Regular</item>
+    </style>
+
+    <style name="header_text_style">
+        <item name="android:id">@id/tvHeader</item>
+        <item name="android:textAppearance">@style/Toolbar.TitleText</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_toEndOf">@id/ivBack</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/_15dp</item>
+        <item name="android:paddingStart">@dimen/_15dp</item>
+        <item name="android:paddingEnd">@dimen/_15dp</item>
+        <item name="android:paddingRight">@dimen/_15dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="header_back_button">
+        <item name="android:id">@id/ivBack</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:src">@drawable/ic_back</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:paddingLeft">@dimen/_15dp</item>
+        <item name="android:paddingStart">@dimen/_15dp</item>
+        <item name="android:paddingEnd">@dimen/_15dp</item>
+        <item name="android:paddingRight">@dimen/_15dp</item>
+    </style>
     <dimen name="_3dp">3dp</dimen>
 </resources>

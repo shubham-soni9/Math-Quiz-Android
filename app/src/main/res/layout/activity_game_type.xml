@@ -12,29 +12,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="?attr/actionBarSize">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/ivBack"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:src="@drawable/ic_back" />
+            <android.support.v7.widget.AppCompatImageView style="@style/header_back_button" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tvHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_15dp"
-                android:layout_toEndOf="@+id/ivBack"
-                android:text="@string/app_name"
-                android:textAppearance="@style/CustomTextAppearance.Regular"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_large_i" />
+                style="@style/header_text_style"
+                android:text="@string/game_type" />
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/ivSettings"

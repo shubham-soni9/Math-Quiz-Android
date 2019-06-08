@@ -131,6 +131,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         customMode.setNumberOfQuestions(npNumberOfQuestion.getValue());
         customMode.setTimerValue(cbEnableTimer.isChecked() ? npTimerSecondValue.getValue() : 0);
         settings.setCustomMode(customMode);
+        Dependencies.saveSettings(this,settings);
         Transition.exit(this);
     }
 }

@@ -8,31 +8,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/white_100"
+        android:background="@color/white"
+        android:layout_height="?attr/actionBarSize"
         android:clipChildren="false"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:weightSum="14">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/ivBack"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="onClick"
-            android:paddingStart="@dimen/_15dp"
-            android:paddingEnd="@dimen/_15dp"
-            android:src="@drawable/ic_back" />
 
-        <TextView
+        <android.support.v7.widget.AppCompatImageView style="@style/header_back_button" />
+
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/header_text_style"
             android:id="@+id/gameModeText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5dp"
-            android:layout_weight="7"
-
-            android:text="@string/gametype_unspecified"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_normal"
+            android:text="@string/game_type" />
 
         <RelativeLayout
             android:layout_width="0dp"
