@@ -95,26 +95,9 @@ public class SettingsDialog {
             Button btnOk = optionsDialog.findViewById(R.id.btnOk);
             final Button btnCancel = optionsDialog.findViewById(R.id.btnCancel);
 
-            cbEnableTimer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    rlTimerValue.setVisibility(isChecked ? View.VISIBLE : View.GONE);
-                }
-            });
-
-            npNumberOfQuestion.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-                @Override
-                public void onValueChange(NumberPicker picker) {
-                    npNumberOfSkip.setMaxValue(npNumberOfQuestion.getMaxValue());
-                }
-            });
-
-            rlEnableTimer.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    cbEnableTimer.setChecked(!cbEnableTimer.isChecked());
-                }
-            });
+            cbEnableTimer.setOnCheckedChangeListener((buttonView, isChecked) -> rlTimerValue.setVisibility(isChecked ? View.VISIBLE : View.GONE));
+            npNumberOfQuestion.setOnValueChangedListener(picker -> npNumberOfSkip.setMaxValue(npNumberOfQuestion.getMaxValue()));
+            rlEnableTimer.setOnClickListener(v -> cbEnableTimer.setChecked(!cbEnableTimer.isChecked()));
 
             if (customMode != null) {
                 twDifficultyLevel.setCheckedTogglePosition(customMode.getDifficulty());

@@ -1,6 +1,374 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_theme_color">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvResetSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_15dp"
+                    android:paddingEnd="@dimen/_15dp"
+                    android:text="@string/reset"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_large" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/background_theme_color_dark"
+                android:gravity="center_vertical"
+                android:letterSpacing="0.12"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/appearance"
+                android:textAllCaps="true"
+                android:textAppearance="@style/CustomTextAppearance.Regular"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium" />
+
+            <RelativeLayout
+                android:id="@+id/llChangeLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_white"
+                android:minHeight="66dp"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_xlarge">
+
+                <TextView
+                    android:id="@+id/tvLanguageLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/language_text"
+                    android:textAppearance="@style/CustomTextAppearance.Regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_large" />
+
+                <TextView
+                    android:id="@+id/tvChangeLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="@style/CustomTextAppearance.Medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_normal"
+                    tools:text="@string/default_text" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/margin_xlarge"
+                android:layout_marginRight="@dimen/margin_xlarge"
+                android:background="@color/white_10" />
+
+            <RelativeLayout
+                android:id="@+id/llVoiceChanger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_white"
+                android:minHeight="66dp"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_xlarge">
+
+                <TextView
+                    android:id="@+id/Sound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/sound"
+                    android:textAppearance="@style/CustomTextAppearance.Regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_large" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/chkSound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/switch_selector"
+                    android:clickable="false"
+                    android:includeFontPadding="false"
+                    app:switchMinWidth="30dp"
+                    app:thumbTint="@color/white_100" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="@dimen/_15dp"
+                android:background="@color/background_theme_color_dark"
+                android:gravity="center_vertical"
+                android:letterSpacing="0.12"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/difficulty_level"
+                android:textAllCaps="true"
+                android:textAppearance="@style/CustomTextAppearance.Regular"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium" />
+
+            <com.mathgame.plugin.switchBtn.ToggleSwitch
+                android:id="@+id/twDifficultyLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_30dp"
+                android:layout_marginEnd="@dimen/_30dp"
+                android:textSize="@dimen/text_size_normal"
+                custom:activeBgColor="@color/colorPrimaryDark"
+                custom:activeTextColor="@color/white_100"
+                custom:inactiveBgColor="@color/colorPrimary"
+                custom:inactiveTextColor="@color/white_100"
+                custom:textToggleCenter="@string/medium"
+                custom:textToggleLeft="@string/easy"
+                custom:textToggleRight="@string/hard"
+                custom:toggleWidth="0dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/background_theme_color_dark"
+                    android:gravity="center_vertical"
+                    android:letterSpacing="0.12"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:text="@string/questions"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/CustomTextAppearance.Regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/number_of_questions"
+                        android:textAppearance="@style/CustomTextAppearance.Regular"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <com.mathgame.plugin.numberpicker.NumberPicker
+                        android:id="@+id/npNumberOfQuestion"
+                        style="@style/number_picker"
+                        app:np_max="99"
+                        app:np_min="1" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15dp"
+                android:orientation="vertical"
+                android:paddingBottom="5dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black_10" />
+
+                <RelativeLayout
+                    android:id="@+id/rlEnableTimer"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/background_theme_color_dark"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/text_alignment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:letterSpacing="0.12"
+                        android:lines="1"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        android:text="@string/enable_timer"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/CustomTextAppearance.Regular"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cbEnableTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:button="@drawable/custom_checkbox"
+                        android:textAppearance="@style/CustomTextAppearance.Regular"
+                        android:textColor="@color/black_60"
+                        android:textSize="@dimen/text_size_normal" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlTimerValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/timer_per_question"
+                        android:textAppearance="@style/CustomTextAppearance.Regular"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <com.mathgame.plugin.numberpicker.NumberPicker
+                        android:id="@+id/npTimerSecondValue"
+                        style="@style/number_picker" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_10" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/background_theme_color_dark"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/text_alignment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:letterSpacing="0.12"
+                        android:lines="1"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        android:text="@string/skip_option"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/CustomTextAppearance.Regular"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/black_10" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/npNumberOfSkip"
+                        android:text="@string/how_many_question_can_be_skipped"
+                        android:textAppearance="@style/CustomTextAppearance.Regular"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <com.mathgame.plugin.numberpicker.NumberPicker
+                        android:id="@+id/npNumberOfSkip"
+                        style="@style/number_picker" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

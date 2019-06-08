@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 
 import com.mathgame.R;
+import com.mathgame.model.CustomMode;
 import com.mathgame.model.GameResult;
 import com.mathgame.model.Settings;
 import com.mathgame.util.Prefs;
@@ -11,8 +12,16 @@ import com.mathgame.util.Prefs;
 import java.util.Locale;
 
 public class Dependencies {
-    public static Locale getLocale() {
-        return Locale.getDefault();
+    public static Locale getLocale(Context context) {
+        return new Locale(getLanguageCode(context));
+    }
+
+    public static String getLanguageCode(Context context) {
+        return Prefs.with(context).getString(Keys.Prefs.KEY_LOCALE, "en");
+    }
+
+    public static void setLanguage(Context context, String code) {
+        Prefs.with(context).save(Keys.Prefs.KEY_LOCALE, code);
     }
 
     public static void saveSettings(Context context, Settings settings) {

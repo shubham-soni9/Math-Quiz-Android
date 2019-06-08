@@ -275,5 +275,13 @@
     <string name="results">Results</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="appearance">Appearance</string>
+    <string name="language_text">Language</string>
+    <string name="default_text">Default</string>
+    <string name="submit_text">Submit</string>
+    <string name="change_language">Change Language</string>
+    <string name="sound">Sound</string>
+    <string name="reset">Reset</string>
+    <string name="are_you_sure_you_want_to_reset_the_settings">Are you sure you want to reset the settings?</string>
 </resources>
 

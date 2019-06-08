@@ -80,6 +80,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected Locale locale() {
-        return Dependencies.getLocale();
+        return Dependencies.getLocale(this);
     }
 }

@@ -9,18 +9,16 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.mathgame.activity.CareerLevelActivity;
 import com.mathgame.activity.GameTypeActivity;
 import com.mathgame.activity.MathTutorialActivity;
+import com.mathgame.activity.SettingsActivity;
 import com.mathgame.activity.SlideAdditionActivity;
 import com.mathgame.activity.SudokuHomeActivity;
 import com.mathgame.activity.SudokuTutorialActivity;
@@ -89,17 +87,15 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
 
-        Toolbar toolbar=findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.app_name);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
+        toolbar.setNavigationOnClickListener(v -> {
+            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                drawerLayout.closeDrawer(GravityCompat.START);
+            } else {
+                drawerLayout.openDrawer(GravityCompat.START);
             }
         });
         final MaterialMenuDrawable materialMenu = new MaterialMenuDrawable(this, Color.WHITE, MaterialMenuDrawable.Stroke.THIN);
@@ -124,8 +120,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void onDrawerStateChanged(int newState) {
-                if(newState == DrawerLayout.STATE_IDLE) {
-                    if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                if (newState == DrawerLayout.STATE_IDLE) {
+                    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         materialMenu.setIconState(MaterialMenuDrawable.IconState.ARROW);
                     } else {
                         materialMenu.setIconState(MaterialMenuDrawable.IconState.BURGER);
@@ -141,27 +137,27 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         Bundle bundle = new Bundle();
         switch (v.getId()) {
             case R.id.tvAddition:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getAdditionGame());
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getAdditionGame(this));
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvSubtraction:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSubtraction());
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSubtraction(this));
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvMultiplication:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getMultiplication());
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getMultiplication(this));
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvDivision:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getDivision());
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getDivision(this));
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvPercentage:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getPercentage());
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getPercentage(this));
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.tvSquareRoot:
-                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSquareRoot());
+                bundle.putParcelable(CustomMode.class.getName(), GameSettings.getSquareRoot(this));
                 Transition.transitForResult(this, GameTypeActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
                 break;
             case R.id.cvTicTacToe:
@@ -214,7 +210,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void openSettings() {
+        Transition.startActivity(this, SettingsActivity.class);
     }
+
 
     private void openPolicyScreen() {
     }
@@ -268,7 +266,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onStop() {
         super.onStop();
-        drawerLayout.closeDrawer(GravityCompat.START,false);
+        drawerLayout.closeDrawer(GravityCompat.START, false);
     }
 
     private void exit() {

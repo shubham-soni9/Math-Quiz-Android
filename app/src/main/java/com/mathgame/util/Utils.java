@@ -3,6 +3,7 @@ package com.mathgame.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
@@ -23,6 +24,7 @@ import com.google.gson.Gson;
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
+import com.mathgame.appdata.Dependencies;
 import com.rey.material.widget.CheckBox;
 
 import java.io.IOException;
@@ -298,6 +300,15 @@ public class Utils {
     }
 
     public static boolean hasData(String toolbarTitle) {
-        return toolbarTitle!=null && !toolbarTitle.trim().isEmpty();
+        return toolbarTitle != null && !toolbarTitle.trim().isEmpty();
+    }
+
+    public static void setLanguage(Context context, String code) {
+        Locale locale = new Locale(code);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+        Dependencies.setLanguage(context, code);
     }
 }

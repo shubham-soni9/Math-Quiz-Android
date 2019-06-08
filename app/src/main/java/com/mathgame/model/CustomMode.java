@@ -26,32 +26,27 @@ public class CustomMode implements Parcelable {
     private long   id;
     private String title;
     private int    numberOfQuestions;
-    private int    playerType;
     private int    gameType;
     private String mathOperations;
-    private int    numberOfVariables;
     private int    timerValue;
     private int    skipNumbers;
     private int    difficulty;
-    private int    uniqueId;
-private String questionSample;
+    private String questionSample;
+
     public CustomMode() {
 
     }
 
     protected CustomMode(Parcel in) {
-        uniqueId = in.readInt();
         id = in.readLong();
         title = in.readString();
         numberOfQuestions = in.readInt();
-        playerType = in.readInt();
         gameType = in.readInt();
         mathOperations = in.readString();
-        numberOfVariables = in.readInt();
         timerValue = in.readInt();
         skipNumbers = in.readInt();
         difficulty = in.readInt();
-        questionSample=in.readString();
+        questionSample = in.readString();
     }
 
     @Override
@@ -61,26 +56,15 @@ private String questionSample;
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(uniqueId);
         dest.writeLong(id);
         dest.writeString(title);
         dest.writeInt(numberOfQuestions);
-        dest.writeInt(playerType);
         dest.writeInt(gameType);
         dest.writeString(mathOperations);
-        dest.writeInt(numberOfVariables);
         dest.writeInt(timerValue);
         dest.writeInt(skipNumbers);
         dest.writeInt(difficulty);
         dest.writeString(questionSample);
-    }
-
-    public int getUniqueId() {
-        return uniqueId;
-    }
-
-    public void setUniqueId(int uniqueId) {
-        this.uniqueId = uniqueId;
     }
 
     public String getTitle() {
@@ -92,19 +76,11 @@ private String questionSample;
     }
 
     public int getNumberOfQuestions() {
-        return numberOfQuestions == 0 ? 10 : numberOfQuestions;
+        return numberOfQuestions;
     }
 
     public void setNumberOfQuestions(int numberOfQuestions) {
         this.numberOfQuestions = numberOfQuestions;
-    }
-
-    public int getPlayerType() {
-        return playerType;
-    }
-
-    public void setPlayerType(int playerType) {
-        this.playerType = playerType;
     }
 
     public int getGameType() {
@@ -121,14 +97,6 @@ private String questionSample;
 
     public void setMathOperations(String mathOperations) {
         this.mathOperations = mathOperations;
-    }
-
-    public int getNumberOfVariables() {
-        return numberOfVariables;
-    }
-
-    public void setNumberOfVariables(int numberOfVariables) {
-        this.numberOfVariables = numberOfVariables;
     }
 
     public int getTimerValue() {

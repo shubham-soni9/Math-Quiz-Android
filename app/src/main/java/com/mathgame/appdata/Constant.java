@@ -63,5 +63,60 @@ public interface Constant {
         int INCORRECT = 2;
         int SKIPPED   = 3;
     }
+
+    enum AppLanguage {
+        ARABIC("العربية", "ar"),
+        CHINESE("中国（北京话）", "zh"),
+        CZECH("čeština", "cs"),
+        DANISH("dansk", "da"),
+        DUTCH("Nederlands", "nl"),
+        ENGLISH("English", "en"),
+        FILIPINO("Pilipino", "fil"),
+        FRENCH("français", "fr"),
+        GEORGIAN("ქართული", "ka"),
+        GERMAN("Deutsche", "de"),
+        GREEK("ελληνικά", "el"),
+        HINDI("हिंदी", "hi"),
+        HUNGARAIAN("Magyar", "hu"),
+        INDONESIAN("bahasa Indonesia", "in"),
+        ITALIAN("italiano", "it"),
+        JAPANESE("日本語", "ja"),
+        MALAY("Malay", "ms"),
+        PERSIAN("فارسی", "fa"),
+        POLISH("POLSKIE", "pl"),
+        PORTUGUESE("português", "pt"),
+        RUSSIAN("русский", "ru"),
+        SPANISH("Español", "es"),
+        SWAHILI("Kiswahili", "sw"),
+        THAI("ไทย", "th"),
+        TURKISH("Türk", "tr"),
+        VIETNAMESE("Tiếng Việt", "vi"),
+        KOREAN("한국어", "ko");
+
+        public final String code;
+        public final String name;
+
+        AppLanguage(String name, String code) {
+            this.code = code;
+            this.name = name;
+        }
+
+        /**
+         * Method to get the Language via the ISO Code
+         */
+        public static AppLanguage getLanguageByCode(String code) {
+
+            AppLanguage mLanguage = null;
+
+            for (AppLanguage language : values()) {
+                if (language.code.equals(code)) {
+                    mLanguage = language;
+                    break;
+                }
+            }
+
+            return mLanguage == null ? ENGLISH : mLanguage;
+        }
+    }
 }
 

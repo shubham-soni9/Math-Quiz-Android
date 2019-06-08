@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/spacing_small"
+    android:paddingRight="@dimen/spacing_small">
+
+    <TextView
+        android:id="@+id/dialog_list_button_tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:layout_marginRight="@dimen/spacing_small"
+        android:padding="@dimen/spacing_xsmall"
+        android:layout_toLeftOf="@+id/dialog_list_button_iv_selected"
+        android:layout_alignParentStart="true"
+        tools:text="English"
+        android:textAppearance="@style/CustomTextAppearance.Regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_large_i"
+        tools:ignore="RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/dialog_list_button_iv_selected"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ic_icon_filter_check"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

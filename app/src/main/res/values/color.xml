@@ -88,5 +88,7 @@
     <color name="success_color">#e666d02a</color>
     <color name="failure_color">#e6e2574c</color>
     <color name="unattempted_color">#8c8c8c</color>
+    <color name="day_blocked_color">#d3d3d3</color>
+    <color name="switch_color">#0aa909</color>
 
 </resources>

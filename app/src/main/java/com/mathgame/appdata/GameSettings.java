@@ -16,38 +16,36 @@ import java.util.ArrayList;
 import io.objectbox.Box;
 
 public class GameSettings {
-    public static CustomMode getAdditionGame() {
-        return getCustomMode(Codes.SettingsIds.ADDITION, Constant.MathSign.ADDITION);
+    public static CustomMode getAdditionGame(Context context) {
+        return getCustomMode(context,Codes.SettingsIds.ADDITION, Constant.MathSign.ADDITION);
     }
 
-    public static CustomMode getSubtraction() {
-        return getCustomMode(Codes.SettingsIds.SUBTRACTION, Constant.MathSign.SUBTRACTION);
+    public static CustomMode getSubtraction(Context context) {
+        return getCustomMode(context,Codes.SettingsIds.SUBTRACTION, Constant.MathSign.SUBTRACTION);
     }
 
-    public static CustomMode getMultiplication() {
-        return getCustomMode(Codes.SettingsIds.MULTIPLICATON, Constant.MathSign.MULTIPLICATION);
+    public static CustomMode getMultiplication(Context context) {
+        return getCustomMode(context,Codes.SettingsIds.MULTIPLICATON, Constant.MathSign.MULTIPLICATION);
     }
 
-    public static CustomMode getDivision() {
-        return getCustomMode(Codes.SettingsIds.DIVISION, Constant.MathSign.DIVISION);
+    public static CustomMode getDivision(Context context) {
+        return getCustomMode(context,Codes.SettingsIds.DIVISION, Constant.MathSign.DIVISION);
     }
 
-    public static CustomMode getSquareRoot() {
-        return getCustomMode(Codes.SettingsIds.SQUARE_ROOT, Constant.MathSign.SQUARE_ROOT);
+    public static CustomMode getSquareRoot(Context context) {
+        return getCustomMode(context,Codes.SettingsIds.SQUARE_ROOT, Constant.MathSign.SQUARE_ROOT);
     }
 
-    public static CustomMode getPercentage() {
-        return getCustomMode(Codes.SettingsIds.PERCENTAGE, Constant.MathSign.PERCENTAGE);
+    public static CustomMode getPercentage(Context context) {
+        return getCustomMode(context,Codes.SettingsIds.PERCENTAGE, Constant.MathSign.PERCENTAGE);
     }
 
-    private static CustomMode getCustomMode(int key, String mathSign) {
+    private static CustomMode getCustomMode(Context context,int key, String mathSign) {
         Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
-        CustomMode customMode = userBox.query().equal(CustomMode_.uniqueId, key).build().findUnique();
+        CustomMode customMode = userBox.query().equal(CustomMode_.id, key).build().findUnique();
         if (customMode == null) {
-            customMode = new CustomMode();
-            customMode.setUniqueId(key);
+            customMode = Dependencies.getSettings(context).getCustomMode();
             customMode.setMathOperations(mathSign);
-            userBox.put(customMode);
         }
         return customMode;
     }

@@ -8,7 +8,7 @@ class AnimationGrid {
     private       int                          mActiveAnimations = 0;
     private       boolean                      mOneMoreFrame     = false;
 
-    public AnimationGrid(int x, int y) {
+    AnimationGrid(int x, int y) {
         mAnimationGameGrid = new ArrayList[x][y];
         for (int xx = 0; xx < x; xx++) {
             for (int yy = 0; yy < y; yy++) {
@@ -17,7 +17,7 @@ class AnimationGrid {
         }
     }
 
-    public void startAnimation(int x, int y, int animationType, long length, long delay, int[] extras) {
+    void startAnimation(int x, int y, int animationType, long length, long delay, int[] extras) {
         AnimationTile animationToAdd = new AnimationTile(x, y, animationType, length, delay, extras);
         if (x == -1 && y == -1) {
 
@@ -28,7 +28,7 @@ class AnimationGrid {
         mActiveAnimations = mActiveAnimations + 1;
     }
 
-    public void tickAll(long timeElapsed) {
+    void tickAll(long timeElapsed) {
         ArrayList<AnimationTile> cancelledAnimations = new ArrayList<>();
         for (AnimationTile animation : mGlobalAnimation) {
             animation.tick(timeElapsed);
@@ -55,7 +55,7 @@ class AnimationGrid {
         }
     }
 
-    public boolean isAnimationActive() {
+    boolean isAnimationActive() {
         if (mActiveAnimations != 0) {
             mOneMoreFrame = true;
             return true;
@@ -67,11 +67,11 @@ class AnimationGrid {
         }
     }
 
-    public ArrayList<AnimationTile> getAnimationCell(int x, int y) {
+    ArrayList<AnimationTile> getAnimationCell(int x, int y) {
         return mAnimationGameGrid[x][y];
     }
 
-    public void cancelAnimations() {
+    void cancelAnimations() {
         for (ArrayList<AnimationTile>[] array : mAnimationGameGrid) {
             for (ArrayList<AnimationTile> list : array) {
                 list.clear();
