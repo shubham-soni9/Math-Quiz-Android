@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Settings implements Parcelable {
     private CustomMode            generalMode;
-    private ArrayList<CustomMode> specificModeList;
 
     public Settings() {
 
@@ -15,7 +14,6 @@ public class Settings implements Parcelable {
 
     protected Settings(Parcel in) {
         generalMode = in.readParcelable(CustomMode.class.getClassLoader());
-        specificModeList = in.createTypedArrayList(CustomMode.CREATOR);
     }
 
     public static final Creator<Settings> CREATOR = new Creator<Settings>() {
@@ -29,14 +27,6 @@ public class Settings implements Parcelable {
             return new Settings[size];
         }
     };
-
-    public ArrayList<CustomMode> getSpecificModeList() {
-        return specificModeList;
-    }
-
-    public void setSpecificModeList(ArrayList<CustomMode> specificModeList) {
-        this.specificModeList = specificModeList;
-    }
 
     public CustomMode getGeneralMode() {
         return generalMode;
@@ -54,6 +44,5 @@ public class Settings implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeParcelable(generalMode, flags);
-        dest.writeTypedList(specificModeList);
     }
 }

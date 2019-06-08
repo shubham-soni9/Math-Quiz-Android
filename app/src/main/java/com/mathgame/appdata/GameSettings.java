@@ -37,43 +37,16 @@ public class GameSettings {
     }
 
     private static CustomMode getCustomMode(Context context, int key, String mathSign) {
-        CustomMode customMode = null;
         Settings settings = Dependencies.getSettings(context);
-        ArrayList<CustomMode> generalModeList = settings.getSpecificModeList();
-        if (Utils.hasData(generalModeList)) {
-            for (int i = 0; i < generalModeList.size(); i++) {
-                if (generalModeList.get(i).getOperationId() == key) {
-                    customMode = generalModeList.get(i);
-                    break;
-                }
-            }
-        }
-        if (customMode == null) {
-            customMode = Dependencies.getSettings(context).getGeneralMode();
-            customMode.setMathOperations(mathSign);
-            customMode.setOperationId(key);
-            customMode.setUniqueId(Utils.getUniqueId());
-        }
+        CustomMode customMode = settings.getGeneralMode();
+        customMode.setMathOperations(mathSign);
+        customMode.setOperationId(key);
         return customMode;
     }
 
     public static void saveCustomMode(Context context, CustomMode mMode) {
         Settings settings = Dependencies.getSettings(context);
-        ArrayList<CustomMode> generalModeList = settings.getSpecificModeList();
-        if (Utils.hasData(generalModeList)) {
-            for (int i = 0; i < generalModeList.size(); i++) {
-                CustomMode customMode = generalModeList.get(i);
-                if (customMode.getUniqueId().equalsIgnoreCase(mMode.getUniqueId())) {
-                    generalModeList.set(i, mMode);
-                    break;
-                }
-            }
-        } else {
-            generalModeList = new ArrayList<>();
-            mMode.setUniqueId(Utils.getUniqueId());
-            generalModeList.add(mMode);
-        }
-        settings.setSpecificModeList(generalModeList);
+        settings.setGeneralMode(mMode);
         Dependencies.saveSettings(context, settings);
     }
 

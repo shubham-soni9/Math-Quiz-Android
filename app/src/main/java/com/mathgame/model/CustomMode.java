@@ -18,7 +18,6 @@ public class CustomMode implements Parcelable {
         }
     };
 
-    private String   uniqueId;
     private String title;
     private int    numberOfQuestions;
     private int    gameType;
@@ -35,7 +34,6 @@ public class CustomMode implements Parcelable {
 
     protected CustomMode(Parcel in) {
         operationId=in.readLong();
-        uniqueId = in.readString();
         title = in.readString();
         numberOfQuestions = in.readInt();
         gameType = in.readInt();
@@ -62,7 +60,6 @@ public class CustomMode implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(operationId);
-        dest.writeString(uniqueId);
         dest.writeString(title);
         dest.writeInt(numberOfQuestions);
         dest.writeInt(gameType);
@@ -127,14 +124,6 @@ public class CustomMode implements Parcelable {
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
-    }
-
-    public String getUniqueId() {
-        return uniqueId;
-    }
-
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
     }
 
     public String getQuestionSample() {
