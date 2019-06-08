@@ -113,21 +113,17 @@ public class SettingsDialog {
             btnOk.setText(positiveButton);
             btnCancel.setText(negativeButton);
 
-            btnOk.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    optionsDialog.dismiss();
-                    customMode.setDifficulty(twDifficultyLevel.getCheckedTogglePosition());
-                    customMode.setSkipNumbers(npNumberOfSkip.getValue());
-                    customMode.setNumberOfQuestions(npNumberOfQuestion.getValue());
-                    customMode.setTimerValue(cbEnableTimer.isChecked() ? npTimerSecondValue.getValue() : 0);
-                    if (cbSaveSettings.isChecked()) {
-                        GameSettings.saveCustomMode(customMode);
-                    }
-                    if (listener != null) {
-                        listener.performPositiveAction();
-                    }
+            btnOk.setOnClickListener(view -> {
+                optionsDialog.dismiss();
+                customMode.setDifficulty(twDifficultyLevel.getCheckedTogglePosition());
+                customMode.setSkipNumbers(npNumberOfSkip.getValue());
+                customMode.setNumberOfQuestions(npNumberOfQuestion.getValue());
+                customMode.setTimerValue(cbEnableTimer.isChecked() ? npTimerSecondValue.getValue() : 0);
+                if (cbSaveSettings.isChecked()) {
+                    GameSettings.saveCustomMode(activity,customMode);
+                }
+                if (listener != null) {
+                    listener.performPositiveAction();
                 }
             });
 

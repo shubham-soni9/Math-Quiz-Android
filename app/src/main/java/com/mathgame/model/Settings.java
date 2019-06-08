@@ -3,7 +3,21 @@ package com.mathgame.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class Settings implements Parcelable {
+    private CustomMode            generalMode;
+    private ArrayList<CustomMode> specificModeList;
+
+    public Settings() {
+
+    }
+
+    protected Settings(Parcel in) {
+        generalMode = in.readParcelable(CustomMode.class.getClassLoader());
+        specificModeList = in.createTypedArrayList(CustomMode.CREATOR);
+    }
+
     public static final Creator<Settings> CREATOR = new Creator<Settings>() {
         @Override
         public Settings createFromParcel(Parcel in) {
@@ -15,19 +29,21 @@ public class Settings implements Parcelable {
             return new Settings[size];
         }
     };
-    private CustomMode customMode;
 
-    public Settings() {
-
+    public ArrayList<CustomMode> getSpecificModeList() {
+        return specificModeList;
     }
 
-    protected Settings(Parcel in) {
-        customMode = in.readParcelable(CustomMode.class.getClassLoader());
+    public void setSpecificModeList(ArrayList<CustomMode> specificModeList) {
+        this.specificModeList = specificModeList;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(customMode, flags);
+    public CustomMode getGeneralMode() {
+        return generalMode;
+    }
+
+    public void setGeneralMode(CustomMode customMode) {
+        this.generalMode = customMode;
     }
 
     @Override
@@ -35,12 +51,9 @@ public class Settings implements Parcelable {
         return 0;
     }
 
-    public CustomMode getCustomMode() {
-        return customMode;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(generalMode, flags);
+        dest.writeTypedList(specificModeList);
     }
-
-    public void setCustomMode(CustomMode customMode) {
-        this.customMode = customMode;
-    }
-
 }

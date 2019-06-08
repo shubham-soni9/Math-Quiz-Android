@@ -2,17 +2,14 @@ package com.mathgame.appdata;
 
 import android.content.Context;
 
-import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CLevel;
 import com.mathgame.model.CustomMode;
-import com.mathgame.model.CustomMode_;
+import com.mathgame.model.Settings;
 import com.mathgame.model.Tutorial;
 import com.mathgame.model.UniversalPojo;
 import com.mathgame.util.Utils;
 
 import java.util.ArrayList;
-
-import io.objectbox.Box;
 
 public class GameSettings {
     public static CustomMode getAdditionGame(Context context) {
@@ -40,18 +37,44 @@ public class GameSettings {
     }
 
     private static CustomMode getCustomMode(Context context, int key, String mathSign) {
-        Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
-        CustomMode customMode = userBox.query().equal(CustomMode_.id, key).build().findUnique();
+        CustomMode customMode = null;
+        Settings settings = Dependencies.getSettings(context);
+        ArrayList<CustomMode> generalModeList = settings.getSpecificModeList();
+        if (Utils.hasData(generalModeList)) {
+            for (int i = 0; i < generalModeList.size(); i++) {
+                if (generalModeList.get(i).getOperationId() == key) {
+                    customMode = generalModeList.get(i);
+                    break;
+                }
+            }
+        }
         if (customMode == null) {
-            customMode = Dependencies.getSettings(context).getCustomMode();
+            customMode = Dependencies.getSettings(context).getGeneralMode();
             customMode.setMathOperations(mathSign);
+            customMode.setOperationId(key);
+            customMode.setUniqueId(Utils.getUniqueId());
         }
         return customMode;
     }
 
-    public static void saveCustomMode(CustomMode customMode) {
-        Box<CustomMode> userBox = ObjectBox.get().boxFor(CustomMode.class);
-        userBox.put(customMode);
+    public static void saveCustomMode(Context context, CustomMode mMode) {
+        Settings settings = Dependencies.getSettings(context);
+        ArrayList<CustomMode> generalModeList = settings.getSpecificModeList();
+        if (Utils.hasData(generalModeList)) {
+            for (int i = 0; i < generalModeList.size(); i++) {
+                CustomMode customMode = generalModeList.get(i);
+                if (customMode.getUniqueId().equalsIgnoreCase(mMode.getUniqueId())) {
+                    generalModeList.set(i, mMode);
+                    break;
+                }
+            }
+        } else {
+            generalModeList = new ArrayList<>();
+            mMode.setUniqueId(Utils.getUniqueId());
+            generalModeList.add(mMode);
+        }
+        settings.setSpecificModeList(generalModeList);
+        Dependencies.saveSettings(context, settings);
     }
 
     public static ArrayList<Tutorial> getTutorialList(Context context) {

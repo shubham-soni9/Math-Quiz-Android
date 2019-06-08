@@ -60,7 +60,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         npNumberOfQuestion.setOnValueChangedListener(picker -> npNumberOfSkip.setMaxValue(npNumberOfQuestion.getMaxValue()));
         rlEnableTimer.setOnClickListener(v -> cbEnableTimer.setChecked(!cbEnableTimer.isChecked()));
         settings = Dependencies.getSettings(this);
-        customMode = settings.getCustomMode();
+        customMode = settings.getGeneralMode();
         twDifficultyLevel.setCheckedTogglePosition(customMode.getDifficulty());
         npNumberOfQuestion.setValue(customMode.getNumberOfQuestions());
         npNumberOfSkip.setMaxValue(customMode.getNumberOfQuestions());
@@ -130,7 +130,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         customMode.setSkipNumbers(npNumberOfSkip.getValue());
         customMode.setNumberOfQuestions(npNumberOfQuestion.getValue());
         customMode.setTimerValue(cbEnableTimer.isChecked() ? npTimerSecondValue.getValue() : 0);
-        settings.setCustomMode(customMode);
+        settings.setGeneralMode(customMode);
         Dependencies.saveSettings(this,settings);
         Transition.exit(this);
     }

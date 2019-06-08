@@ -31,20 +31,12 @@ public class Dependencies {
         return Prefs.with(context).getObject(Keys.Prefs.KEY_SETTINGS, Settings.class);
     }
 
-    public static void saveThemeColor(Context context, int color) {
-        Prefs.with(context).save(Keys.Prefs.KEY_SETTINGS, color);
-    }
-
-    public static int getThemeColor(Context context) {
-        return Prefs.with(context).getInt(Keys.Prefs.KEY_SETTINGS, ContextCompat.getColor(context, R.color.colorPrimary));
-    }
-
     public static void setFirstTimeSudokuLaunch(Context context, boolean value) {
-        Prefs.with(context).save(Keys.Prefs.KEY_SETTINGS, value);
+        Prefs.with(context).save(Keys.Prefs.KEY_SUDOKU_FIRST_LAUNCH, value);
     }
 
     public static boolean isFirstTimeSudokuLaunch(Context context) {
-        return Prefs.with(context).getBoolean(Keys.Prefs.KEY_SETTINGS, true);
+        return Prefs.with(context).getBoolean(Keys.Prefs.KEY_SUDOKU_FIRST_LAUNCH, true);
     }
 
     public static void setGameResult(Context context, GameResult gameResult) {

@@ -25,6 +25,7 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
 import com.mathgame.appdata.Dependencies;
+import com.mathgame.model.CustomMode;
 import com.rey.material.widget.CheckBox;
 
 import java.io.IOException;
@@ -32,6 +33,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -310,5 +312,9 @@ public class Utils {
         config.locale = locale;
         context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
         Dependencies.setLanguage(context, code);
+    }
+
+    public static boolean hasData(List generalModeList) {
+        return generalModeList!=null && !generalModeList.isEmpty();
     }
 }

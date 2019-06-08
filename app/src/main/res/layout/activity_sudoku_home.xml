@@ -30,12 +30,6 @@
             android:src="@drawable/ic_more_options" />
     </RelativeLayout>
 
-    <View
-        android:id="@+id/vwShadow"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@drawable/shadow_gradient" />
-
     <LinearLayout
         android:id="@+id/main_content"
         style="?android:buttonBarStyle"

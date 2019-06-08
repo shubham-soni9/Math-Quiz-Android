@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import com.mathgame.util.Utils;
 
-import io.objectbox.annotation.Entity;
-import io.objectbox.annotation.Id;
-
-@Entity
 public class CustomMode implements Parcelable {
     public static final Creator<CustomMode> CREATOR = new Creator<CustomMode>() {
         @Override
@@ -22,8 +18,7 @@ public class CustomMode implements Parcelable {
         }
     };
 
-    @Id
-    private long   id;
+    private String   uniqueId;
     private String title;
     private int    numberOfQuestions;
     private int    gameType;
@@ -32,13 +27,15 @@ public class CustomMode implements Parcelable {
     private int    skipNumbers;
     private int    difficulty;
     private String questionSample;
+    private long operationId;
 
     public CustomMode() {
 
     }
 
     protected CustomMode(Parcel in) {
-        id = in.readLong();
+        operationId=in.readLong();
+        uniqueId = in.readString();
         title = in.readString();
         numberOfQuestions = in.readInt();
         gameType = in.readInt();
@@ -54,9 +51,18 @@ public class CustomMode implements Parcelable {
         return 0;
     }
 
+    public long getOperationId() {
+        return operationId;
+    }
+
+    public void setOperationId(long operationId) {
+        this.operationId = operationId;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(id);
+        dest.writeLong(operationId);
+        dest.writeString(uniqueId);
         dest.writeString(title);
         dest.writeInt(numberOfQuestions);
         dest.writeInt(gameType);
@@ -123,12 +129,12 @@ public class CustomMode implements Parcelable {
         this.difficulty = difficulty;
     }
 
-    public long getId() {
-        return id;
+    public String getUniqueId() {
+        return uniqueId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
     }
 
     public String getQuestionSample() {

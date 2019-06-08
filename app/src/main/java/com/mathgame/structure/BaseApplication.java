@@ -6,7 +6,6 @@ import android.support.multidex.MultiDexApplication;
 
 import com.mathgame.appdata.Constant;
 import com.mathgame.appdata.Dependencies;
-import com.mathgame.database.ObjectBox;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.Settings;
 import com.mathgame.util.Utils;
@@ -21,7 +20,7 @@ public class BaseApplication extends MultiDexApplication {
             customMode.setTimerValue(20);
             customMode.setSkipNumbers(3);
             customMode.setDifficulty(Constant.DifficultyLevel.SMALL);
-            settings.setCustomMode(customMode);
+            settings.setGeneralMode(customMode);
             Dependencies.saveSettings(context, settings);
         }
     }
@@ -30,7 +29,6 @@ public class BaseApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
-        ObjectBox.init(this);
         Utils.setLanguage(this, Dependencies.getLanguageCode(this));
         Settings settings = Dependencies.getSettings(this);
         initSettings(this, settings);

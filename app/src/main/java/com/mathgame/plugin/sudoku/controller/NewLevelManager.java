@@ -75,7 +75,7 @@ public class NewLevelManager {
 //        for(Level level : levels) {
 //
 //            // delete level from database
-//            dbHelper.deleteLevel(level.getId());
+//            dbHelper.deleteLevel(level.getUniqueId());
 //
 //            // test if it has the correct length
 //            int length = type.getSize() * type.getSize();
