@@ -7,6 +7,8 @@ import com.mathgame.model.CustomMode;
 import com.mathgame.model.Question;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import static android.content.ContentValues.TAG;
 
@@ -148,6 +150,71 @@ public class QuestionUtils {
             question = question + " = " + answerPrediction;
             mQuestion.setQuestion(question);
             mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
+        }
+        else if(customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value){
+            ArrayList<String> options = new ArrayList<>();
+            options.add(mQuestion.getAnswer());
+             maximum = 99;
+             minimum = 2;
+            switch (mQuestion.getOperation()) {
+                case Constant.MathSign.ADDITION:
+                    maximum = mQuestion.getA() + mQuestion.getB();
+                    minimum = mQuestion.getB();
+                    break;
+                case Constant.MathSign.SUBTRACTION:
+                    maximum = mQuestion.getA() - mQuestion.getB();
+                    minimum = mQuestion.getB();
+                    break;
+                case Constant.MathSign.MULTIPLICATION:
+                    maximum = mQuestion.getA() * mQuestion.getB();
+                    minimum = mQuestion.getA();
+                    break;
+                case Constant.MathSign.DIVISION:
+                    maximum = mQuestion.getA();
+                    minimum = mQuestion.getB();
+                    break;
+                case Constant.MathSign.PERCENTAGE:
+                    maximum = 9;
+                    minimum = 1;
+                    break;
+                case Constant.MathSign.SQUARE_ROOT:
+                    maximum = (int) (Math.sqrt(mQuestion.getA()) + 1);
+                    minimum = (int) (Math.sqrt(mQuestion.getA()) - 1);
+                    break;
+            }
+
+            if (!mQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
+                while ((maximum - minimum) < 4) {
+                    maximum = ++maximum;
+                    minimum = --minimum;
+                }
+            }
+            for (int i = 0; i < 3; i++) {
+                String wrongOption;
+                if (mQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
+                    wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
+                } else {
+                    wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                }
+                for (int j = 0; j < options.size(); j++) {
+                    String value = options.get(j);
+                    if (wrongOption.equals(value) || wrongOption.equalsIgnoreCase(mQuestion.getAnswer())) {
+                        if (mQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
+                            wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
+                        } else {
+                            wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
+                        }
+                        j = 0;
+                    }
+                }
+                options.add(wrongOption);
+            }
+
+            Collections.shuffle(options);
+            mQuestion.setOption_1(options.get(0));
+            mQuestion.setOption_2(options.get(1));
+            mQuestion.setOption_3(options.get(2));
+            mQuestion.setOption_4(options.get(3));
         }
         mQuestion.setId(Utils.getUniqueId());
         return mQuestion;
