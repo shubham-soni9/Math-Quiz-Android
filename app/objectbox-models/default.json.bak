@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:5623299529199068778",
-      "lastPropertyId": "14:3944789918952881145",
+      "lastPropertyId": "15:6256944206003729697",
       "name": "CustomMode",
       "properties": [
         {
@@ -49,8 +49,8 @@
           "name": "difficulty"
         },
         {
-          "id": "14:3944789918952881145",
-          "name": "uuid"
+          "id": "15:6256944206003729697",
+          "name": "uniqueId"
         }
       ],
       "relations": []
@@ -67,7 +67,8 @@
   "retiredPropertyUids": [
     7000096032784363106,
     271739161231189732,
-    8685637156511195365
+    8685637156511195365,
+    3944789918952881145
   ],
   "retiredRelationUids": [],
   "version": 1

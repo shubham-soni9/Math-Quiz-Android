@@ -8,6 +8,7 @@ import com.mathgame.model.Question;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 import static android.content.ContentValues.TAG;
@@ -148,12 +149,11 @@ public class QuestionUtils {
             question = question + " = " + answerPrediction;
             mQuestion.setQuestion(question);
             mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
-        }
-        else if(customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value){
+        } else if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
             ArrayList<String> options = new ArrayList<>();
             options.add(mQuestion.getAnswer());
-             maximum = 99;
-             minimum = 2;
+            maximum = 99;
+            minimum = 2;
             switch (mQuestion.getOperation()) {
                 case Constant.MathSign.ADDITION:
                     maximum = a + b;
@@ -218,15 +218,14 @@ public class QuestionUtils {
         return mQuestion;
     }
 
-    public static Question getLevelQuestionWithAnswer(CLevel level) {
+    public static Question getLevelQuestionWithAnswer(CustomMode customMode) {
         DecimalFormat dFormat = new DecimalFormat("###.#");
-        DecimalFormat twoDecimalFormatter = new DecimalFormat("#.##");
-        String question=Constant.EMPTY;
+        String question = Constant.EMPTY;
         String answer = Constant.EMPTY;
 
         int maximum;
         int minimum;
-        switch (level.getDifficulty()) {
+        switch (customMode.getDifficulty()) {
             case Constant.DifficultyLevel.SMALL:
                 maximum = 10;
                 minimum = 2;
@@ -248,7 +247,7 @@ public class QuestionUtils {
         int b = RandomUtils.getRandomInt(maximum, minimum);
         int c = RandomUtils.getRandomInt(maximum, minimum);
 
-        switch (level.getQuestionSample()) {
+        switch (customMode.getQuestionSample()) {
             case Constant.QuestionFormat.FORMAT_1:
                 question = dFormat.format(a) + " + " + dFormat.format(b) + " = ?";
                 answer = dFormat.format(a + b);
@@ -369,14 +368,24 @@ public class QuestionUtils {
                 question = "(" + dFormat.format(a) + " * " + dFormat.format(b) + ") - sqt(" + dFormat.format(c) + ") = ?";
                 answer = dFormat.format((a * b) - Math.sqrt(c));
                 break;
-
         }
 
+
+        int variable = RandomUtils.getRandomInt(3, 1);
+        ArrayList<String> options=new ArrayList<>();
+        options.add(answer);
+        options.add(dFormat.format(Utils.toDouble(answer) - variable));
+        options.add(dFormat.format(Utils.toDouble(answer) + variable));
+        options.add(dFormat.format(Utils.toDouble(answer) + variable + 1));
+        Collections.shuffle(options);
+
+        mQuestion.setOption_1(options.get(0));
+        mQuestion.setOption_2(options.get(1));
+        mQuestion.setOption_3(options.get(2));
+        mQuestion.setOption_4(options.get(3));
         mQuestion.setQuestion(question);
         mQuestion.setAnswer(answer);
         mQuestion.setId(Utils.getUniqueId());
         return mQuestion;
     }
-
-
 }

@@ -6,16 +6,23 @@ import android.os.Parcelable;
 public class CLevel implements Parcelable {
     private int    difficulty;
     private String question_sample;
+    private int    time_per_question;
 
     private CLevel(Parcel in) {
         difficulty = in.readInt();
         question_sample = in.readString();
+        time_per_question = in.readInt();
+    }
+
+    public int getTime_per_question() {
+        return time_per_question;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(difficulty);
         dest.writeString(question_sample);
+        dest.writeInt(time_per_question);
     }
 
     @Override
@@ -38,6 +45,7 @@ public class CLevel implements Parcelable {
     public String getQuestionSample() {
         return question_sample;
     }
+
     public int getDifficulty() {
         return difficulty;
     }

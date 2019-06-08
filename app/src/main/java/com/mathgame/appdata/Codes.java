@@ -26,31 +26,6 @@ public interface Codes {
         }
     }
 
-    enum TimerType {
-        NONE(R.string.none, 0),
-        PER_TEST(R.string.per_test, 1),
-        PER_QUESTION(R.string.per_question, 2);
-
-        final int label;
-        final int value;
-
-        TimerType(int label, int value) {
-            this.label = label;
-            this.value = value;
-        }
-
-        public static TimerType get(int value) {
-            TimerType status = NONE;
-            for (TimerType timerType : values()) {
-                if (timerType.value == value) {
-                    status = timerType;
-                    break;
-                }
-            }
-            return status;
-        }
-    }
-
     enum GameType {
         MULTIPLE_CHOICE(R.string.multiple_choice, 0),
         YES_NO(R.string.yes_no, 1),

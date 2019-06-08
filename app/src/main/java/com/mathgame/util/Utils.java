@@ -86,7 +86,7 @@ public class Utils {
                 (assignable.equals("null") ? assign(alternative) : assignable);
     }
 
-    private static String assign(String assignable) {
+    public static String assign(String assignable) {
 
         return assignable == null || assignable.equalsIgnoreCase("[]") || assignable.equals("null") ?
                 Constant.EMPTY : assignable;

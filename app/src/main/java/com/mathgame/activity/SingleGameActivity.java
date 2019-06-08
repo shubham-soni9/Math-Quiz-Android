@@ -136,7 +136,12 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         }
 
         if (remainingQuestion <= customMode.getNumberOfQuestions()) {
-            currentQuestion = QuestionUtils.getQuestionWithAnswer(customMode);
+            if(customMode.getQuestionSample().isEmpty()){
+                currentQuestion = QuestionUtils.getQuestionWithAnswer(customMode);
+            }
+            else {
+                currentQuestion = QuestionUtils.getLevelQuestionWithAnswer(customMode);
+            }
             tvQuestion.setText(currentQuestion.getQuestion());
             if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
                 tvOption1.setText(currentQuestion.getOption_1());

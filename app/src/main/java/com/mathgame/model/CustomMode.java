@@ -3,6 +3,8 @@ package com.mathgame.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.mathgame.util.Utils;
+
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 
@@ -32,7 +34,7 @@ public class CustomMode implements Parcelable {
     private int    skipNumbers;
     private int    difficulty;
     private int    uniqueId;
-
+private String questionSample;
     public CustomMode() {
 
     }
@@ -49,6 +51,7 @@ public class CustomMode implements Parcelable {
         timerValue = in.readInt();
         skipNumbers = in.readInt();
         difficulty = in.readInt();
+        questionSample=in.readString();
     }
 
     @Override
@@ -69,6 +72,7 @@ public class CustomMode implements Parcelable {
         dest.writeInt(timerValue);
         dest.writeInt(skipNumbers);
         dest.writeInt(difficulty);
+        dest.writeString(questionSample);
     }
 
     public int getUniqueId() {
@@ -157,5 +161,13 @@ public class CustomMode implements Parcelable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setQuestionSample(String questionSample) {
+        this.questionSample = questionSample;
+    }
+
+    public String getQuestionSample() {
+        return Utils.assign(questionSample);
     }
 }
