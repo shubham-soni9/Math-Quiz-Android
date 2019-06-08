@@ -265,6 +265,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         Utils.openEmailApp(this, subject, message);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        drawerLayout.closeDrawer(GravityCompat.START,false);
+    }
 
     private void exit() {
         new OptionsDialog.Builder(this)

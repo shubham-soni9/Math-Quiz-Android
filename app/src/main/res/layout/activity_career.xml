@@ -10,7 +10,6 @@
         android:id="@+id/tutorialPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_15dp"
         android:layout_marginStart="@dimen/_10dp"
         android:layout_marginEnd="@dimen/_10dp"
         android:orientation="vertical"
