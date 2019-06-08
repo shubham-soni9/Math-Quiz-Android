@@ -1,9 +1,7 @@
 package com.mathgame.appdata;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 
-import com.mathgame.R;
 import com.mathgame.model.GameResult;
 import com.mathgame.model.Settings;
 import com.mathgame.util.Prefs;
@@ -39,11 +37,19 @@ public class Dependencies {
         return Prefs.with(context).getBoolean(Keys.Prefs.KEY_SUDOKU_FIRST_LAUNCH, true);
     }
 
-    public static void setGameResult(Context context, GameResult gameResult) {
-        Prefs.with(context).save(Keys.Prefs.GAME_RESULTS, gameResult);
+    public static void setSinglePlayerResult(Context context, GameResult gameResult) {
+        Prefs.with(context).save(Keys.Prefs.FIRST_PLAYER_RESULT, gameResult);
     }
 
-    public static GameResult getGameResult(Context context) {
-        return Prefs.with(context).getObject(Keys.Prefs.GAME_RESULTS, GameResult.class);
+    public static GameResult getSinglePlayerResult(Context context) {
+        return Prefs.with(context).getObject(Keys.Prefs.FIRST_PLAYER_RESULT, GameResult.class);
+    }
+
+    public static void setSecondPlayerResult(Context context, GameResult gameResult) {
+        Prefs.with(context).save(Keys.Prefs.SECOND_PLAYER_RESULT, gameResult);
+    }
+
+    public static GameResult getSecondPlayerResult(Context context) {
+        return Prefs.with(context).getObject(Keys.Prefs.SECOND_PLAYER_RESULT, GameResult.class);
     }
 }

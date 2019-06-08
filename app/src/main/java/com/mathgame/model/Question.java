@@ -27,6 +27,7 @@ public class Question implements Parcelable {
     private           String   option_2;
     private           String   option_3;
     private           String   option_4;
+    private int player;
 
     public Question() {
     }
@@ -43,6 +44,7 @@ public class Question implements Parcelable {
         option_2 = in.readString();
         option_3 = in.readString();
         option_4 = in.readString();
+        player=in.readInt();
     }
 
     public String getOption_1() {
@@ -142,6 +144,14 @@ public class Question implements Parcelable {
         return 0;
     }
 
+    public int getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(int player) {
+        this.player = player;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(id);
@@ -155,6 +165,7 @@ public class Question implements Parcelable {
         dest.writeString(option_2);
         dest.writeString(option_3);
         dest.writeString(option_4);
+        dest.writeInt(player);
     }
 
     public String getUserInput() {

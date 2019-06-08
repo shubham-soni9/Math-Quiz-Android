@@ -66,7 +66,7 @@ public class SingleGameResultActivity extends BaseActivity implements View.OnCli
     }
 
     private void setData() {
-        gameResult = Dependencies.getGameResult(this);
+        gameResult = Dependencies.getSinglePlayerResult(this);
         if (gameResult != null) {
             ArrayList<Question> questionList = gameResult.getQuestionList();
             int correct = 0, incorrect = 0, unattempted = 0, total;

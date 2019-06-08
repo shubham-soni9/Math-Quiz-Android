@@ -87,7 +87,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     }
 
     private void setData() {
-        Dependencies.setGameResult(this, null);
+        Dependencies.setSinglePlayerResult(this, null);
         gameResult = new GameResult();
         customMode = Objects.requireNonNull(getIntent().getExtras()).getParcelable(CustomMode.class.getName());
         Utils.logRequestBody(customMode);
@@ -233,7 +233,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
             questionList.add(mQuestion);
         }
         gameResult.setQuestionList(questionList);
-        Dependencies.setGameResult(this, gameResult);
+        Dependencies.setSinglePlayerResult(this, gameResult);
     }
 
     private void onCorrectClicked() {

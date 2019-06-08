@@ -38,7 +38,7 @@ public class GameResult implements Parcelable {
     }
 
     public ArrayList<Question> getQuestionList() {
-        return questions == null ? new ArrayList<Question>() : questions;
+        return questions == null ? new ArrayList<>() : questions;
     }
 
     public void setQuestionList(ArrayList<Question> questions) {
