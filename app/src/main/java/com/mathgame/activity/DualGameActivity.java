@@ -127,75 +127,14 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
             tvPlayer1Question.setText(currentQuestion.getQuestion());
             tvPlayer2Question.setText(currentQuestion.getQuestion());
             if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
-                ArrayList<String> options = new ArrayList<>();
-                options.add(currentQuestion.getAnswer());
-                int maximum = 99;
-                int minimum = 2;
-                switch (currentQuestion.getOperation()) {
-                    case Constant.MathSign.ADDITION:
-                        maximum = currentQuestion.getA() + currentQuestion.getB();
-                        minimum = currentQuestion.getB();
-                        break;
-                    case Constant.MathSign.SUBTRACTION:
-                        maximum = currentQuestion.getA() - currentQuestion.getB();
-                        minimum = currentQuestion.getB();
-                        break;
-                    case Constant.MathSign.MULTIPLICATION:
-                        maximum = currentQuestion.getA() * currentQuestion.getB();
-                        minimum = currentQuestion.getA();
-                        break;
-                    case Constant.MathSign.DIVISION:
-                        maximum = currentQuestion.getA();
-                        minimum = currentQuestion.getB();
-                        break;
-                    case Constant.MathSign.PERCENTAGE:
-                        maximum = 9;
-                        minimum = 1;
-                        break;
-                    case Constant.MathSign.SQUARE_ROOT:
-                        maximum = (int) (Math.sqrt(currentQuestion.getA()) + 1);
-                        minimum = (int) (Math.sqrt(currentQuestion.getA()) - 1);
-                        break;
-                }
-
-                if (!currentQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
-                    while ((maximum - minimum) < 4) {
-                        maximum = ++maximum;
-                        minimum = --minimum;
-                    }
-                }
-                DecimalFormat twoDecimalFormatter = new DecimalFormat("#.##");
-
-                for (int i = 0; i < 3; i++) {
-                    String wrongOption;
-                    if (currentQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
-                        wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
-                    } else {
-                        wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
-                    }
-                    for (int j = 0; j < options.size(); j++) {
-                        String value = options.get(j);
-                        if (wrongOption.equals(value) || wrongOption.equalsIgnoreCase(currentQuestion.getAnswer())) {
-                            if (currentQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
-                                wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
-                            } else {
-                                wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
-                            }
-                            j = 0;
-                        }
-                    }
-                    options.add(wrongOption);
-                }
-
-                Collections.shuffle(options);
-                tvPlayer1Option1.setText(options.get(0));
-                tvPlayer1Option2.setText(options.get(1));
-                tvPlayer1Option3.setText(options.get(2));
-                tvPlayer1Option4.setText(options.get(3));
-                tvPlayer2Option1.setText(options.get(0));
-                tvPlayer2Option2.setText(options.get(1));
-                tvPlayer2Option3.setText(options.get(2));
-                tvPlayer2Option4.setText(options.get(3));
+                tvPlayer1Option1.setText(currentQuestion.getOption_1());
+                tvPlayer1Option2.setText(currentQuestion.getOption_2());
+                tvPlayer1Option3.setText(currentQuestion.getOption_3());
+                tvPlayer1Option4.setText(currentQuestion.getOption_4());
+                tvPlayer2Option1.setText(currentQuestion.getOption_1());
+                tvPlayer2Option2.setText(currentQuestion.getOption_2());
+                tvPlayer2Option3.setText(currentQuestion.getOption_3());
+                tvPlayer2Option4.setText(currentQuestion.getOption_4());
             }
             if (customMode.getTimerValue() > 0) {
                 if (countDownTimer != null) {

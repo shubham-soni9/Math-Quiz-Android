@@ -8,8 +8,6 @@ public class Question implements Parcelable {
     private           String   operation;
     private           String   question;
     private           String   answer;
-    private           int      a;
-    private           int      b;
     private           int      answerType;
     private transient Listener listener;
     private String  userInput;
@@ -27,8 +25,6 @@ public class Question implements Parcelable {
         operation = in.readString();
         question = in.readString();
         answer = in.readString();
-        a = in.readInt();
-        b = in.readInt();
         answerType = in.readInt();
         userInput = in.readString();
         correct = in.readByte() != 0;
@@ -122,22 +118,6 @@ public class Question implements Parcelable {
         this.answer = answer;
     }
 
-    public int getA() {
-        return a;
-    }
-
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public int getB() {
-        return b;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
     public Listener getListener() {
         return listener;
     }
@@ -169,8 +149,6 @@ public class Question implements Parcelable {
         dest.writeString(operation);
         dest.writeString(question);
         dest.writeString(answer);
-        dest.writeInt(a);
-        dest.writeInt(b);
         dest.writeInt(answerType);
         dest.writeString(userInput);
         dest.writeByte((byte) (correct ? 1 : 0));

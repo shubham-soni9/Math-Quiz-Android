@@ -97,8 +97,6 @@ public class QuestionUtils {
                 answer = twoDecimalFormatter.format(Math.sqrt(a));
                 break;
         }
-        mQuestion.setA(a);
-        mQuestion.setB(b);
         mQuestion.setOperation(chosenOperation);
         mQuestion.setQuestion(question);
         mQuestion.setAnswer(answer);
@@ -158,28 +156,28 @@ public class QuestionUtils {
              minimum = 2;
             switch (mQuestion.getOperation()) {
                 case Constant.MathSign.ADDITION:
-                    maximum = mQuestion.getA() + mQuestion.getB();
-                    minimum = mQuestion.getB();
+                    maximum = a + b;
+                    minimum = b;
                     break;
                 case Constant.MathSign.SUBTRACTION:
-                    maximum = mQuestion.getA() - mQuestion.getB();
-                    minimum = mQuestion.getB();
+                    maximum = a - b;
+                    minimum = b;
                     break;
                 case Constant.MathSign.MULTIPLICATION:
-                    maximum = mQuestion.getA() * mQuestion.getB();
-                    minimum = mQuestion.getA();
+                    maximum = a * b;
+                    minimum = a;
                     break;
                 case Constant.MathSign.DIVISION:
-                    maximum = mQuestion.getA();
-                    minimum = mQuestion.getB();
+                    maximum = a;
+                    minimum = b;
                     break;
                 case Constant.MathSign.PERCENTAGE:
                     maximum = 9;
                     minimum = 1;
                     break;
                 case Constant.MathSign.SQUARE_ROOT:
-                    maximum = (int) (Math.sqrt(mQuestion.getA()) + 1);
-                    minimum = (int) (Math.sqrt(mQuestion.getA()) - 1);
+                    maximum = (int) (Math.sqrt(a) + 1);
+                    minimum = (int) (Math.sqrt(a) - 1);
                     break;
             }
 
@@ -223,7 +221,7 @@ public class QuestionUtils {
     public static Question getLevelQuestionWithAnswer(CLevel level) {
         DecimalFormat dFormat = new DecimalFormat("###.#");
         DecimalFormat twoDecimalFormatter = new DecimalFormat("#.##");
-        String question;
+        String question=Constant.EMPTY;
         String answer = Constant.EMPTY;
 
         int maximum;
@@ -374,60 +372,8 @@ public class QuestionUtils {
 
         }
 
-        mQuestion.setA(a);
-        mQuestion.setB(b);
-        mQuestion.setOperation(chosenOperation);
         mQuestion.setQuestion(question);
         mQuestion.setAnswer(answer);
-
-        if (customMode.getGameType() == Codes.GameType.YES_NO.value) {
-            int randomCheck = RandomUtils.getRandomInt(3, 1);
-            String answerPrediction;
-            if (randomCheck == 2) {
-                switch (chosenOperation) {
-                    case Constant.MathSign.ADDITION:
-                        maximum = a + b;
-                        minimum = b;
-                        break;
-                    case Constant.MathSign.SUBTRACTION:
-                        maximum = a - b;
-                        minimum = b;
-                        break;
-                    case Constant.MathSign.MULTIPLICATION:
-                        maximum = a * b;
-                        minimum = a;
-                        break;
-                    case Constant.MathSign.DIVISION:
-                        maximum = a;
-                        minimum = b;
-                        break;
-                    case Constant.MathSign.PERCENTAGE:
-                        maximum = 9;
-                        minimum = 1;
-                        break;
-                    case Constant.MathSign.SQUARE_ROOT:
-                        maximum = (int) (Math.sqrt(a) + 1);
-                        minimum = (int) (Math.sqrt(a) - 1);
-                        break;
-                }
-                int randomInt = RandomUtils.getRandomInt(3, 1);
-                if (randomInt == 2) {
-                    answerPrediction = answer;
-                } else {
-                    if (chosenOperation.equals(Constant.MathSign.SQUARE_ROOT)) {
-                        answerPrediction = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
-                    } else {
-                        answerPrediction = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
-                    }
-                }
-
-            } else {
-                answerPrediction = answer;
-            }
-            question = question + " = " + answerPrediction;
-            mQuestion.setQuestion(question);
-            mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
-        }
         mQuestion.setId(Utils.getUniqueId());
         return mQuestion;
     }
