@@ -57,7 +57,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
     private void setData() {
         tvChangeLanguage.setText(Constant.AppLanguage.getLanguageByCode(Dependencies.getLanguageCode(this)).name);
         cbEnableTimer.setOnCheckedChangeListener((buttonView, isChecked) -> rlTimerValue.setVisibility(isChecked ? View.VISIBLE : View.GONE));
-        npNumberOfQuestion.setOnValueChangedListener(picker -> npNumberOfSkip.setMaxValue(npNumberOfQuestion.getMaxValue()));
+        npNumberOfQuestion.setOnValueChangedListener(picker -> npNumberOfSkip.setMaxValue(npNumberOfQuestion.getValue()));
         rlEnableTimer.setOnClickListener(v -> cbEnableTimer.setChecked(!cbEnableTimer.isChecked()));
         settings = Dependencies.getSettings(this);
         customMode = settings.getGeneralMode();

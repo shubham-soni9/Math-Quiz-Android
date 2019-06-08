@@ -95,7 +95,7 @@ public class SettingsDialog {
             final Button btnCancel = optionsDialog.findViewById(R.id.btnCancel);
 
             cbEnableTimer.setOnCheckedChangeListener((buttonView, isChecked) -> rlTimerValue.setVisibility(isChecked ? View.VISIBLE : View.GONE));
-            npNumberOfQuestion.setOnValueChangedListener(picker -> npNumberOfSkip.setMaxValue(npNumberOfQuestion.getMaxValue()));
+            npNumberOfQuestion.setOnValueChangedListener(picker -> npNumberOfSkip.setMaxValue(npNumberOfQuestion.getValue()));
             rlEnableTimer.setOnClickListener(v -> cbEnableTimer.setChecked(!cbEnableTimer.isChecked()));
 
             if (customMode != null) {
