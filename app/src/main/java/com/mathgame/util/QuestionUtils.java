@@ -2,6 +2,7 @@ package com.mathgame.util;
 
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
+import com.mathgame.model.CLevel;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.Question;
 
@@ -152,17 +153,15 @@ public class QuestionUtils {
         return mQuestion;
     }
 
-    public static Question getLevelQuestionWithAnswer(CustomMode customMode) {
+    public static Question getLevelQuestionWithAnswer(CLevel level) {
         DecimalFormat dFormat = new DecimalFormat("###.#");
         DecimalFormat twoDecimalFormatter = new DecimalFormat("#.##");
-        String[] operations = customMode.getMathOperations().split(" ");
         String question;
         String answer = Constant.EMPTY;
 
         int maximum;
         int minimum;
-        String chosenOperation = operations[RandomUtils.getRandomInt(operations.length - 1)];
-        switch (customMode.getDifficulty()) {
+        switch (level.getDifficulty()) {
             case Constant.DifficultyLevel.SMALL:
                 maximum = 10;
                 minimum = 2;
@@ -182,58 +181,132 @@ public class QuestionUtils {
         Question mQuestion = new Question();
         int a = RandomUtils.getRandomInt(maximum, minimum);
         int b = RandomUtils.getRandomInt(maximum, minimum);
+        int c = RandomUtils.getRandomInt(maximum, minimum);
 
-        switch (chosenOperation) {
-            case Constant.MathSign.DIVISION:
-                while (a <= b || (a % b != 0)) {
-                    Log.e(TAG, "a = " + a + " b = " + b);
-                    a = RandomUtils.getRandomInt(maximum, minimum);
-                    b = RandomUtils.getRandomInt(maximum, minimum);
-                }
-                break;
-            case Constant.MathSign.PERCENTAGE:
-                while (a <= b) {
-                    a = RandomUtils.getRandomInt(maximum, minimum);
-                    b = RandomUtils.getRandomInt(maximum, minimum);
-                }
-                break;
-            case Constant.MathSign.SQUARE_ROOT:
-                if (a == 1) {
-                    a++;
-                }
-                break;
-            default:
-                while (a == b) {
-                    a = RandomUtils.getRandomInt(maximum, minimum);
-                    b = RandomUtils.getRandomInt(maximum, minimum);
-                }
-                break;
-        }
-        if (chosenOperation.equals(Constant.MathSign.SQUARE_ROOT)) {
-            question = "sqrt(" + dFormat.format(a) + ")";
-        } else {
-            question = dFormat.format(a) + " " + chosenOperation + " " + dFormat.format(b) + " = ?";
-        }
-        switch (chosenOperation) {
-            case Constant.MathSign.ADDITION:
+        switch (level.getQuestionSample()) {
+            case Constant.QuestionFormat.FORMAT_1:
+                question = dFormat.format(a) + " + " + dFormat.format(b) + " = ?";
                 answer = dFormat.format(a + b);
                 break;
-            case Constant.MathSign.SUBTRACTION:
+            case Constant.QuestionFormat.FORMAT_2:
+                question = dFormat.format(a) + " - " + dFormat.format(b) + " = ?";
                 answer = dFormat.format(a - b);
                 break;
-            case Constant.MathSign.MULTIPLICATION:
+            case Constant.QuestionFormat.FORMAT_3:
+                question = dFormat.format(a) + " * " + dFormat.format(b) + " = ?";
                 answer = dFormat.format(a * b);
                 break;
-            case Constant.MathSign.DIVISION:
+            case Constant.QuestionFormat.FORMAT_4:
+                question = dFormat.format(a) + " / " + dFormat.format(b) + " = ?";
                 answer = dFormat.format(a / b);
                 break;
-            case Constant.MathSign.PERCENTAGE:
-                answer = dFormat.format(a % b);
+            case Constant.QuestionFormat.FORMAT_5:
+                question = dFormat.format(a) + " + " + dFormat.format(b) + " + " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a + b + c);
                 break;
-            case Constant.MathSign.SQUARE_ROOT:
-                answer = twoDecimalFormatter.format(Math.sqrt(a));
+            case Constant.QuestionFormat.FORMAT_6:
+                question = dFormat.format(a) + " + " + dFormat.format(b) + " - " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a + b - c);
                 break;
+            case Constant.QuestionFormat.FORMAT_7:
+                question = dFormat.format(a) + " + " + dFormat.format(b) + " * " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a + b * c);
+                break;
+            case Constant.QuestionFormat.FORMAT_8:
+                question = dFormat.format(a) + " + " + dFormat.format(b) + " / " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a + b / c);
+                break;
+            case Constant.QuestionFormat.FORMAT_9:
+                question = dFormat.format(a) + " - " + dFormat.format(b) + " + " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a - b + c);
+                break;
+            case Constant.QuestionFormat.FORMAT_10:
+                question = dFormat.format(a) + " - " + dFormat.format(b) + " - " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a - b - c);
+                break;
+            case Constant.QuestionFormat.FORMAT_11:
+                question = dFormat.format(a) + " - " + dFormat.format(b) + " * " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a - b * c);
+                break;
+            case Constant.QuestionFormat.FORMAT_12:
+                question = dFormat.format(a) + " - " + dFormat.format(b) + " / " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a - b / c);
+                break;
+            case Constant.QuestionFormat.FORMAT_13:
+                question = dFormat.format(a) + " * " + dFormat.format(b) + " + " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a * b + c);
+                break;
+            case Constant.QuestionFormat.FORMAT_14:
+                question = dFormat.format(a) + " * " + dFormat.format(b) + " - " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a * b - c);
+                break;
+            case Constant.QuestionFormat.FORMAT_15:
+                question = dFormat.format(a) + " * " + dFormat.format(b) + " * " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a * b * c);
+                break;
+            case Constant.QuestionFormat.FORMAT_16:
+                question = dFormat.format(a) + " * " + dFormat.format(b) + " / " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a * b / c);
+                break;
+            case Constant.QuestionFormat.FORMAT_17:
+                question = dFormat.format(a) + " / " + dFormat.format(b) + " * " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a / b * c);
+                break;
+            case Constant.QuestionFormat.FORMAT_18:
+                question = dFormat.format(a) + " / " + dFormat.format(b) + " - " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a / b - c);
+                break;
+            case Constant.QuestionFormat.FORMAT_19:
+                question = dFormat.format(a) + " / " + dFormat.format(b) + " + " + dFormat.format(c) + " = ?";
+                answer = dFormat.format(a / b + c);
+                break;
+            case Constant.QuestionFormat.FORMAT_20:
+                question = dFormat.format(a) + " * " + dFormat.format(b) + " - ? = " + dFormat.format(c);
+                answer = dFormat.format(a * b + c);
+                break;
+            case Constant.QuestionFormat.FORMAT_21:
+                question = dFormat.format(a) + " * (" + dFormat.format(b) + " / " + dFormat.format(c) + ") = ?";
+                answer = dFormat.format(a * (b / c));
+                break;
+            case Constant.QuestionFormat.FORMAT_22:
+                question = "(" + dFormat.format(a) + " * " + dFormat.format(b) + ") - ? = " + dFormat.format(c);
+                answer = dFormat.format(a * b + c);
+                break;
+            case Constant.QuestionFormat.FORMAT_23:
+                question = "(" + dFormat.format(a) + " * " + dFormat.format(b) + ") / " + dFormat.format(c) + " = ?";
+                answer = dFormat.format((a * b) / c);
+                break;
+            case Constant.QuestionFormat.FORMAT_24:
+                question = "(" + dFormat.format(a) + " * ?) - " + dFormat.format(b) + " = " + dFormat.format(c);
+                answer = dFormat.format(c + b / a);
+                break;
+            case Constant.QuestionFormat.FORMAT_25:
+                question = "(" + dFormat.format(a) + " * ?)" + " / " + dFormat.format(b) + " = " + dFormat.format(c);
+                answer = dFormat.format(c * b / a);
+                break;
+            case Constant.QuestionFormat.FORMAT_26:
+                question = "(" + dFormat.format(a) + " * " + dFormat.format(b) + ") * ?" + " = " + dFormat.format(c);
+                answer = dFormat.format(c / b / a);
+                break;
+            case Constant.QuestionFormat.FORMAT_27:
+                question = "sqt(" + dFormat.format(a) + ") * ?) - " + dFormat.format(b) + " = " + dFormat.format(c);
+                answer = dFormat.format(c + b / Math.sqrt(a));
+                break;
+            case Constant.QuestionFormat.FORMAT_28:
+                question = "(" + dFormat.format(a) + " * ?) - sqt(" + dFormat.format(b) + ") = " + dFormat.format(c);
+                answer = dFormat.format(c + Math.sqrt(c) / a);
+                break;
+            case Constant.QuestionFormat.FORMAT_29:
+                question = dFormat.format(a) + " + ? = " + dFormat.format(b) + " % " + dFormat.format(c);
+                answer = dFormat.format(b % c - a);
+                break;
+            case Constant.QuestionFormat.FORMAT_30:
+                question = "(" + dFormat.format(a) + " * " + dFormat.format(b) + ") - sqt(" + dFormat.format(c) + ") = ?";
+                answer = dFormat.format((a * b) - Math.sqrt(c));
+                break;
+
         }
+
         mQuestion.setA(a);
         mQuestion.setB(b);
         mQuestion.setOperation(chosenOperation);

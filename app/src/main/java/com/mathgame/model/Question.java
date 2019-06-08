@@ -14,11 +14,15 @@ public class Question implements Parcelable {
     private transient Listener listener;
     private String  userInput;
     private boolean correct;
+    private String option_1;
+    private String option_2;
+    private String option_3;
+    private String option_4;
 
     public Question() {
     }
 
-    private Question(Parcel in) {
+    protected Question(Parcel in) {
         id = in.readString();
         operation = in.readString();
         question = in.readString();
@@ -28,24 +32,10 @@ public class Question implements Parcelable {
         answerType = in.readInt();
         userInput = in.readString();
         correct = in.readByte() != 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(operation);
-        dest.writeString(question);
-        dest.writeString(answer);
-        dest.writeInt(a);
-        dest.writeInt(b);
-        dest.writeInt(answerType);
-        dest.writeString(userInput);
-        dest.writeByte((byte) (correct ? 1 : 0));
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+        option_1 = in.readString();
+        option_2 = in.readString();
+        option_3 = in.readString();
+        option_4 = in.readString();
     }
 
     public static final Creator<Question> CREATOR = new Creator<Question>() {
@@ -134,6 +124,28 @@ public class Question implements Parcelable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(operation);
+        dest.writeString(question);
+        dest.writeString(answer);
+        dest.writeInt(a);
+        dest.writeInt(b);
+        dest.writeInt(answerType);
+        dest.writeString(userInput);
+        dest.writeByte((byte) (correct ? 1 : 0));
+        dest.writeString(option_1);
+        dest.writeString(option_2);
+        dest.writeString(option_3);
+        dest.writeString(option_4);
     }
 
     public interface Listener {
