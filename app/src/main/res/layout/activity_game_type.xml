@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_15dp"
-                android:layout_toRightOf="@+id/ivBack"
+                android:layout_toEndOf="@+id/ivBack"
                 android:text="@string/app_name"
                 android:textAppearance="@style/CustomTextAppearance.Regular"
                 android:textColor="@color/white_100"

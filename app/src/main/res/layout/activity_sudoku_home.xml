@@ -28,9 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/sudoku"
+            android:textAppearance="@style/CustomTextAppearance.Regular"
             android:textColor="@color/white_100"
-            android:textSize="23sp"
-            android:textStyle="bold" />
+            android:textSize="23sp" />
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivMoreOption"

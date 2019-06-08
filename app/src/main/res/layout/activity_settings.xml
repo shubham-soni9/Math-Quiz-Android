@@ -13,51 +13,45 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            android:layout_height="?attr/actionBarSize">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:src="@drawable/ic_back" />
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/ivBack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:src="@drawable/ic_back" />
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_15dp"
+                android:layout_toEndOf="@+id/ivBack"
+                android:text="@string/settings"
+                android:textAppearance="@style/CustomTextAppearance.Regular"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/text_size_large_i" />
 
-                <TextView
-                    android:id="@+id/tvSettingsLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/ivBack"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/_15dp"
-                    android:text="@string/settings"
-                    android:textAppearance="@style/CustomTextAppearance.Regular"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_large" />
-
-                <TextView
-                    android:id="@+id/tvResetSettings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/_15dp"
-                    android:paddingEnd="@dimen/_15dp"
-                    android:text="@string/reset"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_large" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
+            <TextView
+                android:id="@+id/tvResetSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingStart="@dimen/_15dp"
+                android:paddingEnd="@dimen/_15dp"
+                android:text="@string/reset"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_large" />
+        </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 
 

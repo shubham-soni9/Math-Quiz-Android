@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5dp"
             android:layout_weight="7"
+
             android:text="@string/gametype_unspecified"
             android:textColor="@color/colorPrimary" />
 
