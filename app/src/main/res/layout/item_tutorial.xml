@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llItemParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/llItemParent"
     android:layout_marginStart="@dimen/_20dp"
     android:orientation="vertical">
 
@@ -11,12 +11,12 @@
         android:id="@+id/tvTutorialName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10dp"
-        android:textSize="@dimen/text_size_normal"
+        android:drawableStart="@drawable/ic_tutorial"
         android:drawablePadding="@dimen/_10dp"
         android:gravity="center_vertical"
-        android:drawableStart="@drawable/ic_tutorial"
+        android:padding="@dimen/_10dp"
         android:textAppearance="@style/CustomTextAppearance.Light"
         android:textColor="@color/white_100"
+        android:textSize="@dimen/text_size_normal"
         tools:text="Simple Addition" />
 </LinearLayout>

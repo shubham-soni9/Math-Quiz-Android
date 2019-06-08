@@ -3,18 +3,12 @@ package com.mathgame.plugin.tictactoe.selection;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.plugin.tictactoe.TTTConstants;
 import com.mathgame.plugin.tictactoe.game.TTTGameActivity;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.Transition;
-import com.mathgame.util.Utils;
 
 /**
  * This activity takes the user through the selection flow.

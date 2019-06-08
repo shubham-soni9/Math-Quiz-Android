@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +20,10 @@ import com.mathgame.structure.BaseActivity;
 
 
 public class SudokuTutorialActivity extends BaseActivity {
-    private ViewPager          viewPager;
-    private LinearLayout       dotsLayout;
-    private int[]              layouts;
-    private Button             btnSkip, btnNext;
+    private ViewPager    viewPager;
+    private LinearLayout dotsLayout;
+    private int[]        layouts;
+    private Button       btnSkip, btnNext;
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
@@ -125,7 +124,7 @@ public class SudokuTutorialActivity extends BaseActivity {
     }
 
     private void launchHomeScreen() {
-        Dependencies.setFirstTimeSudokuLaunch(this,false);
+        Dependencies.setFirstTimeSudokuLaunch(this, false);
         Intent intent = new Intent(SudokuTutorialActivity.this, SudokuHomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.util.Pair;
 
 import com.mathgame.R;
+import com.mathgame.activity.SudokuHomeActivity;
 import com.mathgame.appdata.Constant;
 import com.mathgame.plugin.sudoku.controller.constant.Action;
 import com.mathgame.plugin.sudoku.controller.constant.PrintStyle;
@@ -23,7 +24,6 @@ import com.mathgame.plugin.sudoku.controller.database.DatabaseHelper;
 import com.mathgame.plugin.sudoku.controller.database.model.Level;
 import com.mathgame.plugin.sudoku.game.GameDifficulty;
 import com.mathgame.plugin.sudoku.game.GameType;
-import com.mathgame.activity.SudokuHomeActivity;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -37,18 +37,18 @@ import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
  */
 public class GeneratorService extends IntentService {
 
-    private static final String TAG              = GeneratorService.class.getSimpleName();
-    public static final  String ACTION_GENERATE  = TAG + " ACTION_GENERATE";
-    private static final String ACTION_STOP      = TAG + " ACTION_STOP";
-    private static final String EXTRA_GAMETYPE   = TAG + " EXTRA_GAMETYPE";
-    private static final String EXTRA_DIFFICULTY = TAG + " EXTRA_DIFFICULTY";
-    private static NotificationChannel                  notificationChannel;
-    private final QQWingOptions opts = new QQWingOptions();
-    private final  List<Pair<GameType, GameDifficulty>> generationList = new LinkedList<>();
-    private final  DatabaseHelper                       dbHelper       = new DatabaseHelper(this);
-    private final  LinkedList<int[]>                    generated      = new LinkedList<>();
+    private static final String                               TAG              = GeneratorService.class.getSimpleName();
+    public static final  String                               ACTION_GENERATE  = TAG + " ACTION_GENERATE";
+    private static final String                               ACTION_STOP      = TAG + " ACTION_STOP";
+    private static final String                               EXTRA_GAMETYPE   = TAG + " EXTRA_GAMETYPE";
+    private static final String                               EXTRA_DIFFICULTY = TAG + " EXTRA_DIFFICULTY";
+    private static       NotificationChannel                  notificationChannel;
+    private final        QQWingOptions                        opts             = new QQWingOptions();
+    private final        List<Pair<GameType, GameDifficulty>> generationList   = new LinkedList<>();
+    private final        DatabaseHelper                       dbHelper         = new DatabaseHelper(this);
+    private final        LinkedList<int[]>                    generated        = new LinkedList<>();
     //private Handler mHandler = new Handler();
-    private        int[]                                level;
+    private              int[]                                level;
 
 
     public GeneratorService() {
@@ -293,19 +293,19 @@ public class GeneratorService extends IntentService {
     }
 
     private static class QQWingOptions {
-        final boolean printHistory      = false;
-        final boolean printInstructions = false;
-        final boolean    logHistory       = false;
-        final PrintStyle printStyle       = PrintStyle.READABLE;
-        final int        numberToGenerate = 1;
-        final boolean    printStats       = false;
+        final boolean    printHistory      = false;
+        final boolean    printInstructions = false;
+        final boolean    logHistory        = false;
+        final PrintStyle printStyle        = PrintStyle.READABLE;
+        final int        numberToGenerate  = 1;
+        final boolean    printStats        = false;
         // defaults for options
-        boolean needNow       = false;
-        boolean printPuzzle   = false;
-        boolean printSolution = false;
-        boolean timer          = false;
-        boolean countSolutions = false;
-        Action  action         = Action.NONE;
+        boolean        needNow        = false;
+        boolean        printPuzzle    = false;
+        boolean        printSolution  = false;
+        boolean        timer          = false;
+        boolean        countSolutions = false;
+        Action         action         = Action.NONE;
         GameDifficulty gameDifficulty = GameDifficulty.Unspecified;
         GameType       gameType       = GameType.Unspecified;
         Symmetry       symmetry       = Symmetry.NONE;

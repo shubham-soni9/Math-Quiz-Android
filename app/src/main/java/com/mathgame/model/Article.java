@@ -4,16 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Article implements Parcelable {
-    private String title;
-    private String link;
-    private int type;
-
-    protected Article(Parcel in) {
-        title = in.readString();
-        link = in.readString();
-        type=in.readInt();
-    }
-
     public static final Creator<Article> CREATOR = new Creator<Article>() {
         @Override
         public Article createFromParcel(Parcel in) {
@@ -25,6 +15,15 @@ public class Article implements Parcelable {
             return new Article[size];
         }
     };
+    private String title;
+    private String link;
+    private int    type;
+
+    protected Article(Parcel in) {
+        title = in.readString();
+        link = in.readString();
+        type = in.readInt();
+    }
 
     public String getTitle() {
         return title;

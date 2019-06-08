@@ -3,26 +3,26 @@
         <SwitchPreference
             android:id="@+id/pref_automatic_note_deletion"
             android:defaultValue="true"
-            android:textColor="@color/colorPrimary"
             android:key="pref_automatic_note_deletion"
-            android:switchTextAppearance="@style/CustomTextAppearance.Regular"
             android:summary="@string/pref_automatic_note_deletion_summary"
+            android:switchTextAppearance="@style/CustomTextAppearance.Regular"
+            android:textColor="@color/colorPrimary"
             android:title="@string/pref_automatic_note_deletion" />
 
         <SwitchPreference
             android:id="@+id/pref_timer_reset"
             android:defaultValue="true"
-            android:switchTextAppearance="@style/CustomTextAppearance.Regular"
             android:key="pref_timer_reset"
             android:summary="@string/pref_timer_reset_summary"
+            android:switchTextAppearance="@style/CustomTextAppearance.Regular"
             android:title="@string/pref_timer_reset" />
 
         <SwitchPreference
             android:id="@+id/pref_keep_screen_on"
             android:defaultValue="true"
             android:key="pref_keep_screen_on"
-            android:switchTextAppearance="@style/CustomTextAppearance.Regular"
             android:summary="@string/pref_keep_screen_on_summary"
+            android:switchTextAppearance="@style/CustomTextAppearance.Regular"
             android:title="@string/pref_keep_screen_on" />
 
         <ListPreference

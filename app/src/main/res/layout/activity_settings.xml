@@ -24,6 +24,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_back" />
+
+                <TextView
+                    android:id="@+id/tvSettingsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/ivBack"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_15dp"
+                    android:text="@string/settings"
+                    android:textAppearance="@style/CustomTextAppearance.Regular"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_large" />
+
                 <TextView
                     android:id="@+id/tvResetSettings"
                     android:layout_width="wrap_content"
@@ -198,6 +218,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15dp"
+                    android:layout_marginBottom="@dimen/_15dp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">
@@ -223,7 +244,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15dp"
                 android:orientation="vertical"
                 android:paddingBottom="5dp">
 

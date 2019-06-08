@@ -6,6 +6,17 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class GameResult implements Parcelable {
+    public static final Creator<GameResult> CREATOR = new Creator<GameResult>() {
+        @Override
+        public GameResult createFromParcel(Parcel in) {
+            return new GameResult(in);
+        }
+
+        @Override
+        public GameResult[] newArray(int size) {
+            return new GameResult[size];
+        }
+    };
     private ArrayList<Question> questions;
 
     public GameResult() {
@@ -25,18 +36,6 @@ public class GameResult implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<GameResult> CREATOR = new Creator<GameResult>() {
-        @Override
-        public GameResult createFromParcel(Parcel in) {
-            return new GameResult(in);
-        }
-
-        @Override
-        public GameResult[] newArray(int size) {
-            return new GameResult[size];
-        }
-    };
 
     public ArrayList<Question> getQuestionList() {
         return questions == null ? new ArrayList<Question>() : questions;

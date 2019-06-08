@@ -23,19 +23,19 @@ public class Brain {
     final
     int[][] board = new int[3][3];
     // References used by isWin function.
-    private final int[]                     winSequence = new int[3];
-    private final int[]                     row         = new int[3];
-    private final int[]                     column      = new int[3];
-    private final int[]                     diagonal1   = new int[3];
-    private final int[]                     diagonal2   = new int[3];
-    private int rowOfResult;
-    private int columnOfResult;
-    private int depth;
+    private final int[] winSequence = new int[3];
+    private final int[] row         = new int[3];
+    private final int[] column      = new int[3];
+    private final int[] diagonal1   = new int[3];
+    private final int[] diagonal2   = new int[3];
+    private       int   rowOfResult;
+    private       int   columnOfResult;
+    private       int   depth;
     private @TTTConstants.Sign
     int computerSign;
     private @TTTConstants.Sign
     int playerSign;
-    private       OnProcessCompleteListener onProcessCompleteListener;
+    private OnProcessCompleteListener onProcessCompleteListener;
 
     private Brain() {
 

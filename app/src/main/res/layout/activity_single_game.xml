@@ -9,9 +9,9 @@
     <RelativeLayout
         android:id="@+id/vTopbar"
         android:layout_width="match_parent"
-        android:elevation="@dimen/_5dp"
+        android:layout_height="55dp"
         android:background="@color/colorPrimary"
-        android:layout_height="55dp">
+        android:elevation="@dimen/_5dp">
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ivBack"

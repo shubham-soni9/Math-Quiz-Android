@@ -17,11 +17,11 @@ import java.util.Set;
 
 public class Prefs {
 
-    private static final String TAG = "PREFS";
-    private static final Gson GSON = new Gson();
-    private static Prefs singleton = null;
-    private static SharedPreferences preferences;
-    private static SharedPreferences.Editor editor;
+    private static final String                   TAG       = "PREFS";
+    private static final Gson                     GSON      = new Gson();
+    private static       Prefs                    singleton = null;
+    private static       SharedPreferences        preferences;
+    private static       SharedPreferences.Editor editor;
     Type typeOfObject = new TypeToken<Object>() {
     }.getType();
 

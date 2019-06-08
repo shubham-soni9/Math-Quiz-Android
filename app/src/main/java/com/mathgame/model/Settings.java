@@ -4,11 +4,22 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Settings implements Parcelable {
-    public Settings(){
+    public static final Creator<Settings> CREATOR = new Creator<Settings>() {
+        @Override
+        public Settings createFromParcel(Parcel in) {
+            return new Settings(in);
+        }
+
+        @Override
+        public Settings[] newArray(int size) {
+            return new Settings[size];
+        }
+    };
+    private CustomMode customMode;
+
+    public Settings() {
 
     }
-
-    private CustomMode customMode;
 
     protected Settings(Parcel in) {
         customMode = in.readParcelable(CustomMode.class.getClassLoader());
@@ -23,18 +34,6 @@ public class Settings implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<Settings> CREATOR = new Creator<Settings>() {
-        @Override
-        public Settings createFromParcel(Parcel in) {
-            return new Settings(in);
-        }
-
-        @Override
-        public Settings[] newArray(int size) {
-            return new Settings[size];
-        }
-    };
 
     public CustomMode getCustomMode() {
         return customMode;

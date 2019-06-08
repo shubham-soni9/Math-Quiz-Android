@@ -4,18 +4,29 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Question implements Parcelable {
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
     private           String   id;
     private           String   operation;
     private           String   question;
     private           String   answer;
     private           int      answerType;
     private transient Listener listener;
-    private String  userInput;
-    private boolean correct;
-    private String option_1;
-    private String option_2;
-    private String option_3;
-    private String option_4;
+    private           String   userInput;
+    private           boolean  correct;
+    private           String   option_1;
+    private           String   option_2;
+    private           String   option_3;
+    private           String   option_4;
 
     public Question() {
     }
@@ -33,18 +44,6 @@ public class Question implements Parcelable {
         option_3 = in.readString();
         option_4 = in.readString();
     }
-
-    public static final Creator<Question> CREATOR = new Creator<Question>() {
-        @Override
-        public Question createFromParcel(Parcel in) {
-            return new Question(in);
-        }
-
-        @Override
-        public Question[] newArray(int size) {
-            return new Question[size];
-        }
-    };
 
     public String getOption_1() {
         return option_1;
@@ -158,16 +157,16 @@ public class Question implements Parcelable {
         dest.writeString(option_4);
     }
 
-    public interface Listener {
-        Object getView();
-    }
-
     public String getUserInput() {
         return userInput;
     }
 
     public void setUserInput(String userInput) {
         this.userInput = userInput;
+    }
+
+    public interface Listener {
+        Object getView();
     }
 
 }

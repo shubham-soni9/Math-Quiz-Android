@@ -131,11 +131,11 @@ public class CustomMode implements Parcelable {
         this.id = id;
     }
 
-    public void setQuestionSample(String questionSample) {
-        this.questionSample = questionSample;
-    }
-
     public String getQuestionSample() {
         return Utils.assign(questionSample);
+    }
+
+    public void setQuestionSample(String questionSample) {
+        this.questionSample = questionSample;
     }
 }

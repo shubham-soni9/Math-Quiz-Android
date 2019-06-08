@@ -4,24 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CQuestion implements Parcelable {
-    private String question;
-    private String opt_1;
-    private String opt_2;
-    private String opt_3;
-    private String opt_4;
-    private int    answer ;
-    private int level;
-
-    protected CQuestion(Parcel in) {
-        level=in.readInt();
-        question = in.readString();
-        opt_1 = in.readString();
-        opt_2 = in.readString();
-        opt_3 = in.readString();
-        opt_4 = in.readString();
-        answer = in.readInt();
-    }
-
     public static final Creator<CQuestion> CREATOR = new Creator<CQuestion>() {
         @Override
         public CQuestion createFromParcel(Parcel in) {
@@ -33,6 +15,23 @@ public class CQuestion implements Parcelable {
             return new CQuestion[size];
         }
     };
+    private String question;
+    private String opt_1;
+    private String opt_2;
+    private String opt_3;
+    private String opt_4;
+    private int    answer;
+    private int    level;
+
+    protected CQuestion(Parcel in) {
+        level = in.readInt();
+        question = in.readString();
+        opt_1 = in.readString();
+        opt_2 = in.readString();
+        opt_3 = in.readString();
+        opt_4 = in.readString();
+        answer = in.readInt();
+    }
 
     @Override
     public int describeContents() {

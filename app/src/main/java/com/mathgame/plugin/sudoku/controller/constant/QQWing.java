@@ -44,44 +44,44 @@ public class QQWing {
     private static final String NL = System.getProperties().getProperty("line.separator");
 
     //public static final int GRID_SIZE = 3;
-    private static final Random random = new Random();
-    private static int GRID_SIZE_ROW = 3;
-    private static int GRID_SIZE_COL = 3;
-    private static int ROW_COL_SEC_SIZE = (GRID_SIZE_ROW * GRID_SIZE_COL);
-    public static int BOARD_SIZE = (ROW_COL_SEC_SIZE * ROW_COL_SEC_SIZE);
-    private static int SEC_GROUP_SIZE = (ROW_COL_SEC_SIZE * GRID_SIZE_ROW);
-    private static int POSSIBILITY_SIZE = (BOARD_SIZE * ROW_COL_SEC_SIZE);
+    private static final Random             random                 = new Random();
+    private static       int                GRID_SIZE_ROW          = 3;
+    private static       int                GRID_SIZE_COL          = 3;
+    private static       int                ROW_COL_SEC_SIZE       = (GRID_SIZE_ROW * GRID_SIZE_COL);
+    public static        int                BOARD_SIZE             = (ROW_COL_SEC_SIZE * ROW_COL_SEC_SIZE);
+    private static       int                SEC_GROUP_SIZE         = (ROW_COL_SEC_SIZE * GRID_SIZE_ROW);
+    private static       int                POSSIBILITY_SIZE       = (BOARD_SIZE * ROW_COL_SEC_SIZE);
     /**
      * A list of moves used to solve the puzzle. This list contains all moves,
      * even on solve branches that did not lead to a solution.
      */
-    private final ArrayList<LogItem> solveHistory = new ArrayList<>();
+    private final        ArrayList<LogItem> solveHistory           = new ArrayList<>();
     /**
      * A list of moves used to solve the puzzle. This list contains only the
      * moves needed to solve the puzzle, but doesn't contain information about
      * bad guesses.
      */
-    private final ArrayList<LogItem> solveInstructions = new ArrayList<>();
+    private final        ArrayList<LogItem> solveInstructions      = new ArrayList<>();
     /**
      * The last round of solving
      */
-    private int lastSolveRound;
+    private              int                lastSolveRound;
     /**
      * The 81 integers that make up a sudoku puzzle. Givens are 1-9, unknowns
      * are 0. Once initialized, this puzzle remains as is. The answer is worked
      * out in "solution".
      */
-    private int[] puzzle = new int[BOARD_SIZE];
+    private              int[]              puzzle                 = new int[BOARD_SIZE];
     /**
      * The 81 integers that make up a sudoku puzzle. The solution is built here,
      * after completion all will be 1-9.
      */
-    private int[] solution = new int[BOARD_SIZE];
+    private              int[]              solution               = new int[BOARD_SIZE];
     /**
      * Recursion depth at which each of the numbers in the solution were placed.
      * Useful for backing out solve branches that don't lead to a solution.
      */
-    private int[] solutionRound = new int[BOARD_SIZE];
+    private              int[]              solutionRound          = new int[BOARD_SIZE];
     /**
      * The 729 integers that make up a the possible values for a Sudoku puzzle.
      * (9 possibilities for each of 81 squares). If possibilities[i] is zero,
@@ -90,30 +90,30 @@ public class QQWing {
      * round (recursion level) at which it was determined that it could not be a
      * possibility.
      */
-    private int[] possibilities = new int[POSSIBILITY_SIZE];
+    private              int[]              possibilities          = new int[POSSIBILITY_SIZE];
     /**
      * An array the size of the board (81) containing each of the numbers 0-n
      * exactly once. This array may be shuffled so that operations that need to
      * look at each cell can do so in a random order.
      */
-    private int[] randomBoardArray = fillIncrementing(new int[BOARD_SIZE]);
+    private              int[]              randomBoardArray       = fillIncrementing(new int[BOARD_SIZE]);
     /**
      * An array with one element for each position (9), in some random order to
      * be used when trying each position in turn during guesses.
      */
-    private int[] randomPossibilityArray = fillIncrementing(new int[ROW_COL_SEC_SIZE]);
+    private              int[]              randomPossibilityArray = fillIncrementing(new int[ROW_COL_SEC_SIZE]);
     /**
      * Whether or not to record history
      */
-    private boolean recordHistory = false;
+    private              boolean            recordHistory          = false;
     /**
      * Whether or not to print history as it happens
      */
-    private boolean logHistory = false;
+    private              boolean            logHistory             = false;
     /**
      * The style with which to print puzzles and solutions
      */
-    private PrintStyle printStyle = PrintStyle.READABLE;
+    private              PrintStyle         printStyle             = PrintStyle.READABLE;
 
     private GameType gameType = GameType.Unspecified;
 

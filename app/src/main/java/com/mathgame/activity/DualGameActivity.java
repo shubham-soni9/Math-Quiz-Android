@@ -13,20 +13,15 @@ import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.appdata.Codes;
-import com.mathgame.appdata.Constant;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.QuestionUtils;
-import com.mathgame.util.RandomUtils;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 import com.mathgame.util.ViewUtils;
 import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 

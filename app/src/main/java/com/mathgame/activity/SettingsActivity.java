@@ -51,7 +51,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         cbEnableTimer = findViewById(R.id.cbEnableTimer);
         rlTimerValue = findViewById(R.id.rlTimerValue);
         npTimerSecondValue = findViewById(R.id.npTimerSecondValue);
-        Utils.setOnClickListener(this, llChangeLanguage, tvResetSettings);
+        Utils.setOnClickListener(this, llChangeLanguage, tvResetSettings, findViewById(R.id.ivBack));
     }
 
     private void setData() {
@@ -73,7 +73,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public String getToolbarTitle() {
-        return getString(R.string.settings);
+        return null;
     }
 
     @Override
@@ -89,6 +89,9 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.tvResetSettings:
                 resetSettings();
+                break;
+            case R.id.ivBack:
+                onBackPressed();
                 break;
         }
     }

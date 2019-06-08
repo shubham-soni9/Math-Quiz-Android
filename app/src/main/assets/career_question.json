@@ -2,452 +2,452 @@
   "levels": [
     {
       "question_sample": "a + b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a - b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a * b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a / b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a + b + c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a + b - c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a + b * c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a + b / c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a - b + c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a - b - c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a - b * c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a - b / c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a * b + c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a * b - c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a * b * c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 0
     },
     {
       "question_sample": "a * b / c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 0
     },
     {
       "question_sample": "a / b * c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 0
     },
     {
       "question_sample": "a / b - c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 0
     },
     {
       "question_sample": "a / b + ? = c",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a * b - ? = c",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a * (b / c) = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "(a * b) - ? = c",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "(a * b) / c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "(a * ?) - b = c",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "(a * ?) / b = c",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "(a * b) * ? = c",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "(sqt(a) * ?) - b = c",
-      "time_per_question" : 15,
+      "time_per_question": 15,
       "difficulty": 0
     },
     {
       "question_sample": "(a * ?) - sqt(b) = c",
-      "time_per_question" : 15,
+      "time_per_question": 15,
       "difficulty": 0
     },
     {
       "question_sample": "a + ? = b % c",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "(a * b) - sqt(c) = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 0
     },
     {
       "question_sample": "a + b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a - b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a * b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a / b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a + b + c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a + b - c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a + b * c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a + b / c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a - b + c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a - b - c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a - b * c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a - b / c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a * b + c = ?",
-      "time_per_question" : 15,
+      "time_per_question": 15,
       "difficulty": 1
     },
     {
       "question_sample": "a * b - c = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 1
     },
     {
       "question_sample": "a * b * c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "a * b / c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "a / b * c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "a / b - c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "a / b + ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "a * b - ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "a * (b / c) = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "(a * b) - ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "(a * b) / c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "(a * ?) - b = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "(a * ?) / b = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "(a * b) * ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "(sqt(a) * ?) - b = c",
-      "time_per_question" : 25,
+      "time_per_question": 25,
       "difficulty": 1
     },
     {
       "question_sample": "(a * ?) - sqt(b) = c",
-      "time_per_question" : 25,
+      "time_per_question": 25,
       "difficulty": 1
     },
     {
       "question_sample": "a + ? = b % c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 1
     },
     {
       "question_sample": "(a * b) - sqt(c) = ?",
-      "time_per_question" : 25,
+      "time_per_question": 25,
       "difficulty": 1
     },
     {
       "question_sample": "a + b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 2
     },
     {
       "question_sample": "a - b = ?",
-      "time_per_question" : 10,
+      "time_per_question": 10,
       "difficulty": 2
     },
     {
       "question_sample": "a * b = ?",
-      "time_per_question" : 15,
+      "time_per_question": 15,
       "difficulty": 2
     },
     {
       "question_sample": "a / b = ?",
-      "time_per_question" : 15,
+      "time_per_question": 15,
       "difficulty": 2
     },
     {
       "question_sample": "a + b + c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a + b - c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a + b * c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a + b / c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a - b + c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a - b - c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a - b * c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a - b / c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a * b + c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a * b - c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a * b * c = ?",
-      "time_per_question" : 30,
+      "time_per_question": 30,
       "difficulty": 2
     },
     {
       "question_sample": "a * b / c = ?",
-      "time_per_question" : 30,
+      "time_per_question": 30,
       "difficulty": 2
     },
     {
       "question_sample": "a / b * c = ?",
-      "time_per_question" : 30,
+      "time_per_question": 30,
       "difficulty": 2
     },
     {
       "question_sample": "a / b - c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a / b + ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a * b - ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "a * (b / c) = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "(a * b) - ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "(a * b) / c = ?",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "(a * ?) - b = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "(a * ?) / b = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "(a * b) * ? = c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "(sqt(a) * ?) - b = c",
-      "time_per_question" : 25,
+      "time_per_question": 25,
       "difficulty": 2
     },
     {
       "question_sample": "(a * ?) - sqt(b) = c",
-      "time_per_question" : 25,
+      "time_per_question": 25,
       "difficulty": 2
     },
     {
       "question_sample": "a + ? = b % c",
-      "time_per_question" : 20,
+      "time_per_question": 20,
       "difficulty": 2
     },
     {
       "question_sample": "(a * b) - sqt(c) = ?",
-      "time_per_question" : 25,
+      "time_per_question": 25,
       "difficulty": 2
     }
   ]

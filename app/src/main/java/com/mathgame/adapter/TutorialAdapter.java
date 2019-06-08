@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.activity.TutorialDataActivity;
-import com.mathgame.activity.WebViewActivity;
 import com.mathgame.model.Article;
 import com.mathgame.util.Transition;
 
@@ -22,9 +21,9 @@ import static com.mathgame.appdata.Keys.Prefs.KEY_TITLE;
 import static com.mathgame.appdata.Keys.Prefs.KEY_WEB_URL;
 
 public class TutorialAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private       ArrayList<Article> articles;
     private final int                TYPE_TUTORIAL = 0;
     private final int                TYPE_HEADER   = 1;
+    private       ArrayList<Article> articles;
     private       Activity           context;
 
     public TutorialAdapter(Activity context, ArrayList<Article> articles) {

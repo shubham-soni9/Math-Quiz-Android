@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 class QQWingController {
 
-    private final QQWingOptions opts = new QQWingOptions();
+    private final QQWingOptions     opts            = new QQWingOptions();
     private final LinkedList<int[]> generated       = new LinkedList<>();
     private       int[]             level;
     private       int[]             solution;
@@ -216,23 +216,23 @@ class QQWingController {
     }
 
     private static class QQWingOptions {
-        final boolean printHistory      = false;
-        final boolean printInstructions = false;
-        final boolean    logHistory = false;
-        final PrintStyle printStyle = PrintStyle.READABLE;
-        final boolean printStats = false;
-        final Symmetry symmetry = Symmetry.NONE;
+        final boolean    printHistory      = false;
+        final boolean    printInstructions = false;
+        final boolean    logHistory        = false;
+        final PrintStyle printStyle        = PrintStyle.READABLE;
+        final boolean    printStats        = false;
+        final Symmetry   symmetry          = Symmetry.NONE;
         // defaults for options
-        boolean needNow       = false;
-        boolean printPuzzle   = false;
-        boolean printSolution = false;
-        boolean timer          = false;
-        boolean countSolutions = false;
-        Action  action         = Action.NONE;
-        int numberToGenerate = 1;
-        GameDifficulty gameDifficulty = GameDifficulty.Unspecified;
-        GameType       gameType       = GameType.Unspecified;
-        int threads = Runtime.getRuntime().availableProcessors();
+        boolean        needNow          = false;
+        boolean        printPuzzle      = false;
+        boolean        printSolution    = false;
+        boolean        timer            = false;
+        boolean        countSolutions   = false;
+        Action         action           = Action.NONE;
+        int            numberToGenerate = 1;
+        GameDifficulty gameDifficulty   = GameDifficulty.Unspecified;
+        GameType       gameType         = GameType.Unspecified;
+        int            threads          = Runtime.getRuntime().availableProcessors();
     }
 
 }

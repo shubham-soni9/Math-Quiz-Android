@@ -11,7 +11,6 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -330,7 +329,7 @@ public class SudokuGameActivity extends BaseActivity implements IGameSolvedListe
     }
 
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.ivBack:
                 onBackPressed();
                 break;

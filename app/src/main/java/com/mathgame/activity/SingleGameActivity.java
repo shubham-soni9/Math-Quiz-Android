@@ -136,10 +136,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         }
 
         if (remainingQuestion <= customMode.getNumberOfQuestions()) {
-            if(customMode.getQuestionSample().isEmpty()){
+            if (customMode.getQuestionSample().isEmpty()) {
                 currentQuestion = QuestionUtils.getQuestionWithAnswer(customMode);
-            }
-            else {
+            } else {
                 currentQuestion = QuestionUtils.getLevelQuestionWithAnswer(customMode);
             }
             tvQuestion.setText(currentQuestion.getQuestion());

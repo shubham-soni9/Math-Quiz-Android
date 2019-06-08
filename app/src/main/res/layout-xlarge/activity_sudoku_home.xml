@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_top_bar"/>
+    <include layout="@layout/layout_top_bar" />
 
     <LinearLayout
         android:id="@+id/main_content"
@@ -91,8 +91,8 @@
                 android:stepSize="1" />
 
             <Button
-                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/playButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
@@ -108,8 +108,8 @@
                 android:textStyle="normal" />
 
             <Button
-                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/continueButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"

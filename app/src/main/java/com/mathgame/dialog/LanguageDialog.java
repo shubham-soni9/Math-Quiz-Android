@@ -24,7 +24,7 @@ public class LanguageDialog implements OnListItemClickListener {
     private static final float DIM_AMOUNT = 0.6f;
 
     //ui params
-    private Dialog       mDialog;
+    private Dialog mDialog;
 
     //general params
     private int                             mSelectedPos       = -1;
@@ -49,15 +49,14 @@ public class LanguageDialog implements OnListItemClickListener {
 
     /**
      * show dialog with buttons
-     *
      */
-    public void show(final String header, ArrayList<Constant.AppLanguage>languageList, final boolean isButtonsRequired,
+    public void show(final String header, ArrayList<Constant.AppLanguage> languageList, final boolean isButtonsRequired,
                      final OnListItemClickListener listener, String preselectedCode) {
         try {
             this.mListItemClickListener = listener;
             this.mIsButtonsRequired = isButtonsRequired;
-            this.languageList=languageList;
-            this.selectedCode=preselectedCode;
+            this.languageList = languageList;
+            this.selectedCode = preselectedCode;
             mDialog = new Dialog(mContext);
             Objects.requireNonNull(mDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
             mDialog.setContentView(R.layout.dialog_language);
@@ -88,9 +87,9 @@ public class LanguageDialog implements OnListItemClickListener {
                 llButtons.setVisibility(View.GONE);
             }
 
-            for(Constant.AppLanguage taskStatus :languageList){
-                if(taskStatus.code.equalsIgnoreCase(preselectedCode)){
-                    mSelectedPos=languageList.indexOf(taskStatus);
+            for (Constant.AppLanguage taskStatus : languageList) {
+                if (taskStatus.code.equalsIgnoreCase(preselectedCode)) {
+                    mSelectedPos = languageList.indexOf(taskStatus);
                     break;
                 }
             }
@@ -117,9 +116,9 @@ public class LanguageDialog implements OnListItemClickListener {
     public void onListItemSelected(final int clickedPosition, final String selectedCode) {
         if (mIsButtonsRequired) {
             mSelectedPos = clickedPosition;
-            for(Constant.AppLanguage taskStatus :languageList){
-                if(taskStatus.code.equalsIgnoreCase(selectedCode)){
-                    this.selectedCode=selectedCode;
+            for (Constant.AppLanguage taskStatus : languageList) {
+                if (taskStatus.code.equalsIgnoreCase(selectedCode)) {
+                    this.selectedCode = selectedCode;
                     break;
                 }
             }

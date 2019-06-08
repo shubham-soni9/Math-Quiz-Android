@@ -26,7 +26,7 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.ViewHo
      *
      * @param context               the activity context
      * @param listItemClickListener the click listener for dialog
-     * @param taskStatusArrayList            the array of list items
+     * @param taskStatusArrayList   the array of list items
      * @param selectedPos           selected position
      */
     public LanguageAdapter(final Context context, final OnListItemClickListener listItemClickListener,
@@ -63,6 +63,15 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.ViewHo
     }
 
     /**
+     * set selected position
+     *
+     * @param selectedPos the provided updated position
+     */
+    public void setSelectedPosition(final int selectedPos) {
+        mSelectedPos = selectedPos;
+    }
+
+    /**
      * Class to hold the Views
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -79,15 +88,6 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.ViewHo
             tvItemName = itemView.findViewById(R.id.dialog_list_button_tv_name);
             ivSelected = itemView.findViewById(R.id.dialog_list_button_iv_selected);
         }
-    }
-
-    /**
-     * set selected position
-     *
-     * @param selectedPos the provided updated position
-     */
-    public void setSelectedPosition(final int selectedPos) {
-        mSelectedPos = selectedPos;
     }
 }
 

@@ -4,6 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CLevel implements Parcelable {
+    public static final Creator<CLevel> CREATOR = new Creator<CLevel>() {
+        @Override
+        public CLevel createFromParcel(Parcel in) {
+            return new CLevel(in);
+        }
+
+        @Override
+        public CLevel[] newArray(int size) {
+            return new CLevel[size];
+        }
+    };
     private int    difficulty;
     private String question_sample;
     private int    time_per_question;
@@ -29,18 +40,6 @@ public class CLevel implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<CLevel> CREATOR = new Creator<CLevel>() {
-        @Override
-        public CLevel createFromParcel(Parcel in) {
-            return new CLevel(in);
-        }
-
-        @Override
-        public CLevel[] newArray(int size) {
-            return new CLevel[size];
-        }
-    };
 
     public String getQuestionSample() {
         return question_sample;

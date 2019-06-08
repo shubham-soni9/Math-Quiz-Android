@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 
 import com.mathgame.R;
-import com.mathgame.model.CustomMode;
 import com.mathgame.model.GameResult;
 import com.mathgame.model.Settings;
 import com.mathgame.util.Prefs;

@@ -2,13 +2,11 @@ package com.mathgame.util;
 
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
-import com.mathgame.model.CLevel;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.Question;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import static android.content.ContentValues.TAG;
@@ -372,7 +370,7 @@ public class QuestionUtils {
 
 
         int variable = RandomUtils.getRandomInt(3, 1);
-        ArrayList<String> options=new ArrayList<>();
+        ArrayList<String> options = new ArrayList<>();
         options.add(answer);
         options.add(dFormat.format(Utils.toDouble(answer) - variable));
         options.add(dFormat.format(Utils.toDouble(answer) + variable));

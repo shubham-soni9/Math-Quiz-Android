@@ -9,12 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mathgame.structure.BaseActivity;
-
 import java.lang.reflect.Field;
 
 public abstract class BaseFragment extends Fragment {
     protected Context context;
+
     /**
      * Method to get the resource id of the Layout
      * to be displayed as the content view
@@ -42,7 +41,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        this.context=context;
+        this.context = context;
     }
 
     @Nullable

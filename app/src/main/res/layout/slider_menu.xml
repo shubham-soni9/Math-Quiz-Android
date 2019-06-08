@@ -26,9 +26,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/background_theme_color"
-        android:fillViewport="true"
-        android:layout_height="wrap_content">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,10 +96,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_15dp"
+                android:text="@string/communicate"
                 android:textAllCaps="true"
                 android:textAppearance="@style/CustomTextAppearance.Medium"
-                android:textColor="@color/tutorial_header"
-                android:text="@string/communicate" />
+                android:textColor="@color/tutorial_header" />
 
             <TextView
                 android:id="@+id/tvSliderPolicy"

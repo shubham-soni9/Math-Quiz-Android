@@ -2,10 +2,6 @@ package com.mathgame.activity;
 
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.text.Html;
-import android.view.View;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.mathgame.R;
@@ -19,7 +15,7 @@ public class TutorialDataActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TextView tvTutorial=findViewById(R.id.tvTutorial);
+        TextView tvTutorial = findViewById(R.id.tvTutorial);
         Bundle mBundle = getIntent().getExtras();
         if (mBundle != null) {
             String webUrl = mBundle.getString(Keys.Prefs.KEY_WEB_URL);

@@ -8,8 +8,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:textColor="@color/white_100"
         android:text="@string/turn_selection_text"
+        android:textColor="@color/white_100"
         android:textSize="30sp" />
 
     <com.mathgame.plugin.tictactoe.selection.SqueezeButton
@@ -28,8 +28,8 @@
         android:layout_below="@+id/top_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textColor="@color/white_100"
         android:text="@string/divider_text"
+        android:textColor="@color/white_100"
         android:textSize="25sp" />
 
     <com.mathgame.plugin.tictactoe.selection.SqueezeButton

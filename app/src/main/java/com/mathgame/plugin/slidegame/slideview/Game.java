@@ -8,10 +8,10 @@ import java.util.List;
 
 
 public class Game {
-    public static final int DIRECTION_UP    = 0;
-    public static final int DIRECTION_RIGHT = 1;
-    public static final int DIRECTION_DOWN  = 2;
-    public static final int DIRECTION_LEFT  = 3;
+    public static final  int               DIRECTION_UP           = 0;
+    public static final  int               DIRECTION_RIGHT        = 1;
+    public static final  int               DIRECTION_DOWN         = 2;
+    public static final  int               DIRECTION_LEFT         = 3;
     static final         int               DEFAULT_HEIGHT_X       = 4;
     static final         int               DEFAULT_WIDTH_Y        = 4;
     static final         int               DEFAULT_TILE_TYPES     = 24;

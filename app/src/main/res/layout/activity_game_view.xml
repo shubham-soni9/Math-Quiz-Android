@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,19 +19,19 @@
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingStart="@dimen/_15dp"
             android:onClick="onClick"
+            android:paddingStart="@dimen/_15dp"
             android:paddingEnd="@dimen/_15dp"
             android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/gameModeText"
             android:layout_width="0dp"
-            android:layout_marginStart="@dimen/_5dp"
-            android:textColor="@color/colorPrimary"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5dp"
             android:layout_weight="7"
-            android:text="@string/gametype_unspecified" />
+            android:text="@string/gametype_unspecified"
+            android:textColor="@color/colorPrimary" />
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -42,10 +42,10 @@
             <TextView
                 android:id="@+id/difficultyText"
                 android:layout_width="wrap_content"
-                android:textColor="@color/colorPrimary"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="@string/difficulty_easy" />
+                android:text="@string/difficulty_easy"
+                android:textColor="@color/colorPrimary" />
 
             <RatingBar
                 android:id="@+id/gameModeStar"
@@ -63,10 +63,10 @@
             android:id="@+id/timerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:textColor="@color/colorPrimary"
             android:layout_marginEnd="@dimen/_10dp"
+            android:layout_weight="2"
             android:gravity="end"
+            android:textColor="@color/colorPrimary"
             tools:text="00:00" />
     </LinearLayout>
 

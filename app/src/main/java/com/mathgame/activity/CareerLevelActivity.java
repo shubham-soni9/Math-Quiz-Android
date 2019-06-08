@@ -3,16 +3,12 @@ package com.mathgame.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import com.mathgame.R;
 import com.mathgame.adapter.LevelAdapter;
 import com.mathgame.appdata.GameSettings;
 import com.mathgame.structure.BaseActivity;
-
-import java.util.Objects;
 
 public class CareerLevelActivity extends BaseActivity {
     private RecyclerView rvLevelList;
@@ -40,7 +36,7 @@ public class CareerLevelActivity extends BaseActivity {
 
     private void setData() {
         LevelAdapter levelAdapter = new LevelAdapter(this, GameSettings.getLevelList(this));
-        rvLevelList.setLayoutManager(new GridLayoutManager(this,3));
+        rvLevelList.setLayoutManager(new GridLayoutManager(this, 3));
         rvLevelList.setAdapter(levelAdapter);
     }
 }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import com.mathgame.R;
 import com.mathgame.adapter.AnswerAdapter;
@@ -29,9 +28,9 @@ public class AnswerListActivity extends BaseActivity {
     }
 
     private void setData() {
-        RecyclerView rvQuestionList=findViewById(R.id.rvQuestionList);
+        RecyclerView rvQuestionList = findViewById(R.id.rvQuestionList);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(this));
-        AnswerAdapter answerAdapter=new AnswerAdapter(getIntent().<Question>getParcelableArrayListExtra(Question.class.getName()));
+        AnswerAdapter answerAdapter = new AnswerAdapter(getIntent().<Question>getParcelableArrayListExtra(Question.class.getName()));
         rvQuestionList.setAdapter(answerAdapter);
     }
 

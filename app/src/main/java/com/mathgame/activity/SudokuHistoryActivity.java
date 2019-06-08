@@ -11,7 +11,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -89,7 +88,7 @@ public class SudokuHistoryActivity extends BaseActivity implements IDeleteDialog
         listView.setAdapter(loadGameAdapter);
         listView.setOnItemClickListener(clickListener);
         listView.setOnItemLongClickListener(longClickListener);
-        TextView tvTitle=findViewById(R.id.tvTitle);
+        TextView tvTitle = findViewById(R.id.tvTitle);
         tvTitle.setText(R.string.history);
         Utils.setOnClickListener(this, findViewById(R.id.ivBack));
     }
