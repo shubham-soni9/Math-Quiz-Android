@@ -14,6 +14,7 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
 import com.mathgame.appdata.Dependencies;
+import com.mathgame.dialog.GameCountdownDialog;
 import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.GameResult;
@@ -48,6 +49,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private CardView                cvCorrect, cvIncorrect;
     private int        skipNumbers;
     private GameResult gameResult;
+    private boolean    isGameStated;
 
 
     @Override
@@ -55,7 +57,21 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         init();
         setData();
-        startGame();
+        new GameCountdownDialog.Builder(this)
+                .message(R.string.game_starting_in)
+                .listener(new GameCountdownDialog.Listener() {
+                    @Override
+                    public void performPositiveAction(int purpose, Bundle backpack) {
+                        startGame();
+                        isGameStated = true;
+                    }
+
+                    @Override
+                    public void performNegativeAction(int purpose, Bundle backpack) {
+                        isGameStated = false;
+                        onBackPressed();
+                    }
+                }).build().show();
     }
 
     @Override
@@ -290,24 +306,33 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        countDownTimer.pause();
-        new OptionsDialog.Builder(this)
-                .message(R.string.are_you_sure_you_want_to_exit_the_game)
-                .positiveButton(R.string.yes_text)
-                .negativeButton(R.string.no_text)
-                .listener(new OptionsDialog.Listener() {
-                    @Override
-                    public void performPositiveAction() {
-                        if (countDownTimer != null) {
-                            countDownTimer.cancel();
+        if (isGameStated) {
+            if (countDownTimer != null) {
+                countDownTimer.pause();
+            }
+            new OptionsDialog.Builder(this)
+                    .message(R.string.are_you_sure_you_want_to_exit_the_game)
+                    .positiveButton(R.string.yes_text)
+                    .negativeButton(R.string.no_text)
+                    .listener(new OptionsDialog.Listener() {
+                        @Override
+                        public void performPositiveAction() {
+                            if (countDownTimer != null) {
+                                countDownTimer.cancel();
+                            }
+                            Transition.exit(SingleGameActivity.this);
                         }
-                        Transition.exit(SingleGameActivity.this);
-                    }
 
-                    @Override
-                    public void performNegativeAction() {
-                        countDownTimer.resume();
-                    }
-                }).build().show();
+                        @Override
+                        public void performNegativeAction() {
+                            countDownTimer.resume();
+                        }
+                    }).build().show();
+        } else if (countDownTimer != null) {
+            countDownTimer.cancel();
+            Transition.exit(SingleGameActivity.this);
+        } else {
+            Transition.exit(SingleGameActivity.this);
+        }
     }
 }

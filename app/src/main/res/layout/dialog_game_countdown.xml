@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvCountdown"
+        android:layout_centerHorizontal="true"
+        android:text="@string/message"
+        android:textAppearance="@style/CustomTextAppearance.Regular"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large_v"
+        tools:text="Starting game in" />
+
+    <TextView
+        android:id="@+id/tvCountdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_50dp"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        tools:text="3" />
+
+    <TextView
+        android:id="@+id/tvCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_theme_color_dark"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:text="@string/cancel_game"
+        android:letterSpacing="0.12"
+        android:textAppearance="@style/CustomTextAppearance.Medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large_iii" />
+
+    <com.rey.material.widget.ImageButton
+        android:id="@+id/ibCancel"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_oval_accent"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_close"/>
+
+</RelativeLayout>
