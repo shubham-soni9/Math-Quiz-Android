@@ -19,6 +19,7 @@ import com.mathgame.model.CustomMode;
 import com.mathgame.model.GameResult;
 import com.mathgame.model.Question;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.AudioUtils;
 import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
@@ -176,6 +177,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+        AudioUtils.onButtonClicked(this);
         switch (view.getId()) {
             case R.id.ivBack:
                 onBackPressed();
