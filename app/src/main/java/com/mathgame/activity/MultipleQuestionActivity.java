@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.customview.QuestionView;
+import com.mathgame.dialog.GameCountdownDialog;
 import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.listener.OnQuestionListener;
 import com.mathgame.model.CustomMode;
@@ -35,13 +36,28 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
     private       ArrayList<Question> questionList;
     private       TextView            tvNumberOfQuestion;
     private       int                 remainingQuestion  = 0;
+    private       boolean             isGameStated;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
         setData();
-        startGame();
+        new GameCountdownDialog.Builder(this)
+                .message(R.string.game_starting_in)
+                .listener(new GameCountdownDialog.Listener() {
+                    @Override
+                    public void performPositiveAction(int purpose, Bundle backpack) {
+                        startGame();
+                        isGameStated = true;
+                    }
+
+                    @Override
+                    public void performNegativeAction(int purpose, Bundle backpack) {
+                        isGameStated = false;
+                        onBackPressed();
+                    }
+                }).build().show();
     }
 
     @Override
@@ -97,7 +113,24 @@ public class MultipleQuestionActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void onBackPressed() {
-        Transition.exit(this);
+        if (isGameStated) {
+            new OptionsDialog.Builder(this)
+                    .message(R.string.are_you_sure_you_want_to_exit_the_game)
+                    .positiveButton(R.string.yes_text)
+                    .negativeButton(R.string.no_text)
+                    .listener(new OptionsDialog.Listener() {
+                        @Override
+                        public void performPositiveAction() {
+                            Transition.exit(MultipleQuestionActivity.this);
+                        }
+
+                        @Override
+                        public void performNegativeAction() {
+                        }
+                    }).build().show();
+        } else {
+            Transition.exit(MultipleQuestionActivity.this);
+        }
     }
 
     @Override

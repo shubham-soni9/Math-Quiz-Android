@@ -8,18 +8,17 @@ import android.support.annotation.RawRes;
 import com.mathgame.R;
 
 public class AudioUtils {
-    public static void playAudio(Context context, @RawRes int tone) {
-        try {
-            String sound = "android.resource://" + context.getPackageName() + "/" + tone;
-            final MediaPlayer mp = MediaPlayer.create(context.getApplicationContext(), Uri.parse(sound));
-            mp.start();
-            Log.v("Play", "Play");
-        } catch (Exception e) {
-            e.printStackTrace();
+    private static volatile AudioUtils instance;
+    private MediaPlayer mediaPlayer;
+
+    public static AudioUtils getInstance() {
+        if (instance == null) synchronized (AudioUtils.class) {
+            if (instance == null) instance = new AudioUtils();
         }
+        return instance;
     }
 
-    public static void onButtonClicked(Context context) {
+    public void onButtonClicked(Context context) {
         String sound = "android.resource://" + context.getPackageName() + "/" + R.raw.btn_click;
         final MediaPlayer mp = MediaPlayer.create(context.getApplicationContext(), Uri.parse(sound));
         mp.start();

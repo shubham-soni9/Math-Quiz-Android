@@ -86,7 +86,7 @@ public class GameTypeActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        AudioUtils.onButtonClicked(this);
+        AudioUtils.getInstance().onButtonClicked(this);
         switch (v.getId()) {
             case R.id.ivBack:
                 onBackPressed();

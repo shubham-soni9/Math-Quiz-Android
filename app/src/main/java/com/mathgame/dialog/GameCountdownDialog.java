@@ -2,6 +2,8 @@ package com.mathgame.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Window;
@@ -12,7 +14,6 @@ import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.plugin.CountDownTimerWithPause;
-import com.mathgame.util.AudioUtils;
 import com.mathgame.util.Utils;
 import com.rey.material.widget.ImageButton;
 
@@ -29,11 +30,12 @@ public class GameCountdownDialog {
 
     private Dialog alertDialog;
 
+    private MediaPlayer mediaPlayer;
     /**
      * The instance of the Activity on which the
      * AlertDialog will be displayed
      */
-    private Activity activity;
+    private Activity    activity;
 
     /**
      * The receiver to which the AlertDialog
@@ -104,14 +106,13 @@ public class GameCountdownDialog {
             });
 
             Animation zoomIn = AnimationUtils.loadAnimation(activity, R.anim.zoom_in);
-            Animation zoomOut = AnimationUtils.loadAnimation(activity, R.anim.zoom_out);
 
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }
 
             tvCountdown.startAnimation(zoomIn);
-            AudioUtils.playAudio(activity, R.raw.game_countdown);
+            playAudio();
             countDownTimer = new CountDownTimerWithPause(timerValue * 1000, 500, true) {
                 @Override
                 public void onTick(long millis) {
@@ -133,6 +134,14 @@ public class GameCountdownDialog {
         }
 
         return this;
+    }
+
+    private void playAudio() {
+        String sound = "android.resource://" + activity.getPackageName() + "/" + R.raw.game_countdown;
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(activity.getApplicationContext(), Uri.parse(sound));
+        }
+        mediaPlayer.start();
     }
 
     /**
@@ -168,6 +177,9 @@ public class GameCountdownDialog {
                         alertDialog.dismiss();
                         alertDialog = null;
                         countDownTimer.cancel();
+                        if (mediaPlayer != null) {
+                            mediaPlayer.stop();
+                        }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

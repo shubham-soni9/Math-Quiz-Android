@@ -55,7 +55,7 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
         viewHolder.tvLevelName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AudioUtils.onButtonClicked(context);
+                AudioUtils.getInstance().onButtonClicked(context);
                 CustomMode customMode = new CustomMode();
                 customMode.setGameType(Codes.GameType.MULTIPLE_CHOICE.value);
                 customMode.setTimerValue(cLevel.getTime_per_question());

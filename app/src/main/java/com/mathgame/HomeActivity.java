@@ -135,7 +135,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        AudioUtils.onButtonClicked(this);
+        AudioUtils.getInstance().onButtonClicked(this);
         Bundle bundle = new Bundle();
         switch (v.getId()) {
             case R.id.tvAddition:

@@ -200,7 +200,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        AudioUtils.onButtonClicked(this);
+        AudioUtils.getInstance().onButtonClicked(this);
         switch (v.getId()) {
             case R.id.ivBack:
                 onBackPressed();

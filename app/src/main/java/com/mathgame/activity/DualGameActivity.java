@@ -15,9 +15,12 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
 import com.mathgame.appdata.Dependencies;
+import com.mathgame.dialog.GameCountdownDialog;
+import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.GameResult;
 import com.mathgame.model.Question;
+import com.mathgame.plugin.CountDownTimerWithPause;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.AudioUtils;
 import com.mathgame.util.QuestionUtils;
@@ -42,17 +45,32 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
     private int      remainingQuestion = 1;
     private TextView tvPlayer1Option1, tvPlayer1Option2, tvPlayer1Option3, tvPlayer1Option4;
     private TextView tvPlayer2Option1, tvPlayer2Option2, tvPlayer2Option3, tvPlayer2Option4;
-    private Question       currentQuestion;
-    private CountDownTimer countDownTimer;
-    private CardView       cvPlayer1Correct, cvPlayer1Incorrect, cvPlayer2Correct, cvPlayer2Incorrect;
+    private Question                currentQuestion;
+    private CountDownTimerWithPause countDownTimer;
+    private CardView                cvPlayer1Correct, cvPlayer1Incorrect, cvPlayer2Correct, cvPlayer2Incorrect;
     private GameResult playerOneResult, playerTwoResult;
+    private boolean    isGameStated;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
         setData();
-        startGame();
+        new GameCountdownDialog.Builder(this)
+                .message(R.string.game_starting_in)
+                .listener(new GameCountdownDialog.Listener() {
+                    @Override
+                    public void performPositiveAction(int purpose, Bundle backpack) {
+                        startGame();
+                        isGameStated = true;
+                    }
+
+                    @Override
+                    public void performNegativeAction(int purpose, Bundle backpack) {
+                        isGameStated = false;
+                        onBackPressed();
+                    }
+                }).build().show();
     }
 
     @Override
@@ -143,7 +161,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }
-                countDownTimer = new CountDownTimer(customMode.getTimerValue() * 1000, 100) {
+                countDownTimer = new CountDownTimerWithPause(customMode.getTimerValue() * 1000, 100,true) {
                     @Override
                     public void onTick(long millis) {
                         String hms = String.format(locale(), "%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit
@@ -168,7 +186,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
                         startGame();
                     }
                 };
-                countDownTimer.start();
+                countDownTimer.create();
             }
         } else {
             Transition.transit(this, DualGameResultActivity.class);
@@ -177,7 +195,7 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        AudioUtils.onButtonClicked(this);
+        AudioUtils.getInstance().onButtonClicked(this);
         switch (view.getId()) {
             case R.id.ivBack:
                 onBackPressed();
@@ -253,14 +271,6 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
-        Transition.exit(this);
-    }
-
     private void savePlayerResult(int answerType, Question mQuestion, String answer, int player) {
         GameResult gameResult = (player == 1) ? playerOneResult : playerTwoResult;
         mQuestion.setAnswerType(answerType);
@@ -287,6 +297,38 @@ public class DualGameActivity extends BaseActivity implements View.OnClickListen
         } else {
             Dependencies.setSecondPlayerResult(this, gameResult);
             this.playerTwoResult = gameResult;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (isGameStated) {
+            if (countDownTimer != null) {
+                countDownTimer.pause();
+            }
+            new OptionsDialog.Builder(this)
+                    .message(R.string.are_you_sure_you_want_to_exit_the_game)
+                    .positiveButton(R.string.yes_text)
+                    .negativeButton(R.string.no_text)
+                    .listener(new OptionsDialog.Listener() {
+                        @Override
+                        public void performPositiveAction() {
+                            if (countDownTimer != null) {
+                                countDownTimer.cancel();
+                            }
+                            Transition.exit(DualGameActivity.this);
+                        }
+
+                        @Override
+                        public void performNegativeAction() {
+                            countDownTimer.resume();
+                        }
+                    }).build().show();
+        } else if (countDownTimer != null) {
+            countDownTimer.cancel();
+            Transition.exit(DualGameActivity.this);
+        } else {
+            Transition.exit(DualGameActivity.this);
         }
     }
 }
