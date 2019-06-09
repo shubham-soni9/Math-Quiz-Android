@@ -147,16 +147,16 @@ public class DualGameResultActivity extends BaseActivity implements View.OnClick
         }
         if (playerOneCorrect > playerTwoCorrect) {
             tvResultFeedback.setText(R.string.player_1_wins);
-            tvPlayer1.setCompoundDrawables(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
-            tvPlayer2.setCompoundDrawables(null, ContextCompat.getDrawable(this, R.drawable.ic_loser), null, null);
+            tvPlayer1.setCompoundDrawablesWithIntrinsicBounds(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
+            tvPlayer2.setCompoundDrawablesWithIntrinsicBounds(null, ContextCompat.getDrawable(this, R.drawable.ic_loser), null, null);
         } else if (playerOneCorrect < playerTwoCorrect) {
             tvResultFeedback.setText(R.string.player_2_wins);
-            tvPlayer2.setCompoundDrawables(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
-            tvPlayer1.setCompoundDrawables(null, ContextCompat.getDrawable(this, R.drawable.ic_loser), null, null);
+            tvPlayer2.setCompoundDrawablesWithIntrinsicBounds(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
+            tvPlayer1.setCompoundDrawablesWithIntrinsicBounds(null, ContextCompat.getDrawable(this, R.drawable.ic_loser), null, null);
         } else {
             tvResultFeedback.setText(R.string.its_a_draw);
-            tvPlayer2.setCompoundDrawables(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
-            tvPlayer1.setCompoundDrawables(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
+            tvPlayer2.setCompoundDrawablesWithIntrinsicBounds(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
+            tvPlayer1.setCompoundDrawablesWithIntrinsicBounds(null, ContextCompat.getDrawable(this, R.drawable.ic_winner), null, null);
         }
     }
 
