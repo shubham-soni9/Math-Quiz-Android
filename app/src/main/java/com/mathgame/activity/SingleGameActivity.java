@@ -2,7 +2,6 @@ package com.mathgame.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -15,9 +14,11 @@ import com.mathgame.R;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
 import com.mathgame.appdata.Dependencies;
+import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.model.GameResult;
 import com.mathgame.model.Question;
+import com.mathgame.plugin.CountDownTimerWithPause;
 import com.mathgame.structure.BaseActivity;
 import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.Transition;
@@ -42,9 +43,9 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
     private TextView                     tvQuestion;
     private int                          remainingQuestion = 0;
     private TextView                     tvOption1, tvOption2, tvOption3, tvOption4;
-    private Question       currentQuestion;
-    private CountDownTimer countDownTimer;
-    private CardView       cvCorrect, cvIncorrect;
+    private Question                currentQuestion;
+    private CountDownTimerWithPause countDownTimer;
+    private CardView                cvCorrect, cvIncorrect;
     private int        skipNumbers;
     private GameResult gameResult;
 
@@ -152,7 +153,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }
-                countDownTimer = new CountDownTimer(customMode.getTimerValue() * 1000, 100) {
+                countDownTimer = new CountDownTimerWithPause(customMode.getTimerValue() * 1000, 100, true) {
                     @Override
                     public void onTick(long millis) {
                         String hms = String.format(locale(), "%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit
@@ -173,7 +174,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
                         startGame();
                     }
                 };
-                countDownTimer.start();
+                countDownTimer.create();
             }
         } else {
             Transition.transit(this, SingleGameResultActivity.class);
@@ -289,9 +290,24 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
-        Transition.exit(this);
+        countDownTimer.pause();
+        new OptionsDialog.Builder(this)
+                .message(R.string.are_you_sure_you_want_to_exit_the_game)
+                .positiveButton(R.string.yes_text)
+                .negativeButton(R.string.no_text)
+                .listener(new OptionsDialog.Listener() {
+                    @Override
+                    public void performPositiveAction() {
+                        if (countDownTimer != null) {
+                            countDownTimer.cancel();
+                        }
+                        Transition.exit(SingleGameActivity.this);
+                    }
+
+                    @Override
+                    public void performNegativeAction() {
+                        countDownTimer.resume();
+                    }
+                }).build().show();
     }
 }
