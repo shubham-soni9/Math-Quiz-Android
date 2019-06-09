@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.mathgame.R;
 import com.mathgame.plugin.CountDownTimerWithPause;
+import com.mathgame.util.AudioUtils;
 import com.mathgame.util.Utils;
 import com.rey.material.widget.ImageButton;
 
@@ -110,6 +111,7 @@ public class GameCountdownDialog {
             }
 
             tvCountdown.startAnimation(zoomIn);
+            AudioUtils.playAudio(activity,R.raw.game_countdown);
             countDownTimer = new CountDownTimerWithPause(timerValue * 1000, 500, true) {
                 @Override
                 public void onTick(long millis) {

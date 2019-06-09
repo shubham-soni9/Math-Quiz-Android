@@ -29,6 +29,7 @@ import com.mathgame.dialog.OptionsDialog;
 import com.mathgame.model.CustomMode;
 import com.mathgame.plugin.tictactoe.selection.TTTSelectionActivity;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.AudioUtils;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
 
@@ -134,6 +135,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        AudioUtils.onButtonClicked(this);
         Bundle bundle = new Bundle();
         switch (v.getId()) {
             case R.id.tvAddition:

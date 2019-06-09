@@ -21,6 +21,7 @@ import com.mathgame.model.GameResult;
 import com.mathgame.model.Question;
 import com.mathgame.plugin.CountDownTimerWithPause;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.AudioUtils;
 import com.mathgame.util.QuestionUtils;
 import com.mathgame.util.Transition;
 import com.mathgame.util.Utils;
@@ -199,6 +200,7 @@ public class SingleGameActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        AudioUtils.onButtonClicked(this);
         switch (v.getId()) {
             case R.id.ivBack:
                 onBackPressed();
