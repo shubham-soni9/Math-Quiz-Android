@@ -243,5 +243,6 @@
         <item name="android:paddingEnd">@dimen/_15dp</item>
         <item name="android:paddingRight">@dimen/_15dp</item>
     </style>
+
     <dimen name="_3dp">3dp</dimen>
 </resources>

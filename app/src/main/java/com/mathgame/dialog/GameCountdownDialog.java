@@ -111,7 +111,7 @@ public class GameCountdownDialog {
             }
 
             tvCountdown.startAnimation(zoomIn);
-            AudioUtils.playAudio(activity,R.raw.game_countdown);
+            AudioUtils.playAudio(activity, R.raw.game_countdown);
             countDownTimer = new CountDownTimerWithPause(timerValue * 1000, 500, true) {
                 @Override
                 public void onTick(long millis) {

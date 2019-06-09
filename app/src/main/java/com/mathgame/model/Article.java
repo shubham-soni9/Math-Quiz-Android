@@ -15,9 +15,9 @@ public class Article implements Parcelable {
             return new Article[size];
         }
     };
-    private String title;
-    private String link;
-    private int    type;
+    private             String           title;
+    private             String           link;
+    private             int              type;
 
     protected Article(Parcel in) {
         title = in.readString();

@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="sans-serif-light"
-            android:textAppearance="@style/CustomTextAppearance.Regular"
             android:text="2048"
+            android:textAppearance="@style/CustomTextAppearance.Regular"
             android:textColor="@color/text_white"
             android:textSize="35sp" />
 

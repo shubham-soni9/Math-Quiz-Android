@@ -14,7 +14,7 @@ import com.mathgame.util.Utils;
 
 import java.util.Locale;
 
-public abstract class BaseActivity extends AppCompatActivity  {
+public abstract class BaseActivity extends AppCompatActivity {
     public static final int NAVDRAWER_LAUNCH_DELAY        = 250;
     public static final int MAIN_CONTENT_FADEOUT_DURATION = 150;
     public static final int MAIN_CONTENT_FADEIN_DURATION  = 250;

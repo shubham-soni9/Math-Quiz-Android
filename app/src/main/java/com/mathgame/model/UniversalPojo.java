@@ -17,8 +17,8 @@ public class UniversalPojo implements Parcelable {
             return new UniversalPojo[size];
         }
     };
-    private ArrayList<Tutorial> tutorials;
-    private ArrayList<CLevel>   levels;
+    private             ArrayList<Tutorial>    tutorials;
+    private             ArrayList<CLevel>      levels;
 
     protected UniversalPojo(Parcel in) {
         tutorials = in.createTypedArrayList(Tutorial.CREATOR);

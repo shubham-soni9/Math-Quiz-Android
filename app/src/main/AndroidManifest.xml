@@ -64,7 +64,7 @@
         <activity
             android:name=".activity.SingleGameResultActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
             android:name=".activity.DualGameActivity"
@@ -121,9 +121,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.DualGameResultActivity"
+        <activity
+            android:name=".activity.DualGameResultActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <service
             android:name=".plugin.sudoku.controller.GeneratorService"

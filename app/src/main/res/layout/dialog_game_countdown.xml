@@ -34,26 +34,26 @@
         android:id="@+id/tvCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_50dp"
-        android:layout_alignParentBottom="true"
         android:background="@color/background_theme_color_dark"
-        android:padding="10dp"
-        android:visibility="gone"
-        android:text="@string/cancel_game"
         android:letterSpacing="0.12"
+        android:padding="10dp"
+        android:text="@string/cancel_game"
         android:textAppearance="@style/CustomTextAppearance.Medium"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_large_iii" />
+        android:textSize="@dimen/text_size_large_iii"
+        android:visibility="gone" />
 
     <com.rey.material.widget.ImageButton
         android:id="@+id/ibCancel"
         android:layout_width="@dimen/_80dp"
         android:layout_height="@dimen/_80dp"
-        android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/ic_oval_accent"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_close"/>
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/ic_oval_accent"
+        android:src="@drawable/ic_close" />
 
 </RelativeLayout>

@@ -15,19 +15,19 @@ public class Question implements Parcelable {
             return new Question[size];
         }
     };
-    private           String   id;
-    private           String   operation;
-    private           String   question;
-    private           String   answer;
-    private           int      answerType;
-    private transient Listener listener;
-    private           String   userInput;
-    private           boolean  correct;
-    private           String   option_1;
-    private           String   option_2;
-    private           String   option_3;
-    private           String   option_4;
-    private int player;
+    private             String            id;
+    private             String            operation;
+    private             String            question;
+    private             String            answer;
+    private             int               answerType;
+    private transient   Listener          listener;
+    private             String            userInput;
+    private             boolean           correct;
+    private             String            option_1;
+    private             String            option_2;
+    private             String            option_3;
+    private             String            option_4;
+    private             int               player;
 
     public Question() {
     }
@@ -44,7 +44,7 @@ public class Question implements Parcelable {
         option_2 = in.readString();
         option_3 = in.readString();
         option_4 = in.readString();
-        player=in.readInt();
+        player = in.readInt();
     }
 
     public String getOption_1() {

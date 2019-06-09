@@ -17,7 +17,7 @@ public class GameResult implements Parcelable {
             return new GameResult[size];
         }
     };
-    private ArrayList<Question> questions;
+    private             ArrayList<Question> questions;
 
     public GameResult() {
 

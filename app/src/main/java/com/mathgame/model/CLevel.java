@@ -15,9 +15,9 @@ public class CLevel implements Parcelable {
             return new CLevel[size];
         }
     };
-    private int    difficulty;
-    private String question_sample;
-    private int    time_per_question;
+    private             int             difficulty;
+    private             String          question_sample;
+    private             int             time_per_question;
 
     private CLevel(Parcel in) {
         difficulty = in.readInt();

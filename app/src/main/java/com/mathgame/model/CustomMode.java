@@ -26,14 +26,14 @@ public class CustomMode implements Parcelable {
     private int    skipNumbers;
     private int    difficulty;
     private String questionSample;
-    private long operationId;
+    private long   operationId;
 
     public CustomMode() {
 
     }
 
     protected CustomMode(Parcel in) {
-        operationId=in.readLong();
+        operationId = in.readLong();
         title = in.readString();
         numberOfQuestions = in.readInt();
         gameType = in.readInt();

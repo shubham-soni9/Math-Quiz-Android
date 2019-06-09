@@ -120,7 +120,7 @@ public class SettingsDialog {
                 customMode.setNumberOfQuestions(npNumberOfQuestion.getValue());
                 customMode.setTimerValue(cbEnableTimer.isChecked() ? npTimerSecondValue.getValue() : 0);
                 if (cbSaveSettings.isChecked()) {
-                    GameSettings.saveCustomMode(activity,customMode);
+                    GameSettings.saveCustomMode(activity, customMode);
                 }
                 if (listener != null) {
                     listener.performPositiveAction();

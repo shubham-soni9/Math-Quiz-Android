@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class Tutorial implements Parcelable {
-    public static final Creator<Tutorial> CREATOR = new Creator<Tutorial>() {
+    public static final Creator<Tutorial>  CREATOR = new Creator<Tutorial>() {
         @Override
         public Tutorial createFromParcel(Parcel in) {
             return new Tutorial(in);
@@ -20,11 +20,11 @@ public class Tutorial implements Parcelable {
             return new Tutorial[size];
         }
     };
-    private int    tutorial_id;
-    private String tutorial_name;
+    private             int                tutorial_id;
+    private             String             tutorial_name;
     @SerializedName("articles")
     @Expose
-    private ArrayList<Article> articleList;
+    private             ArrayList<Article> articleList;
 
     protected Tutorial(Parcel in) {
         tutorial_id = in.readInt();

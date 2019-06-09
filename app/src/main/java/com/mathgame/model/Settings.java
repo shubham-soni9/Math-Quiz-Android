@@ -3,19 +3,7 @@ package com.mathgame.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-
 public class Settings implements Parcelable {
-    private CustomMode            generalMode;
-
-    public Settings() {
-
-    }
-
-    protected Settings(Parcel in) {
-        generalMode = in.readParcelable(CustomMode.class.getClassLoader());
-    }
-
     public static final Creator<Settings> CREATOR = new Creator<Settings>() {
         @Override
         public Settings createFromParcel(Parcel in) {
@@ -27,6 +15,15 @@ public class Settings implements Parcelable {
             return new Settings[size];
         }
     };
+    private CustomMode generalMode;
+
+    public Settings() {
+
+    }
+
+    protected Settings(Parcel in) {
+        generalMode = in.readParcelable(CustomMode.class.getClassLoader());
+    }
 
     public CustomMode getGeneralMode() {
         return generalMode;

@@ -15,13 +15,13 @@ public class CQuestion implements Parcelable {
             return new CQuestion[size];
         }
     };
-    private String question;
-    private String opt_1;
-    private String opt_2;
-    private String opt_3;
-    private String opt_4;
-    private int    answer;
-    private int    level;
+    private             String             question;
+    private             String             opt_1;
+    private             String             opt_2;
+    private             String             opt_3;
+    private             String             opt_4;
+    private             int                answer;
+    private             int                level;
 
     protected CQuestion(Parcel in) {
         level = in.readInt();

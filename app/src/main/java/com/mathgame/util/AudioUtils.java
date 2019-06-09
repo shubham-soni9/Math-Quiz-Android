@@ -19,7 +19,7 @@ public class AudioUtils {
         }
     }
 
-    public static void onButtonClicked(Context context){
+    public static void onButtonClicked(Context context) {
         String sound = "android.resource://" + context.getPackageName() + "/" + R.raw.btn_click;
         final MediaPlayer mp = MediaPlayer.create(context.getApplicationContext(), Uri.parse(sound));
         mp.start();
