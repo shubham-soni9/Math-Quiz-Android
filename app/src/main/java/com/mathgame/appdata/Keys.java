@@ -17,5 +17,6 @@ public interface Keys {
         String KEY_WEB_URL             = "key_web_url";
         String KEY_TITLE               = "key_title";
         String KEY_LOCALE              = "key_locale";
+        String KEY_CAREER_LEVEL              = "key_career_level";
     }
 }

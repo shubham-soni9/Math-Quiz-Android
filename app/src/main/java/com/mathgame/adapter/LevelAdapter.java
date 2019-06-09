@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,10 +25,12 @@ import java.util.ArrayList;
 public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> {
     private Context           context;
     private ArrayList<CLevel> levelList;
+    private int               currentLevel;
 
-    public LevelAdapter(Context context, ArrayList<CLevel> levelList) {
+    public LevelAdapter(Context context, ArrayList<CLevel> levelList, int currentLevel) {
         this.context = context;
         this.levelList = levelList;
+        this.currentLevel = currentLevel;
     }
 
     @NonNull
@@ -41,6 +44,13 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         final CLevel cLevel = levelList.get(viewHolder.getAdapterPosition());
         viewHolder.tvLevelName.setText(String.valueOf(position + 1));
+        if ((position + 1) <= currentLevel) {
+            viewHolder.tvLevelName.setVisibility(View.VISIBLE);
+            viewHolder.ibLock.setVisibility(View.GONE);
+        } else {
+            viewHolder.tvLevelName.setVisibility(View.GONE);
+            viewHolder.ibLock.setVisibility(View.VISIBLE);
+        }
         switch (cLevel.getDifficulty()) {
             case Constant.DifficultyLevel.SMALL:
                 viewHolder.tvLevelName.setBackgroundResource(R.drawable.bg_level_small);
@@ -52,20 +62,17 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
                 viewHolder.tvLevelName.setBackgroundResource(R.drawable.bg_level_large);
                 break;
         }
-        viewHolder.tvLevelName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AudioUtils.getInstance().onButtonClicked(context);
-                CustomMode customMode = new CustomMode();
-                customMode.setGameType(Codes.GameType.MULTIPLE_CHOICE.value);
-                customMode.setTimerValue(cLevel.getTime_per_question());
-                customMode.setDifficulty(cLevel.getDifficulty());
-                customMode.setNumberOfQuestions(10);
-                customMode.setQuestionSample(cLevel.getQuestionSample());
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(CustomMode.class.getName(), customMode);
-                Transition.transitForResult((Activity) context, SingleGameActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
-            }
+        viewHolder.tvLevelName.setOnClickListener(v -> {
+            AudioUtils.getInstance().onButtonClicked(context);
+            CustomMode customMode = new CustomMode();
+            customMode.setGameType(Codes.GameType.MULTIPLE_CHOICE.value);
+            customMode.setTimerValue(cLevel.getTime_per_question());
+            customMode.setDifficulty(cLevel.getDifficulty());
+            customMode.setNumberOfQuestions(10);
+            customMode.setQuestionSample(cLevel.getQuestionSample());
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(CustomMode.class.getName(), customMode);
+            Transition.transitForResult((Activity) context, SingleGameActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
         });
     }
 
@@ -75,11 +82,13 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvLevelName;
+        private TextView             tvLevelName;
+        private AppCompatImageButton ibLock;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvLevelName = itemView.findViewById(R.id.tvLevelName);
+            ibLock = itemView.findViewById(R.id.ibLock);
         }
     }
 }

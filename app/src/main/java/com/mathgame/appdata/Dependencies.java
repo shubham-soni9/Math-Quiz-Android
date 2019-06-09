@@ -52,4 +52,13 @@ public class Dependencies {
     public static GameResult getSecondPlayerResult(Context context) {
         return Prefs.with(context).getObject(Keys.Prefs.SECOND_PLAYER_RESULT, GameResult.class);
     }
+
+    public static int getCareerLevel(Context context) {
+        return Prefs.with(context).getInt(Keys.Prefs.KEY_CAREER_LEVEL, 1);
+    }
+
+    public static void setCareerLevel(Context context, int level) {
+        Prefs.with(context).save(Keys.Prefs.KEY_CAREER_LEVEL, level);
+    }
+
 }

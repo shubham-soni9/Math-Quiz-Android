@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.mathgame.R;
 import com.mathgame.adapter.LevelAdapter;
+import com.mathgame.appdata.Dependencies;
 import com.mathgame.appdata.GameSettings;
 import com.mathgame.structure.BaseActivity;
 
@@ -35,7 +36,7 @@ public class CareerLevelActivity extends BaseActivity {
     }
 
     private void setData() {
-        LevelAdapter levelAdapter = new LevelAdapter(this, GameSettings.getLevelList(this));
+        LevelAdapter levelAdapter = new LevelAdapter(this, GameSettings.getLevelList(this), Dependencies.getCareerLevel(this));
         rvLevelList.setLayoutManager(new GridLayoutManager(this, 3));
         rvLevelList.setAdapter(levelAdapter);
     }
