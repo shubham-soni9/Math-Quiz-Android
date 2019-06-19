@@ -16,39 +16,39 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:background="@drawable/accent_border"
             android:gravity="center"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_17sdp"
+            android:paddingBottom="@dimen/_3sdp"
             android:text="0"
             android:textSize="@dimen/text_size_title_viii" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:background="@drawable/accent_border"
             android:gravity="center"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_17sdp"
+            android:paddingBottom="@dimen/_3sdp"
             android:text="0"
             android:textSize="@dimen/text_size_title_viii" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:background="@drawable/accent_border"
             android:gravity="center"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_17sdp"
+            android:paddingBottom="@dimen/_3sdp"
             android:text="0"
             android:textSize="@dimen/text_size_title_viii" />
 
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/llAnswer"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_7sdp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -98,7 +98,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -133,7 +133,7 @@
             <TextView
                 style="@style/keyboard_button_number"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:background="@drawable/bg_clear"
                 android:backgroundTint="@color/snackbar_bg_color_error"
                 android:minWidth="@dimen/_100sdp"
@@ -142,7 +142,7 @@
             <TextView
                 style="@style/keyboard_button_number"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:background="@drawable/bg_submit"
                 android:backgroundTint="@color/snackbar_bg_color_success"
                 android:minWidth="@dimen/_100sdp"

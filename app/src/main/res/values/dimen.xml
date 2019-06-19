@@ -1,111 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="button_corner_radius">10dp</dimen>
+    <dimen name="button_corner_radius">@dimen/_7sdp</dimen>
 
     <!--Text Sizes-->
-    <dimen name="text_size_tiny">10sp</dimen>
-    <dimen name="text_size_small">12sp</dimen>
-    <dimen name="text_size_medium">14sp</dimen>
-    <dimen name="text_size_normal">16sp</dimen>
-    <dimen name="text_size_large">18sp</dimen>
-    <dimen name="text_size_large_i">20sp</dimen>
-    <dimen name="text_size_large_ii">22sp</dimen>
-    <dimen name="text_size_large_iii">24sp</dimen>
-    <dimen name="text_size_large_iv">26sp</dimen>
-    <dimen name="text_size_large_v">28sp</dimen>
-    <dimen name="text_size_large_vi">30sp</dimen>
-    <dimen name="text_size_title_vii">32sp</dimen>
-    <dimen name="text_size_title_viii">34sp</dimen>
-    <dimen name="text_size_large_xxxx">38sp</dimen>
-    <dimen name="custom_field_padding">7dp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="text_size_tiny">@dimen/_8ssp</dimen>
+    <dimen name="text_size_small">@dimen/_10ssp</dimen>
+    <dimen name="text_size_medium">@dimen/_12ssp</dimen>
+    <dimen name="text_size_normal">@dimen/_14ssp</dimen>
+    <dimen name="text_size_large">@dimen/_16ssp</dimen>
+    <dimen name="text_size_large_i">@dimen/_18ssp</dimen>
+    <dimen name="text_size_large_ii">@dimen/_20ssp</dimen>
+    <dimen name="text_size_large_iii">@dimen/_22ssp</dimen>
+    <dimen name="text_size_large_iv">@dimen/_24ssp</dimen>
+    <dimen name="text_size_large_v">@dimen/_26ssp</dimen>
+    <dimen name="text_size_large_vi">@dimen/_28ssp</dimen>
+    <dimen name="text_size_title_vii">@dimen/_30ssp</dimen>
+    <dimen name="text_size_title_viii">@dimen/_32ssp</dimen>
+    <dimen name="text_size_large_xxxx">@dimen/_34ssp</dimen>
+    <dimen name="custom_field_padding">@dimen/_5ssp</dimen>
+    <dimen name="activity_horizontal_margin">@dimen/_14sdp</dimen>
 
-    <dimen name="spacing_5">5dp</dimen>
+    <dimen name="spacing_5">@dimen/_3sdp</dimen>
 
-    <dimen name="inner_components_spacing">8dp</dimen>
-    <dimen name="bottom_ellipsis_height">4dp</dimen>
+    <dimen name="inner_components_spacing">@dimen/_5sdp</dimen>
+    <dimen name="bottom_ellipsis_height">@dimen/_3sdp</dimen>
 
-    <dimen name="floating_label_text_size">12sp</dimen>
-    <dimen name="bottom_text_size">12sp</dimen>
+    <dimen name="floating_label_text_size">@dimen/_10sdp</dimen>
+    <dimen name="bottom_text_size">@dimen/_10sdp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_vertical_margin">13dp</dimen>
+    <dimen name="activity_vertical_margin">@dimen/_10sdp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="nav_header_height">160dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
+    <dimen name="nav_header_height">@dimen/_150sdp</dimen>
+    <dimen name="text_margin">@dimen/_14sdp</dimen>
 
-
-    <dimen name="text_size">25sp</dimen>
-    <dimen name="main_text_difficulty">35sp</dimen>
-    <dimen name="main_button_padding">30dp</dimen>
+    <dimen name="main_text_difficulty">@dimen/_27sdp</dimen>
+    <dimen name="main_button_padding">@dimen/_22sdp</dimen>
 
     <!-- Article -->
-    <dimen name="dots_height">30dp</dimen>
-    <dimen name="dots_margin_bottom">20dp</dimen>
-    <dimen name="img_width_height">120dp</dimen>
-    <dimen name="slide_title">30dp</dimen>
-    <dimen name="slide_desc">16dp</dimen>
-    <dimen name="desc_padding">40dp</dimen>
+    <dimen name="dots_height">@dimen/_22sdp</dimen>
+    <dimen name="dots_margin_bottom">@dimen/_17sdp</dimen>
+    <dimen name="img_width_height">@dimen/_100sdp</dimen>
+    <dimen name="slide_title">@dimen/_27sdp</dimen>
+    <dimen name="slide_desc">@dimen/_13sdp</dimen>
+    <dimen name="desc_padding">@dimen/_37sdp</dimen>
 
-    <dimen name="user_input_field_height">50dp</dimen>
+    <dimen name="user_input_field_height">@dimen/_45sdp</dimen>
 
-    <dimen name="user_input_field_corner_radius">5dp</dimen>
+    <dimen name="user_input_field_corner_radius">@dimen/_3sdp</dimen>
 
-    <dimen name="button_height">50dp</dimen>
+    <dimen name="button_height">@dimen/_45sdp</dimen>
     <!--Text Sizes-->
-    <dimen name="text_size_extra_large">20sp</dimen>
-    <dimen name="text_size_extra_large_x">22sp</dimen>
-    <dimen name="text_size_title_big">34sp</dimen>
-
     <!-- margin sizes -->
-    <dimen name="margin_xxxlarge">30dp</dimen>
-    <dimen name="margin_xxsmall">8dp</dimen>
-    <dimen name="margin_xxxsmall">5dp</dimen>
+    <dimen name="margin_xxxlarge">@dimen/_26sdp</dimen>
+    <dimen name="margin_xxsmall">@dimen/_5sdp</dimen>
+    <dimen name="margin_xxxsmall">@dimen/_3sdp</dimen>
 
     <!-- padding sizes -->
-    <dimen name="padding_xxsmall">8dp</dimen>
+    <dimen name="padding_xxsmall">@dimen/_5sdp</dimen>
 
 
-    <dimen name="custom_field_label_value_margin">5dp</dimen>
+    <dimen name="custom_field_label_value_margin">@dimen/_3sdp</dimen>
     <dimen name="availability_block_corner_radius">0dp</dimen>
 
 
-    <dimen name="below_button_height">58dp</dimen>
+    <dimen name="below_button_height">@dimen/_53sdp</dimen>
 
 
     <!-- margin sizes -->
 
-    <dimen name="margin_normal">14dp</dimen>
-    <dimen name="margin_small">12dp</dimen>
+    <dimen name="margin_normal">@dimen/_12sdp</dimen>
+    <dimen name="margin_small">@dimen/_10sdp</dimen>
+    <dimen name="margin_xx">@dimen/_3sdp</dimen>
 
 
     <!-- padding sizes -->
-    <dimen name="padding_xxxsmall">5dp</dimen>
+    <dimen name="padding_xxxsmall">@dimen/_3sdp</dimen>
 
 
-    <dimen name="spacing_huge">60dp</dimen>
-    <dimen name="spacing_xlarge">40dp</dimen>
-    <dimen name="spacing_very_large">30dp</dimen>
-    <dimen name="spacing_large">24dp</dimen>
-    <dimen name="spacing_medium">20dp</dimen>
-    <dimen name="spacing_normal">14dp</dimen>
-    <dimen name="spacing_small">10dp</dimen>
-    <dimen name="spacing_xsmall">8dp</dimen>
-    <dimen name="spacing_tiny">4dp</dimen>
-    <dimen name="spacing_very_tiny">2dp</dimen>
-    <dimen name="margin_xx">4dp</dimen>
-    <dimen name="width_publisher_frame">120dp</dimen>
-    <dimen name="height_publisher_frame">160dp</dimen>
-    <dimen name="size_video_call_fleet_image">120dp</dimen>
-    <dimen name="size_ongoing_button">60dp</dimen>
-    <dimen name="text_size_xl">24sp</dimen>
-    <dimen name="font_normal">14sp</dimen>
-    <dimen name="spacing_0">0dp</dimen>
-    <dimen name="view_height_normal">40dp</dimen>
-    <dimen name="_40dp">40dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="padding_large">16dp</dimen>
-    <dimen name="margin_xlarge">20dp</dimen>
+    <dimen name="spacing_huge">@dimen/_55sdp</dimen>
+    <dimen name="spacing_xlarge">@dimen/_45sdp</dimen>
+    <dimen name="spacing_very_large">@dimen/_27sdp</dimen>
+    <dimen name="spacing_large">@dimen/_20sdp</dimen>
+    <dimen name="spacing_medium">@dimen/_17sdp</dimen>
+    <dimen name="spacing_normal">@dimen/_11sdp</dimen>
+    <dimen name="spacing_small">@dimen/_7sdp</dimen>
+    <dimen name="spacing_xsmall">@dimen/_5sdp</dimen>
+    <dimen name="spacing_tiny">@dimen/_3sdp</dimen>
+    <dimen name="spacing_very_tiny">@dimen/_1sdp</dimen>
+    <dimen name="width_publisher_frame">@dimen/_100sdp</dimen>
+    <dimen name="height_publisher_frame">@dimen/_14sdp</dimen>
+    <dimen name="size_video_call_fleet_image">@dimen/_100sdp</dimen>
+    <dimen name="size_ongoing_button">@dimen/_55sdp</dimen>
+    <dimen name="view_height_normal">@dimen/_37sdp</dimen>
+    <dimen name="fab_margin">@dimen/_13sdp</dimen>
+    <dimen name="padding_large">@dimen/_13sdp</dimen>
+    <dimen name="margin_xlarge">@dimen/_17sdp</dimen>
 
 </resources>

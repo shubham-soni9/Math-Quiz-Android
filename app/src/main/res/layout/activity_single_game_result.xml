@@ -19,15 +19,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/_10sdp">
+            android:paddingBottom="@dimen/_7sdp">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_17sdp"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:layout_marginEnd="@dimen/_17sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -38,7 +38,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.7"
                         android:gravity="start"
                         android:text="@string/total"
@@ -49,7 +49,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.1"
                         android:gravity="center"
                         android:text="@string/colon_text"
@@ -61,7 +61,7 @@
                         android:id="@+id/tvTotal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.2"
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
@@ -78,7 +78,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.7"
                         android:gravity="start"
                         android:text="@string/attempted"
@@ -89,7 +89,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.1"
                         android:gravity="center"
                         android:text="@string/colon_text"
@@ -101,7 +101,7 @@
                         android:id="@+id/tvAttempted"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.2"
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
@@ -118,7 +118,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.7"
                         android:gravity="start"
                         android:text="@string/correct"
@@ -129,7 +129,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.1"
                         android:gravity="center"
                         android:text="@string/colon_text"
@@ -141,7 +141,7 @@
                         android:id="@+id/tvCorrect"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.2"
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
@@ -158,7 +158,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.7"
                         android:gravity="start"
                         android:text="@string/incorrect"
@@ -169,7 +169,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.1"
                         android:gravity="center"
                         android:text="@string/colon_text"
@@ -181,7 +181,7 @@
                         android:id="@+id/tvInCorrect"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:layout_weight="0.2"
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
@@ -195,11 +195,11 @@
                 android:id="@+id/tvPlayerScore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center"
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_9sdp"
                 android:text="@string/player_score"
                 android:textAppearance="@style/CustomTextAppearance.Medium"
                 android:textColor="@color/white_100"
@@ -210,16 +210,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_20sdp">
+                android:layout_marginStart="@dimen/_17sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_17sdp">
 
                 <com.mathgame.plugin.ProgressWheel
                     android:id="@+id/pbCorrectWheel"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_17sdp"
                     android:layout_weight="0.5"
                     app:barWidth="17dp"
                     app:countText="7"
@@ -228,7 +228,7 @@
                     app:defTextColor="@android:color/white"
                     app:defTextSize="@dimen/text_size_normal"
                     app:definitionText="@string/correct"
-                    app:marginBtwText="@dimen/_15sdp"
+                    app:marginBtwText="@dimen/_9sdp"
                     app:progressColor="@color/snackbar_bg_color_success" />
 
                 <com.mathgame.plugin.ProgressWheel
@@ -244,20 +244,20 @@
                     app:defTextColor="@android:color/white"
                     app:defTextSize="@dimen/text_size_normal"
                     app:definitionText="@string/incorrect"
-                    app:marginBtwText="@dimen/_15sdp"
+                    app:marginBtwText="@dimen/_9sdp"
                     app:progressColor="@color/snackbar_bg_color_error" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:background="@color/background_theme_color_dark"
                 android:orientation="vertical"
-                android:paddingStart="@dimen/_15sdp"
-                android:paddingTop="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_10sdp">
+                android:paddingStart="@dimen/_9sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingEnd="@dimen/_9sdp"
+                android:paddingBottom="@dimen/_7sdp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -272,7 +272,7 @@
                     android:id="@+id/tvFeedBack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
                     android:gravity="start"
                     android:text="@string/complete_chart"
                     android:textAppearance="@style/CustomTextAppearance.Medium"
@@ -285,12 +285,12 @@
                 android:id="@+id/tvSeeAllQuestions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
                 android:background="@color/background_theme_color_dark"
                 android:drawableEnd="@drawable/ic_right_arrow"
                 android:gravity="start"
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_9sdp"
                 android:text="@string/see_all_questions"
                 android:textAppearance="@style/CustomTextAppearance.Medium"
                 android:textColor="@color/white_10"
@@ -299,11 +299,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center"
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_9sdp"
                 android:text="@string/complete_chart"
                 android:textAppearance="@style/CustomTextAppearance.Medium"
                 android:textColor="@color/white_100"
@@ -313,7 +313,7 @@
                 android:id="@+id/resultPieChart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_margin="@dimen/_7sdp"
                 android:minHeight="300dp" />
 
         </LinearLayout>

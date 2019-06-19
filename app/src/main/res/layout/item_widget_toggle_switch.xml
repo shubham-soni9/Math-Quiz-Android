@@ -13,17 +13,17 @@
         android:clickable="true"
         android:focusable="true"
         android:gravity="center"
-        android:paddingLeft="@dimen/_16sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:paddingRight="@dimen/_16sdp"
-        android:paddingBottom="@dimen/_8sdp" />
+        android:paddingLeft="@dimen/_13sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingRight="@dimen/_13sdp"
+        android:paddingBottom="@dimen/_5sdp" />
 
     <View
         android:id="@+id/separator"
         android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_4sdp"
-        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
         android:visibility="invisible" />
 
 </LinearLayout>

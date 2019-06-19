@@ -41,8 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_10sdp">
+        android:paddingStart="@dimen/_7sdp"
+        android:paddingEnd="@dimen/_7sdp">
 
         <LinearLayout
             android:id="@+id/llAnswerTwoLayout"
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/llAnswerTwoLayout"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_3sdp"
             android:orientation="vertical">
 
             <TextView
@@ -95,8 +95,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:indeterminate="false"
-                android:maxHeight="@dimen/_10sdp"
-                android:minHeight="@dimen/_10sdp"
+                android:maxHeight="@dimen/_7sdp"
+                android:minHeight="@dimen/_7sdp"
                 android:progress="100"
                 app:backgroundColor="@color/progress_bar_empty_color"
                 app:progressColor="@color/progress_bar_filled_color" />
@@ -129,7 +129,7 @@
                     android:rotation="180"
                     android:textAppearance="@style/CustomTextAppearance.Light"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_35sdp"
+                    android:textSize="@dimen/_32sdp"
                     tools:text="10 + 20 = ?" />
 
                 <TextView
@@ -137,11 +137,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
                     android:gravity="center"
                     android:textAppearance="@style/CustomTextAppearance.Light"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_35sdp"
+                    android:textSize="@dimen/_32sdp"
                     tools:text="10 + 20 = ?" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -151,7 +151,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/llAnswerLayout"
-            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:orientation="vertical"
             android:rotation="180">
 
@@ -173,8 +173,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:indeterminate="false"
-                android:maxHeight="@dimen/_10sdp"
-                android:minHeight="@dimen/_10sdp"
+                android:maxHeight="@dimen/_7sdp"
+                android:minHeight="@dimen/_7sdp"
                 android:progress="100"
                 app:backgroundColor="@color/progress_bar_empty_color"
                 app:progressColor="@color/progress_bar_filled_color" />

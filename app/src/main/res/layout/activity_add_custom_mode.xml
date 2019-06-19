@@ -761,8 +761,8 @@
                 android:id="@+id/btnSaveSettings"
                 style="@style/ButtonThemeCapsule"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:layout_marginBottom="@dimen/_17sdp"
                 android:text="@string/save_settings"
                 android:textAllCaps="true" />
 

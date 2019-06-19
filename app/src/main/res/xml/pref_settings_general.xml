@@ -1,4 +1,4 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<Preference_75sdp"creen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/pref_group_game">
         <SwitchPreference
             android:id="@+id/pref_automatic_note_deletion"

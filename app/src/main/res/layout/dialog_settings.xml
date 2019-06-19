@@ -45,8 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/_10sdp"
-            android:paddingBottom="@dimen/_20sdp">
+            android:paddingTop="@dimen/_7sdp"
+            android:paddingBottom="@dimen/_17sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -96,8 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_7sdp"
                 android:textSize="@dimen/text_size_normal"
                 custom:activeBgColor="@color/colorPrimaryDark"
                 custom:activeTextColor="@color/white_100"
@@ -111,7 +111,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:orientation="vertical">
 
                 <View
@@ -217,7 +217,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:button="@drawable/custom_checkbox"
                         android:textAppearance="@style/CustomTextAppearance.Light"
@@ -236,7 +236,7 @@
                     android:id="@+id/rlTimerValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin"
@@ -330,7 +330,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/black_05" />
 
@@ -339,7 +339,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:button="@drawable/custom_checkbox"
                 android:paddingStart="@dimen/activity_horizontal_margin"

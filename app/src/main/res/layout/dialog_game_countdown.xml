@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_45sdp"
         android:textColor="@color/white"
         android:textSize="50sp"
         tools:text="3" />
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_45sdp"
         android:background="@color/background_theme_color_dark"
         android:letterSpacing="0.12"
         android:padding="10dp"
@@ -48,8 +48,8 @@
 
     <com.rey.material.widget.ImageButton
         android:id="@+id/ibCancel"
-        android:layout_width="@dimen/_60sdp"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"

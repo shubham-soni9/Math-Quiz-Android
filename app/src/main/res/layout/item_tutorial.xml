@@ -4,7 +4,7 @@
     android:id="@+id/llItemParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/_20sdp"
+    android:layout_marginStart="@dimen/_17sdp"
     android:orientation="vertical">
 
     <TextView
@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_tutorial"
-        android:drawablePadding="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_7sdp"
         android:gravity="center_vertical"
-        android:padding="@dimen/_10sdp"
+        android:padding="@dimen/_7sdp"
         android:textAppearance="@style/CustomTextAppearance.Light"
         android:textColor="@color/white_100"
         android:textSize="@dimen/text_size_normal"

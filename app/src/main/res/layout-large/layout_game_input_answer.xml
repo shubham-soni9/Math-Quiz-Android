@@ -17,39 +17,39 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:background="@drawable/accent_border"
             android:gravity="center"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_17sdp"
+            android:paddingBottom="@dimen/_3sdp"
             android:textSize="40sp"
             tools:text="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:background="@drawable/accent_border"
             android:gravity="center"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_17sdp"
+            android:paddingBottom="@dimen/_3sdp"
             android:textSize="40sp"
             tools:text="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:background="@drawable/accent_border"
             android:gravity="center"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_17sdp"
+            android:paddingBottom="@dimen/_3sdp"
             android:textSize="40sp"
             tools:text="0" />
 
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/llAnswer"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_7sdp"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -100,7 +100,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -142,7 +142,7 @@
             <TextView
                 style="@style/keyboard_button_number"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:background="@drawable/bg_submit"
                 android:minWidth="@dimen/_100sdp"
                 android:text="@string/submit" />
