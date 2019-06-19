@@ -22,7 +22,7 @@
             android:layout_centerInParent="true"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:src="@drawable/ic_add"
+            app:srcCompat="@drawable/ic_add"
             android:tint="@color/colorPrimary"
             android:visibility="gone" />
     </RelativeLayout>

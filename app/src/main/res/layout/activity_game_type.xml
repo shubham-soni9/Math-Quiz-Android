@@ -31,7 +31,7 @@
                 android:focusable="true"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:src="@drawable/ic_settings"
+                app:srcCompat="@drawable/ic_settings"
                 android:tint="@color/white_100" />
         </RelativeLayout>
 

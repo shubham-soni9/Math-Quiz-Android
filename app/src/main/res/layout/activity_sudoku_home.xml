@@ -27,7 +27,7 @@
             android:onClick="onClick"
             android:paddingStart="@dimen/_9sdp"
             android:paddingEnd="@dimen/_9sdp"
-            android:src="@drawable/ic_more_options" />
+            app:srcCompat="@drawable/ic_more_options" />
     </RelativeLayout>
 
     <LinearLayout
@@ -61,7 +61,7 @@
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:onClick="onClick"
                 android:padding="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+                app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
             <ImageView
                 android:id="@+id/arrow_right"
@@ -72,7 +72,7 @@
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:onClick="onClick"
                 android:padding="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
         </RelativeLayout>
 
         <LinearLayout

@@ -39,7 +39,7 @@
         android:paddingTop="@dimen/_9sdp"
         android:paddingEnd="@dimen/_25dp"
         android:paddingBottom="@dimen/_9sdp"
-        android:src="@drawable/ic_lock"
+        app:srcCompat="@drawable/ic_lock"
         android:textAppearance="@style/CustomTextAppearance.Bold"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_title_vii" />

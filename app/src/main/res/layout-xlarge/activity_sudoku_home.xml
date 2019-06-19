@@ -39,7 +39,7 @@
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:onClick="onClick"
                 android:padding="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+                app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/arrow_right"
@@ -50,7 +50,7 @@
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:onClick="onClick"
                 android:padding="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
         </RelativeLayout>
 
         <LinearLayout

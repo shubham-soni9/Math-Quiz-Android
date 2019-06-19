@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             android:paddingStart="@dimen/_17sdp"
             android:paddingEnd="@dimen/_17sdp"
-            android:src="@drawable/ic_back"
+            app:srcCompat="@drawable/ic_back"
             android:tint="@color/white_100" />
 
         <TextView
@@ -128,7 +128,7 @@
             android:layout_weight="1"
             android:background="@drawable/btn_selector"
             android:padding="7dp"
-            android:src="@drawable/ic_reload"
+            app:srcCompat="@drawable/ic_reload"
             android:textColor="@android:color/white" />
 
         <ImageButton
@@ -139,7 +139,7 @@
             android:layout_weight="1"
             android:background="@drawable/btn_selector"
             android:padding="7dp"
-            android:src="@drawable/ic_undo"
+            app:srcCompat="@drawable/ic_undo"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

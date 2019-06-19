@@ -28,7 +28,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="bottom"
                 android:background="@color/transparent"
-                android:src="@drawable/ic_trophy_award_black_48dp" />
+                app:srcCompat="@drawable/ic_trophy_award_black_48dp" />
 
             <View
                 android:layout_width="fill_parent"
@@ -132,7 +132,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="bottom"
                 android:background="@color/transparent"
-                android:src="@drawable/ic_trophy_award_black_48dp" />
+                app:srcCompat="@drawable/ic_trophy_award_black_48dp" />
 
             <View
                 android:layout_width="fill_parent"

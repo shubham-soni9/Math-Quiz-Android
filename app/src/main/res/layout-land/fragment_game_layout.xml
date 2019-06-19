@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="horizontal">
 
@@ -128,7 +129,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
                     android:padding="7dp"
-                    android:src="@drawable/ic_reload"
+                    app:srcCompat="@drawable/ic_reload"
                     android:textColor="@android:color/white" />
 
                 <ImageButton
@@ -138,7 +139,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
                     android:padding="7dp"
-                    android:src="@drawable/ic_info"
+                    app:srcCompat="@drawable/ic_info"
                     android:textColor="@android:color/white" />
 
 
@@ -149,7 +150,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
                     android:padding="7dp"
-                    android:src="@drawable/ic_myo"
+                    app:srcCompat="@drawable/ic_myo"
                     android:textColor="@android:color/white" />
 
                 <ImageButton
@@ -160,7 +161,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
                     android:padding="7dp"
-                    android:src="@drawable/ic_undo"
+                    app:srcCompat="@drawable/ic_undo"
                     android:textColor="@android:color/white" />
 
             </LinearLayout>

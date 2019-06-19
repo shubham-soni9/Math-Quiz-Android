@@ -22,7 +22,7 @@
             android:gravity="center"
             android:paddingTop="@dimen/_17sdp"
             android:paddingBottom="@dimen/_17sdp"
-            android:src="@drawable/ic_game_correct" />
+            app:srcCompat="@drawable/ic_game_correct" />
 
     </android.support.v7.widget.CardView>
 
@@ -41,7 +41,7 @@
             android:gravity="center"
             android:paddingTop="@dimen/_17sdp"
             android:paddingBottom="@dimen/_17sdp"
-            android:src="@drawable/ic_game_incorrect" />
+            app:srcCompat="@drawable/ic_game_incorrect" />
 
 
     </android.support.v7.widget.CardView>
