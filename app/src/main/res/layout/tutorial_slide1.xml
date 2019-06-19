@@ -24,13 +24,13 @@
         <ImageView
             android:layout_width="@dimen/img_width_height"
             android:layout_height="@dimen/img_width_height"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="@dimen/_22sdp"
             android:background="@drawable/splash_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="@dimen/_22sdp"
             android:gravity="center"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"

@@ -7,7 +7,7 @@
 
 
     <stroke
-        android:width="4dp"
+        android:width="@dimen/_3sdp"
         android:color="@color/snackbar_bg_color_success" />
 
 </shape>

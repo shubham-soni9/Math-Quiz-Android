@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
+    android:layout_marginLeft="@dimen/_27sdp"
+    android:layout_marginRight="@dimen/_27sdp"
     android:background="@android:color/transparent">
 
     <RelativeLayout
@@ -17,12 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingLeft="25dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="25dp"
-            android:paddingRight="25dp"
-            android:paddingBottom="10dp"
+            android:paddingStart="@dimen/_22sdp"
+            android:paddingLeft="@dimen/_22sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_22sdp"
+            android:paddingRight="@dimen/_22sdp"
+            android:paddingBottom="@dimen/_8sdp"
             android:textAppearance="@style/CustomTextAppearance.Regular"
             android:textSize="@dimen/text_size_large" />
 
@@ -41,14 +41,14 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/cornered_border_top"
         android:gravity="center"
-        android:padding="24dp"
+        android:padding="@dimen/_21sdp"
         android:textAppearance="@style/CustomTextAppearance.Regular"
         android:textColor="@color/app_text_color"
         android:textSize="@dimen/text_size_normal" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/_36sdp"
         android:layout_below="@+id/tvMessage">
 
         <Button

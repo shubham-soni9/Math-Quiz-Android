@@ -7,18 +7,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/_46sdp"
         android:text="@string/turn_selection_text"
         android:textColor="@color/white_100"
         android:textSize="30sp" />
 
     <com.mathgame.plugin.tictactoe.selection.SqueezeButton
         android:id="@+id/top_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="@dimen/_70sdp"
         android:background="@drawable/user" />
 
     <TextView
@@ -27,18 +27,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/top_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/_27sdp"
         android:text="@string/divider_text"
         android:textColor="@color/white_100"
         android:textSize="25sp" />
 
     <com.mathgame.plugin.tictactoe.selection.SqueezeButton
         android:id="@+id/bottom_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
         android:layout_below="@+id/or"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/_27sdp"
         android:background="@drawable/system" />
 
 </RelativeLayout>

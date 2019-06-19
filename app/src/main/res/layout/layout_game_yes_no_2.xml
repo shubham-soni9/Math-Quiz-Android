@@ -10,11 +10,11 @@
         android:id="@+id/cvPlayer2Correct"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="@dimen/_8sdp"
         android:layout_weight="0.5"
         app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        app:cardCornerRadius="@dimen/_3sdp"
+        app:cardElevation="@dimen/_3sdp">
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="match_parent"
@@ -32,8 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        app:cardCornerRadius="@dimen/_3sdp"
+        app:cardElevation="@dimen/_3sdp">
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="match_parent"

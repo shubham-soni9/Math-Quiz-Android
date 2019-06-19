@@ -26,7 +26,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -51,7 +51,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:background="@color/black_10" />
 
                 <LinearLayout
@@ -64,7 +64,7 @@
                     <com.mathgame.plugin.MaterialEditText
                         android:id="@+id/metTitle"
                         style="@style/edit_text_style"
-                        android:layout_height="50dp"
+                        android:layout_height="@dimen/_46sdp"
                         android:gravity="center_vertical"
                         android:hint="@string/enter_settings_title"
                         android:textAppearance="@style/CustomTextAppearance.Light"
@@ -83,12 +83,12 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:background="@color/black_05" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -112,8 +112,8 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:background="@color/black_05" />
 
                 <RelativeLayout
@@ -148,13 +148,13 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:background="@color/black_05" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -178,24 +178,24 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:background="@color/black_05" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="@dimen/_13sdp"
                     android:orientation="horizontal">
 
                     <com.rey.material.widget.RadioButton
                         android:id="@+id/rbSinglePlayer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginEnd="@dimen/_8sdp"
                         android:layout_weight="0.5"
                         android:checked="true"
-                        android:drawablePadding="5dp"
+                        android:drawablePadding="@dimen/_3sdp"
                         android:gravity="center_vertical"
                         android:text="@string/single_player"
                         android:textAppearance="@style/CustomTextAppearance.Light"
@@ -205,9 +205,9 @@
                         android:id="@+id/rbDualPlayer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginEnd="@dimen/_8sdp"
                         android:layout_weight="0.5"
-                        android:drawablePadding="5dp"
+                        android:drawablePadding="@dimen/_3sdp"
                         android:gravity="center_vertical"
                         android:text="@string/dual_player"
                         android:textAppearance="@style/CustomTextAppearance.Light"
@@ -218,17 +218,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:orientation="vertical">
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:background="@color/black_05" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -251,7 +251,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/black_05" />
                 </RelativeLayout>
@@ -261,15 +261,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/selector_grey"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp">
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp">
 
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/vCustomFieldsIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="@dimen/_14sdp"
                         android:background="@drawable/custom_field_dropdown" />
 
                     <LinearLayout
@@ -278,14 +278,14 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:gravity="center"
-                        android:paddingLeft="16dp"
+                        android:paddingLeft="@dimen/_14sdp"
                         android:paddingTop="@dimen/custom_field_padding"
-                        android:paddingRight="16dp"
+                        android:paddingRight="@dimen/_14sdp"
                         android:paddingBottom="@dimen/custom_field_padding">
 
                         <View
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="@dimen/_21sdp"
+                            android:layout_height="@dimen/_21sdp"
                             android:background="@drawable/arrow_down" />
 
 
@@ -295,10 +295,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
                         android:layout_toEndOf="@id/vCustomFieldsIcon">
 
                         <TextView
@@ -320,8 +320,8 @@
                     android:id="@+id/spnCustomFieldValues"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:background="@android:drawable/edit_text"
                     android:backgroundTint="@color/colorPrimary"
                     android:textColor="@color/app_text_color" />
@@ -330,17 +330,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:orientation="vertical">
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:background="@color/black_10" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -363,7 +363,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/black_10" />
                 </RelativeLayout>
@@ -389,8 +389,8 @@
                             style="@style/Material.Drawable.CheckBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:drawablePadding="10dp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:drawablePadding="@dimen/_8sdp"
                             android:gravity="center_vertical"
                             android:text="@string/addition"
                             android:textAppearance="@style/CustomTextAppearance.Light"
@@ -402,10 +402,10 @@
                             style="@style/Material.Drawable.CheckBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
                             android:layout_weight="0.5"
-                            android:drawablePadding="10dp"
+                            android:drawablePadding="@dimen/_8sdp"
                             android:gravity="center_vertical"
                             android:text="@string/subtraction"
                             android:textAppearance="@style/CustomTextAppearance.Light"
@@ -417,9 +417,9 @@
                             style="@style/Material.Drawable.CheckBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/_8sdp"
                             android:layout_weight="0.5"
-                            android:drawablePadding="10dp"
+                            android:drawablePadding="@dimen/_8sdp"
                             android:gravity="center_vertical"
                             android:text="@string/multiplication"
                             android:textAppearance="@style/CustomTextAppearance.Light"
@@ -440,9 +440,9 @@
                             style="@style/Material.Drawable.CheckBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:drawablePadding="10dp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:drawablePadding="@dimen/_8sdp"
                             android:gravity="center_vertical"
                             android:text="@string/division"
                             android:textAppearance="@style/CustomTextAppearance.Light"
@@ -454,10 +454,10 @@
                             style="@style/Material.Drawable.CheckBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
                             android:layout_weight="0.5"
-                            android:drawablePadding="10dp"
+                            android:drawablePadding="@dimen/_8sdp"
                             android:gravity="center_vertical"
                             android:text="@string/percentage"
                             android:textAppearance="@style/CustomTextAppearance.Light"
@@ -469,10 +469,10 @@
                             style="@style/Material.Drawable.CheckBox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
                             android:layout_weight="0.5"
-                            android:drawablePadding="10dp"
+                            android:drawablePadding="@dimen/_8sdp"
                             android:gravity="center_vertical"
                             android:text="@string/square_root"
                             android:textAppearance="@style/CustomTextAppearance.Light"
@@ -489,12 +489,12 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:background="@color/black_10" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -517,7 +517,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/black_10" />
                 </RelativeLayout>
@@ -525,7 +525,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">
@@ -551,18 +551,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:orientation="vertical"
-                android:paddingBottom="5dp">
+                android:paddingBottom="@dimen/_3sdp">
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:background="@color/black_10" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -586,7 +586,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/black_10" />
 
@@ -595,9 +595,9 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -605,9 +605,9 @@
                         android:id="@+id/rbTimerNone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginEnd="@dimen/_8sdp"
                         android:checked="true"
-                        android:drawablePadding="5dp"
+                        android:drawablePadding="@dimen/_3sdp"
                         android:gravity="center_vertical"
                         android:text="@string/none"
                         android:textAppearance="@style/CustomTextAppearance.Light"
@@ -617,8 +617,8 @@
                         android:id="@+id/rbTimerPerTest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:drawablePadding="5dp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:drawablePadding="@dimen/_3sdp"
                         android:gravity="center_vertical"
                         android:text="@string/per_test"
                         android:textAppearance="@style/CustomTextAppearance.Light"
@@ -628,7 +628,7 @@
                         android:id="@+id/rbTimerPerQuestion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="5dp"
+                        android:drawablePadding="@dimen/_3sdp"
                         android:gravity="center_vertical"
                         android:text="@string/per_question"
                         android:textAppearance="@style/CustomTextAppearance.Light"
@@ -637,8 +637,8 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:background="@color/black_10" />
 
                 <RelativeLayout
@@ -647,7 +647,7 @@
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="@dimen/_8sdp">
 
 
                     <TextView
@@ -663,7 +663,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="@dimen/_8sdp">
 
                         <com.mathgame.plugin.numberpicker.NumberPicker
                             android:id="@+id/npTimerMinuteValue"
@@ -688,7 +688,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/_1sdp"
                 android:background="@color/black_10" />
 
             <LinearLayout
@@ -698,7 +698,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:background="@color/black_02"
                     android:orientation="vertical">
 
@@ -721,7 +721,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/black_10" />
                 </RelativeLayout>
@@ -729,8 +729,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">
@@ -754,7 +754,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/_1sdp"
                 android:background="@color/black_10" />
 
             <Button

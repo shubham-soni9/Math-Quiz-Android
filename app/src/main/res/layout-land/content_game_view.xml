@@ -18,8 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginEnd="@dimen/_27sdp"
         android:gravity="center"
         android:layoutDirection="ltr"
         android:orientation="vertical" />
@@ -30,15 +30,15 @@
         android:layout_height="match_parent"
         android:layout_toEndOf="@+id/sudokuSpecialLayout"
         android:gravity="center"
-        android:minWidth="100dp" />
+        android:minWidth="@dimen/_90sdp" />
 
     <com.mathgame.plugin.sudoku.ui.view.SudokuKeyboardLayout
         android:id="@+id/sudokuKeyboardLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="@dimen/_27sdp"
+        android:layout_marginEnd="@dimen/_13sdp"
         android:layout_toEndOf="@+id/sudokuLayout"
         android:orientation="horizontal"
         android:weightSum="2" />

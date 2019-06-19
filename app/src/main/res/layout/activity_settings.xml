@@ -52,7 +52,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/_36sdp"
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center_vertical"
                 android:letterSpacing="0.12"
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_white"
-                android:minHeight="66dp"
+                android:minHeight="@dimen/_61sdp"
                 android:orientation="vertical"
                 android:padding="@dimen/margin_xlarge">
 
@@ -109,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_white"
-                android:minHeight="66dp"
+                android:minHeight="@dimen/_61sdp"
                 android:orientation="vertical"
                 android:padding="@dimen/margin_xlarge">
 
@@ -132,13 +132,13 @@
                     android:background="@drawable/switch_selector"
                     android:clickable="false"
                     android:includeFontPadding="false"
-                    app:switchMinWidth="30dp"
+                    app:switchMinWidth="@dimen/_27sdp"
                     app:thumbTint="@color/white_100" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/_36sdp"
                 android:layout_marginBottom="@dimen/_9sdp"
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center_vertical"
@@ -178,7 +178,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/_36sdp"
                     android:background="@color/background_theme_color_dark"
                     android:gravity="center_vertical"
                     android:letterSpacing="0.12"
@@ -223,17 +223,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="5dp">
+                android:paddingBottom="@dimen/_3sdp">
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:background="@color/black_10" />
 
                 <RelativeLayout
                     android:id="@+id/rlEnableTimer"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/_36sdp"
                     android:background="@color/background_theme_color_dark"
                     android:orientation="vertical">
 
@@ -278,7 +278,7 @@
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin"
-                    android:paddingBottom="10dp"
+                    android:paddingBottom="@dimen/_8sdp"
                     android:visibility="gone">
 
                     <TextView
@@ -300,7 +300,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/_1sdp"
                 android:background="@color/black_10" />
 
             <LinearLayout
@@ -310,7 +310,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/_36sdp"
                     android:background="@color/background_theme_color_dark"
                     android:orientation="vertical">
 
@@ -334,7 +334,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/black_10" />
                 </RelativeLayout>
@@ -342,8 +342,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">

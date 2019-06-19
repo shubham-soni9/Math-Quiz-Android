@@ -113,7 +113,7 @@
             <Button
                 android:id="@+id/playButton"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/main_button_padding"
                 android:layout_marginTop="@dimen/_17sdp"
@@ -129,10 +129,10 @@
             <Button
                 android:id="@+id/continueButton"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="@dimen/main_button_padding"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_17sdp"
                 android:layout_marginRight="@dimen/main_button_padding"
                 android:background="@drawable/standalone_button"
                 android:clickable="false"

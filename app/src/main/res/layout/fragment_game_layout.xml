@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/rl_header"
@@ -51,11 +52,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/_6sdp"
             android:background="@drawable/scoreview_background_rectangle_inner"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="@dimen/_3sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,12 +82,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/_6sdp"
             android:layout_toEndOf="@+id/ll_scorelayout"
             android:background="@drawable/scoreview_background_rectangle_inner"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="@dimen/_3sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -116,18 +117,18 @@
         android:layout_below="@+id/rl_scoreview_layout"
         android:layout_alignStart="@+id/rl_scoreview_layout"
         android:layout_alignEnd="@+id/rl_scoreview_layout"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="14dp">
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_12sdp">
 
 
         <ImageButton
             android:id="@+id/ib_reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="7dp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:layout_weight="1"
             android:background="@drawable/btn_selector"
-            android:padding="7dp"
+            android:padding="@dimen/_5sdp"
             app:srcCompat="@drawable/ic_reload"
             android:textColor="@android:color/white" />
 
@@ -135,10 +136,10 @@
             android:id="@+id/ib_undo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_weight="1"
             android:background="@drawable/btn_selector"
-            android:padding="7dp"
+            android:padding="@dimen/_5sdp"
             app:srcCompat="@drawable/ic_undo"
             android:textColor="@android:color/white" />
 
@@ -151,7 +152,7 @@
         android:layout_below="@+id/ll_buttonrow"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp">
+        android:layout_margin="@dimen/_8sdp">
 
         <com.mathgame.plugin.slidegame.slideview.GameView
             android:id="@+id/gameview"

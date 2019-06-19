@@ -24,7 +24,7 @@
                 android:id="@+id/rl_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
+                android:layout_marginBottom="@dimen/_12sdp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -50,11 +50,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginRight="@dimen/_6sdp"
                     android:background="@drawable/scoreview_background_rectangle_inner"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="@dimen/_3sdp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -81,12 +81,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_toRightOf="@+id/ll_scorelayout"
                     android:background="@drawable/scoreview_background_rectangle_inner"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="@dimen/_3sdp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -114,28 +114,28 @@
                 android:id="@+id/ll_buttonrow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="14dp">
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp">
 
 
                 <ImageButton
                     android:id="@+id/ib_reset"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="@dimen/_8sdp"
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
-                    android:padding="10dp"
+                    android:padding="@dimen/_8sdp"
                     app:srcCompat="@drawable/ic_reload"
                     android:textColor="@android:color/white" />
 
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="@dimen/_8sdp"
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
-                    android:padding="10dp"
+                    android:padding="@dimen/_8sdp"
                     app:srcCompat="@drawable/ic_info"
                     android:textColor="@android:color/white" />
 
@@ -143,10 +143,10 @@
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/_8sdp"
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
-                    android:padding="10dp"
+                    android:padding="@dimen/_8sdp"
                     app:srcCompat="@drawable/ic_myo"
                     android:textColor="@android:color/white" />
 
@@ -154,10 +154,10 @@
                     android:id="@+id/ib_undo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/_8sdp"
                     android:layout_weight="1"
                     android:background="@drawable/btn_selector"
-                    android:padding="10dp"
+                    android:padding="@dimen/_8sdp"
                     app:srcCompat="@drawable/ic_undo"
                     android:textColor="@android:color/white" />
 
@@ -172,7 +172,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/_17sdp"
         android:layout_weight="1">
 
         <com.mathgame.plugin.slidegame.slideview.GameView

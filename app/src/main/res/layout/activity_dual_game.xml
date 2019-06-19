@@ -24,12 +24,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="@dimen/_17sdp"
             android:background="@drawable/bg_remaining_qna"
-            android:paddingStart="10dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="5dp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_3sdp"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -92,8 +92,8 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:indeterminate="false"
                 android:maxHeight="@dimen/_7sdp"
                 android:minHeight="@dimen/_7sdp"
@@ -107,18 +107,18 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/llPlayer1TimerValue"
             android:layout_below="@+id/llPlayer2TimerValue"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
             app:cardBackgroundColor="@color/black"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp">
+            app:cardCornerRadius="@dimen/_3sdp"
+            app:cardElevation="@dimen/_3sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="@dimen/_8sdp">
 
                 <TextView
                     android:id="@+id/tvPlayer1Question"
@@ -170,8 +170,8 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:indeterminate="false"
                 android:maxHeight="@dimen/_7sdp"
                 android:minHeight="@dimen/_7sdp"

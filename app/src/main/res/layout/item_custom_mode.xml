@@ -5,9 +5,9 @@
     android:id="@+id/rlParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="5dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginEnd="5dp"
+    android:layout_marginStart="@dimen/_3sdp"
+    android:layout_marginTop="@dimen/_3sdp"
+    android:layout_marginEnd="@dimen/_3sdp"
     android:layout_marginBottom="@dimen/_3sdp"
     app:cardCornerRadius="@dimen/spacing_5"
     app:cardElevation="@dimen/spacing_5">
@@ -15,7 +15,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="@dimen/_8sdp">
 
         <LinearLayout
             android:id="@+id/llTopTitle"
@@ -38,8 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/llTopTitle"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
             android:layout_toStartOf="@+id/ivPlayerType"
             android:baselineAligned="false"
             android:orientation="horizontal">

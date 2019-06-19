@@ -22,7 +22,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/_1sdp"
         android:layout_above="@id/layoutDots"
         android:alpha=".5"
         android:background="@android:color/white" />

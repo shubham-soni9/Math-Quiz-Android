@@ -221,7 +221,7 @@
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_17sdp"
                     android:layout_weight="0.5"
-                    app:barWidth="17dp"
+                    app:barWidth="@dimen/_15sdp"
                     app:countText="7"
                     app:countTextColor="@android:color/white"
                     app:countTextSize="@dimen/text_size_large_ii"
@@ -237,7 +237,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="0.5"
-                    app:barWidth="17dp"
+                    app:barWidth="@dimen/_15sdp"
                     app:countText="3"
                     app:countTextColor="@android:color/white"
                     app:countTextSize="@dimen/text_size_large_ii"
@@ -314,7 +314,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_7sdp"
-                android:minHeight="300dp" />
+                android:minHeight="@dimen/_270sdp" />
 
         </LinearLayout>
     </ScrollView>

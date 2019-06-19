@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp"
+    android:padding="@dimen/_14sdp"
     android:weightSum="10">
 
     <ImageView
         android:id="@+id/loadgame_listentry_gametypeimage"
-        android:layout_width="40dp"
+        android:layout_width="@dimen/_36sdp"
         android:layout_height="match_parent"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="@dimen/_8sdp"
         android:adjustViewBounds="true"
         app:srcCompat="@drawable/icon_default_9x9" />
 

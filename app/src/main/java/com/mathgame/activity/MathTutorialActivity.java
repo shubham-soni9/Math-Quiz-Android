@@ -11,6 +11,7 @@ import com.mathgame.adapter.TutorialPagerAdapter;
 import com.mathgame.appdata.GameSettings;
 import com.mathgame.appdata.Keys;
 import com.mathgame.structure.BaseActivity;
+import com.mathgame.util.Transition;
 
 public class MathTutorialActivity extends BaseActivity {
     private ViewPager tutorialPager;
@@ -49,5 +50,10 @@ public class MathTutorialActivity extends BaseActivity {
         tutorialPager = findViewById(R.id.tutorialPager);
         tabTutorials = findViewById(R.id.tabTutorials);
         toolbar = findViewById(R.id.toolbar);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Transition.exit(this);
     }
 }
