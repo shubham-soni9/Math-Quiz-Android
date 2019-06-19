@@ -3,7 +3,7 @@
 
     <item>
         <shape>
-            <corners android:radius="@dimen/_5dp" />
+            <corners android:radius="@dimen/_5sdp" />
             <solid android:color="@color/snackbar_bg_color_success" />
         </shape>
     </item>

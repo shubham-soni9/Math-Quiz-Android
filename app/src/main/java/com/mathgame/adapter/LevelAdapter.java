@@ -15,12 +15,15 @@ import com.mathgame.R;
 import com.mathgame.activity.SingleGameActivity;
 import com.mathgame.appdata.Codes;
 import com.mathgame.appdata.Constant;
+import com.mathgame.appdata.Keys;
 import com.mathgame.model.CLevel;
 import com.mathgame.model.CustomMode;
 import com.mathgame.util.AudioUtils;
 import com.mathgame.util.Transition;
 
 import java.util.ArrayList;
+
+import static com.mathgame.appdata.Keys.Extras.CAREER_LEVEL;
 
 public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> {
     private Context           context;
@@ -72,6 +75,7 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
             customMode.setQuestionSample(cLevel.getQuestionSample());
             Bundle bundle = new Bundle();
             bundle.putParcelable(CustomMode.class.getName(), customMode);
+            bundle.putInt(Keys.Extras.CAREER_LEVEL,position+1);
             Transition.transitForResult((Activity) context, SingleGameActivity.class, Codes.RequestCode.OPEN_GAME_TYPE_ACTIVITY, bundle);
         });
     }

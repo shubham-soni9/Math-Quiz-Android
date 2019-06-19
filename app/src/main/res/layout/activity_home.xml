@@ -13,7 +13,7 @@
         android:layout_gravity="start"
         android:background="@color/background_theme_color"
         android:fitsSystemWindows="true"
-        android:paddingBottom="@dimen/_15dp">
+        android:paddingBottom="@dimen/_15sdp">
 
         <!-- The navigation drawer -->
         <LinearLayout

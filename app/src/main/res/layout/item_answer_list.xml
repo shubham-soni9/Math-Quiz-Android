@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_5dp"
+    android:layout_margin="@dimen/_5sdp"
     android:background="@drawable/bg_curved_answer"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/_10dp">
+    android:paddingBottom="@dimen/_10sdp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,13 +20,13 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="end"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:background="@drawable/bg_question_number"
             android:gravity="center"
-            android:paddingStart="@dimen/_15dp"
-            android:paddingTop="@dimen/_5dp"
-            android:paddingEnd="@dimen/_15dp"
-            android:paddingBottom="@dimen/_5dp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_5sdp"
             android:textAppearance="@style/CustomTextAppearance.Regular"
             android:textColor="@color/white_100"
             android:textSize="@dimen/text_size_large"
@@ -39,13 +39,13 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:background="@drawable/bg_item_unattempted"
             android:gravity="start"
-            android:paddingStart="@dimen/_15dp"
-            android:paddingTop="@dimen/_5dp"
-            android:paddingEnd="@dimen/_15dp"
-            android:paddingBottom="@dimen/_5dp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_5sdp"
             android:text="@string/unattempted"
             android:textAppearance="@style/CustomTextAppearance.Medium"
             android:textColor="@color/white_100"
@@ -56,13 +56,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/_10dp"
-        android:paddingEnd="@dimen/_10dp">
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.3"
             android:gravity="start"
             android:text="@string/question"
@@ -73,7 +73,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.1"
             android:gravity="center"
             android:text="@string/colon_text"
@@ -85,7 +85,7 @@
             android:id="@+id/tvQuestion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.6"
             android:gravity="center"
             android:textAppearance="@style/CustomTextAppearance.Medium"
@@ -98,13 +98,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/_10dp"
-        android:paddingEnd="@dimen/_10dp">
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.3"
             android:gravity="start"
             android:text="@string/input"
@@ -115,7 +115,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.1"
             android:gravity="center"
             android:text="@string/colon_text"
@@ -127,7 +127,7 @@
             android:id="@+id/tvInputValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.6"
             android:gravity="center"
             android:textAppearance="@style/CustomTextAppearance.Medium"
@@ -140,13 +140,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/_10dp"
-        android:paddingEnd="@dimen/_10dp">
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.3"
             android:gravity="start"
             android:text="@string/correct"
@@ -157,7 +157,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.1"
             android:gravity="center"
             android:text="@string/colon_text"
@@ -169,7 +169,7 @@
             android:id="@+id/tvCorrect"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:layout_weight="0.6"
             android:gravity="center"
             android:textAppearance="@style/CustomTextAppearance.Medium"

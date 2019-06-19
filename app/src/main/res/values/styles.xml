@@ -44,8 +44,8 @@
         <item name="android:textColor">@color/white_100</item>
         <item name="android:textSize">@dimen/text_size_normal</item>
         <item name="android:textAppearance">@style/CustomTextAppearance.Regular</item>
-        <item name="android:paddingTop">@dimen/_20dp</item>
-        <item name="android:paddingBottom">@dimen/_20dp</item>
+        <item name="android:paddingTop">@dimen/_20sdp</item>
+        <item name="android:paddingBottom">@dimen/_20sdp</item>
         <item name="android:gravity">center|bottom</item>
         <item name="android:letterSpacing" tools:targetApi="lollipop">0.12</item>
         <item name="android:textStyle">normal</item>
@@ -58,7 +58,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">0.5</item>
         <item name="cardElevation">@dimen/_3dp</item>
-        <item name="cardCornerRadius">@dimen/_5dp</item>
+        <item name="cardCornerRadius">@dimen/_5sdp</item>
         <item name="cardBackgroundColor">@color/background_theme_color_dark</item>
     </style>
 
@@ -142,10 +142,10 @@
     <style name="keyboard_button_number">
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingEnd">@dimen/_15dp</item>
-        <item name="android:paddingStart">@dimen/_15dp</item>
-        <item name="android:paddingTop">@dimen/_8dp</item>
-        <item name="android:paddingBottom">@dimen/_8dp</item>
+        <item name="android:paddingEnd">@dimen/_15sdp</item>
+        <item name="android:paddingStart">@dimen/_15sdp</item>
+        <item name="android:paddingTop">@dimen/_8sdp</item>
+        <item name="android:paddingBottom">@dimen/_8sdp</item>
         <item name="android:textSize">@dimen/text_size_large_ii</item>
         <item name="android:background">@drawable/bg_digit</item>
         <item name="android:elevation" tools:targetApi="lollipop">3dp</item>
@@ -153,7 +153,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_weight">0.2</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginEnd">@dimen/_10dp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
     </style>
 
     <style name="CustomDialogStyle">
@@ -166,9 +166,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white_100</item>
-        <item name="android:drawablePadding">@dimen/_30dp</item>
+        <item name="android:drawablePadding">@dimen/_30sdp</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:padding">@dimen/_12dp</item>
+        <item name="android:padding">@dimen/_12sdp</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -225,10 +225,10 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_toEndOf">@id/ivBack</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingLeft">@dimen/_15dp</item>
-        <item name="android:paddingStart">@dimen/_15dp</item>
-        <item name="android:paddingEnd">@dimen/_15dp</item>
-        <item name="android:paddingRight">@dimen/_15dp</item>
+        <item name="android:paddingLeft">@dimen/_15sdp</item>
+        <item name="android:paddingStart">@dimen/_15sdp</item>
+        <item name="android:paddingEnd">@dimen/_15sdp</item>
+        <item name="android:paddingRight">@dimen/_15sdp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
@@ -238,10 +238,10 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:src">@drawable/ic_back</item>
         <item name="android:layout_alignParentStart">true</item>
-        <item name="android:paddingLeft">@dimen/_15dp</item>
-        <item name="android:paddingStart">@dimen/_15dp</item>
-        <item name="android:paddingEnd">@dimen/_15dp</item>
-        <item name="android:paddingRight">@dimen/_15dp</item>
+        <item name="android:paddingLeft">@dimen/_15sdp</item>
+        <item name="android:paddingStart">@dimen/_15sdp</item>
+        <item name="android:paddingEnd">@dimen/_15sdp</item>
+        <item name="android:paddingRight">@dimen/_15sdp</item>
     </style>
 
     <dimen name="_3dp">3dp</dimen>

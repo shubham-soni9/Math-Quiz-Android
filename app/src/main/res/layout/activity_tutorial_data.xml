@@ -15,9 +15,9 @@
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_15dp"
-            app:cardCornerRadius="@dimen/_5dp"
-            app:cardElevation="@dimen/_10dp">
+            android:layout_margin="@dimen/_15sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardElevation="@dimen/_10sdp">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                     android:id="@+id/tvTutorial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_10dp"
+                    android:padding="@dimen/_10sdp"
                     android:textAppearance="@style/CustomTextAppearance.Regular"
                     android:textColor="@color/grey_75"
                     android:textSize="@dimen/text_size_large"

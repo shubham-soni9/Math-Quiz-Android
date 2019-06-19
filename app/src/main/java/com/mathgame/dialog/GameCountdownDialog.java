@@ -100,7 +100,9 @@ public class GameCountdownDialog {
             tvMessage.setText(Utils.fromHtml(message));
             ibCancel.setOnClickListener(v -> {
                 dismiss();
-
+                if (mediaPlayer != null) {
+                    mediaPlayer.stop();
+                }
                 if (listener != null)
                     listener.performNegativeAction(purpose, backpack);
             });
@@ -177,9 +179,6 @@ public class GameCountdownDialog {
                         alertDialog.dismiss();
                         alertDialog = null;
                         countDownTimer.cancel();
-                        if (mediaPlayer != null) {
-                            mediaPlayer.stop();
-                        }
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

@@ -30,8 +30,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:paddingStart="@dimen/_15dp"
-                android:paddingEnd="@dimen/_15dp"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingEnd="@dimen/_15sdp"
                 android:text="@string/reset"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_large" />
@@ -139,7 +139,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginBottom="@dimen/_15dp"
+                android:layout_marginBottom="@dimen/_15sdp"
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center_vertical"
                 android:letterSpacing="0.12"
@@ -158,8 +158,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_30dp"
-                android:layout_marginEnd="@dimen/_30dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:textSize="@dimen/text_size_normal"
                 custom:activeBgColor="@color/colorPrimaryDark"
                 custom:activeTextColor="@color/white_100"
@@ -173,7 +173,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -195,8 +195,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15dp"
-                    android:layout_marginBottom="@dimen/_15dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">
@@ -241,8 +241,8 @@
                         style="@style/text_alignment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10dp"
-                        android:layout_marginBottom="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:letterSpacing="0.12"
                         android:lines="1"
                         android:paddingStart="@dimen/activity_horizontal_margin"
@@ -261,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:button="@drawable/custom_checkbox"
                         android:textAppearance="@style/CustomTextAppearance.Regular"
@@ -274,7 +274,7 @@
                     android:id="@+id/rlTimerValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin"

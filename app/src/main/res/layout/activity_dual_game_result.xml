@@ -17,15 +17,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/_10dp">
+            android:paddingBottom="@dimen/_10sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10dp"
-                android:layout_marginTop="@dimen/_20dp"
-                android:layout_marginRight="@dimen/_10dp"
-                android:layout_marginBottom="@dimen/_20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:drawableTop="@drawable/ic_winner"
-                    android:drawablePadding="@dimen/_10dp"
+                    android:drawablePadding="@dimen/_10sdp"
                     android:gravity="center"
                     android:text="@string/player_1"
                     android:textAppearance="@style/CustomTextAppearance.Bold"
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:drawableTop="@drawable/ic_loser"
-                    android:drawablePadding="@dimen/_10dp"
+                    android:drawablePadding="@dimen/_10sdp"
                     android:gravity="center"
                     android:text="@string/player_2"
                     android:textAppearance="@style/CustomTextAppearance.Bold"
@@ -65,7 +65,7 @@
                 android:id="@+id/tvResultFeedback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_5dp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:gravity="center"
                 android:text="@string/player_1_wins"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
@@ -76,12 +76,12 @@
                 android:id="@+id/tvSeeAllQuestions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_marginBottom="@dimen/_5dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@color/background_theme_color_dark"
                 android:drawableEnd="@drawable/ic_right_arrow"
                 android:gravity="start"
-                android:padding="@dimen/_15dp"
+                android:padding="@dimen/_15sdp"
                 android:text="@string/see_all_questions"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_10"
@@ -90,11 +90,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_marginBottom="@dimen/_5dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center"
-                android:padding="@dimen/_15dp"
+                android:padding="@dimen/_15sdp"
                 android:text="@string/player_1"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
@@ -104,15 +104,15 @@
                 android:id="@+id/playerOneChart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_margin="@dimen/_10dp" />
+                android:layout_margin="@dimen/_10sdp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_5dp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@color/background_theme_color_dark"
                 android:gravity="center"
-                android:padding="@dimen/_15dp"
+                android:padding="@dimen/_15sdp"
                 android:text="@string/player_2"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
@@ -122,7 +122,7 @@
                 android:id="@+id/playerTwoChart"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_margin="@dimen/_10dp" />
+                android:layout_margin="@dimen/_10sdp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

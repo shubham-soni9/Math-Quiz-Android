@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:elevation="@dimen/_5dp">
+        android:elevation="@dimen/_5sdp">
 
         <android.support.v7.widget.AppCompatImageView style="@style/header_back_button" />
 
@@ -42,7 +42,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/vTopbar"
         android:fillViewport="true"
-        android:padding="@dimen/_10dp">
+        android:padding="@dimen/_10sdp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/_10dp">
+                android:paddingBottom="@dimen/_10sdp">
 
                 <TextView
                     android:id="@+id/tvSkipToNext"

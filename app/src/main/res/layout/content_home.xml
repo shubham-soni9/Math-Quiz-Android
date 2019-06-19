@@ -19,19 +19,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10dp"
-            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
                     style="@style/home_btn_card_style"
-                    android:layout_marginEnd="@dimen/_10dp">
+                    android:layout_marginEnd="@dimen/_10sdp">
 
                     <TextView
                         android:id="@+id/tvAddition"
@@ -53,12 +53,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
                     style="@style/home_btn_card_style"
-                    android:layout_marginEnd="@dimen/_10dp">
+                    android:layout_marginEnd="@dimen/_10sdp">
 
                     <TextView
                         android:id="@+id/tvMultiplication"
@@ -81,12 +81,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
                     style="@style/home_btn_card_style"
-                    android:layout_marginEnd="@dimen/_10dp">
+                    android:layout_marginEnd="@dimen/_10sdp">
 
                     <TextView
                         android:id="@+id/tvPercentage"
@@ -109,8 +109,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10dp"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:text="@string/games_learn_with_fun"
                 android:textColor="@color/white_100"
                 android:textSize="22sp" />
@@ -118,12 +118,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
                     style="@style/home_btn_card_style"
-                    android:layout_marginEnd="@dimen/_10dp">
+                    android:layout_marginEnd="@dimen/_10sdp">
 
                     <TextView
                         style="@style/home_btn_style"
@@ -146,15 +146,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_marginBottom="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal">
 
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/cvTicTacToe"
                     style="@style/home_btn_card_style"
-                    android:layout_marginEnd="@dimen/_10dp">
+                    android:layout_marginEnd="@dimen/_10sdp">
 
                     <TextView
                         style="@style/home_btn_style"

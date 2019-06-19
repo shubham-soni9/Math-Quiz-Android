@@ -20,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="@dimen/_20dp"
-            android:paddingBottom="@dimen/_20dp"
+            android:paddingTop="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_20sdp"
             android:src="@drawable/ic_game_correct" />
 
     </android.support.v7.widget.CardView>
@@ -39,8 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="@dimen/_20dp"
-            android:paddingBottom="@dimen/_20dp"
+            android:paddingTop="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_20sdp"
             android:src="@drawable/ic_game_incorrect" />
 
 

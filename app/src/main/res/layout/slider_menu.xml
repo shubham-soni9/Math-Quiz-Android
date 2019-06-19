@@ -10,7 +10,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_150dp"
+            android:layout_height="@dimen/_150sdp"
             android:background="@color/colorPrimary" />
 
         <TextView
@@ -63,7 +63,7 @@
                 android:id="@+id/rlSliderTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_20dp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -86,8 +86,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_marginBottom="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@color/black_20" />
 
 
@@ -95,7 +95,7 @@
                 android:id="@+id/tvHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_15dp"
+                android:padding="@dimen/_15sdp"
                 android:text="@string/communicate"
                 android:textAllCaps="true"
                 android:textAppearance="@style/CustomTextAppearance.Medium"

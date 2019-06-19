@@ -13,7 +13,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
     lintOptions {
         checkReleaseBuilds false
@@ -37,7 +37,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta1'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
     implementation "com.android.support:design:28.0.0"
     implementation 'com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1'
     implementation 'com.github.rey5137:material:1.2.5'
@@ -53,6 +53,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.balysv.materialmenu:material-menu:2.0.0'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
     // Room components
     implementation "android.arch.persistence.room:runtime:1.1.1"
