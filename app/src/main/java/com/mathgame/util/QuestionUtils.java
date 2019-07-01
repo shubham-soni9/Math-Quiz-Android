@@ -148,8 +148,6 @@ public class QuestionUtils {
             mQuestion.setQuestion(question);
             mQuestion.setCorrect(answerPrediction.equalsIgnoreCase(answer));
         } else if (customMode.getGameType() == Codes.GameType.MULTIPLE_CHOICE.value) {
-            ArrayList<String> options = new ArrayList<>();
-            options.add(mQuestion.getAnswer());
             maximum = 99;
             minimum = 2;
             switch (mQuestion.getOperation()) {
@@ -185,27 +183,12 @@ public class QuestionUtils {
                     minimum = --minimum;
                 }
             }
-            for (int i = 0; i < 3; i++) {
-                String wrongOption;
-                if (mQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
-                    wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
-                } else {
-                    wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
-                }
-                for (int j = 0; j < options.size(); j++) {
-                    String value = options.get(j);
-                    if (wrongOption.equals(value) || wrongOption.equalsIgnoreCase(mQuestion.getAnswer())) {
-                        if (mQuestion.getOperation().equals(Constant.MathSign.SQUARE_ROOT)) {
-                            wrongOption = String.valueOf(twoDecimalFormatter.format(RandomUtils.getRandomDouble(maximum, minimum)));
-                        } else {
-                            wrongOption = String.valueOf(RandomUtils.getRandomInt(maximum, minimum));
-                        }
-                        j = 0;
-                    }
-                }
-                options.add(wrongOption);
-            }
-
+            int variable = RandomUtils.getRandomInt(3, 1);
+            ArrayList<String> options = new ArrayList<>();
+            options.add(answer);
+            options.add(dFormat.format(Utils.toDouble(answer) - variable));
+            options.add(dFormat.format(Utils.toDouble(answer) + variable));
+            options.add(dFormat.format(Utils.toDouble(answer) + variable + 1));
             Collections.shuffle(options);
             mQuestion.setOption_1(options.get(0));
             mQuestion.setOption_2(options.get(1));

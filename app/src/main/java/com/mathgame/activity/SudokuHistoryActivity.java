@@ -88,8 +88,6 @@ public class SudokuHistoryActivity extends BaseActivity implements IDeleteDialog
         listView.setAdapter(loadGameAdapter);
         listView.setOnItemClickListener(clickListener);
         listView.setOnItemLongClickListener(longClickListener);
-        TextView tvTitle = findViewById(R.id.tvTitle);
-        tvTitle.setText(R.string.history);
         Utils.setOnClickListener(this, findViewById(R.id.ivBack));
     }
 

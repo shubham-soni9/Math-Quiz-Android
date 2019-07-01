@@ -44,7 +44,7 @@
                         android:text="@string/total"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -55,7 +55,7 @@
                         android:text="@string/colon_text"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:id="@+id/tvTotal"
@@ -66,7 +66,7 @@
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii"
+                        android:textSize="@dimen/text_size_large_i"
                         tools:text="10" />
                 </LinearLayout>
 
@@ -84,7 +84,7 @@
                         android:text="@string/attempted"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -95,7 +95,7 @@
                         android:text="@string/colon_text"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:id="@+id/tvAttempted"
@@ -106,7 +106,7 @@
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii"
+                        android:textSize="@dimen/text_size_large_i"
                         tools:text="08" />
                 </LinearLayout>
 
@@ -124,7 +124,7 @@
                         android:text="@string/correct"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -135,7 +135,7 @@
                         android:text="@string/colon_text"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:id="@+id/tvCorrect"
@@ -146,7 +146,7 @@
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii"
+                        android:textSize="@dimen/text_size_large_i"
                         tools:text="05" />
                 </LinearLayout>
 
@@ -164,7 +164,7 @@
                         android:text="@string/incorrect"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -175,7 +175,7 @@
                         android:text="@string/colon_text"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii" />
+                        android:textSize="@dimen/text_size_large_i" />
 
                     <TextView
                         android:id="@+id/tvInCorrect"
@@ -186,7 +186,7 @@
                         android:gravity="center"
                         android:textAppearance="@style/CustomTextAppearance.Medium"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/text_size_large_ii"
+                        android:textSize="@dimen/text_size_large_i"
                         tools:text="03" />
                 </LinearLayout>
             </LinearLayout>
@@ -203,7 +203,7 @@
                 android:text="@string/player_score"
                 android:textAppearance="@style/CustomTextAppearance.Medium"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_large_ii"
+                android:textSize="@dimen/text_size_large_i"
                 tools:text="Player Score  :  75%" />
 
 
@@ -224,7 +224,7 @@
                     app:barWidth="@dimen/_15sdp"
                     app:countText="7"
                     app:countTextColor="@android:color/white"
-                    app:countTextSize="@dimen/text_size_large_ii"
+                    app:countTextSize="@dimen/text_size_large_i"
                     app:defTextColor="@android:color/white"
                     app:defTextSize="@dimen/text_size_normal"
                     app:definitionText="@string/correct"
@@ -240,7 +240,7 @@
                     app:barWidth="@dimen/_15sdp"
                     app:countText="3"
                     app:countTextColor="@android:color/white"
-                    app:countTextSize="@dimen/text_size_large_ii"
+                    app:countTextSize="@dimen/text_size_large_i"
                     app:defTextColor="@android:color/white"
                     app:defTextSize="@dimen/text_size_normal"
                     app:definitionText="@string/incorrect"
@@ -307,7 +307,7 @@
                 android:text="@string/complete_chart"
                 android:textAppearance="@style/CustomTextAppearance.Medium"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_large_ii" />
+                android:textSize="@dimen/text_size_large_i" />
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/resultPieChart"

@@ -71,7 +71,7 @@
                 android:text="@string/player_1_wins"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_large_ii" />
+                android:textSize="@dimen/text_size_large_i" />
 
             <TextView
                 android:id="@+id/tvSeeAllQuestions"
@@ -99,7 +99,7 @@
                 android:text="@string/player_1"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_large_ii" />
+                android:textSize="@dimen/text_size_large_i" />
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/playerOneChart"
@@ -117,7 +117,7 @@
                 android:text="@string/player_2"
                 android:textAppearance="@style/CustomTextAppearance.Bold"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/text_size_large_ii" />
+                android:textSize="@dimen/text_size_large_i" />
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/playerTwoChart"
